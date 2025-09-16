@@ -2,7 +2,7 @@
 
 **課程**：資料結構（CS203A）  
 **學生**：<YOUR_NAME>（學號：<1131417>）  
-**GitHub 帳號**：<Thomas-debuger>  
+**GitHub 帳號**：Thomas-debuger 
 **Repo 描述**：本倉庫為 11401_CS203A 課程之作業與學習筆記，包括作業程式碼、筆記、與期末專案資料等。
 
 ## 內容
