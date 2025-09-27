@@ -27,10 +27,12 @@ array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`
 printf("Initial memory address: %p\n", (void*)array);   
 - `%p 是 印出指標 (pointer) 的記憶體位址。`  
 - `(void*)array：把 array 轉成 void*，因為 %p 需要的是 void* 類型的指標。`  
-- `這行會印出你用 malloc 分配的陣列 起始位址（也就是陣列第一個元素 array[0] 的位址）。`   
+- `這行會印出你用 malloc 分配的陣列 起始位址（也就是陣列第一個元素 array[0] 的位址）。`
+
 printf("Initial memory end address : %p\n", (void*)(array + n * sizeof(int) - 1));   
 - `這行會印出你用 malloc 分配的陣列 終點位址（也就是陣列第一個元素 array[n-1] 的位址）。`  
-- `chatgpt說這樣寫才對：printf("Initial memory end address : %p\n", (void*)(array + n - 1));`   
+- `chatgpt說這樣寫才對：printf("Initial memory end address : %p\n", (void*)(array + n - 1));`
+  
 free(array);   
 - `釋放先前用 malloc 分配的記憶體，避免 記憶體洩漏。`  
 - `釋放後 array 仍然存在，但指向的記憶體已經無效，再使用會造成 未定義行為。`  
