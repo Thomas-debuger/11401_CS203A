@@ -93,12 +93,13 @@ int main()
     }
     
     for(int i=0;i<10;i++){//「現在要排第 i 個位置」
-        int min = i;
-        for(int j=i+1;j<10;j++){
+        int min = i;//先假設目前 i 這個位置的數字是最小的。
+        for(int j=i+1;j<10;j++){//從 i 的下一個數字開始，一直檢查到最後。
             if(a[j]<a[min]){
-                 min = j;
+                 min = j;//如果找到比目前最小值還小的，就更新 minIndex
             }
         }
+        //找到真正的最小值後，跟目前的 A[i] 交換。
         int temp = a[min];
         a[min] = a[i];
         a[i] = temp;
