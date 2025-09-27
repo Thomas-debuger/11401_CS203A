@@ -53,27 +53,26 @@ free(array);
 
 # p.23 bubble sort
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int main()
-{
-    int *a = (int*) malloc(10*sizeof(int));
-    int v[10] = {5,6,8,9,7,10,1,3,2,4};
-    for(int i=0;i<10;i++){
-        a[i]=v[i];
-    }
-    for(int i=1;i<10;i++){
-        for(int j=0;j<10-i;j++){
-            if(a[j]>a[j+1]){
-                int temp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = temp;
-            }
-        }
-    }
-    for(int i=0;i<10;i++){
-        printf("%d ",a[i]);
-    }
-    return 0;
-}
+#include <stdio.h>  
+#include <stdlib.h>  
+int main()  
+{  
+    int *a = (int*) malloc(10*sizeof(int));  
+    int v[10] = {5,6,8,9,7,10,1,3,2,4};  
+    for(int i=0;i<10;i++){  
+        a[i]=v[i];  
+    }  
+    for(int i=1;i<10;i++){  
+        for(int j=0;j<10-i;j++){  
+            if(a[j]>a[j+1]){  
+                int temp = a[j];  
+                a[j] = a[j+1];  
+                a[j+1] = temp;  
+            }  
+        }  
+    }  
+    for(int i=0;i<10;i++){  
+        printf("%d ",a[i]);  
+    }  
+    return 0;  
+}  
