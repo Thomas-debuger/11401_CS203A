@@ -51,9 +51,10 @@ free(array);
 `如果後面沒有空間，realloc 會在記憶體的別處 配置一塊新的區塊，然後把舊資料複製過去，再釋放原來的區塊。`  
 `這樣 起始位址會改變。`  
 
-# p.23 bubble sort
+# p.34 bubble sort
 
-```#include <stdio.h>  
+```
+#include <stdio.h>  
 #include <stdlib.h>  
 int main()  
 {  
@@ -76,3 +77,36 @@ int main()
     }  
     return 0;  
 }  
+```
+# p.36 selection sort
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *a = (int*) malloc(10*sizeof(int));
+    int v[10] = {5,6,8,9,7,10,1,3,2,4};
+    for(int i=0;i<10;i++){
+        a[i]=v[i];
+    }
+    
+    for(int i=0;i<10;i++){//「現在要排第 i 個位置」
+        int min = i;
+        for(int j=i+1;j<10;j++){
+            if(a[j]<a[min]){
+                 min = j;
+            }
+        }
+        int temp = a[min];
+        a[min] = a[i];
+        a[i] = temp;
+    }
+    
+    for(int i=0;i<10;i++){
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
+```
