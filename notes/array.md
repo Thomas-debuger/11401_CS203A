@@ -22,3 +22,7 @@
 int array;  
 array = (int *) malloc(n * sizeof(int)); `宣告動態陣列`  
 array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`  
+
+# p.20 程式碼解釋
+printf("Initial memory address: %p\n", (void*)array);  
+
