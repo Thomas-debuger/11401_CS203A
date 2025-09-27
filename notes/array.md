@@ -50,3 +50,30 @@ free(array);
 原位擴展失敗  
 `如果後面沒有空間，realloc 會在記憶體的別處 配置一塊新的區塊，然後把舊資料複製過去，再釋放原來的區塊。`  
 `這樣 起始位址會改變。`  
+
+# p.23 bubble sort
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *a = (int*) malloc(10*sizeof(int));
+    int v[10] = {5,6,8,9,7,10,1,3,2,4};
+    for(int i=0;i<10;i++){
+        a[i]=v[i];
+    }
+    for(int i=1;i<10;i++){
+        for(int j=0;j<10-i;j++){
+            if(a[j]>a[j+1]){
+                int temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
+        }
+    }
+    for(int i=0;i<10;i++){
+        printf("%d ",a[i]);
+    }
+    return 0;
+}
