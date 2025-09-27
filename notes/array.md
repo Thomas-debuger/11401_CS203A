@@ -53,7 +53,7 @@ free(array);
 
 # p.23 bubble sort
 
-#include <stdio.h>  
+```#include <stdio.h>  
 #include <stdlib.h>  
 int main()  
 {  
@@ -75,4 +75,4 @@ int main()
         printf("%d ",a[i]);  
     }  
     return 0;  
-}  
+}  ```
