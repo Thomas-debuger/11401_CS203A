@@ -25,4 +25,6 @@ array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`
 
 # p.20 程式碼解釋
 printf("Initial memory address: %p\n", (void*)array);  
-
+- `%p 是 印出指標 (pointer) 的記憶體位址。`
+- `(void*)array：把 array 轉成 void*，因為 %p 需要的是 void* 類型的指標。`
+- `這行會印出你用 malloc 分配的陣列 起始位址（也就是陣列第一個元素 array[0] 的位址）。`
