@@ -17,3 +17,8 @@
 
 ## 注意
 `Retrieve(A, i)` 和 `Store(A, i, x)` 裡的 `i` 可以是一維索引 (例如 `2`)，也可以是二維 `(2,3)` 或三維 `(1,2,3)`。
+
+# p.11-14 動態宣告
+int array;
+array = (int *) malloc(n * sizeof(int));
+array = (int *) realloc(array, n * sizeof(int));
