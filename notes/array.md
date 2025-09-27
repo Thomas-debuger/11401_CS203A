@@ -36,3 +36,6 @@ printf("Initial memory end address : %p\n", (void*)(array + n * sizeof(int) - 1)
 free(array);   
 - `釋放先前用 malloc 分配的記憶體，避免 記憶體洩漏。`  
 - `釋放後 array 仍然存在，但指向的記憶體已經無效，再使用會造成 未定義行為。`  
+
+# p.21 計算記憶體地址
+最後位置 = 起始位置 + (陣列大小 * sizeof(型態)) - 1 (記得適用16進為算)。  
