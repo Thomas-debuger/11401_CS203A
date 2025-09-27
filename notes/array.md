@@ -20,5 +20,5 @@
 
 # p.11-14 動態宣告
 int array;  
-array = (int *) malloc(n * sizeof(int));  
-array = (int *) realloc(array, n * sizeof(int));  
+array = (int *) malloc(n * sizeof(int)); `宣告動態陣列`  
+array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`  
