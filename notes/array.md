@@ -16,7 +16,71 @@ EX：A = [10, 20, 30] ， 對應 pairs = { <0,10>, <1,20>, <2,30> }
 例：Store(A,1,99) → A[1] = 99。
 
 ## 其中Retrieve(A, i)跟Store(A, i, x)裡的i也能用二維或三維的方式表示
-            
+
+# p.11-14 動態宣告   
+int array;   
+array = (int *) malloc(n * sizeof(int)); `宣告動態陣列`   
+array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`   
+
+# p.20 程式碼解釋   
+printf("Initial memory address: %p\n", (void*)array);   
+- `%p 是 印出指標 (pointer) 的記憶體位址。`   
+- `(void*)array：把 array 轉成 void*，因為 %p 需要的是 void* 類型的指標。`   
+- `這行會印出你用 malloc 分配的陣列 起始位址（也就是陣列第一個元素 array[0] 的位址）。`  
+
+printf("Initial memory end address : %p\n", (void*)(array + n * sizeof(int) - 1));   
+- `這行會印出你用 malloc 分配的陣列 終點位址（也就是陣列第一個元素 array[n-1] 的位址）。`   
+- `chatgpt說這樣寫才對：printf("Initial memory end address : %p\n", (void*)(array + n - 1));`   
+
+free(array);   
+- `釋放先前用 malloc 分配的記憶體，避免 記憶體洩漏。`  
+- `釋放後 array 仍然存在，但指向的記憶體已經無效，再使用會造成 未定義行為。`
+
+# p.21 計算記憶體地址   
+最後位置 = 起始位置 + (陣列大小 * sizeof(型態)) - 1 (記得是用16進位算)。   
+
+# p.23 記憶體問題   
+**將動態陣列重新分配到原始大小的兩倍後，起始記憶體位址會保持不變，還是會改變？**   
+原位擴展成功  
+`如果原本區塊後面剛好有足夠的連續空間，realloc 會直接在原地擴展。`  
+`這樣 起始位址保持不變。`  
+原位擴展失敗  
+`如果後面沒有空間，realloc 會在記憶體的別處 配置一塊新的區塊，然後把舊資料複製過去，再釋放原來的區塊。`  
+`這樣 起始位址會改變。`  
+
+# p.34 bubble sort
+```
+#include <stdio.h>  
+15 hours ago
+
+Update array.md
+#include <stdlib.h>  
+int main()  
+{  
+    int *a = (int*) malloc(10*sizeof(int));  
+    int v[10] = {5,6,8,9,7,10,1,3,2,4};  
+    for(int i=0;i<10;i++){  
+        a[i]=v[i];  
+    }  
+    for(int i=1;i<10;i++){  
+        for(int j=0;j<10-i;j++){  
+            if(a[j]>a[j+1]){  
+                int temp = a[j];  
+                a[j] = a[j+1];  
+                a[j+1] = temp;  
+            }  
+        }  
+    }  
+    for(int i=0;i<10;i++){  
+        printf("%d ",a[i]);  
+    }  
+    return 0;  
+15 hours ago
+
+Update array.md
+}  
+```
+
 # p.36 selection sort
 
 ```
