@@ -111,3 +111,32 @@ int main()
     return 0;
 }
 ```
+# p.36 insertion sort
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *a = (int*) malloc(10*sizeof(int));
+    int v[10] = {5,6,8,9,7,10,1,3,2,4};
+    for(int i=0;i<10;i++){
+        a[i]=v[i];
+    }
+    
+    for(int i=1;i<10;i++){
+        int key = a[i];
+        int j = i - 1;
+        while(j>=0 && a[j]>key){
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = key;
+    }
+    
+    for(int i=0;i<10;i++){
+        printf("%d ",a[i]);
+    }
+    return 0;
+```
