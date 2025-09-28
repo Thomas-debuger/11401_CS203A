@@ -126,13 +126,13 @@ int main()
     }
     
     for(int i=1;i<10;i++){
-        int key = a[i];
-        int j = i - 1;
-        while(j>=0 && a[j]>key){
+        int key = a[i]; //把要插入的那張「新牌」存起來。
+        int j = i - 1; //從 i 的前一個位置開始往前找。
+        while(j>=0 && a[j]>key){ //如果前面的數字比 key 大，就把它往後挪一格。一直往前檢查，直到遇到比 key 小的數字，或者到開頭。
             a[j+1] = a[j];
             j--;
         }
-        a[j+1] = key;
+        a[j+1] = key; //找到正確位置後，把 key 插進去。
     }
     
     for(int i=0;i<10;i++){
