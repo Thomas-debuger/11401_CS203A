@@ -163,7 +163,7 @@ int main()
 
 
 ```char *words[3] = {"cat", "dog", "fish"};  array of strings   ```   
-This creates an array of pointers, each element being a char*:
-words[0] → "cat" (there is a read-only string constant area)   
+這會建立一個 指標陣列，每個元素都是 char*：   
+words[0] → "cat"    
 words[1] → "dog"   
 words[2] → "fish"
