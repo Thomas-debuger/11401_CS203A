@@ -167,3 +167,4 @@ int main()
 words[0] → "cat"    
 words[1] → "dog"   
 words[2] → "fish"
+3 個指標，每個指向一個字串常量，字串本身不可改。
