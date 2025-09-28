@@ -1,5 +1,23 @@
-# p.36 selection sort
+#p.10
+陣列的本質就是很多個 <索引, 值> 的組合。
+EX：A = [10, 20, 30] ， 對應 pairs = { <0,10>, <1,20>, <2,30> }
+一維時，索引就是 {0, …, n-1}。二維時，索引是 {(0,0), (0,1), …}。
 
+##Create(j, list)
+建立一個 j 維陣列。list 代表每一維的大小。
+例：Create(2, (3,4)) → 建立一個 3×4 的二維陣列。
+
+##Retrieve(A, i)
+取出陣列 A 中索引 i 的值。
+例：Retrieve(A,2) → 回傳 A[2]。
+
+##Store(A, i, x)
+把值 x 存到陣列 A 的第 i 個位置。
+例：Store(A,1,99) → A[1] = 99。
+
+##其中Retrieve(A, i)跟Store(A, i, x)裡的i也能用二維或三維的方式表示
+            
+# p.36 selection sort
 
 ```
 #include <stdio.h>
@@ -68,10 +86,8 @@ int main()
 
 # p.45   
 
-
 ```char *words[3] = {"cat", "dog", "fish"};  array of strings   ```   
-這會建立一個 指標陣列，每個元素都是 char*：   
-words[0] → "cat"    
+This creates an array of pointers, each element being a char*:
+words[0] → "cat" (there is a read-only string constant area)   
 words[1] → "dog"   
-words[2] → "fish"
-3 個指標，每個指向一個字串常量，字串本身不可改。
+words[2] → "fish"         
