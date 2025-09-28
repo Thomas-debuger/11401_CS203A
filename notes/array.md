@@ -140,3 +140,8 @@ int main()
     }
     return 0;
 ```
+
+# p.45   
+
+```char *words[3] = {"cat", "dog", "fish"}; // array of strings   ```
+這會建立一個 指標陣列，每個元素都是 char*：
