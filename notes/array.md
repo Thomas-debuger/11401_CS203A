@@ -159,6 +159,6 @@ words[1] → "dog"
 words[2] → "fish"         
 
 # p.50 Search   
-**Linear Search(以排序跟未排序皆可)**  
+**Linear Search(已排序跟未排序皆可)**  
 **Binary Search(僅已排序可用)**  
 
