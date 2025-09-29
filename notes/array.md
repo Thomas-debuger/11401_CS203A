@@ -175,7 +175,7 @@ words[2] → "fish"
 `條件：陣列必須是「已排序」的。`   
 `時間複雜度：每次把搜尋範圍砍半 → O(log n)。`   
 
-# p.50 Bonus   
+# p.54 Bonus   
 
 1-1.   
 靜態陣列（static）：`大小在編譯期間決定（如 int a[10];）。通常配置在 stack（或全域區）。適合大小已知且不會變的情況。優點：宣告簡單、速度快；缺點：彈性差（大小不可變）。`   
@@ -205,3 +205,32 @@ Insertion Sort（插入）：`把每個元素插到前面已排序區域，O(n²
 插入（在索引 i 插入 x）：`需要把 i..n-1 向後移動一格，再放 x → 時間 O(n)（平均移動 n/2 個）。`   
 刪除（刪除索引 i）：`把 i+1..n-1 向前移動 → O(n)。`   
 resize（增加容量）：`使用 realloc。若原空間後面空間不足，realloc 會在 heap 上分配新區塊並複製舊資料，然後釋放舊區塊 → 複製成本 O(n)。`   
+
+# p.55 Bonus   
+
+3-1.   
+malloc(size)：`分配一塊未初始化記憶體（內容不確定）。`   
+calloc(count, size)：`分配 count 個 size 大小的區塊，並把所有位元設 0（初始化為 0）。`   
+realloc(ptr, newsize)：`重新調整先前 ptr 的大小；可能在原地擴展（同位址），或搬移到新位址（返回新指標）；失敗回傳 NULL（舊指標仍然有效）。`   
+```
+int *p = malloc(10 * sizeof(int));
+int *q = calloc(10, sizeof(int)); // 全 0
+p = realloc(p, 20 * sizeof(int)); // 擴大
+free(p);
+```
+
+3-2.   
+memory leak = 分配了 heap 記憶體但不釋放（或丟失指標），導致記憶體越來越少。長時間執行程式或多次分配會耗盡記憶體。   
+避免方式：`每次 malloc/calloc/realloc 最終都要 free；在多重錯誤路徑中確保都會釋放；在 C++ 用 RAII（例如 std::vector/std::unique_ptr）自動管理。`   
+
+3-3.   
+每次 malloc/calloc/realloc 後 都要檢查回傳是否為 NULL。如果為 NULL，應該安全處理：釋放已分配資源、報錯並中止或退回錯誤碼。   
+realloc 的特殊：`不要這樣寫 p = realloc(p, newsize);（直接覆蓋會在 realloc 失敗時丟失原指標）；應先用暫存指標：`   
+```
+int *tmp = realloc(p, newsize);
+if (tmp == NULL) {
+  // realloc 失敗，p 仍然有效，先處理錯誤
+} else {
+  p = tmp;
+}
+```
