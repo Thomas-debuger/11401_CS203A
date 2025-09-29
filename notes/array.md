@@ -234,3 +234,43 @@ if (tmp == NULL) {
   p = tmp;
 }
 ```
+**補充：**   
+```
+int *arr = malloc(10 * sizeof(int));
+arr = realloc(arr, 20 * sizeof(int));  // ❌ 危險！
+```
+假設：   
+- 原本 arr 指向一塊有效的記憶體（10 個 int）。   
+- 你呼叫 realloc 要求擴充到 20 個 int。   
+- 但 系統找不到夠大的連續記憶體空間，realloc 失敗了。
+
+失敗時 realloc 會回傳什麼？   
+- realloc 在失敗時回傳 NULL。   
+- 但注意：原本那塊記憶體並不會自動釋放，還是有效的。
+
+問題出在哪裡？   
+```arr = realloc(arr, 20 * sizeof(int));```  
+
+這會做兩件事：
+- 呼叫 realloc → 失敗 → 回傳 NULL。   
+- 把 arr 覆蓋成 NULL。   
+
+結果：   
+- 原本的 arr（10 個 int 的記憶體）還存在，但你已經沒有指標指向它了。   
+- 這就是 memory leak（記憶體洩漏）：記憶體還在，但你再也拿不到了。
+
+正確安全的寫法：
+```
+int *tmp = realloc(arr, 20 * sizeof(int));
+if (tmp == NULL) {
+    // realloc 失敗：arr 依然有效，你還可以用或 free
+    printf("Realloc failed!\n");
+} else {
+    // realloc 成功：更新 arr
+    arr = tmp;
+}
+```
+
+這樣做的好處：   
+如果失敗，原本的 arr 不會丟失，你還能安全地 free(arr)。   
+如果成功，才更新 arr。   
