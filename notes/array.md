@@ -18,7 +18,7 @@ EX：A = [10, 20, 30] ， 對應 pairs = { <0,10>, <1,20>, <2,30> }
 **其中Retrieve(A, i)跟Store(A, i, x)裡的i也能用二維或三維的方式表示**
 
 # p.11-14 動態宣告   
-int array;   
+int *array;   
 array = (int *) malloc(n * sizeof(int)); `宣告動態陣列`   
 array = (int *) realloc(array, n * sizeof(int)); `修改陣列大小`   
 
@@ -29,7 +29,7 @@ printf("Initial memory address: %p\n", (void*)array);
 - `這行會印出你用 malloc 分配的陣列 起始位址（也就是陣列第一個元素 array[0] 的位址）。`  
 
 printf("Initial memory end address : %p\n", (void*)(array + n * sizeof(int) - 1));   
-- `這行會印出你用 malloc 分配的陣列 終點位址（也就是陣列第一個元素 array[n-1] 的位址）。`   
+- `這行會印出你用 malloc 分配的陣列 終點位址（也就是陣列最後一個元素 array[n-1] 的位址）。`   
 - `chatgpt說這樣寫才對：printf("Initial memory end address : %p\n", (void*)(array + n - 1));`   
 
 free(array);   
