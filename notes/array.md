@@ -292,7 +292,7 @@ Traverse（遍歷陣列）: O(n)
 實務提示：若操作是「尾端加入/刪除」且需要隨機存取，用 vector（動態陣列）通常最好。  
 
 # 補充： 
-** 時間複雜度： **   
+**時間複雜度：**  
 快到慢：O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(n³) < O(2ⁿ) < O(n!) (O(1)最快，O(n!)最慢)   
 Bubble sort：O(n平方)   
 Selection sort：O(n平方)   
