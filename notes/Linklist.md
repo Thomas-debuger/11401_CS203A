@@ -869,7 +869,7 @@ Target = Target->next;
 }
 a.Target->next = Insert
 
-## p.26 Delete the Target  
+## p.26 Delete the Target(First)  
 
 Target = Head
 Prev = Head
@@ -879,3 +879,21 @@ Target = Target->next
 }
 a.Prev->next = Target->next
 b.free(Target)
+
+## p.28 Delete the Target(Last)   
+
+Target = Head
+Prev = Head
+a.Head = Target->next
+b.free(Target)
+
+## p.29 Delete the Target(Last)   
+Target = Head
+Prev = Head
+while(Target->next != nullptr){
+    Prev = Target
+    Target = Target->next
+}
+Prev->next = nullptr;
+free(Target)
+
