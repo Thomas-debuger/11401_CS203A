@@ -851,51 +851,51 @@ int main() {
 
 ## p.20 Insert element after the target  
 
-Target = Head->next->next
-a. Insert->next = Target->next
-b. Target->next = Insert
+Target = Head->next->next  
+a. Insert->next = Target->next  
+b. Target->next = Insert  
 
 ## p.22 Insert Element in the Beginning of the Linked List   
 
-Target = Head
-a. hwad = Insert
-b. Insert->next = Target
+Target = Head  
+a. hwad = Insert  
+b. Insert->next = Target  
 
 ## p.24 Insert Element in the End of the Linked List
 
-Target = Head
-While (Target->next != NULL){
-Target = Target->next;
-}
-a.Target->next = Insert
+Target = Head  
+While (Target->next != NULL){  
+Target = Target->next;  
+}  
+a.Target->next = Insert  
 
 ## p.26 Delete the Target(First)  
 
-Target = Head
-Prev = Head
-While (Target->value !== Value){
-Prev = Target
-Target = Target->next
-}
-a.Prev->next = Target->next
-b.free(Target)
+Target = Head  
+Prev = Head  
+While (Target->value !== Value){  
+Prev = Target  
+Target = Target->next  
+}  
+a.Prev->next = Target->next  
+b.free(Target)  
 
 ## p.28 Delete the Target(Last)   
 
-Target = Head
-Prev = Head
-a.Head = Target->next
-b.free(Target)
+Target = Head  
+Prev = Head  
+a.Head = Target->next  
+b.free(Target)  
 
 ## p.29 Delete the Target(Last)   
-Target = Head
-Prev = Head
-while(Target->next != nullptr){
-    Prev = Target
-    Target = Target->next
-}
-Prev->next = nullptr;
-free(Target)
+Target = Head  
+Prev = Head  
+while(Target->next != nullptr){  
+    Prev = Target  
+    Target = Target->next  
+}  
+Prev->next = nullptr;  
+free(Target)  
 
 ## p.34 SNode(int val) : data(val), next(nullptr) {} 的解釋 - 1
 
