@@ -897,6 +897,22 @@ while(Target->next != nullptr){
 Prev->next = nullptr;  
 free(Target)  
 
+## p.32-34 Singly Linked List (單鏈表)
+
+C：   
+`struct SNode {
+int data;
+struct SNode *next;
+};`
+
+C++：   
+`class SNode {
+public:
+int data;
+SNode* next;
+SNode(int val) : data(val), next(nullptr) {}
+};`
+
 ## p.34 SNode(int val) : data(val), next(nullptr) {} 的解釋 - 1
 
 ```cpp
@@ -1409,3 +1425,40 @@ traverseList(head)
 
 ---
 
+## p.39-42
+
+Doubly Linked List (雙鏈表)   
+
+C：   
+`struct DNode {
+int data;
+struct DNode *prev;
+struct DNode *next;
+};`
+
+C++：   
+`class DNode {
+public:
+int data;
+DNode* prev;
+DNode* next;
+DNode(int val) : data(val), prev(nullptr), next(nullptr) {}
+};`
+
+## p.43-46
+
+Circular Linked List (循環鍊表)
+
+C：   
+`struct CNode {
+int data;
+struct CNode *next;
+};`
+
+C++：   
+`class CNode {
+public:
+int data;
+CNode* next;
+CNode(int val) : data(val), next(nullptr) {}
+};`
