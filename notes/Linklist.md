@@ -453,7 +453,7 @@ head
 
 ---
 
-## p.19  
+## p.19-1  
 
 
 ---
@@ -640,3 +640,211 @@ int main() {
 
 ---
 
+## p.19-2   
+
+
+---
+
+## 🔹 程式碼全文
+
+```cpp
+// Destructor to free memory
+~LinkedList() {
+    Node* current = head;
+    while (current != nullptr) {
+        Node* nextNode = current->next;
+        delete current;
+        current = nextNode;
+    }
+}
+```
+
+---
+
+## 🔸 1. `~LinkedList()` 是什麼？
+
+這是 **解構子（Destructor）**。
+
+### 🧠 解構子的作用：
+
+當一個物件被**銷毀 (destroyed)** 或**離開作用範圍 (out of scope)** 時，
+C++ 會自動呼叫它的解構子，
+讓你有機會釋放動態配置的記憶體（例如用 `new` 建立的東西）。
+
+例如：
+
+```cpp
+{
+    LinkedList list;
+    list.insert(10);
+    list.insert(20);
+} // ← 這一行結束時，list 自動呼叫 ~LinkedList()
+```
+
+---
+
+## 🔸 2. 為什麼需要解構子？
+
+因為前面在 `insert()` 函式裡用了：
+
+```cpp
+Node* newNode = new Node(value);
+```
+
+這是用 **`new` 動態配置記憶體** 的，
+C++ 不會自動幫你釋放。
+如果不手動 `delete`，就會造成 **記憶體洩漏 (memory leak)**。
+
+---
+
+## 🔸 3. 解構子的工作流程
+
+我們用一個變數 `current` 從 `head` 開始，
+一個一個把節點刪掉。
+
+```cpp
+Node* current = head;
+```
+
+---
+
+### 🧩 while 迴圈
+
+```cpp
+while (current != nullptr) {
+    Node* nextNode = current->next;
+    delete current;
+    current = nextNode;
+}
+```
+
+讓我們逐步看：
+
+| 步驟 | 動作                          | 說明                       |
+| -- | --------------------------- | ------------------------ |
+| 1  | `nextNode = current->next;` | 先記下下一個節點的位置（不然等下刪掉就找不到了） |
+| 2  | `delete current;`           | 釋放目前節點的記憶體               |
+| 3  | `current = nextNode;`       | 移動到下一個節點繼續刪              |
+
+這樣就能從頭到尾一個一個刪乾淨。
+
+---
+
+## 🔹 4. 範例視覺化
+
+假設原本的串列是：
+
+```
+head → [10] → [20] → [30] → nullptr
+```
+
+程式執行順序：
+
+| current | nextNode | 動作          |
+| ------- | -------- | ----------- |
+| [10]    | [20]     | delete [10] |
+| [20]    | [30]     | delete [20] |
+| [30]    | nullptr  | delete [30] |
+| nullptr | —        | 結束迴圈        |
+
+最後整條串列的記憶體都釋放掉了 ✅
+
+---
+
+## 🔹 5. 程式結束時自動呼叫
+
+你不需要手動呼叫 `~LinkedList()`，
+C++ 會自動在物件被銷毀時執行。
+
+例如：
+
+```cpp
+int main() {
+    LinkedList list;
+    list.insert(10);
+    list.insert(20);
+    list.insert(30);
+    list.print();
+} // 這裡 list 離開作用域，自動呼叫 ~LinkedList()
+```
+
+此時會依序 `delete` 所有節點。
+
+---
+
+## ✅ 小總結
+
+| 元素                | 功能                |
+| ----------------- | ----------------- |
+| `~LinkedList()`   | 解構子，在物件被銷毀時自動執行   |
+| `current`         | 用來走訪每個節點          |
+| `nextNode`        | 暫存下一個節點，避免刪掉後遺失指標 |
+| `delete current;` | 釋放節點記憶體           |
+| 整體結果              | 釋放所有節點 → 不會記憶體洩漏  |
+
+---
+
+## 💡 補充：完整版本（含插入、印出、解構）
+
+```cpp
+#include <iostream>
+
+class Node {
+public:
+    int data;
+    Node* next;
+    Node(int value) {
+        data = value;
+        next = nullptr;
+    }
+};
+
+class LinkedList {
+private:
+    Node* head;
+public:
+    LinkedList() { head = nullptr; }
+
+    void insert(int value) {
+        Node* newNode = new Node(value);
+        if (head == nullptr) {
+            head = newNode;
+        } else {
+            Node* temp = head;
+            while (temp->next != nullptr)
+                temp = temp->next;
+            temp->next = newNode;
+        }
+    }
+
+    void print() {
+        Node* temp = head;
+        while (temp != nullptr) {
+            std::cout << temp->data << " -> ";
+            temp = temp->next;
+        }
+        std::cout << "NULL" << std::endl;
+    }
+
+    // Destructor
+    ~LinkedList() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* nextNode = current->next;
+            delete current;
+            current = nextNode;
+        }
+        std::cout << "All nodes deleted." << std::endl;
+    }
+};
+
+int main() {
+    LinkedList list;
+    list.insert(10);
+    list.insert(20);
+    list.insert(30);
+    list.print();
+} // 離開這裡時，會自動刪除所有節點
+```
+
+---
