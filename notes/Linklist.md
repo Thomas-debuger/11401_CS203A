@@ -848,3 +848,34 @@ int main() {
 ```
 
 ---
+
+## p.20 Insert element after the target  
+
+Target = Head->next->next
+a. Insert->next = Target->next
+b. Target->next = Insert
+
+## p.22 Insert Element in the Beginning of the Linked List   
+
+Target = Head
+a. hwad = Insert
+b. Insert->next = Target
+
+## p.24 Insert Element in the End of the Linked List
+
+Target = Head
+While (Target->next != NULL){
+Target = Target->next;
+}
+a.Target->next = Insert
+
+## p.26 Delete the Target  
+
+Target = Head
+Prev = Head
+While (Target->value !== Value){
+Prev = Target
+Target = Target->next
+}
+a.Prev->next = Target->next
+b.free(Target)
