@@ -864,7 +864,7 @@ b. Insert->next = Target
 ## p.24 Insert Element in the End of the Linked List
 
 Target = Head  
-While (Target->next != NULL){  
+while (Target->next != NULL){  
 Target = Target->next;  
 }  
 a.Target->next = Insert  
@@ -873,7 +873,7 @@ a.Target->next = Insert
 
 Target = Head  
 Prev = Head  
-While (Target->value !== Value){  
+while (Target->value !== Value){  
 Prev = Target  
 Target = Target->next  
 }  
