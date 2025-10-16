@@ -1462,3 +1462,177 @@ int data;
 CNode* next;
 CNode(int val) : data(val), next(nullptr) {}
 };`
+
+## p.48-49
+這兩頁在講：
+👉 **Array（陣列） vs. Linked List（鏈結串列）** 的全面比較。
+
+---
+
+## 🧩 第 48 頁：Array vs. Linked List（概念比較）
+
+這頁主要在比較它們在**記憶體配置、大小、存取、插入刪除、效能與應用**等方面的差異。
+
+---
+
+### 🧠 1. Memory Allocation（記憶體配置）
+
+| Array              | Linked List                    |
+| ------------------ | ------------------------------ |
+| **連續（contiguous）** | **不連續（non-contiguous）**        |
+| 一整塊連在一起的記憶體空間      | 每個節點各自用 `malloc()` / `new` 配出來 |
+
+🔹 觀念：
+
+* 陣列就像「排好的櫃子」📦📦📦📦
+* Linked List 像「一串鎖鏈」🔗🔗🔗，每個節點散在記憶體裡，但靠指標連起來。
+
+---
+
+### 🧠 2. Size（大小）
+
+| Array          | Linked List |
+| -------------- | ----------- |
+| 固定（Fixed size） | 動態（Dynamic） |
+
+🔹 說明：
+
+* 陣列在宣告時大小就固定，例如：`int arr[10];`。
+* Linked List 可以在執行中增加/刪除節點，沒有固定大小。
+
+---
+
+### 🧠 3. Access (Indexing)（存取速度）
+
+| Array                         | Linked List             |
+| ----------------------------- | ----------------------- |
+| **O(1)**：可直接透過索引取值，如 `arr[5]` | **O(n)**：需從頭（head）一路找過去 |
+
+🔹 想法：
+
+* 陣列像電影院座位，一看就知道第 5 個在哪。
+* Linked List 像一條火車，要從第一節走到第五節。
+
+---
+
+### 🧠 4. Insertion / Deletion（插入 / 刪除）
+
+| Array                | Linked List             |
+| -------------------- | ----------------------- |
+| **O(n)** → 因為要搬動其他元素 | **O(1)**（如果知道要插入/刪除的位置） |
+
+🔹 例子：
+
+* 陣列中要在中間插入，就得整排往後移。
+* Linked List 只要改 `next` 指標即可，非常快。
+
+---
+
+### 🧠 5. Memory Usage（記憶體使用）
+
+| Array  | Linked List     |
+| ------ | --------------- |
+| 沒有額外開銷 | 每個節點都多了一個「指標欄位」 |
+
+🔹 例如：
+
+```c
+struct Node {
+    int data;       // 4 bytes
+    struct Node* next; // 8 bytes (在 64 位元)
+};
+```
+
+→ 每個節點比陣列元素多花 8 bytes 儲存 `next` 指標。
+
+---
+
+### 🧠 6. Cache Performance（快取效能）
+
+| Array                | Linked List              |
+| -------------------- | ------------------------ |
+| 佳（contiguous memory） | 差（non-contiguous memory） |
+
+🔹 原因：
+
+* 陣列元素連續存放，CPU cache 可以預先載入整段資料。
+* Linked List 的節點可能散在各處，cache 失效率高。
+
+---
+
+### 🧠 7. Implementation Simplicity（實作難易度）
+
+| Array | Linked List |
+| ----- | ----------- |
+| 簡單    | 較難，指標處理要小心  |
+
+---
+
+### 🧠 8. Use Cases（使用時機）
+
+| Array       | Linked List   |
+| ----------- | ------------- |
+| 已知大小、頻繁隨機存取 | 頻繁插入/刪除、不確定大小 |
+
+📍舉例：
+
+* 陣列適合：儲存固定學生名單、表格。
+* Linked List 適合：動態隊伍、任務排程、音樂播放清單。
+
+---
+
+## 📗 第 49 頁：Array vs. Linked List（操作效率比較）
+
+這頁用 Big-O 複雜度總整理考點。
+一定要背這張表。
+
+---
+
+| **Operation**               | **Array (Dynamic)** | **Linked List** | 備註                       |
+| --------------------------- | ------------------- | --------------- | ------------------------ |
+| **Access (by index)**       | O(1)                | O(n)            | Linked List 無法直接定位       |
+| **Search (尋找值)**            | O(n)                | O(n)            | 兩者都要掃一遍                  |
+| **Insert at front (頭部插入)**  | O(n)                | O(1)            | Array 要整排往後移             |
+| **Insert at middle (中間插入)** | O(n)                | O(n)            | 都要找到位置                   |
+| **Insert at end (尾端插入)**    | O(1)（amortized）     | O(n) 或 O(1)**   | 若 Linked List 有尾指標則 O(1) |
+| **Delete**                  | O(n)                | O(n) 或 O(1)***  | 若已知 node 指標則 O(1)        |
+
+---
+
+### 📍 表格底下註解：
+
+> • * O(n) unless tail pointer is used
+> • ** With tail pointer and singly linked list
+> • *** If node pointer is known, deletion is O(1)
+
+翻成中文：
+
+* 🔸 若沒有 tail 指標，要找到最後一個節點需 O(n)。
+* 🔸 有 tail 指標的單向串列可在尾端 O(1) 插入。
+* 🔸 如果已經知道要刪的節點位置（例如直接有指標指向它），刪除只需改一條指標 → O(1)。
+
+---
+
+## 🧩 小總結（背起來這樣說最穩）
+
+| 特性       | 陣列 Array | 鏈結串列 Linked List |
+| -------- | -------- | ---------------- |
+| 記憶體配置    | 連續       | 分散               |
+| 大小       | 固定       | 動態               |
+| 存取速度     | 快 O(1)   | 慢 O(n)           |
+| 插入刪除     | 慢 O(n)   | 快 O(1)           |
+| Cache 效能 | 高        | 低                |
+| 指標開銷     | 無        | 有                |
+| 適用情境     | 查找多      | 插入刪除多            |
+
+---
+
+✅ **考試提示：**
+
+1. 題目常要你比較「時間複雜度」或「何時用哪一個」。
+2. 若題目問：「為什麼 Linked List 插入快但存取慢？」要回答：
+
+   > 因為 Linked List 插入只需改指標（O(1)），但存取需從頭開始遍歷（O(n)）。
+3. 若題目問：「哪個 cache performance 較好？」答：**Array**。
+
+---
