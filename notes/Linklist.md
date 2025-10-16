@@ -1463,9 +1463,6 @@ CNode* next;
 CNode(int val) : data(val), next(nullptr) {}
 };`
 
-## p.48-49
-這兩頁在講：
-👉 **Array（陣列） vs. Linked List（鏈結串列）** 的全面比較。
 
 ---
 
