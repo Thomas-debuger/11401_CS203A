@@ -1978,3 +1978,229 @@ void selectionSortValue(Node* head) {
 
 ---
 
+## p.79   
+
+超棒 👏👏👏
+這一段你貼的程式是**選擇排序 (Selection Sort)** 的**進階版本**，
+跟你上一題的不一樣的地方在於——
+
+> ✨這版不是「交換節點的值」，
+> 而是「直接改指標位置、搬動整個節點」。
+
+這樣更接近真正操作鏈結串列的精神。
+我們來一行一行拆給你講清楚。
+
+---
+
+## 🧩 一、程式完整內容
+
+```cpp
+Node* selectionSortPointer(Node* head) {
+    if (!head) return head;
+
+    Node dummy = {0, head};        // 建立虛擬頭節點(dummy head)
+    Node* sortedTail = &dummy;     // 已排序區的尾端指標
+
+    while (sortedTail->next) {
+        Node* minPrev = sortedTail;
+
+        // 找出未排序區中最小值的前一個節點
+        for (Node* p = sortedTail->next; p && p->next; p = p->next) {
+            if (p->next->val < minPrev->next->val)
+                minPrev = p;
+        }
+
+        Node* minNode = minPrev->next;  // 最小值節點
+
+        // 1️⃣ 從原本位置移除 minNode
+        minPrev->next = minNode->next;
+
+        // 2️⃣ 插入到已排序區的尾端 (sortedTail 之後)
+        minNode->next = sortedTail->next;
+        sortedTail->next = minNode;
+
+        // 3️⃣ 更新已排序區的尾端
+        sortedTail = sortedTail->next;
+    }
+
+    return dummy.next;
+}
+```
+
+---
+
+## 🧠 二、這段在做什麼？
+
+這是用「**指標重連法**」實作的 Selection Sort：
+
+* 一開始整個 Linked List 都是「未排序區」。
+* 每次都在「未排序區」找出最小的節點 (`minNode`)，
+  然後把它「摘下」並接到「已排序區」後面。
+* 重複這個過程直到整串都排好。
+
+---
+
+## 🧩 三、主要變數的角色
+
+| 變數名稱         | 角色         | 說明                  |
+| ------------ | ---------- | ------------------- |
+| `dummy`      | 虛擬頭節點      | 幫助我們輕鬆操作開頭，不用特判     |
+| `sortedTail` | 已排序部分的尾端   | 每回合排好一個節點，往後推進      |
+| `minPrev`    | 最小節點的前一個節點 | 為了能從原串中「剪掉」minNode  |
+| `minNode`    | 當前最小的節點    | 本回合要摘下、插入到 sorted 區 |
+
+---
+
+## 🧮 四、流程圖解（以例子說明）
+
+假設原始鏈結串列：
+
+```
+64 → 34 → 25 → 12 → NULL
+```
+
+一開始：
+
+```
+dummy → 64 → 34 → 25 → 12
+↑
+sortedTail
+```
+
+### ▶️ 回合 1
+
+* 搜尋最小值 → `12`
+* `minPrev` 指向 `25`（因為 `25->next == 12`）
+* 斷開 `25->next = NULL`
+* 把 `12` 插到 dummy 後面。
+
+結果：
+
+```
+dummy → 12 → 64 → 34 → 25
+        ↑
+     sortedTail
+```
+
+---
+
+### ▶️ 回合 2
+
+* `sortedTail = 12`
+* 在剩下的 `[64 → 34 → 25]` 中找最小 → `25`
+* 把 `25` 摘下接在 `12` 之後。
+
+結果：
+
+```
+dummy → 12 → 25 → 64 → 34
+              ↑
+         sortedTail
+```
+
+---
+
+### ▶️ 回合 3
+
+* 在 `[64 → 34]` 找最小 → `34`
+* 摘下插到 `sortedTail` 之後。
+
+結果：
+
+```
+dummy → 12 → 25 → 34 → 64
+                     ↑
+                sortedTail
+```
+
+排序完成 🎯
+
+---
+
+## 🔍 五、程式內每一段動作意義
+
+### 🧩 1️⃣ 建立 dummy node
+
+```cpp
+Node dummy = {0, head};
+Node* sortedTail = &dummy;
+```
+
+* dummy 的 `next` 指向原本的 head。
+* `sortedTail` 先指向 dummy（目前已排序區是空的）。
+
+這樣設計可以：
+✅ 不用特別判斷「插入在頭的情況」
+✅ 結束後直接回傳 `dummy.next` 就是新的 head。
+
+---
+
+### 🧩 2️⃣ 找出最小節點
+
+```cpp
+for (Node* p = sortedTail->next; p && p->next; p = p->next) {
+    if (p->next->val < minPrev->next->val)
+        minPrev = p;
+}
+Node* minNode = minPrev->next;
+```
+
+* 從「未排序區的第一個節點」開始掃描。
+* 每次比較 `p->next->val` 與 `minPrev->next->val`。
+* 找出最小節點的**前一個節點** (`minPrev`)，方便等一下把它「剪掉」。
+
+---
+
+### 🧩 3️⃣ 將 minNode 從原串摘下
+
+```cpp
+minPrev->next = minNode->next;
+```
+
+讓 minPrev 跳過 minNode，把它「拿出來」。
+
+---
+
+### 🧩 4️⃣ 插入到已排序區尾端
+
+```cpp
+minNode->next = sortedTail->next;
+sortedTail->next = minNode;
+sortedTail = sortedTail->next;
+```
+
+* 把 minNode 接到 sortedTail 後面。
+* 更新 sortedTail，使它往後推一格。
+
+---
+
+## ⏱️ 六、時間與空間複雜度
+
+| 項目        | 分析                  |
+| --------- | ------------------- |
+| **時間複雜度** | O(n²) （兩層迴圈，一次找最小值） |
+| **空間複雜度** | O(1) （只用少數指標變數）     |
+
+---
+
+## ⚠️ 七、這個版本的優缺點
+
+| 優點                   | 缺點            |
+| -------------------- | ------------- |
+| 不交換值、直接調指標，資料結構完整保留  | 需要更細心處理指標連結   |
+| 適合儲存複雜資料的節點（非單純 int） | 仍是 O(n²)，效率不高 |
+| dummy 節點讓邊界條件簡單化     | 指標操作若錯會整串壞掉   |
+
+---
+
+## 🧘‍♂️ 八、一句話總結
+
+> 「這是用 **指標交換法** 做 Linked List 的選擇排序，
+> 每回合找最小節點，剪下來放到已排序區尾端，
+> 藉由 dummy head 讓整個指標操作簡單又乾淨。」
+
+---
+
+如果你想，我可以幫你畫這段程式的「指標箭頭動畫圖」
+讓你看到 `minPrev`、`minNode`、`sortedTail` 怎麼移動（這一題考試很容易考「畫圖模擬」）。
+要我幫你畫那個流程圖嗎？
