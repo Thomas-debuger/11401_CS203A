@@ -1,6 +1,6 @@
 ## p.14 Stack   
 
-Defination of Stack：Stack是一種線性資料結構，遵循先進先出的規則(LIFO)，最後放入的元素會最先被取出。   
+Defination of Stack：Stack是一種線性資料結構，遵循後進先出的規則(LIFO)，最後放入的元素會最先被取出。   
 
 ## p.16 ADT: Stack   
 
@@ -9,3 +9,10 @@ Defination of Stack：Stack是一種線性資料結構，遵循先進先出的�
 `Boolean isEmpty(stack)：如果stack的狀態和剛建立的空堆疊相同，回傳true，否則回傳false。`   
 `Stack Push(stack)：如果stack容量已滿，觸發錯誤訊息"stackFull"表示堆疊已滿，否則插入元素至頂端top並回傳更新後的stack。`   
 `Stack pop(Stack)：如果stack是空的，直接return，否則拿出並回傳最上層的元素。`   
+
+## p.17 Queue    
+
+Defination of Queue：Queue是一種線性資料結構，遵循先進先出的規則(FIFO)，最先放入的元素會最先被取出。   
+
+## p.19 ADT: Queue    
+
