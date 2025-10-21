@@ -1978,7 +1978,7 @@ void selectionSortValue(Node* head) {
 
 ---
 
-## p.79   
+## p.79 Selection Sort - Linked List (Swap the pointer)   
 
 超棒 👏👏👏
 這一段你貼的程式是**選擇排序 (Selection Sort)** 的**進階版本**，
