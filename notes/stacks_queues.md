@@ -381,13 +381,13 @@ front = -1
 rear  = -1
 ```
 
-1️⃣ `Enqueue(10)` → front=0, rear=0 → queue=[10, , , , ]
-2️⃣ `Enqueue(20)` → rear=1 → queue=[10,20, , , ]
-3️⃣ `Enqueue(30)` → rear=2 → queue=[10,20,30, , ]
-4️⃣ `Dequeue()` → front=1 → queue=[10,20,30, , ]（有效元素從 index=1 開始）
-5️⃣ `Enqueue(40)` → rear=3 → queue=[10,20,30,40, ]
-6️⃣ `Enqueue(50)` → rear=4 → queue=[10,20,30,40,50]
-7️⃣ `Enqueue(60)` → rear=(4+1)%5=0（環狀回繞）
+1️⃣ `Enqueue(10)` → front=0, rear=0 → queue=[10, , , , ]   
+2️⃣ `Enqueue(20)` → rear=1 → queue=[10,20, , , ]   
+3️⃣ `Enqueue(30)` → rear=2 → queue=[10,20,30, , ]   
+4️⃣ `Dequeue()` → front=1 → queue=[10,20,30, , ]（有效元素從 index=1 開始）   
+5️⃣ `Enqueue(40)` → rear=3 → queue=[10,20,30,40, ]   
+6️⃣ `Enqueue(50)` → rear=4 → queue=[10,20,30,40,50]   
+7️⃣ `Enqueue(60)` → rear=(4+1)%5=0（環狀回繞）   
 
 ---
 
