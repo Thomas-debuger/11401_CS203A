@@ -1046,3 +1046,37 @@ int main() {
 | 表達式求值（expression evalution）      | 緩衝區 (Buffering)，例如 I/O 佇列、印表機佇列 |
 
 ---
+
+## p.28 Comparison of Stacks and Queues (Arrayvs. Linked List Implementation)   
+
+---
+
+## 🧩 Comparison of **Stacks and Queues**
+
+### (Array vs. Linked List Implementation)
+
+| **Aspect**               | **Array Implementation**                                                | **Linked List Implementation**                                        |
+| ------------------------ | ----------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Stack Structure**      | `top`, `MAX_SIZE`, and array storage                                    | `top` pointer                                                         |
+| **Queue Structure**      | `front`, `rear`, `MAX_SIZE`, array storage, sometimes `count`           | `front` and `rear` pointers                                           |
+| **Memory Management**    | Pre-allocated — may waste unused space; resizing has cost               | Dynamic allocation per node; extra pointer overhead                   |
+| **Overflow / Underflow** | Must check indices; circular logic for queue                            | “Overflow” only if heap memory is exhausted                           |
+| **Performance**          | O(1) for push/pop/enqueue/dequeue (except during resizing)              | O(1) for push/pop/enqueue/dequeue                                     |
+| **Extra Burden**         | Track indices (`front`, `rear`, `top`); use modulo arithmetic for queue | Manage pointers carefully; handle empty cases and memory deallocation |
+
+---
+
+## 🧾 中文版：堆疊與佇列比較
+
+### （陣列 vs 鏈結串列實作）
+
+| **項目**                             | **陣列實作 (Array)**                                  | **鏈結串列實作 (Linked List)**               |
+| ---------------------------------- | ------------------------------------------------- | -------------------------------------- |
+| **堆疊結構**                           | 使用 `top`、`MAX_SIZE`、陣列儲存資料                        | 使用 `top` 指標                            |
+| **佇列結構**                           | 使用 `front`、`rear`、`MAX_SIZE`、陣列儲存，有時加上 `count`    | 使用 `front` 與 `rear` 指標                 |
+| **記憶體管理**                          | 預先配置固定大小，可能浪費空間；若需擴充會有成本                          | 動態配置每個節點，會多出指標開銷                       |
+| **溢出 / 欠缺 (Overflow / Underflow)** | 需檢查索引範圍；佇列需使用環狀邏輯                                 | 只有當堆記憶體耗盡時才算溢出                         |
+| **效能**                             | push / pop / enqueue / dequeue 皆為 O(1)（除了擴充時）     | push / pop / enqueue / dequeue 皆為 O(1) |
+| **額外負擔**                           | 需追蹤索引 (`front`, `rear`, `top`)，佇列需使用取餘數運算（modulo） | 必須小心管理指標，處理空佇列情況與釋放記憶體                 |
+
+---
