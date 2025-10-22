@@ -365,7 +365,7 @@ int Front() {
 ## 🌀 Extra Burden（額外負擔）
 
 * 必須管理 **環狀緩衝區邏輯**（circular buffer），使用 % MAX_SIZE 讓 front 和 rear 能在尾端「繞回」開頭。
-* 檢查溢出（overflow）與欠流（underflow）的條件。
+* 檢查溢出（overflow）與欠流（underflow）的條件。   
   Overflow condition:(rear + 1) % MAX_SIZE == front   
   Underflow condition:front == rear   
 * 需要兩個指標（`front`、`rear`），有時加上 `count` 變數會更容易。
@@ -700,4 +700,207 @@ int main() {
 
 ## p.26 Queue (Linked List)   
 
+這段講的是 **「用 Linked List 實作 Queue（佇列）」**，
+是對比「Array-based Queue」的另一種動態實作方式。
 
+---
+
+## 🧱 一、Queue (Linked List-based)
+
+**概念：**
+
+* 使用 **鏈結串列 (Linked List)** 取代固定大小的陣列。
+* 不需要預先設定 `MAX_SIZE`，可以動態增加或刪除節點。
+* 遵守 **FIFO（First In, First Out）先進先出** 原則。
+
+---
+
+## 🧩 二、變數 (Variables required)
+
+| 變數名稱          | 型態 | 說明                         |
+| ------------- | -- | -------------------------- |
+| `Node* front` | 指標 | 指向佇列的「第一個節點」(最前端，要被刪除的地方)。 |
+| `Node* rear`  | 指標 | 指向佇列的「最後一個節點」(新加入的地方)。     |
+
+📘 節點結構：
+
+```c
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+```
+
+---
+
+## ⚙️ 三、主要操作 (Operations)
+
+### 1️⃣ Enqueue（加入資料 → 尾端）
+
+**步驟：**
+
+1. 建立新節點 `newNode`。
+2. 如果佇列不是空的，讓目前的 `rear->next = newNode`。
+3. 更新 `rear = newNode`。
+4. 若佇列原本是空的，`front` 也要設成這個新節點。
+
+📘 **邏輯範例：**
+
+```c
+Node* newNode = (Node*)malloc(sizeof(Node));
+newNode->data = value;
+newNode->next = NULL;
+
+if (rear == NULL) {       // 佇列是空的
+    front = rear = newNode;
+} else {
+    rear->next = newNode; // 接在尾巴
+    rear = newNode;       // rear 移到新節點
+}
+```
+
+📈 **示意圖：**
+
+```
+Enqueue(10): front → [10|NULL], rear → [10]
+Enqueue(20): front → [10|●] → [20|NULL], rear → [20]
+```
+
+---
+
+### 2️⃣ Dequeue（移除資料 → 前端）
+
+**步驟：**
+
+1. 檢查 `front != NULL`（是否空）。
+2. 暫存目前的 `front` 節點。
+3. 將 `front = front->next`。
+4. 若刪完變空 (`front == NULL`)，則也要設定 `rear = NULL`。
+5. 釋放被刪除節點。
+
+📘 **邏輯範例：**
+
+```c
+if (front == NULL) {
+    printf("Queue is empty!\n");
+    return;
+}
+
+Node* temp = front;
+front = front->next;
+
+if (front == NULL)
+    rear = NULL;  // 特殊情況：佇列變空
+
+free(temp);
+```
+
+📉 **示意圖：**
+
+```
+初始: front → [10|●] → [20|NULL], rear → [20]
+Dequeue: 移除10 → front → [20|NULL], rear → [20]
+```
+
+---
+
+## ⚠️ 四、Extra Burden（要注意的地方）
+
+| 負擔                        | 說明                                           |
+| ------------------------- | -------------------------------------------- |
+| **需要兩個指標 (front & rear)** | 若只有一個指標，無法 O(1) 時間找到尾端插入。                    |
+| **特別處理空佇列狀況**             | 當最後一個節點被刪除後，要記得 `rear = NULL`。               |
+| **動態記憶體開銷**               | 每次 Enqueue 都要 `malloc()`，Dequeue 要 `free()`。 |
+
+---
+
+## 🧩 五、和 Array-based Queue 比較
+
+| 特點                 | Array-based      | Linked List-based   |
+| ------------------ | ---------------- | ------------------- |
+| 儲存方式               | 固定大小陣列           | 動態節點鏈結              |
+| 容量限制               | 有 (`MAX_SIZE`)   | 無                   |
+| Overflow/Underflow | 要判斷索引關係          | 只要判斷 front 是否為 NULL |
+| Enqueue/Dequeue    | 都是 O(1)，但需管理環狀邏輯 | 都是 O(1)，邏輯較單純       |
+| 記憶體管理              | 無需 malloc/free   | 需手動配置與釋放記憶體         |
+
+---
+
+## ✅ 六、完整範例程式 (C)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node* front = NULL;
+Node* rear = NULL;
+
+void enqueue(int value) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = value;
+    newNode->next = NULL;
+
+    if (rear == NULL) {        // 空佇列
+        front = rear = newNode;
+    } else {
+        rear->next = newNode;  // 加到尾端
+        rear = newNode;
+    }
+}
+
+void dequeue() {
+    if (front == NULL) {
+        printf("Queue is empty!\n");
+        return;
+    }
+    Node* temp = front;
+    printf("Dequeued: %d\n", temp->data);
+    front = front->next;
+
+    if (front == NULL)         // 若刪完變空
+        rear = NULL;
+
+    free(temp);
+}
+
+void display() {
+    Node* curr = front;
+    printf("Queue: ");
+    while (curr != NULL) {
+        printf("%d ", curr->data);
+        curr = curr->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    display();   // Queue: 10 20 30
+    dequeue();   // Dequeued: 10
+    display();   // Queue: 20 30
+    dequeue();
+    dequeue();
+    dequeue();   // Queue is empty!
+    return 0;
+}
+```
+
+---
+
+## 📘 七、動作總結圖（邏輯流程）
+
+| 操作          | 動作      | front      | rear            |
+| ----------- | ------- | ---------- | --------------- |
+| Enqueue(10) | 新增節點 10 | front→10   | rear→10         |
+| Enqueue(20) | 新增節點 20 | front→10   | rear→20         |
+| Dequeue()   | 移除節點 10 | front→20   | rear→20         |
+| Dequeue()   | 移除節點 20 | front→NULL | rear→NULL (佇列空) |
+
+---
