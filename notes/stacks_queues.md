@@ -909,6 +909,76 @@ int main() {
 
 ---
 
+# Comparison of Stacks and Queues: Array vs Linked List
+
+| Feature              | Stack (LIFO)                                  | Queue (FIFO)                                            |
+| -------------------- | --------------------------------------------- | ------------------------------------------------------- |
+| **Access Pattern**   | Last-In, First-Out (push/pop at the same end) | First-In, First-Out (enqueue at rear, dequeue at front) |
+| **Direction of I/O** | Both operations happen at the top             | Input at rear, output at front                          |
+
+---
+
+## Array Implementation
+
+| Structure      | Stack                                                              | Queue                                                                                                                |
+| -------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Implementation | Fixed-size array                                                   | Fixed-size array (often circular)                                                                                    |
+| Operations     | `push`: add at end (`top++`) <br> `pop`: remove from end (`top--`) | `enqueue`: add at rear (`rear = (rear+1)%MAX_SIZE`) <br> `dequeue`: remove from front (`front = (front+1)%MAX_SIZE`) |
+| Limitations    | Overflow if capacity exceeded                                      | Overflow if circular array full; must manage `front` & `rear` pointers                                               |
+| Notes          | Easy to implement                                                  | Circular array needed to reuse space efficiently                                                                     |
+
+---
+
+## Linked List Implementation
+
+| Structure      | Stack                                               | Queue                                                      |
+| -------------- | --------------------------------------------------- | ---------------------------------------------------------- |
+| Implementation | Each node points to next                            | Each node points to next                                   |
+| Operations     | `push`: insert at head <br> `pop`: remove from head | `enqueue`: insert at tail <br> `dequeue`: remove from head |
+| Memory         | Dynamic, no fixed size                              | Dynamic, no fixed size; extra memory for pointers (`next`) |
+| Pointers       | Only need `top`                                     | Need both `front` and `rear`                               |
+| Overflow       | Only if memory exhausted                            | Only if memory exhausted                                   |
+
+---
+
+## Memory Management
+
+| Type         | Array                                    | Linked List                                |
+| ------------ | ---------------------------------------- | ------------------------------------------ |
+| Memory usage | May waste unused slots if array not full | Extra memory per node for pointer (`next`) |
+
+---
+
+## Performance
+
+| Operation             | Array                     | Linked List                           |
+| --------------------- | ------------------------- | ------------------------------------- |
+| Stack push/pop        | O(1) if no resize         | O(1) at head                          |
+| Queue enqueue/dequeue | O(1) with circular buffer | O(1) enqueue at tail, dequeue at head |
+
+---
+
+## Overflow Handling
+
+| Type        | Stack                          | Queue                          |
+| ----------- | ------------------------------ | ------------------------------ |
+| Array       | Fixed-size array may overflow  | Circular array may overflow    |
+| Linked List | Dynamic, only memory exhausted | Dynamic, only memory exhausted |
+
+---
+
+## Typical Use Cases
+
+| Stack                      | Queue                                  |
+| -------------------------- | -------------------------------------- |
+| Undo functionality         | Task scheduling                        |
+| Function calls / recursion | Resource sharing                       |
+| Expression evaluation      | Buffering (I/O queues, printer queues) |
+
+---
+
+---
+
 # 堆疊與佇列比較：陣列 vs 鏈結串列
 
 | 特性         | 堆疊 (Stack, LIFO)       | 佇列 (Queue, FIFO)  |
