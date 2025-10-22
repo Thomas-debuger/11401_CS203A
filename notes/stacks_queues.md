@@ -225,147 +225,193 @@ int main() {
 
 ## p.23 Queue (Array-based)   
 
-這段內容是「**用陣列 (Array)** 實作 **Queue（佇列）**」的重點摘要，我幫你完整**逐行解釋** 👇
+`front → index of the first element`、`rear → index of the last element`）。
 
 ---
 
-## 🧱 一、Queue (Array-based)
+# 🧩 Queue (Array-based)
 
-用 **固定大小的陣列** 來實作 Queue。
-Queue（佇列）的特性是 **FIFO（First In, First Out）**：
-➡️ 先進來的資料先被取出。
+## 📦 Variables required
+
+* `queue[MAX_SIZE]` → 實際的陣列儲存空間。
+* `front` → **第一個有效元素的索引（front element）**。
+* `rear` → **最後一個有效元素的索引（rear element）**。
+* `MAX_SIZE` → 佇列的最大容量。
+* （可選）`count` → 當前元素個數，用來簡化空/滿判斷（非必要）。
 
 ---
 
-## 🧩 二、變數解釋 (Variables required)
-
-| 名稱                | 意思   | 功能                              |
-| ----------------- | ---- | ------------------------------- |
-| `queue[MAX_SIZE]` | 陣列空間 | 用來存放佇列裡的資料。                     |
-| `front`           | 前端索引 | 指向「第一個元素的前一格」。<br>（因為刪除時要先往後移動） |
-| `rear`            | 後端索引 | 指向「最後一個元素」。                     |
-| `MAX_SIZE`        | 最大容量 | 陣列可容納的最大數量。                     |
-| `count`（可選）       | 元素數量 | 紀錄目前有幾個元素，讓滿/空判斷更容易。            |
-
-📘 **初始化通常是：**
+## ⚙️ Initialization（初始化）
 
 ```c
-front = 0;
-rear = 0;
-count = 0;  // 如果有使用 count
+front = -1;
+rear  = -1;
+```
+
+* 表示目前佇列為 **空**。
+* 任何 Enqueue 時都要從這個狀態開始。
+
+---
+
+## 🧭 Operations
+
+### 🟢 Enqueue（入列：在尾端加入元素）
+
+將一個新元素加到 **佇列尾端（rear）**。
+
+**步驟**
+
+1. 先檢查是否「滿」：
+
+   ```c
+   if ((rear + 1) % MAX_SIZE == front)
+       // Queue is full (Overflow)
+   ```
+2. 若為空佇列（`front == -1`），設定 `front = 0`。
+3. 更新 `rear`：
+
+   ```c
+   rear = (rear + 1) % MAX_SIZE;
+   queue[rear] = value;
+   ```
+
+**例子**
+
+```c
+void Enqueue(int value) {
+    if ((rear + 1) % MAX_SIZE == front) {
+        printf("Queue Overflow\n");
+        return;
+    }
+    if (front == -1) front = 0;      // 佇列原本是空的
+    rear = (rear + 1) % MAX_SIZE;    // 移動 rear（用環狀運算）
+    queue[rear] = value;             // 放入資料
+}
 ```
 
 ---
 
-## ⚙️ 三、主要操作 (Operations)
+### 🔴 Dequeue（出列：移除最前面的元素）
 
-### 1️⃣ Enqueue（加入元素）
+從 **佇列前端（front）** 移除並回傳一個元素。
 
-把新元素放進尾端。
+**步驟**
 
-```c
-rear = (rear + 1) % MAX_SIZE;
-queue[rear] = value;
-```
+1. 檢查是否「空」：
 
-📘 **重點說明：**
+   ```c
+   if (front == -1)
+       // Queue is empty (Underflow)
+   ```
+2. 取出要刪除的值：
 
-* `rear + 1` 表示移到下一個位置。
-* `% MAX_SIZE` 是用來「**循環 (wrap-around)**」，防止超出陣列邊界。
-* 將資料 `value` 存入該位置。
+   ```c
+   value = queue[front];
+   ```
+3. 若這是最後一個元素（`front == rear`），佇列變空：
 
----
+   ```c
+   front = rear = -1;
+   ```
+4. 否則更新 front：
 
-### 2️⃣ Dequeue（取出元素）
+   ```c
+   front = (front + 1) % MAX_SIZE;
+   ```
 
-從前端移除並取出資料。
-
-```c
-front = (front + 1) % MAX_SIZE;
-value = queue[front];
-```
-
-📘 **重點說明：**
-
-* `front + 1` 是下一個要取出的元素。
-* 同樣 `% MAX_SIZE` 是為了環狀結構。
-* 回傳被移除的 `value`。
-
----
-
-## ⚠️ 四、Extra burden（額外要注意的地方）
-
-### 1️⃣ 要處理「環狀緩衝區 (Circular Buffer)」
-
-因為是陣列固定大小，如果 `rear` 到達尾端（例如索引 MAX_SIZE-1），
-下一次再加資料就要「繞回」到索引 0。
-這時候就要用：
+**例子**
 
 ```c
-(rear + 1) % MAX_SIZE
+int Dequeue() {
+    if (front == -1) {
+        printf("Queue Underflow\n");
+        return -1;
+    }
+    int value = queue[front];
+    if (front == rear) {
+        front = rear = -1;           // 刪除後變空
+    } else {
+        front = (front + 1) % MAX_SIZE;  // 向前移動 front
+    }
+    return value;
+}
 ```
 
-來自動回到開頭。
+---
+
+### 👀 Peek（查看第一個元素，不刪除）
+
+```c
+int Front() {
+    if (front == -1) {
+        printf("Queue is empty\n");
+        return -1;
+    }
+    return queue[front];
+}
+```
 
 ---
 
-### 2️⃣ Overflow（滿）與 Underflow（空）條件
+## ⚡ Conditions
 
-| 狀況               | 條件                               | 說明                |
-| ---------------- | -------------------------------- | ----------------- |
-| **Overflow（滿）**  | `(rear + 1) % MAX_SIZE == front` | 再插入資料會覆蓋掉未取出的舊資料。 |
-| **Underflow（空）** | `front == rear`                  | 沒有任何資料可取出。        |
-
----
-
-### 3️⃣ 需要兩個指標
-
-* `front` → 控制取出位置
-* `rear` → 控制插入位置
-  兩者要隨時更新，維持環狀佇列的正確運作。
+| 狀況                | 判斷條件                             |
+| ----------------- | -------------------------------- |
+| **Overflow (滿)**  | `(rear + 1) % MAX_SIZE == front` |
+| **Underflow (空)** | `front == -1`                    |
 
 ---
 
-### 4️⃣ （可選）用 `count` 來簡化判斷
+## 🌀 Extra Burden（額外負擔）
 
-有些實作會額外使用 `count` 計數器：
-
-| 狀況 | 條件                  |
-| -- | ------------------- |
-| 滿  | `count == MAX_SIZE` |
-| 空  | `count == 0`        |
-
-這樣就不必依賴 `(rear + 1) % MAX_SIZE == front` 這種判斷式。
+* 必須管理 **環狀緩衝區邏輯**（circular buffer），使用 `% MAX_SIZE` 來實現「回繞」。
+* 檢查溢出（overflow）與欠流（underflow）的條件。
+* 需要兩個指標（`front`、`rear`），有時加上 `count` 變數會更容易。
 
 ---
 
-## 💡 五、整體概念圖
+## 💡 Example (MAX_SIZE = 5)
 
-假設 MAX_SIZE = 5，queue = [ , , , , ]
+假設初始：
 
-| 動作          | front | rear | 狀況                      |
-| ----------- | ----- | ---- | ----------------------- |
-| 初始          | 0     | 0    | 空                       |
-| Enqueue(10) | 0     | 1    | [10, , , , ]            |
-| Enqueue(20) | 0     | 2    | [10,20, , , ]           |
-| Dequeue()   | 1     | 2    | [ ,20, , , ]            |
-| Enqueue(30) | 1     | 3    | [ ,20,30, , ]           |
-| Enqueue(40) | 1     | 4    | [ ,20,30,40, ]          |
-| Enqueue(50) | 1     | 0    | [50,20,30,40, ] ← 繞回開頭！ |
+```
+queue = [ , , , , ]
+index = [0,1,2,3,4]
+front = -1
+rear  = -1
+```
+
+1️⃣ `Enqueue(10)` → front=0, rear=0 → queue=[10, , , , ]
+2️⃣ `Enqueue(20)` → rear=1 → queue=[10,20, , , ]
+3️⃣ `Enqueue(30)` → rear=2 → queue=[10,20,30, , ]
+4️⃣ `Dequeue()` → front=1 → queue=[10,20,30, , ]（有效元素從 index=1 開始）
+5️⃣ `Enqueue(40)` → rear=3 → queue=[10,20,30,40, ]
+6️⃣ `Enqueue(50)` → rear=4 → queue=[10,20,30,40,50]
+7️⃣ `Enqueue(60)` → rear=(4+1)%5=0（環狀回繞）
+
+---
+
+## 🧮 Complexity
+
+| Operation | Time | Space       |
+| --------- | ---- | ----------- |
+| Enqueue   | O(1) | O(MAX_SIZE) |
+| Dequeue   | O(1) | O(MAX_SIZE) |
 
 ---
 
-## ✅ 六、重點整理
 
-| 操作          | 動作                                                           | 條件      |
-| ----------- | ------------------------------------------------------------ | ------- |
-| **Enqueue** | `rear = (rear + 1) % MAX_SIZE` <br> `queue[rear] = value`    | 若滿則不能插入 |
-| **Dequeue** | `front = (front + 1) % MAX_SIZE` <br> `value = queue[front]` | 若空則不能刪除 |
-| **滿**       | `(rear + 1) % MAX_SIZE == front`                             |         |
-| **空**       | `front == rear`                                              |         |
-| **可選**      | `count` 變數簡化判斷                                               |         |
+| 操作          | front | rear | queue[] 狀態                    |
+| :---------- | :---: | :--: | :---------------------------- |
+| 初始          |   -1  |  -1  | [ , , , , ]                   |
+| Enqueue(10) |   0   |   0  | [10, , , , ]                  |
+| Enqueue(20) |   0   |   1  | [10,20, , , ]                 |
+| Enqueue(30) |   0   |   2  | [10,20,30, , ]                |
+| Dequeue()   |   1   |   2  | [10,20,30, , ] → 有效元素 [20,30] |
+| Enqueue(40) |   1   |   3  | [10,20,30,40, ]               |
+| Enqueue(50) |   1   |   4  | [10,20,30,40,50]              |
+| Enqueue(60) |   1   |   0  | [60,20,30,40,50] （繞回）         |
 
----
 
 ## p.23 補充   
 
@@ -473,3 +519,184 @@ rear = (4 + 1) % 5 = 0;   // 🔄 回到開頭
 這樣就形成了「**環狀結構 (circular)**」，可以重複使用前面空出的位置。
 
 ---
+
+## p.25    
+
+這段是「**以鏈結串列 (Linked List)** 實作 Stack（堆疊）」的重點筆記。
+
+---
+
+## 🧱 一、Stack (Linked List-based)
+
+這個版本的 Stack **不使用固定大小的陣列**，
+而是用 **鏈結串列 (Linked List)** 來動態管理記憶體。
+➡️ 因此它沒有 MAX_SIZE 限制，可以隨著 push/pop 動態變化。
+
+---
+
+## 🧩 二、變數說明 (Variables required)
+
+| 名稱          | 類型 | 說明                                |
+| ----------- | -- | --------------------------------- |
+| `Node* top` | 指標 | 指向「堆疊頂端 (stack top)」的節點（鏈結串列的開頭）。 |
+
+---
+
+### 📘 Node 結構通常是這樣：
+
+```c
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+```
+
+這樣每個節點都可以存資料 (`data`) 並連到下一個節點 (`next`)。
+
+---
+
+## ⚙️ 三、操作 (Operations)
+
+### 1️⃣ Push（入堆疊）
+
+**動作：**
+
+1. 建立新節點 (`malloc`)
+2. 把新節點的 `next` 指向原本的 `top`
+3. 把 `top` 更新成新節點
+
+📘 **程式邏輯：**
+
+```c
+Node* newNode = (Node*)malloc(sizeof(Node));
+newNode->data = value;
+newNode->next = top;   // 新節點指向原本的堆疊頂端
+top = newNode;         // 更新頂端
+```
+
+📈 **堆疊示意圖：**
+
+| Push(10) 後 |            |
+| ---------- | ---------- |
+| top → [10  | next→NULL] |
+
+| Push(20) 後 |              |            |
+| ---------- | ------------ | ---------- |
+| top → [20  | next→] → [10 | next→NULL] |
+
+（最新的資料永遠在最上面）
+
+---
+
+### 2️⃣ Pop（出堆疊）
+
+**動作：**
+
+1. 檢查是否為空 (`top != NULL`)
+2. 如果不是空的：
+
+   * 暫存目前的 `top`
+   * 把 `top` 更新為 `top->next`
+   * 釋放原本節點的記憶體 (`free(temp)`)
+
+📘 **程式邏輯：**
+
+```c
+if (top != NULL) {
+    Node* temp = top;
+    top = top->next;  // 將頂端往下移
+    free(temp);       // 釋放被移除的節點
+}
+```
+
+📉 **示意圖：**
+
+| 初始        |              |              |       |
+| --------- | ------------ | ------------ | ----- |
+| top → [30 | next→] → [20 | next→] → [10 | NULL] |
+
+| Pop 一次後   |              |       |
+| --------- | ------------ | ----- |
+| top → [20 | next→] → [10 | NULL] |
+
+---
+
+## ⚠️ 四、Extra Burden（額外注意事項）
+
+| 問題                            | 說明                                                           |
+| ----------------------------- | ------------------------------------------------------------ |
+| **Dynamic memory allocation** | 每次 Push 需要 `malloc()` 新節點，Pop 要 `free()`，記憶體管理很重要。           |
+| **Pointer management**        | 要避免「記憶體洩漏 (leak)」或「懸掛指標 (dangling pointer)」。例如：Pop 時忘記釋放舊節點。 |
+
+---
+
+## 🧩 五、和 Array-based 的比較
+
+| 特點                 | Array-based    | Linked List-based |
+| ------------------ | -------------- | ----------------- |
+| 儲存方式               | 固定大小陣列         | 動態鏈結節點            |
+| 是否有容量限制            | ✅ 有 (MAX_SIZE) | ❌ 無               |
+| 記憶體配置              | 一次分配整個陣列       | 每次 Push 時動態分配     |
+| 操作速度               | 快（陣列索引）        | 稍慢（需 malloc/free） |
+| Overflow/Underflow | 需檢查 top 範圍     | 只需檢查 top 是否為 NULL |
+| 適合情境               | 已知資料量          | 資料量未知或變動大         |
+
+---
+
+## ✅ 六、完整示例程式 (C)
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int data;
+    struct Node* next;
+} Node;
+
+Node* top = NULL; // 初始化為空堆疊
+
+void push(int value) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = value;
+    newNode->next = top;
+    top = newNode;
+}
+
+void pop() {
+    if (top == NULL) {
+        printf("Stack is empty!\n");
+        return;
+    }
+    Node* temp = top;
+    printf("Popped: %d\n", temp->data);
+    top = top->next;
+    free(temp);
+}
+
+void display() {
+    Node* current = top;
+    printf("Stack: ");
+    while (current != NULL) {
+        printf("%d ", current->data);
+        current = current->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    push(10);
+    push(20);
+    push(30);
+    display();   // Stack: 30 20 10
+    pop();       // Popped: 30
+    display();   // Stack: 20 10
+    return 0;
+}
+```
+
+---
+
+## p.26 Queue (Linked List)   
+
+
