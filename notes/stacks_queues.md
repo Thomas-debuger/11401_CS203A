@@ -971,8 +971,8 @@ int main() {
 
 | 堆疊         | 佇列                              |
 | ---------- | ------------------------------- |
-| 復原功能（Undo） | 工作排程（Task Scheduling）           |
-| 函式呼叫 / 遞迴  | 資源共享（Resource Sharing）          |
-| 表達式求值      | 緩衝區 (Buffering)，例如 I/O 佇列、印表機佇列 |
+| 復原功能（Undo functionality） | 工作排程（Task Scheduling）           |
+| 函式呼叫（Function calls） / 遞迴（recursion）  | 資源共享（Resource Sharing）          |
+| 表達式求值（expression evalution）      | 緩衝區 (Buffering)，例如 I/O 佇列、印表機佇列 |
 
 ---
