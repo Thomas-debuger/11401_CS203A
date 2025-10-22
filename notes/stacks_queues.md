@@ -364,8 +364,10 @@ int Front() {
 
 ## 🌀 Extra Burden（額外負擔）
 
-* 必須管理 **環狀緩衝區邏輯**（circular buffer），使用 `% MAX_SIZE` 來實現「回繞」。
+* 必須管理 **環狀緩衝區邏輯**（circular buffer），使用 % MAX_SIZE 讓 front 和 rear 能在尾端「繞回」開頭。
 * 檢查溢出（overflow）與欠流（underflow）的條件。
+  Overflow condition:(rear + 1) % MAX_SIZE == front   
+  Underflow condition:front == rear   
 * 需要兩個指標（`front`、`rear`），有時加上 `count` 變數會更容易。
 
 ---
@@ -391,16 +393,6 @@ rear  = -1
 
 ---
 
-## 🧮 Complexity
-
-| Operation | Time | Space       |
-| --------- | ---- | ----------- |
-| Enqueue   | O(1) | O(MAX_SIZE) |
-| Dequeue   | O(1) | O(MAX_SIZE) |
-
----
-
-
 | 操作          | front | rear | queue[] 狀態                    |
 | :---------- | :---: | :--: | :---------------------------- |
 | 初始          |   -1  |  -1  | [ , , , , ]                   |
@@ -411,6 +403,15 @@ rear  = -1
 | Enqueue(40) |   1   |   3  | [10,20,30,40, ]               |
 | Enqueue(50) |   1   |   4  | [10,20,30,40,50]              |
 | Enqueue(60) |   1   |   0  | [60,20,30,40,50] （繞回）         |
+
+---
+
+## 🧮 Complexity
+
+| Operation | Time | Space       |
+| --------- | ---- | ----------- |
+| Enqueue   | O(1) | O(MAX_SIZE) |
+| Dequeue   | O(1) | O(MAX_SIZE) |
 
 
 ## p.23 補充   
