@@ -858,7 +858,7 @@ b. Target->next = Insert
 ## p.22 Insert Element in the Beginning of the Linked List   
 
 Target = Head  
-a. hwad = Insert  
+a. head = Insert  
 b. Insert->next = Target  
 
 ## p.24 Insert Element in the End of the Linked List
