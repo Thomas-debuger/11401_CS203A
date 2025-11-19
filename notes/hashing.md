@@ -911,3 +911,62 @@ slot[9] = 43
 
 ---
 
+# p.47 Secondary Clustering   
+
+---
+
+# ✅ **Secondary Clustering（二次群聚）**
+
+**定義：**
+
+> 在 **Open Addressing Hash Table** 中，不同的 keys 如果 **hash 到相同的初始 index（h(k))**，
+> 即使使用 Quadratic Probing 或其他探測方法，它們會 **沿著相同的探測序列**，
+> 形成一種群聚，稱為 **Secondary Clustering**。
+
+---
+
+# 🔹 **公式示意**
+
+* Hash function：`h(k) = k mod 10`
+* Quadratic Probing：`index(i) = (h(k) + c1*i + c2*i^2) mod 10`
+* c1, c2 常設為 1
+
+---
+
+# 🔹 **差別於 Primary Clustering**
+
+| 特性   | Primary Clustering              | Secondary Clustering                           |
+| ---- | ------------------------------- | ---------------------------------------------- |
+| 發生原因 | 連續填滿槽形成 cluster（Linear Probing） | 不同 key hash 到同一初始 index → probe sequence 相同    |
+| 範圍   | 整個 cluster                      | 只針對同一個初始 index 的 keys                          |
+| 避免方法 | Quadratic / Double Hashing      | **Double Hashing**（不同 key 會有不同 probe sequence） |
+
+---
+
+# 🔹 **示意例子**
+
+假設：
+
+* Table size m = 10
+* Quadratic Probing：`index(i) = (h(k) + i + i^2) mod 10`
+* 插入 keys = 23, 33, 43
+
+1. **23 → h(23)=3 → slot[3] 空 → 放入**
+2. **33 → h(33)=3 → collision → Quadratic Probing → slot[5]**
+3. **43 → h(43)=3 → collision → Quadratic Probing → slot[9]**
+
+* 注意：所有 key 的初始 index 都是 3 → probe sequence 一樣 → **secondary clustering 發生**
+
+如果你用 **Double Hashing**：
+
+* probe sequence = `(h1(k) + i*h2(k)) mod m`
+* 不同 key 的 h2(k) 不同 → probe sequence 不同 → 避免 secondary clustering
+
+---
+
+# 🔹 **一句話理解**
+
+> **Secondary Clustering = 不同 keys 初始 hash 相同 → 探測序列相同 → 形成小型群聚。**
+
+---
+
