@@ -1091,3 +1091,10 @@ h2(43) = 7 – (43 mod 7) = 7 – 1 = 6
 
 ---
 
+# 比較   
+
+| 方法                    | Probe 公式                             | 優點                    | 缺點                   | 會產生的 Clustering                          |
+| --------------------- | ------------------------------------ | --------------------- | -------------------- | ---------------------------------------- |
+| **Linear Probing**    | index(i) = (h(k) + i) mod m          | 簡單、快                  | 容易形成長長的連續群集          | **Primary Clustering**（嚴重）               |
+| **Quadratic Probing** | index(i) = (h(k) + c₁i + c₂i²) mod m | 減少 primary clustering | 可能無法探訪到所有 slot、需精選 m | **Secondary Clustering**（仍存在）            |
+| **Double Hashing**    | index(i) = (h₁(k) + i·h₂(k)) mod m   | 分布最均勻、探查路徑多樣          | 需要兩個好的 hash 函數       | **最少 Clustering**（無 primary & secondary） |
