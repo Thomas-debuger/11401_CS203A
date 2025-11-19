@@ -802,3 +802,112 @@ slot[5] = 43
 
 ---
 
+# p.45-46 Quadratic Probing   
+
+---
+
+# **前提**
+
+* Table size：`m = 10`（slots 0~9）
+* Hash function：`h(k) = k mod 10`
+* Collision 解決：**Quadratic Probing**
+
+  ```
+  index(i) = (h(k) + c1*i + c2*i^2) mod m
+  ```
+* 這裡假設：`c1 = 1, c2 = 1`
+* 要插入的 keys：23, 33, 43
+
+---
+
+# **Step 1: 插入 23**
+
+1. 計算初始 index：
+
+   ```
+   h(23) = 23 mod 10 = 3
+   i = 0 → index = (3 + 0 + 0) mod 10 = 3
+   ```
+2. slot[3] 空 → 插入 23
+   ✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+```
+
+---
+
+# **Step 2: 插入 33**
+
+1. 計算初始 index：
+
+   ```
+   h(33) = 33 mod 10 = 3
+   i = 0 → index = 3 (slot[3] 已被 23 佔用)
+   ```
+2. Collision → 開始 Quadratic Probing：
+
+| i | Computed Index           | 說明                |
+| - | ------------------------ | ----------------- |
+| 1 | (3 + 1 + 1^2) mod 10 = 5 | slot[5] 空 → 插入 33 |
+
+✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+slot[5] = 33
+```
+
+---
+
+# **Step 3: 插入 43**
+
+1. 計算初始 index：
+
+   ```
+   h(43) = 43 mod 10 = 3
+   i = 0 → index = 3 (slot[3] 被 23 占用)
+   ```
+2. Collision → Quadratic Probing：
+
+| i | Computed Index           | 說明                          |
+| - | ------------------------ | --------------------------- |
+| 1 | (3 + 1 + 1^2) mod 10 = 5 | slot[5] 被 33 占用 → collision |
+| 2 | (3 + 2 + 2^2) mod 10 = 9 | slot[9] 空 → 插入 43           |
+
+✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+slot[5] = 33
+slot[9] = 43
+```
+
+---
+
+# **Observation（觀察）**
+
+1. **Quadratic Probing 的 gap**
+
+   * 探測間距隨 i 的平方增長 → `0, 2, 6, 12…` mod m
+   * 不像 Linear Probing 那樣連續 → **減少 Primary Clustering**
+
+2. **可能問題**
+
+   * 會跳過一些 slots（不保證每個 slot 都會被檢查到）
+   * 如果 table size 或 c1/c2 選得不合適，可能找不到空位 → 必須小心設計
+
+---
+
+# **一句話理解**
+
+> Quadratic Probing = 每次碰撞跳到距離 **i² + i** 的 slot → 減少連續群聚，但可能跳過一些槽，需要設計合適的 table size。
+
+---
+
