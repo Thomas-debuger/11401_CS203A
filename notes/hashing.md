@@ -635,3 +635,119 @@ Probing = 系統性搜尋 hash table 中的空槽（empty slot），直到找到
 
 ---
 
+# p.42-43 Linear Probing   
+
+---
+
+# **前提**
+
+* Hash function：`h(k) = k mod m`
+* Table size：`m = 10` → slots 0~9
+* Collision 處理方法：**Linear Probing**
+
+  ```
+  index(i) = (h(k) + i) mod m
+  i = 0,1,2,...
+  ```
+* 要插入的 key：23, 33, 43
+
+---
+
+# **Step 1: 插入 23**
+
+1. 計算 hash index：
+
+   ```
+   h(23) = 23 mod 10 = 3
+   ```
+2. 檢查 slot[3] 是否空的：
+
+   * slot[3] 空 → 直接放入 23
+     ✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+```
+
+---
+
+# **Step 2: 插入 33**
+
+1. 計算 hash index：
+
+   ```
+   h(33) = 33 mod 10 = 3
+   ```
+2. slot[3] 已經被 23 佔用 → **發生 collision**
+3. Linear Probing 開始探測：
+
+   ```
+   i = 1 → (3 + 1) mod 10 = 4
+   ```
+4. 檢查 slot[4]：
+
+   * slot[4] 空 → 插入 33
+     ✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+slot[4] = 33
+```
+
+---
+
+# **Step 3: 插入 43**
+
+1. 計算 hash index：
+
+   ```
+   h(43) = 43 mod 10 = 3
+   ```
+2. slot[3] 已被佔用 → collision
+3. Linear Probing 開始探測：
+
+   ```
+   i = 1 → (3 + 1) mod 10 = 4
+   ```
+
+   * slot[4] 已被 33 佔用 → collision
+
+   ```
+   i = 2 → (3 + 2) mod 10 = 5
+   ```
+
+   * slot[5] 空 → 插入 43
+     ✅ 插入成功
+
+**Table 狀態：**
+
+```
+slot[3] = 23
+slot[4] = 33
+slot[5] = 43
+```
+
+---
+
+# **觀察（Observation）**
+
+1. Linear Probing 依序檢查下一個 slot → **很直覺、簡單**
+2. 缺點：**Primary Clustering**
+
+   * 連續的 collision 會讓這段區域的 slots 越來越擁擠
+   * 未來插入的 key 可能要跳過好幾個 slot 才能找到空位
+   * 搜尋 / 插入效率下降
+
+---
+
+# **一句話理解**
+
+> Linear Probing 做的事情就是：**碰到 collision → 往下一格格檢查 → 直到找到空位為止**。
+> 插入的順序會形成「一條連續的 filled slots」區塊，就是 primary clustering 的來源。
+
+---
+
