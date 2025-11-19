@@ -530,3 +530,71 @@ h("cat") = 99*31^0 + 97*31^1 + 116*31^2
 
 ---
 
+# p.38 What is Probing?    
+
+---
+
+# ✅ **Probing（探測法）**
+
+**定義：**
+
+> Probing 是 **解決碰撞（collision）** 的方法，用於 **Open Addressing（開放定址）Hash Table**。
+> 當多個 key 被 hash 到相同 index 時，proving 決定 **如何尋找下一個可用位置**。
+
+---
+
+# 🧩 **公式化說法**
+
+```
+Probing = 系統性搜尋 hash table 中的空槽（empty slot），直到找到可以放置的 index
+```
+
+* hash index = h(key)
+* 如果該位置已被佔用 → 用 probing 找下一個空位
+
+---
+
+# 🔹 **常見 Probing 方法**
+
+1. **Linear Probing（線性探測）**
+
+   ```
+   h(k), h(k)+1, h(k)+2, ...
+   ```
+
+   優點：簡單
+   缺點：容易群聚（clustering）
+
+2. **Quadratic Probing（二次探測）**
+
+   ```
+   h(k), h(k)+1², h(k)+2², h(k)+3², ...
+   ```
+
+   優點：減少群聚
+   缺點：不保證一定找到空位
+
+3. **Double Hashing（雙雜湊）**
+
+   ```
+   h(k), h(k) + h2(k), h(k) + 2*h2(k), ...
+   ```
+
+   優點：群聚最少
+   缺點：需設計第二個 hash function
+
+---
+
+# 🧠 **補充理解**
+
+* **目的**：避免在 open addressing 中因碰撞而無法插入資料
+* **特點**：所有資料仍存於單一 table，沒有鏈結串列
+* **效率**：取決於 **load factor λ**，λ 越大，proving 次數越多
+
+---
+
+# 🔹 **一句話總結**
+
+> **Probing = 碰撞後，依規則在 hash table 中找下一個空位的系統性搜尋方法。**
+
+---
