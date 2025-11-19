@@ -68,14 +68,20 @@ int myHashString(const std::string& str, int m) {
 
 /*方法2
 int myHashString(const std::string& str, int m) {
-    unsigned long hash = 0; // 保留
-    unsigned long long power = 1;
-    const int p = 31;
+    unsigned long hash = 0;              
+    unsigned long long power = 1;// 儲存 p^i，從 i=0 開始
+    const int p = 31;// 多項式哈希的底數（常用質數）
 
-    for (char c : str) {
+    for (char c : str) {// 走訪字串每個字元
+        // 計算多項式哈希的一項：字元 ASCII 值 * p^i
+        // 先對 m 做 modulo 避免溢位
         hash += (static_cast<unsigned long long>(c) * power) % m;
+
+        // 更新 power = p^(i+1)，每步也取 modulo m 避免過大
         power = (power * p) % m;
     }
-    return static_cast<int>(hash % m);
+
+    return static_cast<int>(hash % m);   // basic division method
 }
+
 */
