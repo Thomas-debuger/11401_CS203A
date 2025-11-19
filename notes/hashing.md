@@ -598,3 +598,40 @@ Probing = 系統性搜尋 hash table 中的空槽（empty slot），直到找到
 > **Probing = 碰撞後，依規則在 hash table 中找下一個空位的系統性搜尋方法。**
 
 ---
+
+# p.39 Typing of Probing   
+
+---
+
+# ✅ **Typing of Probing（探測法類型）**
+
+| **Method**            | **Formula**                   | **Behavior（行為）**          | **Pros / Cons（優缺點）**                                         |
+| --------------------- | ----------------------------- | ------------------------- | ------------------------------------------------------------ |
+| **Linear Probing**    | `(h(k) + i) mod m`            | 每次檢查下一個 slot（依序檢查）        | **Pros:** 簡單實作<br>**Cons:** 容易產生 **Primary Clustering**（群聚）  |
+| **Quadratic Probing** | `(h(k) + c₁·i + c₂·i²) mod m` | 每次探測間距呈二次增加               | **Pros:** 減少群聚<br>**Cons:** 可能跳過一些 slot，表容量必須精心選擇            |
+| **Double Hashing**    | `(h1(k) + i·h2(k)) mod m`     | 用第二個 hash function 決定探測步長 | **Pros:** 分布均勻，群聚最少<br>**Cons:** 計算量較大，需要設計第二個 hash function |
+
+---
+
+# 🔹 **補充說明**
+
+* `i` = 探測序列索引 (0,1,2,…)
+* `h(k), h1(k), h2(k)` = hash function(s)
+* `m` = hash table 大小
+
+## ✔ **理解關鍵**
+
+1. Linear → 簡單但群聚
+2. Quadratic → 減少群聚，但可能找不到空位（需 λ < 0.5）
+3. Double Hashing → 最佳 open addressing 方法，但需要額外計算
+
+---
+
+# 🔹 **一句話記憶技巧**
+
+> Linear → 直走
+> Quadratic → 跳得越來越遠
+> Double → 用另一把尺量步長
+
+---
+
