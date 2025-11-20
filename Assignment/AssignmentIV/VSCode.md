@@ -1,21 +1,22 @@
-# 將VSCode連至Github的心路歷程    
+英文版：
+# My Journey Connecting VSCode to GitHub
 ---
-**Step1**   
-我的VSCode和Git是在高中時就安裝完成的，當時的我是照著這部影片跟著做，影片網址：https://www.youtube.com/watch?v=DMWD7wfhgNY    
+**Step 1**
+I installed VSCode and Git in high school. Back then, I followed this video tutorial: https://www.youtube.com/watch?v=DMWD7wfhgNY
 
-**Step2**   
-這裡是我覺得最困難的地方，因為之前的我在做Github筆記時，都是直接在Github網站上做編輯的，而教授這次的作業是希望我們在VSCode編輯，並將編輯後的成果自動同步到Github上。   
-- Step2-1：按下左上角的檔案後，點選"開新視窗"    
-- Step2-2：在左邊選單的檔案總管，或是分支的分頁選擇"複製存放庫"     
-- Step2-3：點擊"從GitHub複製"就會自動跳轉到瀏覽器授權畫面   
-- Step2-4：登入GitHub帳號成功授權後就會引導回到VSCode   
-- Step2-5：可以開始建立新檔案和內容，並且切換分支頁面，檔案後面會有一個英文單字，對應的意思如下   
-```   
-- U - 新建檔案   
-- A - 加入追蹤   
-- M - 檔案相對上個commit版本有所變更   
-```   
-<補充>如果想用指令下也可以在VSCode叫出終端機操作（使用指令或從上方工具列開）  
+**Step 2**
+This was the most difficult part for me. Previously, when I made notes on GitHub, I edited directly on the GitHub website. This assignment required us to edit in VSCode and automatically sync the results to GitHub.
 
-**Step3**    
-這裡是我遇到第二困難的地方，當我在VSCode修改完成是碼後，點選頁面左邊的"原始檔控制（CTRL + SHIFT + G）"後，必須要先在訊息欄位填寫一句簡短的標題，讓自己或其他使用者能夠再看完標題後，大概理解開發者在這次的更新和修改中做了甚麼動作。寫完訊息後再點選"提交"按鈕，最後再點選"同步更新"。在這步驟中，我遇到最大的難題是在最一開始時，我並不知道要在信息欄位寫上標題，這樣會使我們的更新無法成功同步到github。
+- Step 2-1: Click the file icon in the upper left corner, then select "Open in new window".
+- Step 2-2: In the left-hand menu, under File Explorer or the Branches tab, select "Copy to repository".
+- Step 2-3: Clicking "Copy from GitHub" will automatically redirect you to the browser's authorization screen.
+- Step 2-4: After successfully authorizing your GitHub account, you will be redirected back to VS Code.
+- Step 2-5: You can now create new files and content, and switch branches. Each file will have an English word next to its name, with the following meanings:
+```
+- U - Create a new file
+- A - Add to tracking
+- M - File has changed from the previous commit
+```
+<Supplement> If you want to use commands, you can also open the terminal in VS Code (using commands or opening it from the toolbar at the top).
+
+**Step 3** This is where I encountered the second difficulty. After modifying the code in VS Code, when I clicked "Source Control (CTRL + SHIFT + G)" on the left side of the page, I had to first enter a short title in the message box so that I or other users could understand what actions the developer had taken in this update and modification. After writing the message, I clicked the "Commit" button, and finally clicked "Sync Updates." The biggest problem I encountered in this step was that initially, I didn't know I needed to enter a title in the message box, which prevented our update from successfully syncing to GitHub.
