@@ -13,27 +13,27 @@
    Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
 #include "hash_fn.hpp"
-#include <cmath>// for std::floor and std::pow
+#include <cmath>// for std::ceil and std::pow
 
-/*
-@brief Computes the hash index for an integer key.
-@param key The integer key to hash.
-@param m The table size.
-@return The computed hash index.
-*/
+ /*
+ @brief Computes the hash index for an integer key.
+ @param key The integer key to hash.
+ @param m The table size.
+ @return The computed hash index.
+ */
 
-// Multiplication Method：h(k) = floor(m * (k*A mod 1)), 0 < A < 1
+// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
 
-    double A = 0.6180339887; // 常用常數 (0 < A < 1)，接近黃金比例
+    double A = 3.1415926;// 使用數學常數圓周率（π）的近似值作為常數
 
     /*錯誤寫法：因 % 是整數取餘數運算符，不能用在double/float
-    double h = floor(m*((key*A)%1));
-    key = h;
+    (key * A) % 1;
     */
     double temp = key * A - floor(key * A);// (key*A) mod 1
-    double temp2 = floor(m * temp);// 完整公式：floor(m * (k*A mod 1))
+    temp = 1 - temp; // 1 - ( (k*A) mod 1)
+    double temp2 = ceil(m * temp);// 完整公式：h(k) = ceil(m * (1 - (k*A mod 1)))，避免某些key導致hash值集中在表格前端
     key = static_cast<int>(temp2);// 將結果轉為整數型(double -> int)
 
     return key % m;  // basic division method
@@ -48,40 +48,36 @@ int myHashInt(int key, int m) {
 @return The computed hash index.
 */
 
-// String Hashing：Polynomial rolling hash
+// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
 int myHashString(const std::string& str, int m) {
-    unsigned long hash = 0;
+    unsigned long hash = 0;       
     // TODO: replace with your own design
 
-    int temp = 0, p = 31;// temp 用來存字元 ASCII 值，p 是多項式哈希的底數
+    const int p = 31; // 多項式底數
 
     for (int i = 0; i < str.size(); i++) { // 走訪字串每個字元
-        //temp = str[i] - '0'; 錯：這個寫法只適合字元'0'..'9'。字母字串，'c'-'0' = 99-48 = 51 是硬算ASCII，也不是正確做法。
-        temp = static_cast<int>(str[i]);// 取得字元 ASCII 值
-
-        //hash += temp * pow(p, i); 可能會溢位，所以要先mod m，利用(a+b+c) mod m = (a mod m + b mod m + c mod m) mod m
-        hash += (static_cast<unsigned long>(temp * pow(p, i))) % m; // 避免溢位。pow(p, i)回傳值為double
+        hash += static_cast<unsigned long>(str[i]) * (i + 1) * pow(p, str.size() * i); // 每個字元的 ASCII 值 * (字元位置 + 1) * p^(字串長度 * i)，再累加到 hash  
+        hash %= m; // 每一步都 mod m 避免溢位
     }
 
-    return static_cast<int>(hash % m);  // basic division method
+    return static_cast<int>(hash % m); // basic division method
 }
+
+
 
 /*方法2
 int myHashString(const std::string& str, int m) {
-    unsigned long hash = 0;              
-    unsigned long long power = 1;// 儲存 p^i，從 i=0 開始
-    const int p = 31;// 多項式哈希的底數（常用質數）
+    unsigned long hash = 0;       // 保留作業要求
+    const int p = 31;             // 多項式底數
+    unsigned long long power = 1; // p 的累乘
 
-    for (char c : str) {// 走訪字串每個字元
-        // 計算多項式哈希的一項：字元 ASCII 值 * p^i
-        // 先對 m 做 modulo 避免溢位
-        hash += (static_cast<unsigned long long>(c) * power) % m;
-
-        // 更新 power = p^(i+1)，每步也取 modulo m 避免過大
-        power = (power * p) % m;
+    for (int i = 0; i < str.size(); i++) {
+        hash += (static_cast<unsigned long long>(str[i]) * (i + 1) * power) % m; // 每個字元 ASCII * (位置+1) * power
+        hash %= m;                     // 每一步都 mod m 避免溢位
+        power = (power * p) % m;       // 更新 power = p^(i+1) % m
     }
 
-    return static_cast<int>(hash % m);   // basic division method
+    return static_cast<int>(hash % m);  // basic division method
 }
 
 */
