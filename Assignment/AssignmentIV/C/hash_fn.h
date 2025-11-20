@@ -9,7 +9,8 @@
    Development History:
     - 2025/11/17: Initial implementation
 
-   Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
+   Developer: Yun-Hong Wei <thomaswei988@gmail.com>
+   Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
 #ifndef HASH_FN_H
 #define HASH_FN_H

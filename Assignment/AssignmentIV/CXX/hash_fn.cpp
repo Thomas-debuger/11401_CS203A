@@ -10,7 +10,7 @@
     - 2025/11/11: Initial implementation
     - 2025/11/17: Refactored to use hash_fn.hpp
 
-   Developer: Yu-Feng Huang <yfhuang@saturn.yzu.edu.tw>
+   Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
 #include "hash_fn.hpp"
 #include <cmath>// for std::floor and std::pow
