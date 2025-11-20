@@ -13,7 +13,7 @@
    Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
 #include "hash_fn.hpp"
-#include <cmath>// for std::ceil and std::pow
+#include <cmath>// for std::floor and std::ceil and std::pow
 
  /*
  @brief Computes the hash index for an integer key.
