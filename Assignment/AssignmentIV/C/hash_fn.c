@@ -14,7 +14,7 @@
  */
 
 #include "hash_fn.h"
-#include <math.h>   // for floor() and pow()
+#include <math.h>   // for ceil(), floor(), pow()
 #include <string.h> // for strlen()
 
 /*
@@ -24,16 +24,21 @@
 @return The computed hash index.
 */
 
-// Multiplication Method：h(k) = floor(m * (k*A mod 1)), 0 < A < 1 
+// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
 
-    double A = 0.6180339887; // 常用常數 (0 < A < 1)，接近黃金比例
-    double temp = key * A - floor(key * A);// 計算 key*A 的小數部分 (key*A mod 1)
-    double temp2 = floor(m * temp);// 將小數部分乘上表格大小 m，並取整數
-    key = (int)temp2;// 將結果轉為整數
+    double A = 3.1415926; // 使用 π 的近似值作為常數
 
-    return key % m;  // division method example
+    /* 錯誤示範：(key*A)%1 不能用 %，因為 % 是整數餘數 */
+    /* (key * A) % 1; */
+
+    double temp = key * A - floor(key * A); // (key*A) mod 1
+    temp = 1 - temp; // 1 - ( (k*A) mod 1)
+    double temp2 = ceil(m * temp); // 完整公式：h(k) = ceil(m * (1 - (k*A mod 1)))，避免某些key導致hash值集中在表格前端
+    key = (int)temp2; // 將結果轉為整數型(double -> int)
+
+    return key % m;  // basic division method
 }
 
 /*
@@ -43,19 +48,18 @@ int myHashInt(int key, int m) {
 @return The computed hash index.
 */
 
-// String Hashing：Polynomial rolling hash
+// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
 int myHashString(const char* str, int m) {
-    unsigned long hash = 0;
+    unsigned long hash = 0;       
     // TODO: replace with your own design
 
-    int temp = 0, p = 31;// temp用來存字元ASCII值，p是多項式哈希的底數
+    const int p = 31; // 多項式的底數
 
-    int len = strlen(str);// 取得字串長度
+    int len = strlen(str); // 計算字串長度，用來控制迴圈與次方
+
     for (int i = 0; i < len; i++) { // 走訪字串每個字元
-        temp = (int)str[i]; // 取得字元ASCII值
-
-        // 避免溢位，先對 m 做 modulo
-        hash += ((unsigned long)(temp * pow(p, i))) % m;// 避免溢位。pow(p, i)回傳值為double
+        hash += (unsigned long)str[i] * (i + 1) * pow(p, len * i);// 每個字元的 ASCII 值 × (字元位置+1) × p^(len * i)，使每個字元貢獻與位置大幅不同
+        hash %= m; // // 每一步都對 m 取餘數，避免 overflow（也讓 hash 更分散）
     }
 
     return (int)(hash % m); // basic division method
@@ -63,22 +67,20 @@ int myHashString(const char* str, int m) {
 
 
 
-/* 方法2：更安全的做法，避免 pow() double 精度問題
+/* 方法2（不使用 pow，比較安全）
 int myHashString(const char* str, int m) {
-    unsigned long hash = 0;          // hash值初始為0 
-    unsigned long long power = 1;    // 儲存p^i，從i=0開始
-    int p = 31;                      // 多項式哈希的底數（常用質數）
+    unsigned long hash = 0;       // 保留作業要求
+    const int p = 31;
+    unsigned long long power = 1;
 
-    int len = strlen(str);           // 取得字串長度
-    for (int i = 0; i < len; i++) { // 走訪字串每個字元
-        // 計算多項式哈希的一項：str[i] * p^i
-        // 先對 m 做 modulo 避免溢位
-        hash += ((unsigned long long)str[i] * power) % m;
+    int len = strlen(str);
 
-        power = (power * p) % m; // 更新 power = p^(i+1)，每步也取 modulo m 避免過大
+    for (int i = 0; i < len; i++) {
+        hash += ((unsigned long long)str[i] * (i + 1) * power) % m;
+        hash %= m;
+        power = (power * p) % m;
     }
 
-    return (int)(hash % m); // basic division method
+    return (int)(hash % m);
 }
-
 */
