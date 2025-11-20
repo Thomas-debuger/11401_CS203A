@@ -22,7 +22,7 @@
  @return The computed hash index.
  */
 
-// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
+//「這個函式把輸入的 key 經過我設計的一套以小數部分運算為核心的轉換公式，重新打散後映射成 0 到 m-1 的雜湊值，讓結果更平均。」
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
 
@@ -48,7 +48,7 @@ int myHashInt(int key, int m) {
 @return The computed hash index.
 */
 
-// 以課程講義的方法為基底，加上自己的想法後，衍生出更複雜的算式，並確保自己想出來的方法與教授給的講義內容的方法所執行後的結果不同，達到教授的作業要求
+//「這個函式將字串的每個字元根據其 ASCII 值、位置和一個多項式權重進行加權累加，然後映射成 0 到 m-1 的雜湊值，確保不同字串能均勻分布在雜湊表中。」
 int myHashString(const std::string& str, int m) {
     unsigned long hash = 0;       
     // TODO: replace with your own design
