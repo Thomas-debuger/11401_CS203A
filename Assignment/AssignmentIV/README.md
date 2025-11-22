@@ -4,23 +4,93 @@ This assignment focuses on the design and observation of hash functions using C/
 Students are expected to implement and analyze the behavior of hash functions, 
 evaluate their efficiency, and understand their applications in computer science.
 
-Developer: [Your Name]  
-Email: [Your email]  
+Developer: Yun-Hong Wei 
+Email: <thomaswei988@gmail.com>  
 
 ## My Hash Function
 ### Integer Keys 
-- Formula / pseudocode:
-  ```text
-  [Your implementation here]
+- Formula / pseudocode:   
+  ```text   
+  Formula:   
+  h(k) = ceil(m * (1 - (k*A mod 1)))   
+  
+  Pseudocode:   
+  function hash(k, m, A):   
+    x = k * A   
+    frac = x - floor(x)   // fractional part = (k*A mod 1)       
+    value = m * (1 - frac)   
+    h = ceil(value)   
+    return h   
+
   ```
-- Rationale: [Explain your design choices and how they minimize collisions.]
+- Rationale:   
+
+✔ Explain my design choices:    
+This hash function is built around using the fractional part of kA as a way to spread keys across [0,1) without introducing obvious patterns. When the key k is multiplied by an irrational-like constant A, the sequence of fractional parts (kAmod1) tends to move through the interval in a smooth but irregular manner. This keeps nearby keys from falling into neighboring hash slots.   
+
+The function computes => h(k)=⌈m⋅(1−(kAmod1))⌉   
+
+Reversing the fractional part and scaling it by m maps the distribution to the full table range, and the ceiling guarantees that every output stays within [1,m] consistently.   
+
+✔ Why this design reduces collisions:   
+1.Uniform spread from the fractional part
+The fractional part of kA is known to be close to uniformly distributed when A is irrational, so the resulting hash values naturally spread across the table instead of piling up in specific regions.   
+
+2.Breaks simple integer patterns   
+Basic formulas like k mod m often produce visible patterns—especially with sequential keys. Using kA disrupts these patterns, giving outputs that behave much less predictably and reducing clustering.   
+
+3.Full-range scaling with m   
+Multiplying by m ensures the hash function actually uses the entire table instead of favoring certain sections, which helps avoid collisions caused by uneven bucket usage.   
+
+4.Ceiling gives stable, unbiased bucket selection   
+The use of ⌈⋅⌉ keeps each result cleanly in an integer bucket and avoids skewing values toward the lower end of the range.   
+
+✔ Summary   
+By combining the fractional-part idea with an irrational constant and full-range scaling, this design produces hash outputs that are evenly distributed and resistant to predictable patterns. As a result, collisions are less frequent than in simpler modular hash functions.   
 
 ### Non-integer Keys
-- Formula / pseudocode:
+- Formula / pseudocode:   
   ```text
-  [Your implementation here]
+  Formula:    
+  hash(str)=[ ∑(i=0 to n−1)ASCII(str[i]) ⋅ (i+1) ⋅ p^(n⋅i) ] mod m   
+
+  Pseudocode:    
+  function myHashString(str, m):   
+    hash = 0   
+    p = 31   // polynomial base                    
+    n = length(str)   
+
+    for i from 0 to n-1:   
+        char_val = ASCII(str[i])    
+        hash = hash + char_val * (i + 1) * (p^(n * i))    
+        hash = hash mod m   // avoid overflow        
+
+    return hash mod m   
   ```
-- Rationale: [Explain your approach and its effectiveness for non-integer keys.]
+- Rationale:     
+✔ Explain my approach:    
+This hash function converts a string into an integer by combining each character’s ASCII value with its position and a polynomial weight. Each character is multiplied by (i+1) and p^(n⋅i), where i is the index and n is the string length. This makes characters in different positions affect the hash differently, so even small changes in the string produce distinct hash values. Finally, taking the remainder modulo m ensures the output fits neatly into the hash table.   
+
+The function computes:   
+hash(str)=[ ∑(i=0 to n−1)ASCII(str[i]) ⋅ (i+1) ⋅ p^(n⋅i) ] mod m    
+
+Scaling by m and taking modulo ensures that all outputs are within the valid bucket range.   
+
+✔ Its effectiveness for non-integer keys:   
+1.Weighted character contribution     
+Characters in different positions have different influence, so similar strings produce different hash values, which reduces clustering.    
+
+2.Polynomial weighting    
+Using p^(n⋅i) spreads out the hash values in a way that avoids simple sequential patterns common in strings with similar prefixes.   
+
+3.Modulo keeps values in range   
+Taking modulo m ensures all hash values map to valid table slots, preventing overflow and uneven distribution.   
+
+4.Position factor (i+1) adds variation     
+Multiplying by i+1 further differentiates strings that contain the same characters in different orders, reducing collisions for anagrams or similar strings.    
+
+✔ Summary:   
+By combining ASCII values, position weighting, and polynomial powers, this hash function converts strings into integers that are well distributed across the hash table. This reduces clustering, spreads keys evenly, and makes collisions less frequent compared to simpler hashing methods like direct modulo.   
 
 ## Experimental Setup
 - Table sizes tested (m): 10, 11, 37
@@ -31,11 +101,12 @@ Email: [Your email]
 - Standard: C23 and C++23
 
 ## Results
+Integers:   
 | Table Size (m) | Index Sequence         | Observation              |
 |----------------|------------------------|--------------------------|
-| 10             | 1, 2, 3, 4, ...        | Pattern repeats every 10 |
-| 11             | 10, 0, 1, 2, ...       | More uniform             |
-| 37             | 20, 21, 22, 23, ...    | Near-uniform             |
+| 10             | 1, 9, 8, 7, 5, 4, 2, 1, 9, 8, 8, 7, 5, 4, 3, 1, 0, 8, 7, 6 | Irregular pattern, some indices repeat often |
+| 11             | 1, 10, 9, 7, 6, 4, 2, 1, 10, 9, 9, 8, 6, 4, 3, 1, 0, 9, 8, 6 | Slightly more spread out, fewer repeated slots |
+| 37             | 1, 33, 28, 23, 18, 12, 7, 2, 34, 28, 29, 24, 19, 14, 8, 3, 35, 30, 24, 19 | Near-uniform, keys cover a wider range |
 
 ## Compilation, Build, Execution, and Output
 
