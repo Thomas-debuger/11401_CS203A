@@ -101,12 +101,19 @@ By combining ASCII values, position weighting, and polynomial powers, this hash 
 - Standard: C23 and C++23
 
 ## Results
-Integers:   
+myHashInt():   
 | Table Size (m) | Index Sequence         | Observation              |
 |----------------|------------------------|--------------------------|
 | 10             | 1, 9, 8, 7, 5, 4, 2, 1, 9, 8, 8, 7, 5, 4, 3, 1, 0, 8, 7, 6 | Irregular pattern, some indices repeat often |
 | 11             | 1, 10, 9, 7, 6, 4, 2, 1, 10, 9, 9, 8, 6, 4, 3, 1, 0, 9, 8, 6 | Slightly more spread out, fewer repeated slots |
 | 37             | 1, 33, 28, 23, 18, 12, 7, 2, 34, 28, 29, 24, 19, 14, 8, 3, 35, 30, 24, 19 | Near-uniform, keys cover a wider range |
+
+myHashString():   
+| Table Size (m) | Index Sequence         | Observation              |
+|----------------|------------------------|--------------------------|
+| 10             | 5, 3, 4, 0, 9, 7, 1, 8, 3, 0 | Uneven spread, some indices repeat |
+| 11             | 9, 6, 8, 1, 8, 1, 4, 9, 4, 5 | Moderate spread, noticeable repeats |
+| 37             | 11, 16, 10, 8, 13, 18, 29, 30, 1 | Wider range, fairly uniform |
 
 ## Compilation, Build, Execution, and Output
 
@@ -226,15 +233,15 @@ Integers:
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
   ```
-  Hash table (m=10): [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  Hash table (m=11): [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  Hash table (m=37): [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, ...]
+  Hash table (m=10): [1, 9, 8, 7, 5, 4, 2, 1, 9, 8, 8, 7, 5, 4, 3, 1, 0, 8, 7, 6]
+  Hash table (m=11): [1, 10, 9, 7, 6, 4, 2, 1, 10, 9, 9, 8, 6, 4, 3, 1, 0, 9, 8, 6]
+  Hash table (m=37): [1, 33, 28, 23, 18, 12, 7, 2, 34, 28, 29, 24, 19, 14, 8, 3, 35, 30, 24, 19]
   ```
 - Example output for strings:
   ```
-  Hash table (m=10): ["cat", "dog", "bat", "cow", "ant", ...]
-  Hash table (m=11): ["fox", "cat", "dog", "bat", "cow", ...]
-  Hash table (m=37): ["bee", "hen", "pig", "fox", "cat", ...]
+  Hash table (m=10): [5, 3, 4, 0, 9, 7, 1, 8, 3, 0]
+  Hash table (m=11): [9, 6, 8, 1, 8, 1, 4, 9, 4, 5]
+  Hash table (m=37): [11, 16, 10, 8, 13, 18, 29, 30, 1]
   ```
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
