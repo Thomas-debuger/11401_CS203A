@@ -7,8 +7,13 @@
     This file contains the hash functions for integer and string keys.
 
    Development History:
-    - 2025/11/11: Initial implementation
-    - 2025/11/17: Refactored to use hash_fn.hpp
+    - 2025/11/18: Initial implementation
+    - 2025/11/19: First time done hash_fn.cpp
+    - 2025/11/20: Modified hash_fn.cpp to add function comments
+    - 2025/11/20: Revised myHashInt and myHashString functions for better distribution
+    - 2025/11/23: Transfered comments from Chinese to English
+    - 2025/11/23: Finish hash_fn.cpp
+
 
    Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
