@@ -12,72 +12,72 @@
 
    Developer: Yun-Hong Wei <thomaswei988@gmail.com>
  */
-#include "hash_fn.hpp"
-#include <cmath>// for std::floor and std::ceil and std::pow
 
- /*
+#include "hash_fn.hpp"
+#include <cmath>   // for std::floor, std::ceil, std::pow
+
+/*
  @brief Computes the hash index for an integer key.
  @param key The integer key to hash.
  @param m The table size.
  @return The computed hash index.
  */
 
-//「這個函式把輸入的 key 經過我設計的一套以小數部分運算為核心的轉換公式，重新打散後映射成 0 到 m-1 的雜湊值，讓結果更平均。」
+// "This function transforms the input key using a custom formula centered on fractional-part computation,
+//  redistributing the value before mapping it into a hash index between 0 and m-1 for better uniformity."
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
 
-    double A = 3.1415926;// 使用數學常數圓周率（π）的近似值作為常數
+    double A = 3.1415926; // Using an approximate value of the mathematical constant pi (π)
 
-    /*錯誤寫法：因 % 是整數取餘數運算符，不能用在double/float
-    (key * A) % 1;
+    /* Incorrect usage: % is the integer remainder operator and cannot be applied to double/float.
+       (key * A) % 1;
     */
-    double temp = key * A - floor(key * A);// (key*A) mod 1
-    temp = 1 - temp; // 1 - ( (k*A) mod 1)
-    double temp2 = ceil(m * temp);// 完整公式：h(k) = ceil(m * (1 - (k*A mod 1)))，避免某些key導致hash值集中在表格前端
-    key = static_cast<int>(temp2);// 將結果轉為整數型(double -> int)
 
-    return key % m;  // basic division method
+    double temp = key * A - floor(key * A); // (key * A) mod 1
+    temp = 1 - temp; // Compute 1 - ((k * A) mod 1)
+    double temp2 = ceil(m * temp); // Full formula: h(k) = ceil(m * (1 - (k*A mod 1))), helps avoid clustering at low indices
+    key = static_cast<int>(temp2); // Convert result from double to int
+
+    return key % m;  // Basic division method
 }
 
-
-
 /*
-@brief Computes the hash index for an integer key.
-@param key The integer key to hash.
+@brief Computes the hash index for a string key.
+@param key The string key to hash.
 @param m The table size.
 @return The computed hash index.
 */
 
-//「這個函式將字串的每個字元根據其 ASCII 值、位置和一個多項式權重進行加權累加，然後映射成 0 到 m-1 的雜湊值，確保不同字串能均勻分布在雜湊表中。」
+// "This function processes each character of the string using its ASCII value, its position, and a polynomial weight.
+//  The accumulated value is then mapped to 0 ~ m-1 to ensure more even distribution across the hash table."
 int myHashString(const std::string& str, int m) {
-    unsigned long hash = 0;       
+    unsigned long hash = 0;
     // TODO: replace with your own design
 
-    const int p = 31; // 多項式底數
+    const int p = 31; // Polynomial base
 
-    for (int i = 0; i < str.size(); i++) { // 走訪字串每個字元
-        hash += static_cast<unsigned long>(str[i]) * (i + 1) * pow(p, str.size() * i); // 每個字元的 ASCII 值 * (字元位置 + 1) * p^(字串長度 * i)，再累加到 hash  
-        hash %= m; // 每一步都 mod m 避免溢位
+    for (int i = 0; i < str.size(); i++) { // Iterate through each character
+        // ASCII value * (position + 1) * p^(string_length * i), accumulated into hash
+        hash += static_cast<unsigned long>(str[i]) * (i + 1) * pow(p, str.size() * i);
+        hash %= m; // Modulo at every step to prevent overflow
     }
 
-    return static_cast<int>(hash % m); // basic division method
+    return static_cast<int>(hash % m); // Basic division method
 }
 
-
-
-/*方法2
+/* Alternative method (safer, avoids pow)
 int myHashString(const std::string& str, int m) {
-    unsigned long hash = 0;       // 保留作業要求
-    const int p = 31;             // 多項式底數
-    unsigned long long power = 1; // p 的累乘
+    unsigned long hash = 0;       // Kept to satisfy assignment requirements
+    const int p = 31;             // Polynomial base
+    unsigned long long power = 1; // Accumulated power of p
 
     for (int i = 0; i < str.size(); i++) {
-        hash += (static_cast<unsigned long long>(str[i]) * (i + 1) * power) % m; // 每個字元 ASCII * (位置+1) * power
-        hash %= m;                     // 每一步都 mod m 避免溢位
-        power = (power * p) % m;       // 更新 power = p^(i+1) % m
+        hash += (static_cast<unsigned long long>(str[i]) * (i + 1) * power) % m; // ASCII * (position+1) * power
+        hash %= m;                     // Modulo each step to avoid overflow
+        power = (power * p) % m;       // Update power to p^(i+1) % m
     }
 
-    return static_cast<int>(hash % m);  // basic division method
+    return static_cast<int>(hash % m); // Basic division method
 }
-
 */
