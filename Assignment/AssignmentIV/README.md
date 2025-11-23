@@ -157,13 +157,13 @@ myHashString():
   ```
 
 ### Result Snapshot
-- Example output for integers:
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int10.png)
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int11.png)
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int37.png)
+- Example output for integers:   
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int10.png)   
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int11.png)   
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/int37.png)   
   
-- Example output for strings:
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/String.png)
+- Example output for strings:   
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/String.png)   
 
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 - Example output for integers:
