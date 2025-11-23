@@ -6,7 +6,8 @@
 **Repo 描述**：本倉庫為 11401_CS203A 課程之作業與學習筆記，包括作業程式碼、筆記、與期末專案資料等。
 
 ## 內容
-- `/assignments` - 每次作業程式碼
+- `/assignments` - 作業程式碼
+    - AssignmentIV
 - `/notes` - 自己利用課餘時間將教授上課用的簡報讀完後，整理出的複習筆記（Markdown）
     - array.md
     - Linklist.md
