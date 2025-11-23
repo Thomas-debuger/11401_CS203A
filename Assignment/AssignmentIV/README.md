@@ -183,12 +183,11 @@ myHashString():
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-- Prime vs non-prime `m`: Prime table sizes generally result in better distribution and fewer collisions.
-- Patterns or collisions: Non-prime table sizes tend to produce repetitive patterns, leading to more collisions.
-- Improvements: Use a prime table size and a well-designed hash function to enhance distribution.
+- Prime vs non-prime `m`: Using prime table sizes (such as 11 or 37) leads to more uniform hash value distribution, while non-prime sizes (like 10) introduce periodic behavior that reduces randomness.   
+- Patterns or collisions: The results with non-prime m show clear repeating sequences and clusters, indicating structural patterns and higher collision likelihood. Prime m values significantly reduce these patterns and produce more independent hash outputs.     
+- Improvements: Choose larger prime table sizes to minimize periodicity, and adopt better mixing constants or polynomial hashing to further enhance distribution quality and reduce collisions.   
 
 ## Reflection
-1. Designing hash functions requires balancing simplicity and effectiveness to minimize collisions.
-2. Table size significantly impacts the uniformity of the hash distribution, with prime sizes performing better.
-3. The design using a prime table size and a linear transformation formula produced the most uniform index sequence.
-
+1. Creating a hash function involves finding a balance between computational simplicity and producing outputs that avoid predictable patterns and collisions.     
+2. The choice of table size strongly influences the final distribution; prime values consistently yield more uniform results than non-prime sizes.         
+3. Among the tested configurations, the combination of a prime table size and a well-chosen transformation formula generated the most evenly distributed sequence of indices.     
