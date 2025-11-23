@@ -59,7 +59,7 @@ int myHashString(const char* str, int m) {
 
     for (int i = 0; i < len; i++) { // 走訪字串每個字元
         hash += (unsigned long)str[i] * (i + 1) * pow(p, len * i);// 每個字元的 ASCII 值 × (字元位置+1) × p^(len * i)，使每個字元貢獻與位置大幅不同
-        hash %= m; // // 每一步都對 m 取餘數，避免 overflow（也讓 hash 更分散）
+        hash %= m; // 每一步都對 m 取餘數，避免 overflow（也讓 hash 更分散）
     }
 
     return (int)(hash % m); // basic division method
