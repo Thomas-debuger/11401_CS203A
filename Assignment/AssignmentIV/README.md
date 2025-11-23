@@ -68,8 +68,8 @@ By combining the fractional-part idea with an irrational constant and full-range
         hash = hash mod m   // avoid overflow        
 
     return hash mod m   
-  ```
 
+  ```
 - Rationale:     
 ✔ Explain my approach:    
 This hash function converts a string into an integer by combining each character’s ASCII value with its position and a polynomial weight. Each character is multiplied by (i+1) and p^(n⋅i), where i is the index and n is the string length. This makes characters in different positions affect the hash differently, so even small changes in the string produce distinct hash values. Finally, taking the remainder modulo m ensures the output fits neatly into the hash table.   
