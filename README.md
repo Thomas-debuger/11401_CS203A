@@ -1,17 +1,56 @@
 # 11401_CS203A
 
-**課程**：資料結構（CS203A）  
-**學生**：魏允鴻（學號：<1131417>）  
-**GitHub 帳號**：Thomas-debuger  
-**Repo 描述**：本倉庫為 11401_CS203A 課程之作業與學習筆記，包括作業程式碼、筆記、與期末專案資料等。
+**課程名稱**：資料結構（CS203A）
+**學生**：魏允鴻（學號：1131417）
+**GitHub 帳號**：Thomas-debuger
 
-## 內容
-- `/assignments` - 作業程式碼
-    - AssignmentIV
-- `/notes` - 自己利用課餘時間將教授上課用的簡報讀完後，整理出的複習筆記（Markdown）
-    - array.md
-    - Linklist.md
-    - stacks_queues.md
-    - hashing.md
-## 聯絡方式
-電子郵件：thomaswei988@gmail.com   
+本倉庫整理了 11401 學年度第一學期資料結構（CS203A）課程的全部實作與學習內容。包含程式作業、課堂涵蓋主題的延伸筆記、以及期末專案相關檔案。希望透過此 Repo 系統化記錄自己的學習軌跡，也能提供未來同學在理解資料結構時做為參考。
+
+---
+
+## 📁 專案內容簡介
+
+### `/assignments`
+
+放置本課程所有程式作業的原始碼與相關文件。
+
+* **Assignment IV — Hash Function Implementation**
+  本次作業專注於「雜湊函數（Hash Function）」的設計與實作，內容包含：
+
+  * 分析不同雜湊策略的特性（Ex：將 table size 設成質數或非質數，對於造成 collision 的機率是否相同等）
+  * 撰寫自訂整數與字串雜湊函數
+  * 比較各種雜湊函數在不同輸入下的分布情形
+  * 撰寫解說文件與示例程式碼
+    整份作業以 C 和 C++ 語言完成，並在 Visual Studio Code 環境中編譯測試。
+
+---
+
+## `/notes`
+
+利用課餘時間閱讀教授課堂簡報後整理出的複習筆記（Markdown），內容清晰、條理化，搭配圖示與小型程式片段，協助快速複習核心概念。
+
+筆記包括：
+
+* `array.md` — 陣列模型、記憶體配置、複雜度分析
+* `Linklist.md` — 鏈結串列基本操作與常見陷阱
+* `stacks_queues.md` — 堆疊與佇列、應用案例與 ADT 設計
+* `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
+
+---
+
+## 🛠️ 開發環境與使用方式
+
+所有程式碼均在 **Visual Studio Code** 環境中完成，建議搭配以下工具：
+
+* GCC / MinGW 編譯器
+* VS Code C/C++ Extension
+* Makefile
+
+---
+
+## 📬 聯絡方式
+
+如對內容有任何建議或想交流資料結構的想法，歡迎聯繫：
+電子郵件：`thomaswei988@gmail.com`
+
+
