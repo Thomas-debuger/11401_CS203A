@@ -24,21 +24,22 @@
 @return The computed hash index.
 */
 
-//「這個函式把輸入的 key 經過我設計的一套以小數部分運算為核心的轉換公式，重新打散後映射成 0 到 m-1 的雜湊值，讓結果更平均。」
+// "This function transforms the input key using a custom formula based on fractional-part manipulation,
+//  redistributing its value before mapping it to a hash index between 0 and m-1 to achieve a more uniform spread."
 int myHashInt(int key, int m) {
     // TODO: replace with your own design
 
-    double A = 3.1415926; // 使用 π 的近似值作為常數
+    double A = 3.1415926; // Using π as a constant
 
-    /* 錯誤示範：(key*A)%1 不能用 %，因為 % 是整數餘數 */
+    /* Incorrect example: (key*A) % 1 cannot use %, because % is for integers only */
     /* (key * A) % 1; */
 
-    double temp = key * A - floor(key * A); // (key*A) mod 1
-    temp = 1 - temp; // 1 - ( (k*A) mod 1)
-    double temp2 = ceil(m * temp); // 完整公式：h(k) = ceil(m * (1 - (k*A mod 1)))，避免某些key導致hash值集中在表格前端
-    key = (int)temp2; // 將結果轉為整數型(double -> int)
+    double temp = key * A - floor(key * A); // (key * A) mod 1
+    temp = 1 - temp; // 1 - ( (k * A) mod 1 )
+    double temp2 = ceil(m * temp); // Full formula: h(k) = ceil(m * (1 - (k*A mod 1))), used to avoid clustering at the front of the table
+    key = (int)temp2; // Convert double to int
 
-    return key % m;  // basic division method
+    return key % m;  // Basic division method
 }
 
 /*
@@ -48,28 +49,30 @@ int myHashInt(int key, int m) {
 @return The computed hash index.
 */
 
-//「這個函式將字串的每個字元根據其 ASCII 值、位置和一個多項式權重進行加權累加，然後映射成 0 到 m-1 的雜湊值，確保不同字串能均勻分布在雜湊表中。」
+// "This function processes each character of the string using its ASCII value, position, and a polynomial weight,
+//  combining them into a hash value and mapping it to 0 ~ m-1 to ensure even distribution across the table."
 int myHashString(const char* str, int m) {
-    unsigned long hash = 0;       
+    unsigned long hash = 0;
     // TODO: replace with your own design
 
-    const int p = 31; // 多項式的底數
+    const int p = 31; // Base for the polynomial hash
 
-    int len = strlen(str); // 計算字串長度，用來控制迴圈與次方
+    int len = strlen(str); // Get string length
 
-    for (int i = 0; i < len; i++) { // 走訪字串每個字元
-        hash += (unsigned long)str[i] * (i + 1) * pow(p, len * i);// 每個字元的 ASCII 值 × (字元位置+1) × p^(len * i)，使每個字元貢獻與位置大幅不同
-        hash %= m; // 每一步都對 m 取餘數，避免 overflow（也讓 hash 更分散）
+    for (int i = 0; i < len; i++) { // Traverse each character
+        // ASCII value × (position + 1) × p^(len * i)
+        // Gives different weights based on both character and position
+        hash += (unsigned long)str[i] * (i + 1) * pow(p, len * i);
+        hash %= m; // Mod every step to prevent overflow and maintain distribution
     }
 
-    return (int)(hash % m); // basic division method
+    return (int)(hash % m); // Basic division method
 }
 
 
-
-/* 方法2（不使用 pow，比較安全）
+/* Alternative version (safer, without pow)
 int myHashString(const char* str, int m) {
-    unsigned long hash = 0;       // 保留作業要求
+    unsigned long hash = 0; // Keep for assignment requirement
     const int p = 31;
     unsigned long long power = 1;
 
