@@ -1,3 +1,5 @@
+# 執行、開發的環境：Windows   
+
 # Homework Assignment IV: Hash Function Design & Observation (C/C++ Version)
 
 This assignment focuses on the design and observation of hash functions using C/C++. 
