@@ -1,6 +1,5 @@
 # 執行、開發的環境：Windows   
 
-英文版：
 # My Journey Connecting VSCode to GitHub
 ---
 **Step 1**
