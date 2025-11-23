@@ -51,7 +51,7 @@ The use of ⌈⋅⌉ keeps each result cleanly in an integer bucket and avoids s
 By combining the fractional-part idea with an irrational constant and full-range scaling, this design produces hash outputs that are evenly distributed and resistant to predictable patterns. As a result, collisions are less frequent than in simpler modular hash functions.   
 
 ### Non-integer Keys
-- Formula / pseudocode:   
+- Formula / pseudocode:    
   ```text
   Formula:    
   hash(str)=[ ∑(i=0 to n−1)ASCII(str[i]) ⋅ (i+1) ⋅ p^(n⋅i) ] mod m   
@@ -69,6 +69,7 @@ By combining the fractional-part idea with an irrational constant and full-range
 
     return hash mod m   
   ```
+
 - Rationale:     
 ✔ Explain my approach:    
 This hash function converts a string into an integer by combining each character’s ASCII value with its position and a polynomial weight. Each character is multiplied by (i+1) and p^(n⋅i), where i is the index and n is the string length. This makes characters in different positions affect the hash differently, so even small changes in the string produce distinct hash values. Finally, taking the remainder modulo m ensures the output fits neatly into the hash table.   
