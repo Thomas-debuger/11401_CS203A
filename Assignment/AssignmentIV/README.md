@@ -185,11 +185,11 @@ myHashString():
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-- Prime vs non-prime `m`: Using prime table sizes (such as 11 or 37) leads to more uniform hash value distribution, while non-prime sizes (like 10) introduce periodic behavior that reduces randomness.   
-- Patterns or collisions: The results with non-prime m show clear repeating sequences and clusters, indicating structural patterns and higher collision likelihood. Prime m values significantly reduce these patterns and produce more independent hash outputs.     
-- Improvements: Choose larger prime table sizes to minimize periodicity, and adopt better mixing constants or polynomial hashing to further enhance distribution quality and reduce collisions.   
+- Prime vs non-prime `m`: Using prime values for the table size helps avoid repeating cycles in the hash results. Prime numbers like 11 and 37 spread the values more evenly, while non-prime numbers like 10 create visible patterns.   
+- Patterns or collisions: With non-prime table sizes, the outputs form noticeable patterns, such as repeating sequences or clusters of similar values.These patterns make collisions more likely. Prime table sizes reduce these effects and produce outputs that look more random.     
+- Improvements: To improve the hash distribution, it is better to choose larger prime table sizes. We can also use better mixing constants or polynomial hashing to reduce periodic behavior and make collisions less frequent.   
 
 ## Reflection
-1. Creating a hash function involves finding a balance between computational simplicity and producing outputs that avoid predictable patterns and collisions.     
+1. Designing hash functions is about finding a balance between being simple to compute and being able to avoid collisions, so that the hash table can store and access data efficiently without too many repeated indices.     
 2. The choice of table size strongly influences the final distribution; prime values consistently yield more uniform results than non-prime sizes.         
 3. Among the tested configurations, the combination of a prime table size and a well-chosen transformation formula generated the most evenly distributed sequence of indices.     
