@@ -37,5 +37,5 @@ The second difficulty I encountered happened during the commit process. After ed
 
 My main issue was that I didn’t realize a commit message was required. Without it, VS Code simply wouldn’t sync the update, and I mistakenly assumed something was wrong with GitHub.
 
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/VSCode.md.png)     
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/VSCode.md.png)
 ![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/VSCode.md2.png)       
