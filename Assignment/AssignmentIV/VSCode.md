@@ -36,3 +36,6 @@ M — Modified compared to last commit
 The second difficulty I encountered happened during the commit process. After editing a file in VS Code, I opened **Source Control (CTRL + SHIFT + G)**. Before committing, VS Code requires a short commit message that briefly explains the changes. After entering the message, I clicked **Commit**, and finally, **Sync Changes** to push everything to GitHub.
 
 My main issue was that I didn’t realize a commit message was required. Without it, VS Code simply wouldn’t sync the update, and I mistakenly assumed something was wrong with GitHub.
+
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/VSCode.md.png)     
+![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/Assignment/AssignmentIV/VSCode.md2.png)       
