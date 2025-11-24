@@ -62,7 +62,7 @@ int myHashString(const std::string& str, int m) {
 
     const int p = 31; // Polynomial base
 
-    for (int i = 0; i < str.size(); i++) { // Iterate through each character
+    for (size_t i = 0; i < str.size(); i++) { // Iterate through each character
         // ASCII value * (position + 1) * p^(string_length * i), accumulated into hash
         hash += static_cast<unsigned long>(str[i]) * (i + 1) * pow(p, str.size() * i);
         hash %= m; // Modulo at every step to prevent overflow
