@@ -125,39 +125,39 @@ myHashString():
 - The project uses a comprehensive Makefile that builds both C and C++ versions with proper flags:
   ```bash
   # Build both C and C++ versions
-  make all
+  makefile.bat all
   
   # Build only C version
-  make c
+  makefile.bat c
   
   # Build only C++ version
-  make cxx
+  makefile.bat cxx
   ```
 
 ### Manual Compilation (if needed)
 - Command for C:
   ```bash
-  gcc -std=c23 -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.c C/hash_fn.c
+  gcc.exe -std=c23 -Wall -Wextra -Wpedantic -g -o C/hash_function C/main.c C/hash_fn.c
   ```
 - Command for C++:
   ```bash
-  g++ -std=c++23 -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.cpp CXX/hash_fn.cpp
+  g++.exe -std=c++23 -Wall -Wextra -Wpedantic -g -o CXX/hash_function_cpp CXX/main.cpp CXX/hash_fn.cpp
   ```
 
 ### Clean Build Files
 - Remove all compiled files:
   ```bash
-  make clean
+  makefile.bat clean
   ```
 
 ### Execution
 - Run the compiled binary:
   ```bash
-  ./hash_function
+  ./hash_function.exe
   ```
   or
   ```bash
-  ./hash_function_cpp
+  ./hash_function_cpp.exe
   ```
 
 ### Result Snapshot
