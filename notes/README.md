@@ -13,7 +13,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ## 📑 Contents
 
-1. [Linked List](#linked-list)
+1. [Linked List]
 2. [Array](#array)
 3. [Hashing](#hashing)
 4. [Stack & Queue](#stack--queue)
