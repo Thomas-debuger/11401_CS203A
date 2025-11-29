@@ -185,11 +185,17 @@ myHashString():
 - Observations: Outputs align with the analysis, showing better distribution with prime table sizes.
 
 ## Analysis
-- Prime vs non-prime `m`: Using prime values for the table size helps avoid repeating cycles in the hash results. Prime numbers like 11 and 37 spread the values more evenly, while non-prime numbers like 10 create visible patterns.   
-- Patterns or collisions: With non-prime table sizes, the outputs form noticeable patterns, such as repeating sequences or clusters of similar values.These patterns make collisions more likely. Prime table sizes reduce these effects and produce outputs that look more random.     
-- Improvements: To improve the hash distribution, it is better to choose larger prime table sizes. We can also use better mixing constants or polynomial hashing to reduce periodic behavior and make collisions less frequent.   
+- Prime vs non-prime `m`: Choosing a prime number for the table size generally leads to a more balanced hash distribution. Prime values such as 11 or 37 help prevent repetitive cycles in the modulus operation, allowing the hashed results to spread more uniformly across the table. In contrast, non-prime sizes like 10 tend to generate predictable patterns because their factors interact poorly with many hash functions. This often results in uneven clustering, especially when the input data contains regular structures.   
+
+- Patterns or collisions: When the table size is not prime, the hashed outputs frequently fall into noticeable sequences or form clusters of similar indices. These patterns increase the likelihood of collisions because multiple keys are mapped into the same limited set of repeating positions. Prime-sized tables help break these patterns by reducing periodic behavior, making the output appear more random and better distributed. As a result, collisions become less frequent and overall performance improves.     
+
+- Improvements: To further enhance the effectiveness of a hash function, using larger prime table sizes is a practical first step. Bigger primes provide more slots and better distribution properties. Additionally, incorporating stronger mixing strategies—such as improved multiplication constants or polynomial-style hashing—can help reduce structural biases in the input data. These adjustments lead to a hash function that behaves more unpredictably in a positive way, ultimately lowering collision rates and improving the efficiency of the hash table.   
 
 ## Reflection
-1. Designing hash functions is about finding a balance between being simple to compute and being able to avoid collisions, so that the hash table can store and access data efficiently without too many repeated indices.     
-2. The choice of table size strongly influences the final distribution; prime values consistently yield more uniform results than non-prime sizes.         
-3. Among the tested configurations, the combination of a prime table size and a well-chosen transformation formula generated the most evenly distributed sequence of indices.     
+1. Designing effective hash functions requires striking a balance between computational simplicity and collision avoidance.      
+A good hash function should be fast enough to compute repeatedly while still spreading keys across the table in a way that minimizes overlap. When this balance is achieved, the hash table can store and retrieve data efficiently, without being slowed down by long chains or repeated indices. This balance is essential for maintaining both performance and scalability as the dataset grows.        
+
+2. The table size plays a crucial role in shaping the final distribution of hash results.     
+Our observations show that using prime numbers as the table size consistently produces more uniform index distributions compared to non-prime values. Prime table sizes help avoid cyclical patterns and reduce clustering, which are common issues when the modulus interacts poorly with structured input data. As a result, prime-sized tables tend to achieve better overall performance.         
+3. Among all the configurations tested, the setup using a prime table size paired with a well-chosen transformation formula delivered the most even distribution of indices.     
+This combination reduced repeated patterns and ensured that the mapped values were spread across the table more predictably and efficiently. It demonstrates how both mathematical properties (like primality) and careful design choices in the hash function work together to minimize collisions and improve the stability of the hash table.       
