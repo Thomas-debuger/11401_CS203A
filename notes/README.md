@@ -75,5 +75,6 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-**Author:** Your Name  
-**Date:** 2025
+**Author:** Yun-Hong Wei <thomaswei988@gmail.com>   
+**Date:** 2025   
+ 
