@@ -20,15 +20,13 @@ go out    stay home
 
 # p.15
 
-# 🌟 1. **Full Binary Tree（滿二元樹）**
-
-### 🌳 這是什麼？
+###🌟 1. **Full Binary Tree（滿二元樹）
 
 每個節點 **要嘛有 2 個孩子，要嘛 0 個（是 leaf）**。
 
 > **不能只有 1 個 child。**
 
-### 👀 你可以把它想像成「完全整齊的二元分支」：
+可以把它想像成「完全整齊的二元分支」：
 
 ```
        A
@@ -38,20 +36,18 @@ go out    stay home
   D  E  F  G
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **機器學習（ML）決策點**
   每一個 node 做兩種分支選擇：yes/no、true/false
 
 ---
 
-# 🌟 2. **Complete Binary Tree（完全二元樹）**
-
-### 🌳 這是什麼？
+### 🌟 2. **Complete Binary Tree（完全二元樹）**
 
 樹的每一層都要填滿，**只有最後一層可以沒滿，但一定要從左邊開始填。**
 
-### 👀 想像你排座位，最後一排可以沒坐滿，但不能中間空一格。
+想像你排座位，最後一排可以沒坐滿，但不能中間空一格。
 
 ```
        A
@@ -61,7 +57,7 @@ go out    stay home
   D   E
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **Heap（堆積樹）**
   → 優先隊列 priority queue 就是用 heap
@@ -69,15 +65,13 @@ go out    stay home
 
 ---
 
-# 🌟 3. **Binary Search Tree（BST）**
-
-### 🌳 這是什麼？
+### 🌟 3. **Binary Search Tree（BST）**
 
 有排序規則的二元樹：
 
 > **左 < 根 < 右**
 
-### 👀 看起來像：
+看起來像：
 
 ```
        50
@@ -87,21 +81,19 @@ go out    stay home
 20  40   60  80
 ```
 
-### 💡 用在：
+💡 用在：
 
 * O(log n) 搜尋（如果樹平衡）
 * 重要資料結構：set、map（底層常用平衡 BST）
 
 ---
 
-# 🌟 4. **Balanced Tree（平衡樹：如 AVL、Red-Black）**
-
-### 🌳 這是什麼？
+### 🌟 4. **Balanced Tree（平衡樹：如 AVL、Red-Black）**
 
 保持樹的高度差不會太大的樹。
 否則 BST 會退化成 linked list。
 
-### 👀 不平衡長這樣：
+不平衡長這樣：
 
 ```
 1
@@ -115,7 +107,7 @@ go out    stay home
 
 平衡樹會自動旋轉成高度差小的樣子。
 
-### 💡 用在：
+💡 用在：
 
 * **C++ STL 的 map / set** → Red-Black Tree
 * **Java TreeMap**
@@ -123,14 +115,12 @@ go out    stay home
 
 ---
 
-# 🌟 5. **General Tree（多叉樹，無限制）**
-
-### 🌳 這是什麼？
+### 🌟 5. **General Tree（多叉樹，無限制）**
 
 節點可以有任意多個孩子。
 不像二元樹只有 left/right。
 
-### 👀 想像檔案系統：
+想像檔案系統：
 
 ```
 Folder
@@ -141,7 +131,7 @@ Folder
     └── C2
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **檔案系統（File System）**
 * **XML / HTML / JSON**
@@ -149,9 +139,7 @@ Folder
 
 ---
 
-# 🌟 6. **N-ary Tree（N 叉樹）**
-
-### 🌳 這是什麼？
+### 🌟 6. **N-ary Tree（N 叉樹）**
 
 General tree 的限制版：
 **每個節點最多可以有 N 個 child。**
@@ -164,7 +152,7 @@ General tree 的限制版：
   B  C  D
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **遊戲 AI 決策樹**
   → 下棋時每個 state 有很多可能動作
@@ -172,9 +160,7 @@ General tree 的限制版：
 
 ---
 
-# 🌟 7. **Trie（Prefix Tree，字典樹）**
-
-### 🌳 這是什麼？
+### 🌟 7. **Trie（Prefix Tree，字典樹）**
 
 用字母一個一個往下走的樹。
 
@@ -188,12 +174,12 @@ General tree 的限制版：
   t     r
 ```
 
-### 🧠 優點
+🧠 優點
 
 * 查找字串超快 → O(length)
 * 不需要比較整個字串
 
-### 💡 用在：
+💡 用在：
 
 * **Auto-complete（輸入法）**
 * **字典、搜尋引擎**
@@ -201,9 +187,7 @@ General tree 的限制版：
 
 ---
 
-# 🌟 8. **Decision Tree（決策樹）**
-
-### 🌳 這是什麼？
+### 🌟 8. **Decision Tree（決策樹）**
 
 機器學習（ML）用的樹，每個節點是「一個問題」，分支是答案。
 
@@ -217,7 +201,7 @@ yes         no
 go out    stay home
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **機器學習分類**
 * **信用評估（借不借錢）**
@@ -225,9 +209,7 @@ go out    stay home
 
 ---
 
-# 🌟 9. **Abstract Syntax Tree（AST）**
-
-### 🌳 這是什麼？
+### 🌟 9. **Abstract Syntax Tree（AST）**
 
 程式碼 → 編譯器要把它拆成樹狀表示語法。
 
@@ -247,7 +229,7 @@ AST 會變成：
       4   5
 ```
 
-### 💡 用在：
+💡 用在：
 
 * **編譯器（Compiler）**
 * **程式分析工具**
@@ -255,9 +237,7 @@ AST 會變成：
 
 ---
 
-# 🌟 10. **Spanning Tree（生成樹）**
-
-### 🌳 這是什麼？
+### 🌟 10. **Spanning Tree（生成樹）**
 
 圖（graph）的一個子集合：
 
@@ -265,12 +245,12 @@ AST 會變成：
 
 像把所有城市連成「一張最便宜的網路」。
 
-### 👀 想像城市道路：
+想像城市道路：
 
 城市 A—B—C—D
 用最少的路連起來不重複。
 
-### 💡 用在：
+💡 用在：
 
 * **網路路由（routing）**
 * **最小生成樹（MST）**
@@ -297,13 +277,13 @@ AST 會變成：
 
 # p.15 補充4、8、10 + 1、2 比較   
 
-# 🍀 **(4) Balanced Tree（平衡樹）— 超詳細解說**
+### 🍀 **(4) Balanced Tree（平衡樹）— 超詳細解說**
 
 Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念之一。
 
 ---
 
-# 🌳 **Balanced Tree 是什麼？**
+🌳 **Balanced Tree 是什麼？**
 
 > **Balanced Tree = 保持高度不會歪掉的樹**
 
@@ -312,7 +292,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 但為什麼重要？
 因為如果樹歪掉（skewed），搜尋速度會變得非常慢：
 
-### 如果樹長這樣（像 Linked List）👇
+如果樹長這樣（像 Linked List）👇
 
 ```
 1
@@ -328,7 +308,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 ---
 
-# 🌲 **Balanced Tree 一定長得像「金字塔」這樣👇**
+🌲 **Balanced Tree 一定長得像「金字塔」這樣👇**
 
 ```
         8
@@ -344,7 +324,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 ---
 
-# 🧠 **什麼是“平衡”？（真正的定義）**
+🧠 **什麼是“平衡”？（真正的定義）**
 
 每種平衡樹的規則不同，但目標一樣：
 
@@ -352,14 +332,14 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 例如：
 
-### ⭐ AVL Tree：
+⭐ AVL Tree：
 
 > 每個節點左、右子樹高度差 ≤ 1
 
 超嚴格 → 平衡度最好 → 搜尋最快
 但插入、刪除需要旋轉（旋很多）
 
-### ⭐ Red-Black Tree：
+⭐ Red-Black Tree：
 
 > 用「顏色」規則讓樹不會過度偏移
 > 高度維持 O(log n)
@@ -373,7 +353,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 ---
 
-# 🔧 **Balanced Tree 的用途（超多）：**
+🔧 **Balanced Tree 的用途（超多）：**
 
 * 高效搜尋（set / map）
 * 高效插入刪除
@@ -385,7 +365,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 ---
 
-# 🍀 **(8) Decision Tree（決策樹）— 超詳細解說**
+### 🍀 **(8) Decision Tree（決策樹）— 超詳細解說**
 
 Decision Tree 是 **機器學習（ML）裡最直覺的模型**。
 
@@ -393,7 +373,7 @@ Decision Tree 是 **機器學習（ML）裡最直覺的模型**。
 
 ---
 
-# 🌳 **Decision Tree 是什麼？**
+🌳 **Decision Tree 是什麼？**
 
 > **每個節點是「一個問題」，每個分支是「答案」，最後的葉節點是結果。**
 
@@ -401,7 +381,7 @@ Decision Tree 是 **機器學習（ML）裡最直覺的模型**。
 
 ---
 
-# 👀 **舉例：你要不要出門？**
+**舉例：你要不要出門？**
 
 ```
            Is it sunny?
@@ -420,7 +400,7 @@ Go out     Stay home
 
 ---
 
-# 📘 **Decision Tree 如何用在機器學習？**
+📘 **Decision Tree 如何用在機器學習？**
 
 例如：要不要核貸（給你貸款）
 
@@ -440,7 +420,7 @@ Approve  Reject
 
 ---
 
-# ⭐ **Decision Tree 的優點：**
+⭐ **Decision Tree 的優點：**
 
 * 超直覺
 * 很容易視覺化
@@ -449,7 +429,7 @@ Approve  Reject
 
 ---
 
-# ⚠️ **缺點：**
+⚠️ **缺點：**
 
 * **容易過擬合（overfitting）**
 * 小資料變化 → 樹形狀完全變掉
@@ -463,13 +443,13 @@ Approve  Reject
 
 ---
 
-# 🍀 **(10) Spanning Tree（生成樹）— 超詳細解說**
+### 🍀 **(10) Spanning Tree（生成樹）— 超詳細解說**
 
 Spanning Tree 是 **圖論（graph theory）** 裡的重要概念。
 
 ---
 
-# 🌳 **Spanning Tree 是什麼？**
+🌳 **Spanning Tree 是什麼？**
 
 > **在一張圖裡，挑一些邊，讓所有節點互相可以到達，而且不能有環。**
 
@@ -477,7 +457,7 @@ Spanning Tree 是 **圖論（graph theory）** 裡的重要概念。
 
 ---
 
-# 👀 看圖理解最清楚：
+看圖理解最清楚：
 
 原本圖（含環）：
 
@@ -504,7 +484,7 @@ A — B — C
 
 ---
 
-# ⭐ Spanning Tree 一定具有：
+⭐ Spanning Tree 一定具有：
 
 * **包含所有節點**
 * **邊數 = 節點數 − 1**
@@ -512,7 +492,7 @@ A — B — C
 
 ---
 
-# 🥇 **最有名的：Minimum Spanning Tree（最小生成樹 MST）**
+🥇 **最有名的：Minimum Spanning Tree（最小生成樹 MST）**
 
 要找出「連所有節點最便宜的網路」。
 
@@ -523,7 +503,7 @@ A — B — C
 
 ---
 
-# 💡 Spanning Tree 的用途多到爆：
+💡 Spanning Tree 的用途多到爆：
 
 * 網路設計（Router、Switch）
 * 設計高速公路、光纖架構
@@ -533,7 +513,7 @@ A — B — C
 
 ---
 
-# 🌈 **Part 2：Full Binary Tree vs Complete Binary Tree 差在哪？**
+### 🌈 **Part 2：Full Binary Tree vs Complete Binary Tree 差在哪？**
 
 你問：
 
@@ -546,7 +526,7 @@ A — B — C
 
 ---
 
-# 🌳 **(1) Full Binary Tree = 每個節點 0 或 2 子節點**
+### 🌳 **(1) Full Binary Tree = 每個節點 0 或 2 子節點**
 
 不能有 1 個 child 的節點！
 
@@ -568,7 +548,7 @@ A — B — C
 
 ---
 
-# 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始**
+### 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始**
 
 舉例：
 
@@ -596,7 +576,7 @@ A — B — C
 
 ---
 
-# 🎯 **差異一覽表**
+### 🎯 **差異一覽表**
 
 | 類別          | Full Binary Tree    | Complete Binary Tree |
 | ----------- | ------------------- | -------------------- |
@@ -608,7 +588,7 @@ A — B — C
 
 ---
 
-# 🎉總結一句話：
+### 🎉總結一句話：
 
 > **Full = 每個節點不是 0 就是 2 child（左右都有）**
 > **Complete = 樹形狀超整齊（像滿樹，但最後一層可缺）**
