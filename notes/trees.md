@@ -548,7 +548,7 @@ A — B — C
 
 ---
 
-### 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始**
+### 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始放note**
 
 舉例：
 
