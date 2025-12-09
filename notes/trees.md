@@ -909,6 +909,8 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 參考網站：https://blog.csdn.net/weixin_43945471/article/details/132980886   
 示意圖：https://i-blog.csdnimg.cn/blog_migrate/238388f4b5b9dc4e225fdf7659710546.png
 
+---
+
 # (8) Heap Tree (堆積樹)
 
 * 設計目的: 是一種完全二元樹，用於快速找到和提取最大（或最小）的元素。
