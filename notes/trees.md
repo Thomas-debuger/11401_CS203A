@@ -701,4 +701,4 @@ Segment Tree (線段樹) 的每個節點儲存的內容**不是固定的**，它
 
 ### ⚠️ 重要的前提：可合併性 (Associative Property)
 
-線段樹的基礎是建立在所儲存的聚合值必須滿足**結合律**（例如 $A+(B+C) = (A+B)+C$ 或 $\text{Max}(A, \text{Max}(B, C)) = \text{Max}(\text{Max}(A, B), C)$），這樣才能從子區間的結果正確地計算出父區間的結果。$\text{Sum}$, $\text{Max}$, $\text{Min}$ 都滿足這個條件。
+線段樹的基礎是建立在所儲存的聚合值必須滿足**結合律**（例如 $A+(B+C) = (A+B)+C$ 或 $\text{Max}(A, \text{Max}(B, C)) = \text{Max}(\text{Max}(A, B), C)$），這樣才能從子區間的結果正確地計算出父區間的結果。Sum、Max、Min都滿足這個條件。
