@@ -938,7 +938,7 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 在 Treap 中，我們稱 **Heap Key** 為**優先權 (Priority)**，它是一個**隨機**賦予的數值，是 Treap 能保持平衡的秘密武器。
 
-### 1. 優先權的本質：隨機賦予的數值
+#### 1. 優先權的本質：隨機賦予的數值
 
 當您將一個新的節點插入 Treap 時：
 
@@ -947,7 +947,7 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 **重要概念：** 優先權和鍵值之間**沒有任何關係**。
 
-### 2. 優先權的功能：決定節點的「高度」
+#### 2. 優先權的功能：決定節點的「高度」
 
 優先權的作用是強制樹滿足**最大堆 (Max Heap) 屬性**（通常是使用最大堆）：
 
@@ -966,7 +966,7 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 儘管 $A$ 的鍵值小於 $C$，但因為 $C$ 的**優先權最高** ($P_C=95$)，它會被旋轉到**根節點**的位置。這就像在建造一棟房子時，您隨機決定哪塊磚頭必須放在頂端。這種隨機性使得樹的形狀**平均高度保持在 $O(\log N)$**，從而實現了平衡。
 
-### 3. 如何維護優先權：樹旋轉 (Rotation)
+#### 3. 如何維護優先權：樹旋轉 (Rotation)
 
 當新節點 $X$ 插入後，如果它破壞了**堆積屬性**（即 $X$ 的優先權 $P_X$ 比它的父節點 $P_{Parent}$ 高），我們必須使用**樹旋轉 (Tree Rotation)** 來修復它。
 
