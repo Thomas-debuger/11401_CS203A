@@ -1,3 +1,6 @@
+
+
+
 # p.10、p.14 名詞解釋   
 
 * root：最上面的節點
@@ -998,4 +1001,4 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 因此，Treap 的每個節點都是**一個結構體 (Struct)**，裡面同時包含這兩個值。當進行操作時，**鍵值**讓我知道去哪裡找，而**優先權**讓我知道是否需要進行旋轉來平衡樹。
 
-![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/notes/Picture/left_rotation.jpg)
+![image]()
