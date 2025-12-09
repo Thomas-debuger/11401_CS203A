@@ -927,6 +927,8 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 * 新手理解: 每個節點有兩個值：鍵值 (Key)（用於 BST 排序）和優先權 (Priority)（用於 Heap 排序，隨機賦予）。透過隨機分配的優先權，Treap 能夠在操作過程中保持平均平衡。
 * 優化點: 避免了像普通 BST 在最壞情況下退化成鏈表的問題。
 
+---
+
 ## Tree Key (鍵值) vs Heap Key (優先權)
 
 1.  **Tree Key (鍵值):** 維持**水平**順序（左邊小，右邊大）。
