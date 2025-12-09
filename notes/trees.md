@@ -890,3 +890,21 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 # (5) KD-tree
 
 參考資料:https://blog.yucheng.me/post/kd-tree/
+
+---
+
+# (6) Quad Tree (四元樹)
+
+* 設計目的: 專門將二維 (2D) 平面分割成四塊相等象限，像 Google Maps 會一直放大把地圖切細。
+* 新手理解: 每次將一張地圖切成四份（左上、右上、左下、右下）。如果某一區塊的資料點過多，就繼續切分。
+* 應用: 地理資訊系統 (GIS)、影像壓縮、碰撞偵測（遊戲）。
+
+---
+
+# (7) Octree (八元樹) 
+
+* 設計目的: 將三維 (3D) 空間分割成八塊相等體積的象限（八分之一）。
+* 應用: 3D 圖形渲染、空間索引、空間分割。
+
+參考網站：https://blog.csdn.net/weixin_43945471/article/details/132980886
+示意圖：https://i-blog.csdnimg.cn/blog_migrate/238388f4b5b9dc4e225fdf7659710546.png
