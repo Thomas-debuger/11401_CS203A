@@ -1003,6 +1003,8 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 ![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/notes/Picture/left_rotation.jpg)
 
+---
+
 # (10) Splay Tree (伸展樹)
 
 * 設計目的：一種自我調整 (Self-adjusting) 的二元搜尋樹。
