@@ -601,8 +601,8 @@ A — B — C
 
 ### (1) B-Tree / B+ Tree
 
-**參考網站：https://vocus.cc/article/6720dd18fd89780001dae749**
-**參考網站：https://ithelp.ithome.com.tw/articles/10333181**
+**參考網站1：https://vocus.cc/article/6720dd18fd89780001dae749**   
+**參考網站2：https://ithelp.ithome.com.tw/articles/10333181**
 
 這兩種樹的目標都是透過「矮胖」的結構（讓每個節點可以放很多鍵值），來**最小化磁碟 I/O 次數**，從而提高搜尋速度。
 
