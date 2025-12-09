@@ -884,4 +884,5 @@ Fenwick Tree 之所以高效，是因為它用 $\log n$ 個區間和，就能拼
 
 示意圖:
 ![image](https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fig1/AS:647927278080011@1531489309846/Suffix-tree-for-S-banana-denotes-endof-string-Edge-labels-on-a-path-from-the-root.png)
+
 https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fig1/AS:647927278080011@1531489309846/Suffix-tree-for-S-banana-denotes-endof-string-Edge-labels-on-a-path-from-the-root.png
