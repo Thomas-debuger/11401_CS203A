@@ -997,3 +997,5 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 | **最終目的** | 讓您能**找到**資料 (搜尋) | 讓樹保持**平衡** (旋轉) |
 
 因此，Treap 的每個節點都是**一個結構體 (Struct)**，裡面同時包含這兩個值。當進行操作時，**鍵值**讓我知道去哪裡找，而**優先權**讓我知道是否需要進行旋轉來平衡樹。
+
+![image](https://github.com/Thomas-debuger/11401_CS233A-Linear-algebra/blob/main/notes/picture/%E9%AB%98%E4%B8%AD%E7%9F%A9%E9%99%A3%E7%AD%86%E8%A8%981.jpg)
