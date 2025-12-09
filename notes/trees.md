@@ -982,7 +982,7 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 3.  **解決方法：左旋轉 (Left Rotation):**
     * 程式會進行一次**左旋轉**。
-    * 結果是 $X$ 成為新的父節點 (向上移動)，$P$ 成為 $X$ 的左子節點 (向下移動)。
+    * 結果是 $X$ 成為新的父節點 (向上移動)， $P$ 成為 $X$ 的左子節點 (向下移動)。
     * 現在 $X$ 在 $P$ 上面，滿足了 $P_X > P_P$ 的優先權規則。
 
 ---
