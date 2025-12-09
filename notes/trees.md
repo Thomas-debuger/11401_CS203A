@@ -1,7 +1,7 @@
 # p.10、p.14 名詞解釋   
 
 * root：最上面的節點
-* interval：必有一個以上的children
+* interval：必有一個以上的children 
 * leaf：沒有 child
 * parent, child
 * siblings：同一個 parent 的 children
