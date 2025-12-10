@@ -22,7 +22,7 @@ go out    stay home
 
 # p.15
 
-### 🌟 1. **Full Binary Tree（滿二元樹）
+# 🌟 1. **Full Binary Tree（滿二元樹）
 
 每個節點 **要嘛有 2 個孩子，要嘛 0 個（是 leaf）**。
 
@@ -45,7 +45,7 @@ go out    stay home
 
 ---
 
-### 🌟 2. **Complete Binary Tree（完全二元樹）**
+# 🌟 2. **Complete Binary Tree（完全二元樹）**
 
 樹的每一層都要填滿，**只有最後一層可以沒滿，但一定要從左邊開始填。**
 
@@ -67,7 +67,7 @@ go out    stay home
 
 ---
 
-### 🌟 3. **Binary Search Tree（BST）**
+# 🌟 3. **Binary Search Tree（BST）**
 
 有排序規則的二元樹：
 
@@ -90,7 +90,7 @@ go out    stay home
 
 ---
 
-### 🌟 4. **Balanced Tree（平衡樹：如 AVL、Red-Black）**
+# 🌟 4. **Balanced Tree（平衡樹：如 AVL、Red-Black）**
 
 保持樹的高度差不會太大的樹。
 否則 BST 會退化成 linked list。
@@ -117,7 +117,7 @@ go out    stay home
 
 ---
 
-### 🌟 5. **General Tree（多叉樹，無限制）**
+# 🌟 5. **General Tree（多叉樹，無限制）**
 
 節點可以有任意多個孩子。
 不像二元樹只有 left/right。
@@ -141,7 +141,7 @@ Folder
 
 ---
 
-### 🌟 6. **N-ary Tree（N 叉樹）**
+# 🌟 6. **N-ary Tree（N 叉樹）**
 
 General tree 的限制版：
 **每個節點最多可以有 N 個 child。**
@@ -162,7 +162,7 @@ General tree 的限制版：
 
 ---
 
-### 🌟 7. **Trie（Prefix Tree，字典樹）**
+# 🌟 7. **Trie（Prefix Tree，字典樹）**
 
 用字母一個一個往下走的樹。
 
@@ -189,7 +189,7 @@ General tree 的限制版：
 
 ---
 
-### 🌟 8. **Decision Tree（決策樹）**
+# 🌟 8. **Decision Tree（決策樹）**
 
 機器學習（ML）用的樹，每個節點是「一個問題」，分支是答案。
 
@@ -211,7 +211,7 @@ go out    stay home
 
 ---
 
-### 🌟 9. **Abstract Syntax Tree（AST）**
+# 🌟 9. **Abstract Syntax Tree（AST）**
 
 程式碼 → 編譯器要把它拆成樹狀表示語法。
 
@@ -239,7 +239,7 @@ AST 會變成：
 
 ---
 
-### 🌟 10. **Spanning Tree（生成樹）**
+# 🌟 10. **Spanning Tree（生成樹）**
 
 圖（graph）的一個子集合：
 
@@ -279,7 +279,7 @@ AST 會變成：
 
 # p.15 補充4、8、10 + 1、2 比較   
 
-### 🍀 **(4) Balanced Tree（平衡樹）— 超詳細解說**
+## 🍀 **(4) Balanced Tree（平衡樹）— 超詳細解說**
 
 Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念之一。
 
@@ -367,7 +367,7 @@ Balanced Tree 是所有資料結構裡「最重要」也「最常考」的概念
 
 ---
 
-### 🍀 **(8) Decision Tree（決策樹）— 超詳細解說**
+## 🍀 **(8) Decision Tree（決策樹）— 超詳細解說**
 
 Decision Tree 是 **機器學習（ML）裡最直覺的模型**。
 
@@ -445,7 +445,7 @@ Approve  Reject
 
 ---
 
-### 🍀 **(10) Spanning Tree（生成樹）— 超詳細解說**
+## 🍀 **(10) Spanning Tree（生成樹）— 超詳細解說**
 
 Spanning Tree 是 **圖論（graph theory）** 裡的重要概念。
 
@@ -515,7 +515,7 @@ A — B — C
 
 ---
 
-### 🌈 **Part 2：Full Binary Tree vs Complete Binary Tree 差在哪？**
+## 🌈 **Part 2：Full Binary Tree vs Complete Binary Tree 差在哪？**
 
 你問：
 
@@ -528,7 +528,7 @@ A — B — C
 
 ---
 
-### 🌳 **(1) Full Binary Tree = 每個節點 0 或 2 子節點**
+## 🌳 **(1) Full Binary Tree = 每個節點 0 或 2 子節點**
 
 不能有 1 個 child 的節點！
 
@@ -550,7 +550,7 @@ A — B — C
 
 ---
 
-### 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始放note**
+## 🌳 **(2) Complete Binary Tree = 層層填滿，最後一層可部分缺，但一定從左邊開始放note**
 
 舉例：
 
@@ -578,7 +578,7 @@ A — B — C
 
 ---
 
-### 🎯 **差異一覽表**
+## 🎯 **差異一覽表**
 
 | 類別          | Full Binary Tree    | Complete Binary Tree |
 | ----------- | ------------------- | -------------------- |
@@ -590,7 +590,7 @@ A — B — C
 
 ---
 
-### 🎉總結一句話：
+## 🎉總結一句話：
 
 > **Full = 每個節點不是 0 就是 2 child（左右都有）**
 > **Complete = 樹形狀超整齊（像滿樹，但最後一層可缺）**
