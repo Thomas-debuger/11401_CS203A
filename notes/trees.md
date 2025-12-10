@@ -8,7 +8,7 @@
 * edge：節點的連線
 * subtree：子樹(有parent跟child)
 * level：在哪一層(0~n)
-* depth / height：深度、樹的高度
+* depth / height：深度、樹的高度 (從 0 開始算)
 * fan-out / degree：一個節點最多可以有幾個 child
   * Binary Tree（二元樹）
     degree = 2 每個節點最多兩個 child）
