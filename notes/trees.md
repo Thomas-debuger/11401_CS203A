@@ -906,6 +906,7 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 * 應用: 地理資訊系統 (GIS)、影像壓縮、碰撞偵測（遊戲）。
 
 示意圖：https://davidhsu666.com/archives/quadtree_in_2d/
+
 ---
 
 # (7) Octree (八元樹) 
