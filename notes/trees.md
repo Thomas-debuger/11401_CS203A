@@ -18,7 +18,7 @@
     degree 可以大到上百 → 這能讓資料庫查詢 super 快
 go out    stay home
 
-－－－
+---
 
 # p.15
 
