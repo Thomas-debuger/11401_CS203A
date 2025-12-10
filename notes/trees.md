@@ -211,7 +211,7 @@ go out    stay home
 
 ---
 
-# 🌟 9. **Abstract Syntax Tree（AST）**
+# 🌟 9. **Abstract Syntax Tree（AST：抽象語法樹）**
 
 程式碼 → 編譯器要把它拆成樹狀表示語法。
 
