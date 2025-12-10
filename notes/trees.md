@@ -22,7 +22,7 @@ go out    stay home
 
 # p.15
 
-# 🌟 1. **Full Binary Tree（滿二元樹）
+# 🌟 1. Full Binary Tree（滿二元樹）
 
 每個節點 **要嘛有 2 個孩子，要嘛 0 個（是 leaf）**。
 
