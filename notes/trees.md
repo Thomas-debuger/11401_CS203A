@@ -1111,3 +1111,5 @@ B → (B (E, F)); E (K, L) → (B (E (K, L), F))
 C → (C (G))   
 D → (D (H, I, J) ); H (M) → (D ( H (M), I, J))   
 A → (A (B, C, D)) → (A (B (E (K, L), F), C (G), D ( H (M), I, J))   
+
+示意圖：![image](https://github.com/Thomas-debuger/11401_CS203A/blob/main/notes/Picture/representation%20of%20tree.png)
