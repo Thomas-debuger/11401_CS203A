@@ -889,7 +889,11 @@ https://www.researchgate.net/profile/Panos-Kalnis/publication/51942252/figure/fi
 
 ---
 
-# (5) KD-tree
+# (5) KD-tree (K 維樹)
+
+* 設計目的: 用於在 $k$ 維空間中分割資料點。
+* 新手理解: 想像您要找離您家最近的咖啡店（這是 2D 空間）。KD-Tree 會交替地用垂直線和水平線來分割地圖，把您的搜尋範圍越縮越小。
+* 應用: 最近鄰居搜尋 (Nearest Neighbor Search)，這是機器學習中很常用的任務。
 
 參考資料:https://blog.yucheng.me/post/kd-tree/
 
