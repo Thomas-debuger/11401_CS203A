@@ -1120,7 +1120,7 @@ A → (A (B, C, D)) → (A (B (E (K, L), F), C (G), D ( H (M), I, J))
 
 # p.34
 
-(1) AVL
+# (1) AVL
 
 **AVL 樹**（或稱 **Adelson-Velsky and Landis 樹**，以其發明者命名）是一種特殊的**自平衡二元搜尋樹 (Self-Balancing Binary Search Tree, BST)**。
 
