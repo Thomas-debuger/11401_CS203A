@@ -31,11 +31,12 @@
 
 筆記包括：
 
+* `README.md` — 介紹我的資料結構Github筆記
 * `array.md` — 陣列模型、記憶體配置、複雜度分析
 * `Linklist.md` — 鏈結串列基本操作與常見陷阱
 * `stacks_queues.md` — 堆疊與佇列、應用案例與 ADT 設計
 * `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
-
+* `trees.md` — 
 ---
 
 ## 🛠️ 開發環境與使用方式
