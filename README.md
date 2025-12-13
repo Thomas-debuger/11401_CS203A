@@ -36,7 +36,7 @@
 * `Linklist.md` — 鏈結串列基本操作與常見陷阱
 * `stacks_queues.md` — 堆疊與佇列、應用案例與 ADT 設計
 * `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
-* `trees.md` — 
+* `trees.md` — 不同類型的樹、常用的遍歷方式
 ---
 
 ## 🛠️ 開發環境與使用方式
