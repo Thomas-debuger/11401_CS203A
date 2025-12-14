@@ -471,7 +471,7 @@ index: 0  1   2  3  4
 
 ---
 
-# index變動規律
+# p.5 build heap 補充: index變動規律
 
 假設：
 ```
