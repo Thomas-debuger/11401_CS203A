@@ -1129,6 +1129,8 @@ Heap 的插入、刪除都很快。
 *  每次用 sift-down
 *  建 Heap 的時間是 O(n)
 
+**結論：bottom-up heapify 從最後一個非葉節點開始，利用 sift-down 建立 Heap，因此 build-heap 的時間複雜度為 O(n)。**
+
 ---
 
 ## 7️⃣ `heapsort` — O(n log n)
