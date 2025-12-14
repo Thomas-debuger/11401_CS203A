@@ -904,8 +904,6 @@ Heap 的插入、刪除都很快。
 
 ---
 
-## Priority Queue — 考前速記筆記
-
 ### 什麼是 Priority？
 
 > **Priority = 重要性或緊急程度**
