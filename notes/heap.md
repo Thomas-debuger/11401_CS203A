@@ -1094,10 +1094,10 @@ Heap 的插入、刪除都很快。
 
 ---
 
-> 🔁 **Min Heap 完全對稱**
->
-> * decrease-key → sift-up
-> * increase-key → sift-down
+🔁 **Min Heap 完全對稱**
+
+* decrease-key → sift-up
+* increase-key → sift-down
 
 ---
 
@@ -1211,7 +1211,7 @@ O(n) + n × O(log n) = O(n log n)
 
 ## 總結
 
-> Heap 的操作時間取決於樹高（log n），
-> build-heap 是例外，因為使用 bottom-up heapify。
+* Heap 的操作時間取決於樹高（log n），
+* build-heap 是例外，因為使用 bottom-up heapify。
 
 ---
