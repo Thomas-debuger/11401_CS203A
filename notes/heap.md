@@ -1,4 +1,6 @@
-# p.5
+# p.5 Operations and Time Complexity
+
+---
 
 ## 0️⃣ 共同前提
 
@@ -701,3 +703,204 @@ heapify(0)
 
 > 在 heapify 過程中，index 會移動到違反 heap-order 的子節點位置；
 > Max Heap 會選較大的 child，Min Heap 會選較小的 child，因此兩者的 index 跳動路徑不同。
+
+---
+
+# p.6 Summary
+
+---
+
+很好，這一張表其實是在幫你**建立「Heap 是什麼、為什麼要用它」的整體觀念**。
+我會用 **「一列一列教」＋「直覺例子」＋「考試怎麼記」** 的方式來講，讓你不是背表，而是真的懂。
+
+---
+
+## 1️⃣ Data structure type
+
+### **Binary Tree (Complete)**
+
+### 這一列在說什麼？
+
+Heap 是一種 **二元樹（Binary Tree）**，而且是 **完全二元樹（Complete Binary Tree）**。
+
+### 什麼是 Binary Tree？
+
+* 每個節點 **最多 2 個小孩**
+
+  * left child
+  * right child
+
+### 什麼是 Complete？
+
+* 每一層 **盡量填滿**
+* 最底層 **從左到右填**
+
+```
+        O
+       / \
+      O   O
+     / \  /
+    O   O O
+```
+
+### 為什麼一定要 Complete？
+
+👉 **為了用陣列存**
+
+如果不是 Complete：
+
+* 陣列會有洞
+* index 規則會壞掉
+* 操作會變慢
+
+### 考試一句話
+
+> Heap 是一棵完全二元樹
+
+---
+
+## 2️⃣ Order property
+
+### **Parent ≥ Children（Max） / ≤ Children（Min）**
+
+### 這一列在說什麼？
+
+Heap 有「大小規則」，但只管 **父子之間**。
+
+### Max Heap
+
+```
+parent ≥ left child
+parent ≥ right child
+```
+
+👉 最大值一定在 root
+
+### Min Heap
+
+```
+parent ≤ left child
+parent ≤ right child
+```
+
+👉 最小值一定在 root
+
+### 新手最常誤會
+
+❌ Heap 不是「全部排序好」
+✅ 只保證 **root 最重要**
+
+### 考試一句話
+
+> Heap 只保證父子順序，不保證兄弟順序
+
+---
+
+## 3️⃣ Stored in
+
+### **Array (most efficient)**
+
+### 這一列在說什麼？
+
+Heap **幾乎一定用陣列實作**，不是用指標樹。
+
+### 為什麼陣列這麼好？
+
+因為 Complete Binary Tree 有固定 index 規律：
+
+| 關係          | 公式          |
+| ----------- | ----------- |
+| parent      | (i − 1) / 2 |
+| left child  | 2i + 1      |
+| right child | 2i + 2      |
+
+### 好處
+
+* 不用指標
+* 記憶體連續
+* Cache-friendly
+* 操作快
+
+### 考試一句話
+
+> Heap 最有效率的實作方式是陣列
+
+---
+
+## 4️⃣ Typical uses
+
+### **Priority Queue, Scheduling, Heapsort**
+
+### 這一列在說什麼？
+
+Heap 是為了解決「**誰先處理**」的問題。
+
+### Priority Queue（最重要）
+
+* 每個元素有 priority
+* 永遠先取最高（或最低）
+
+📌 幾乎所有 Priority Queue 都用 Heap
+
+### Scheduling（排程）
+
+* CPU 工作排程
+* 印表機佇列
+* 作業系統
+
+👉 誰最急、誰最重要先做
+
+### Heapsort
+
+* 利用 Heap 的「root 是最大/最小」
+* 不需要額外空間
+* 時間穩定 O(n log n)
+
+### 考試一句話
+
+> Heap 常用來實作 Priority Queue
+
+---
+
+## 5️⃣ Performance
+
+### **Logarithmic insertion / removal**
+
+### 這一列在說什麼？
+
+Heap 的插入、刪除都很快。
+
+### 為什麼是 log n？
+
+因為：
+
+* Heap 是完全二元樹
+* 高度 = log n
+* 交換只會沿一條路
+
+### 操作時間總整理
+
+| 操作         | 時間       |
+| ---------- | -------- |
+| insert     | O(log n) |
+| extract    | O(log n) |
+| peek       | O(1)     |
+| build_heap | O(n)     |
+
+### 考試一句話
+
+> Heap 的效率來自於樹高是 log n
+
+## 🔥 全表「白話總結版」
+
+> Heap 是一種用陣列存的完全二元樹，
+> 只保證父子順序，因此可以在 O(log n) 時間內快速插入與刪除，
+> 非常適合用來實作 Priority Queue。
+
+## 🎯 考點
+
+**Q：為什麼 Heap 適合 Priority Queue？**
+
+> 因為 Heap 保證 root 是最大或最小值，且插入與刪除的時間複雜度為 O(log n)。
+
+---
