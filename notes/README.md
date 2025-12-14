@@ -19,7 +19,9 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 3. Hashing
 4. Stack & Queue
 5. Trees(Not yet finished)
-6. Tips & Notes
+6. hashing(Not yet finished)
+7. heap(Not yet finished)
+8. Tips & Notes
 ---
 
 ## 🔗 Linked List
