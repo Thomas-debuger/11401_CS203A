@@ -899,3 +899,47 @@ Heap 的插入、刪除都很快。
 > 因為 Heap 保證 root 是最大或最小值，且插入與刪除的時間複雜度為 O(log n)。
 
 ---
+
+# p.7 Why Order Means Priority in a Heap 
+
+---
+
+## Priority Queue — 考前速記筆記
+
+### 什麼是 Priority？
+
+> **Priority = 重要性或緊急程度**
+
+在 **Priority Queue** 中：
+
+* 每個元素都有一個 **priority value**
+* **先處理 priority 較高的元素**
+
+  * 數值可能是「大代表高」
+  * 或「小代表高」（依定義）
+
+### Priority 的實際意義（例子）
+
+| 情境                   | Priority 判斷                        |
+| -------------------- | ---------------------------------- |
+| 急診病人（triage level 5） | **高 priority（最緊急）**                |
+| 作業系統行程（剩餘時間最短）       | **高 priority（Shortest Job First）** |
+| 網路封包（高 QoS）          | **高 priority（先傳送）**                |
+
+### 與 Heap 的關係（一定會考）
+
+* **Heap 用數值大小代表 priority**
+* **Root = 最高 priority**
+
+  * Max Heap：數值大 → priority 高
+  * Min Heap：數值小 → priority 高
+
+### 一句話考試答案（必背）
+
+> Priority Queue 是一種每次都先取出「最高優先權」元素的資料結構。
+
+### 結論
+> **Priority = 先做誰**
+> Heap 是 Priority Queue 的常見實作方式
+
+---
