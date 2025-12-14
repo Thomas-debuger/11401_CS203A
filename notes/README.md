@@ -7,6 +7,8 @@ This repository contains my study notes for **Data Structures & Algorithms**, in
 - Hashing
 - Stack & Queue
 - Trees(Not yet finished)
+- hashing(Not yet finished)
+- heap(Not yet finished)
 
 Notes cover definitions, key operations, C examples, comparisons, and memory/performance tips.
 
