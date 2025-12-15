@@ -460,3 +460,441 @@ BFS 只看「邊數」：
 
 * **只有「直接邊」才算 adjacency**
 
+---
+
+# p.25 Pros & Cons Study: Adjacency Matrix
+
+## 一、先用一句話抓重點 
+
+> **Adjacency Matrix = 用空間換速度**
+> 👉 查邊超快，但很吃記憶體
+
+## 二、Pros（優點）
+
+### ✅ 1. **O(1) edge lookup**
+
+* `matrix[u][v]` 立刻知道有沒有邊
+
+🔹 意思是什麼？
+
+* 不管圖有多大
+* 只要看一格矩陣
+* **永遠是常數時間**
+
+📌 例子：
+
+```cpp
+if (matrix[0][3] == 1) { ... }
+```
+
+📝 考試常問：
+
+* 「哪一種表示法能最快判斷兩點是否相連？」
+* ✔️ **Adjacency Matrix**
+
+### ✅ 2. **Simple implementation**
+
+* 好寫(二維矩陣)、好懂、好畫
+
+🔹 為什麼簡單？
+
+* 就是 2D array
+* 沒有 pointer、linked list
+* 新手最容易上手
+
+### ✅ 3. **Works well for dense graphs**
+
+* 適合「邊很多」的圖
+
+🔹 Dense graph 是什麼？
+
+* 幾乎每個點都跟很多點相連
+* 邊數 E ≈ V²
+
+📌 這時候：
+
+* Matrix 本來就要 V² 空間
+* **不浪費**
+
+### ✅ 4. **Good for Floyd–Warshall**
+
+* 適合需要「快速查任意兩點關係」的演算法
+
+🔹 為什麼？
+
+* Floyd–Warshall 是三層 for 迴圈
+* 一直在用 `dist[i][j]`
+
+📌 用 Matrix：
+
+```text
+dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+```
+
+👉 非常自然、非常快
+
+**參考網站:https://ithelp.ithome.com.tw/m/articles/10209186**
+
+### ✅ 5. **Natural fit for weighted graphs**
+
+* 很適合「加權圖」
+
+🔹 不是存 0 / 1，而是：
+
+```
+matrix[u][v] = weight
+```
+
+📌 沒邊可以設：
+
+* ∞
+* -1
+* 0（視題目）
+
+👉 **Dijkstra / Floyd 都很愛**
+
+## 三、Cons（缺點）
+
+### ❌ 1. **O(V²) space**
+
+* 不管有沒有邊，都要存 V × V
+
+📌 極端例子：
+
+* 10000 個點
+* 只有 10 條邊
+* 還是要存 100M 格
+
+👉 **非常浪費**
+
+### ❌ 2. **Wasteful for sparse graphs**
+
+> 現實世界多半是 sparse graph (點多邊少)
+
+🔹 現實例子：
+
+* 社群網路
+* 道路圖
+* 電腦網路
+
+👉 點很多，但每個點只連幾個
+
+📌 Matrix 結果：
+
+* 幾乎都是 0
+* 空間白白浪費
+
+### ❌ 3. **Getting neighbors is O(V)**
+
+* 找某點的鄰居要掃整排
+
+📌 問題：
+
+```text
+0 的鄰居是誰？
+```
+
+你必須：
+
+```
+matrix[0][0..V-1] 全掃
+```
+
+👉 **O(V)**
+
+⚠️ 這對 BFS / DFS 很傷
+
+### ❌ 4. **Harder to insert/remove vertices**
+
+* 動態改圖很麻煩
+
+🔹 為什麼？
+
+* 新增一個點 → 矩陣要變大
+* 要重建整個 V×V
+
+📌 Adjacency List：
+
+* 只要加一個 list
+* 容易很多
+
+## 四、Best for（什麼時候該用）
+
+### ✅ 適合用 Adjacency Matrix 的情況
+
+✔️ **Dense graph**
+✔️ **常常要查「u 到 v 有沒有邊」**
+✔️ **Weighted graph**
+✔️ **Floyd–Warshall / 全對全距離**
+✔️ **教學、考試、概念展示**
+
+## 五、考試速記表
+
+| 情境             | 選誰               |
+| -------------- | ---------------- |
+| 查邊最快           | Adjacency Matrix |
+| BFS / DFS      | Adjacency List   |
+| Dense graph    | Matrix           |
+| Sparse graph   | List             |
+| Floyd–Warshall | Matrix           |
+| 節省空間           | List             |
+
+## 六、一句話背起來（考前救命）
+
+* **Matrix：快查邊、吃空間
+* List：省空間、走鄰居快* 
+
+---
+
+# p.26 Pros & Cons Study: Adjacency List
+
+## 一、先用一句話抓重點 
+
+* **Adjacency List：省空間、走鄰居快，最適合 BFS / DFS**
+
+## 二、Pros（優點）
+
+### ✅ 1. **O(V + E) space**
+
+* 只存「真的存在的邊」
+
+🔹 為什麼是 O(V + E)？
+
+* V 個頂點（每個一個 list）
+* E 條邊（每條邊只存一次／兩次）
+
+📌 對 sparse graph：
+
+* E ≪ V²
+* **非常省記憶體**
+
+👉 考試關鍵字：
+
+* *Excellent for sparse graphs*
+
+### ✅ 2. **Fast traversal：O(deg(v))**
+
+* 找某節點的鄰居不用掃整排
+
+🔹 Matrix：
+
+* 掃 0～V-1 → O(V)
+
+🔹 List：
+
+* 只看 `adj[v]` 裡的節點 → O(deg(v))
+   * deg(v) 代表v節點連的邊數量
+
+📌 對 BFS / DFS 是關鍵加速點
+
+### ✅ 3. **BFS / DFS = O(V + E)**
+
+* 幾乎是「最佳」複雜度
+
+🔹 為什麼？
+
+* 每個點訪問一次 → O(V)
+* 每條邊最多看一次 → O(E)
+
+### ✅ 4. **Easy to scale to large graphs**
+
+* 適合百萬節點等級
+
+📌 現實世界：
+
+* 社群網路
+* 地圖
+* 網路拓撲
+
+如果用 Matrix：
+
+* V = 1,000,000
+* 需要 10¹² 格 ❌ 不可能
+
+List：
+
+* 只存實際邊 ✔️
+
+### ✅ 5. **Insert / delete edges is O(1)**
+
+* 動態改圖很方便
+
+🔹 為什麼？
+
+* 只要在某個 list 加或刪一個元素
+* 不用動整個結構
+
+📌 對「動態圖」超重要
+
+## 三、Cons（缺點）逐條解釋
+
+### ❌ 1. **Edge lookup = O(deg(u))**
+
+* 查 `(u, v)` 有沒有邊比較慢
+
+🔹 做法：
+
+```text
+for each x in adj[u]:
+    if x == v → found
+```
+
+📌 對比：
+
+* Matrix：O(1)
+* List：O(deg(u))
+
+👉 若常常查「有沒有邊」，List 不適合
+
+### ❌ 2. **Implementation 稍微複雜**
+
+* 要用 linked list / vector
+
+🔹 相比 Matrix：
+
+* 多了指標
+* 結構比較複雜
+
+📌 但在實務上這不是大問題
+
+### ❌ 3. **Memory overhead**
+
+* 很多小節點有額外成本
+
+🔹 每個 list node：
+
+* 存 vertex
+* 存 pointer(s)
+
+📌 在極端情況下：
+
+* overhead 可能比資料本身大
+
+## 四、Best for（什麼時候用 Adjacency List）
+
+### ✅ 適合用 List 的情況
+
+✔️ **Sparse graphs（最重要）**
+✔️ **BFS / DFS**
+✔️ **Dijkstra / Prim / Kruskal**
+✔️ **大型圖（百萬節點）**
+✔️ **需要常常加刪邊**
+
+## 五、跟 Adjacency Matrix 的對照表
+
+| 情境             | 選誰     |
+| -------------- | ------ |
+| 查邊最快           | Matrix |
+| 省空間            | List   |
+| BFS / DFS      | List   |
+| Dense graph    | Matrix |
+| Sparse graph   | List   |
+| Floyd–Warshall | Matrix |
+| 大型真實世界圖        | List   |
+
+## 六、考試一段話模板（直接背） 
+
+**Adjacency lists store only existing edges, requiring O(V + E) space and allowing efficient traversalof neighbors in O(deg(v)). Therefore, BFS and DFS run in O(V + E), making adjacency lists ideal for sparse and large graphs.**
+
+## 七、一句話終極記憶 🔥
+
+* **List 省空間、走鄰居
+* Matrix 查邊快、吃空間* 
+
+---
+
+# 補充：為何List較適合BFS跟DFS
+
+## 一、直覺版答案 
+
+* **BFS / DFS 的工作 = 不斷「找鄰居」
+* Adjacency List = 鄰居已經幫你列好
+* Adjacency Matrix = 要自己一個一個找**
+
+## 二、BFS / DFS 在做什麼？
+
+不管是 BFS 還是 DFS，核心只有一句話：
+
+* **對目前節點 v，走訪所有鄰居**
+
+### 偽碼（重點行）
+
+```text
+for each neighbor u of v:
+    if u not visited:
+        visit u
+```
+
+## 三、用 Adjacency Matrix 找鄰居（慢）
+
+### 做法
+
+```text
+for i = 0 to V-1:
+    if matrix[v][i] == 1:
+        i 是鄰居
+```
+
+### 時間
+
+* 每個點：**O(V)**
+* BFS / DFS 會對每個點做一次
+
+👉 **總時間 = O(V²)**
+
+⚠️ 就算這個點只有 1 個鄰居，也要掃整排
+
+## 四、用 Adjacency List 找鄰居（快）
+
+### 做法
+
+```text
+for each u in adjList[v]:
+    u 是鄰居
+```
+
+### 時間
+
+* 每個點：**O(deg(v))**
+* 全部加起來：所有邊只被看一次
+
+👉 **總時間 = O(V + E)**
+
+✔️ 只看「真的存在的邊」
+
+## 五、直接比較（考試最愛）
+
+| 項目            | Matrix | List         |
+| ------------- | ------ | ------------ |
+| 找 v 的鄰居       | O(V)   | O(deg(v))    |
+| BFS / DFS 總時間 | O(V²)  | **O(V + E)** |
+| Sparse graph  | ❌ 很慢   | ✅ 很快         |
+
+## 六、為什麼這在「稀疏圖」特別重要？
+
+現實世界幾乎都是：
+
+* V 很大
+* E 很小
+
+📌 例子：
+
+* 1 萬個人
+* 每人平均 5 個朋友
+
+### Matrix：
+
+* BFS ≈ 10⁸ 次檢查（幾乎都是 0）
+
+### List：
+
+* BFS ≈ 5 萬條邊
+
+👉 差距巨大
+
+## 七、一句話必背（考前）🔥
+
+* **BFS / DFS = 走邊
+* List = 只走真的邊
+* Matrix = 邊不邊都要看**
+
