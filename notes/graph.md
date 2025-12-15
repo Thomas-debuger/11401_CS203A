@@ -775,7 +775,7 @@ for each x in adj[u]:
 ### ✅ 適合用 List 的情況
 
 ✔️ **Sparse graphs（最重要）**   
-*✔️ **BFS / DFS**   
+✔️ **BFS / DFS**   
 ✔️ **Dijkstra / Prim / Kruskal**   
 ✔️ **大型圖（百萬節點）**   
 ✔️ **需要常常加刪邊**   
