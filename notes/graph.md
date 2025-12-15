@@ -622,11 +622,11 @@ matrix[0][0..V-1] 全掃
 
 ### ✅ 適合用 Adjacency Matrix 的情況
 
-✔️ **Dense graph**
-✔️ **常常要查「u 到 v 有沒有邊」**
-✔️ **Weighted graph**
-✔️ **Floyd–Warshall / 全對全距離**
-✔️ **教學、考試、概念展示**
+✔️ **Dense graph**    
+✔️ **常常要查「u 到 v 有沒有邊」**    
+✔️ **Weighted graph**    
+✔️ **Floyd–Warshall / 全對全距離**    
+✔️ **教學、考試、概念展示**    
 
 ## 五、考試速記表
 
