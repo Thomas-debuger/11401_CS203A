@@ -996,7 +996,7 @@ for each u in adjList[v]:
 
 ---
 
-## 三、考試必背總結表
+## 二、考試必背總結表
 
 | 情境             | 選誰     |
 | -------------- | ------ |
@@ -1008,12 +1008,12 @@ for each u in adjList[v]:
 | 動態加刪邊          | List   |
 | Floyd–Warshall | Matrix |
 
-## 四、申論題模板 
+## 三、申論題模板 
 
 * Adjacency matrices provide O(1) edge lookup but require O(V²) space, making them suitable for dense graphs.
 * Adjacency lists use O(V + E) space and allow efficient traversal in O(V + E), thus preferred for sparse graphs and BFS/DFS.
 
-## 五、一句話記憶 
+## 四、一句話記憶 
 
 * **Matrix：快查邊、吃空間**
 * **List：省空間、走鄰居**
