@@ -774,11 +774,11 @@ for each x in adj[u]:
 
 ### ✅ 適合用 List 的情況
 
-✔️ **Sparse graphs（最重要）**
-✔️ **BFS / DFS**
-✔️ **Dijkstra / Prim / Kruskal**
-✔️ **大型圖（百萬節點）**
-✔️ **需要常常加刪邊**
+✔️ **Sparse graphs（最重要）**   
+*✔️ **BFS / DFS**   
+✔️ **Dijkstra / Prim / Kruskal**   
+✔️ **大型圖（百萬節點）**   
+✔️ **需要常常加刪邊**   
 
 ## 五、跟 Adjacency Matrix 的對照表
 
