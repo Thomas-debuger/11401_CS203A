@@ -794,7 +794,8 @@ for each x in adj[u]:
 
 ## 六、考試一段話模板（直接背） 
 
-**Adjacency lists store only existing edges, requiring O(V + E) space and allowing efficient traversalof neighbors in O(deg(v)). Therefore, BFS and DFS run in O(V + E), making adjacency lists ideal for sparse and large graphs.**
+**Adjacency lists store only existing edges, requiring O(V + E) space and allowing efficient traversal of neighbors in O(deg(v)). Therefore, BFS and DFS run in O(V + E), making adjacency lists ideal for sparse and large graphs.**  
+**鄰接表僅儲存已存在的邊，需要 O(V + E) 的空間，並允許在 O(deg(v)) 的時間內高效遍歷鄰居。因此，廣度優先搜尋 (BFS) 和深度優先搜尋 (DFS) 的時間複雜度均為 O(V + E)，這使得鄰接表成為稀疏圖和大型圖的理想選擇。**
 
 ## 七、一句話終極記憶 🔥
 
