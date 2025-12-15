@@ -438,7 +438,7 @@ BFS 只看「邊數」：
 
 那就不是 Adjacency Matrix 了，而是：
 
-### ✅ Reachability / Transitive Closure
+### ✅ Reachability(可達性) / Transitive Closure
 
 例如用：
 
