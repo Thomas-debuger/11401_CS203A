@@ -900,3 +900,120 @@ for each u in adjList[v]:
 * List = 只走真的邊
 * Matrix = 邊不邊都要看**
 
+# p.28 時間複雜度比較
+
+## 一、解釋
+
+### 🔹 1. Edge lookup（查是否有邊）
+
+| Matrix   | List          |
+| -------- | ------------- |
+| **O(1)** | **O(deg(v))** |
+
+📌 為什麼？
+
+* Matrix：直接看 `matrix[u][v]`
+* List：要掃 `u` 的鄰居清單
+
+📝 考試用語：
+
+* Adjacency matrix supports constant-time(恆定時間) edge lookup.
+
+### 🔹 2. Space（空間）
+
+| Matrix    | List         |
+| --------- | ------------ |
+| **O(V²)** | **O(V + E)** |
+
+📌 關鍵：
+
+* Matrix：不管有沒有邊，都要存
+* List：只存存在的邊
+
+👉 Sparse graph → List 完勝
+
+### 🔹 3. Traversal BFS / DFS（重點）
+
+| Matrix    | List         |
+| --------- | ------------ |
+| **O(V²)** | **O(V + E)** |
+
+📌 原因（一定要會講）：
+
+* Matrix：每個點都要掃整排找鄰居
+* List：只走實際存在的邊
+
+👉 因此 **List 適合 BFS/DFS**
+
+### 🔹 4. Best for（適合什麼圖）
+
+| Matrix       | List          |
+| ------------ | ------------- |
+| Dense graphs | Sparse graphs |
+
+📌 Dense：
+
+* E 接近 V²
+* Matrix 不浪費
+
+📌 Sparse：
+
+* E ≪ V²
+* List 省空間
+
+### 🔹 5. Neighbor iteration（找鄰居）
+
+| Matrix   | List          |
+| -------- | ------------- |
+| **O(V)** | **O(deg(v))** |
+
+📌 白話：
+
+* Matrix：不管幾個鄰居，都要掃 V 個
+* List：有幾個鄰居，就跑幾次
+
+### 🔹 6. Implementation（實作難度）
+
+| Matrix | List     |
+| ------ | -------- |
+| Simple | Moderate |
+
+📌 原因：
+
+* Matrix：2D array
+* List：vector / linked list + pointer
+
+### 🔹 7. Dynamic graph?（動態圖）
+
+| Matrix | List |
+| ------ | ---- |
+| Hard   | Easy |
+
+📌 為什麼？
+
+* Matrix：加點 → 重建整個矩陣
+* List：加一個 list 就好
+
+---
+
+## 三、考試必背總結表
+
+| 情境             | 選誰     |
+| -------------- | ------ |
+| 查邊最快           | Matrix |
+| BFS / DFS      | List   |
+| 省空間            | List   |
+| Dense graph    | Matrix |
+| Sparse graph   | List   |
+| 動態加刪邊          | List   |
+| Floyd–Warshall | Matrix |
+
+## 四、申論題模板 
+
+* Adjacency matrices provide O(1) edge lookup but require O(V²) space, making them suitable for dense graphs.
+* Adjacency lists use O(V + E) space and allow efficient traversal in O(V + E), thus preferred for sparse graphs and BFS/DFS.
+
+## 五、一句話記憶 
+
+* **Matrix：快查邊、吃空間**
+* **List：省空間、走鄰居**
