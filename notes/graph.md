@@ -1017,3 +1017,333 @@ for each u in adjList[v]:
 
 * **Matrix：快查邊、吃空間**
 * **List：省空間、走鄰居**
+
+---
+
+# p.29 ADT:Graph
+
+## 一、objects 在說什麼？
+
+```text
+objects:
+a nonempty set of vertices and a set of undirected edges
+```
+
+白話翻譯 👇
+
+**一個圖包含：**
+
+* 一組「頂點（vertices）」
+* 一組「無向邊（edges）」
+* 每條邊是「兩個頂點的配對」
+
+📌 重點：
+
+* 這裡講的是 **Undirected Graph**
+* 還沒提「怎麼存」
+
+---
+
+## 二、functions
+
+這一段是在定義：
+
+**Graph 這個 ADT 必須支援哪些操作**
+
+---
+
+### 1️⃣ `Graph Create()`
+
+```text
+return an empty graph
+```
+
+意思：
+
+* 建立一張空圖
+* 裡面沒有 vertex，也沒有 edge
+
+📌 類似：
+
+```cpp
+Graph g;
+```
+
+---
+
+### 2️⃣ `InsertVertex(graph, v)`
+
+```text
+return a graph with v inserted
+v has no incident edge
+```
+
+意思：
+
+* 把一個新頂點 `v` 加進圖
+* 一開始沒有任何邊
+
+📌 白話：
+
+* 先有人，但還沒交朋友
+
+---
+
+### 3️⃣ `InsertEdge(graph, v1, v2)`
+
+```text
+return a graph with new edge between v1 and v2
+```
+
+意思：
+
+* 在 `v1` 和 `v2` 之間加一條邊
+* 因為是 **undirected**，兩邊都算鄰居
+
+📌 注意：
+
+* 這裡假設 v1、v2 已存在
+
+---
+
+### 4️⃣ `DeleteVertex(graph, v)`
+
+```text
+v and all edges incident to it are removed
+```
+
+這句很重要 ⚠️
+
+意思：
+
+* 刪掉頂點 v
+* **跟 v 有關的所有邊也要一起刪**
+
+📌 不能留下「斷掉的邊」
+
+### 常見題型 
+
+* 刪除 vertex 時，邊要不要刪？
+
+✔️ **要，一起刪**
+
+
+---
+
+### 5️⃣ `DeleteEdge(graph, v1, v2)`
+
+```text
+remove the edge (v1, v2)
+```
+
+意思：
+
+* 只刪邊
+* 頂點還在
+
+---
+
+### 6️⃣ `IsEmpty(graph)`
+
+```text
+if graph == empty graph
+```
+
+意思：
+
+* 判斷圖是不是空的
+* 沒有任何 vertex
+
+---
+
+### 7️⃣ `Adjacent(graph, v)`
+
+```text
+return a list of all vertices adjacent to v
+```
+
+這一個是 **BFS / DFS 的核心操作** 🔥
+
+意思：
+
+* 回傳所有跟 v 有邊直接相連的點
+
+📌 用 Matrix 或 List 實作都可以：
+
+* Matrix：掃 row
+* List：回傳 list
+
+### 常見題型 
+
+* Adjacent(graph, v) 回傳什麼？
+
+✔️ **v 的鄰居**
+❌ 不是所有可達點
+
+---
+
+# p.33
+
+## 一、這一頁在教什麼？
+
+* **Graph Traversal = 把樹的 DFS / BFS 擴充到「一般圖 graph」**
+
+## 二、先回顧：Tree 怎麼走？
+
+在「樹」中學過：
+
+* **DFS**
+
+  * Preorder
+  * Inorder
+  * Postorder
+
+* **BFS**
+
+  * Level-order
+
+👉 因為樹：
+
+* 沒有 cycle
+* 每個節點只有一條路可到
+
+所以 traversal 很單純。
+
+## 三、Graph vs Tree
+
+### 🔹 Graph
+
+* 結構很自由
+* **可以有 cycle**
+* 形狀不固定
+* 一個點可能有很多條路回來
+
+### 🔹 Tree
+
+* **Connected + Acyclic(無環)**
+* 只有一條唯一路徑
+* 是 Graph 的特例
+
+👉 **所有 Tree 都是 Graph，但不是所有 Graph 都是 Tree**
+
+## 四、Graph Traversal 為什麼比較難？
+
+因為 **cycle（環）** ⚠️
+
+📌 例子：
+
+```
+0 → 1 → 2
+↑       ↓
+└───────┘
+```
+
+如果你：
+
+* 不記錄走過的點 (visited[v] = true)
+* DFS / BFS 會 **無限循環**
+
+## 五、Graph Traversal 跟 Tree Traversal 哪裡一樣？
+
+簡報的 **Similar** 就是在講這個 👇
+
+### ✅ 1. Visited strategy（一定要）
+
+> 每個節點只走一次
+
+```text
+visited[v] = true
+```
+
+---
+
+### ✅ 2. Recursive DFS
+
+樹的 DFS：
+
+```text
+dfs(node):
+    for each child:
+        dfs(child)
+```
+
+圖的 DFS：
+
+```text
+dfs(v):
+    visited[v] = true
+    for each neighbor u of v:
+        if not visited[u]:
+            dfs(u)
+```
+
+👉 幾乎一模一樣，只多了 `visited`
+
+---
+
+### ✅ 3. Queue-based BFS
+
+樹的 BFS（level-order）：
+
+```text
+queue.push(root)
+```
+
+圖的 BFS：
+
+```text
+queue.push(start)
+visited[start] = true
+```
+
+👉 一樣用 queue，只是要防止重複
+
+---
+
+### ✅ 4. Systematic exploration
+
+意思是：
+
+* 有規則
+* 不亂走
+* 保證每個節點都會被考慮
+
+---
+
+## 六、Tree Traversal ≈ Graph Traversal（對照表）
+
+| Tree Traversal | Graph Traversal |
+| -------------- | --------------- |
+| Preorder       | DFS             |
+| Level-order    | BFS             |
+
+📌 重點：
+
+* Tree 的 traversal 是 Graph traversal 的特例
+* 只是樹不用擔心 cycle
+
+## 七、考試常考觀念 ⚠️
+
+### ❌ 錯誤觀念
+
+* Graph traversal 跟 tree traversal 完全不同
+
+### ✅ 正確觀念
+
+* Graph traversal 是 tree traversal + visited 機制
+
+## 八、考試標準答案（可背）
+
+**Graph traversal extends tree traversal. Because graphs can contain cycles, a visited mechanism is necessary to prevent infinite loops. DFS corresponds to preorder traversal, and BFS corresponds to level-order traversal in trees.**
+
+**圖遍歷是對樹遍歷的擴展。由於圖可能包含環，因此需要存取機制來防止無限循環。深度優先搜尋（DFS）對應於樹中的前序遍歷，而廣度優先搜尋（BFS）對應於樹中的層序遍歷。**
+
+## 九、一句話記憶 
+
+* **Tree = 沒有 cycle 的 graph**
+* **Graph traversal = Tree traversal + visited**
+* **Graph一定要visit，因：**
+   * Graph可以有 cycle
+   * 一個點可能連到很多點
+   * 可能有多條路回到同一點
+
