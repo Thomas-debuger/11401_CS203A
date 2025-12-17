@@ -1,3 +1,120 @@
+# P.19 Key-Value Pair
+
+## 1️⃣ 先看這個式子在寫什麼
+
+```
+<Value1, Value2>  →  Pair<Key, Value2>
+```
+
+意思是：
+
+* 原本有一對資料 **(Value1, Value2)** 經過處理後，變成 **(Key, Value2)**
+
+## 2️⃣ Value2 是什麼？
+
+投影片說：
+
+* **Value2 represents the important information**
+
+👉 **Value2 = 我們真正想存、想查的資料**
+
+例子：
+
+* 學生成績
+* 商品資訊
+* 使用者資料
+
+## 3️⃣ Value1 是什麼？
+
+投影片說：
+
+* **Value1 provides the source to derive or compute the key**
+
+👉 **Value1 不是直接拿來存**
+👉 它是「用來產生 key 的原料」
+
+也就是：
+
+```
+Key = f(Value1)
+```
+
+## 4️⃣ 用超實際的例子來看
+
+### 🎓 學生資料例子
+
+原始資料：
+
+```
+<Value1, Value2>
+<StudentID, StudentRecord>
+```
+
+轉成 Dictionary 形式：
+
+```
+Key = StudentID
+Value = StudentRecord
+```
+
+最後存成：
+
+```
+Pair<Key, Value2>
+<StudentID, StudentRecord>
+```
+
+📌 StudentID 本身就是 key
+📌 StudentRecord 才是你要查的資料
+
+### 📧 Email 系統例子
+
+原始資料：
+
+```
+<Value1, Value2>
+<EmailAddress, UserProfile>
+```
+
+Key 來自：
+
+```
+Key = hash(EmailAddress)
+```
+
+Dictionary 裡存：
+
+```
+<hash(EmailAddress), UserProfile>
+```
+
+👉 Value1（Email）用來算 key
+👉 Value2（UserProfile）是重要資料
+
+## 5️⃣ 為什麼要這樣分？
+
+因為在 **Dictionary / Hash Table** 裡：
+
+* 查找是靠 **key**
+* 資料是存在 **value**
+
+所以設計時會：
+
+1. 用 Value1 產生 key（方便、快速）
+2. 用 key 找到 Value2（真正的資料）
+
+## 6️⃣ 一句話考試版總結 
+
+* Dictionary 中存的是 **(Key, Value)**
+* **Value2** 是實際要存取的資料
+* **Value1** 用來產生或計算 key
+
+或更短一點：
+
+* **Key 來自 Value1，資料存在 Value2**
+
+---
+
 # p.25 Collision Handling     
 
 ---
