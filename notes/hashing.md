@@ -115,6 +115,147 @@ Dictionary 裡存：
 
 ---
 
+# p.20
+
+## 1️⃣ objects（資料內容）
+
+```
+A collection of n > 0 pairs,
+each pair has a key and an associated item
+```
+
+意思是：
+
+* Dictionary 裡有 **n 個 (key, item) 配對**
+
+例如：
+
+```
+(A, 10), (B, 20), (C, 30)
+```
+
+📌 **key**：用來找資料
+📌 **item**：真正存的資料
+
+## 2️⃣ functions（可以做的操作）
+
+### 🔹 Create
+
+```
+Dictionary Create(max_size)
+::= create an empty dictionary.
+```
+
+👉 建立一個**空的 dictionary**
+
+* `max_size`：最多可以存幾個 pair
+* 一開始是 **沒有任何資料**
+
+---
+
+### 🔹 IsEmpty
+
+```
+Boolean IsEmpty(d, n)
+::= if (n > 0) return TRUE
+    else return FALSE
+```
+
+👉 檢查 dictionary 是不是空的
+
+📌 白話意思：
+
+* 如果元素數量 `n > 0` → **不是空的**
+* 如果 `n = 0` → **是空的**
+
+⚠️ 投影片這裡寫法有點怪
+比較合理的語意應該是：
+
+```
+if (n == 0) return TRUE
+else return FALSE
+```
+
+考試時知道它是在「檢查是否為空」就好。
+
+---
+
+### 🔹 Search
+
+```
+Element Search(d, k)
+::= return item with key k.
+    return NULL if no such element.
+```
+
+👉 用 **key k** 找對應的 **item**
+
+* 找得到 → 回傳 item
+* 找不到 → 回傳 `NULL`
+
+📌 Dictionary 最重要的功能 ⭐⭐⭐
+
+---
+
+### 🔹 Delete
+
+```
+Element Delete(d, k)
+::= delete and return item (if any) with key k.
+```
+
+👉 刪掉 key = k 的那一對資料
+
+* 如果存在 → 刪掉並回傳 item
+* 如果不存在 → 什麼都不刪（可能回 NULL）
+
+---
+
+### 🔹 Insert
+
+```
+void Insert(d, item, k)
+::= insert item with key k into d.
+```
+
+👉 插入一筆新資料 `(k, item)`
+
+📌 隱含規則（老師常考）：
+
+* **key 不可重複**
+* 若 key 已存在：
+
+  * 可能覆蓋舊資料
+  * 或拒絕插入（看實作）
+
+---
+
+## 3️⃣ 用一個完整例子串起來
+
+```
+d = Create(100)
+IsEmpty(d) → TRUE
+
+Insert(d, "Alice", 1001)
+Insert(d, "Bob",   1002)
+
+Search(d, 1001) → "Alice"
+Delete(d, 1002) → "Bob"
+Search(d, 1002) → NULL
+```
+
+## 4️⃣ 一張考試速記表 ✅
+
+| Operation | 功能             |
+| --------- | -------------- |
+| Create    | 建立空 dictionary |
+| IsEmpty   | 是否沒有資料         |
+| Insert    | 插入 (key, item) |
+| Search    | 用 key 找 item   |
+| Delete    | 刪除指定 key       |
+
+---
+
 # p.25 Collision Handling     
 
 ---
