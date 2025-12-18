@@ -547,7 +547,96 @@ key = hash(value1 + timestamp)
 
 ---
 
-# p.29 Hash Function    
+# p.26 Key Concept
+
+## 一.The data or identifier to be stored 解釋
+
+* **The data or identifier to be stored**
+* **要被存進 hash table 的資料，或用來辨識資料的識別碼**
+
+## 在 Hash Table 裡它實際指的是什麼？
+
+👉 **指的是「Key」**
+
+也就是：
+
+* hash function 的輸入
+* 用來決定 index 的東西
+
+---
+
+## 用例子最清楚
+
+### 🎓 學生資料
+
+```
+Key   = student ID   ← identifier
+Value = student name, GPA, ...
+```
+
+這裡：
+
+* student ID 是 **identifier**
+* 它本身也是一種 **data**
+
+---
+
+### 👤 帳號系統
+
+```
+Key   = username
+Value = user profile
+```
+
+username：
+
+* 是資料
+* 也是用來「識別」使用者的 key
+
+---
+
+### 📦 字典（Dictionary）
+
+```
+Key   = "apple"
+Value = "蘋果"
+```
+
+"apple"：
+
+* 是 data
+* 也是 identifier（用來找到翻譯）
+
+---
+
+## 考試時你可以這樣理解
+
+* **Key 是用來識別與查找資料的值，會被送進 hash function。**
+* **Key is the identifier used to locate data in the hash table.**
+
+## 一句話總結
+
+* 「The data or identifier to be stored」
+* 就是指 **要存進 hash table、並且用來當作查找依據的 key**。
+
+---
+
+## 二. Load Factor 解釋 
+
+```
+Load Factor = 負載率 => α = n / m，表示擁擠程度
+```
+* n = 存了幾筆資料
+* m = table size
+
+Q: α增加會怎樣    
+A: 1.collison(衝突)增加    
+   2.cluster(群聚)增加    
+   3.搜尋時間變長    
+
+---
+
+# p.27 Hash Function    
 
 ---
 
