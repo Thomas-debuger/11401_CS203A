@@ -1544,7 +1544,7 @@ slot[5] = 43
 
 ---
 
-# p.45-46 Quadratic Probing   
+# p.43-44 Quadratic Probing   
 
 ---
 
