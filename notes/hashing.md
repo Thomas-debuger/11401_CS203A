@@ -525,7 +525,7 @@ h(k) = k mod 1000
 
 ---
 
-# p.25 Collision Handling     
+# p.24 Collision Handling     
 
 ---
 
