@@ -1978,6 +1978,128 @@ O(1)
 
 ---
 
+# p.58 Time Complexity
+
+## 先把名詞換成白話
+
+### Open Addressing 是什麼？
+
+👉 **只有一排停車格**
+👉 車子（資料）一定要停在格子裡
+👉 撞到就「往別的格子找」
+
+這個「找」就叫 **probing**
+（linear / quadratic / double hashing）
+
+## 為什麼 α ≤ 0.7 這麼重要？
+
+α = **停車格有多滿**
+
+* α = 0.3 → 很空
+* α = 0.7 → 還 OK
+* α → 1 → 爆炸
+
+👉 **open addressing 不能滿**
+
+## 看每個操作在講什麼
+
+## 🔍 Search（找車）
+
+### 平均情況（α ≤ 0.7）
+
+* 停車格還算空
+* 找一點點就找到了
+* 👉 **很快（O(1)）**
+
+### 最糟情況
+
+* 幾乎每格都停車
+* 你一路走完整排
+* 👉 **O(n)**
+
+📌 表格那句話的意思是：
+
+* **車位越滿，你要走的路就越長**
+
+---
+
+## ➕ Insert（停車）
+
+### 平均情況
+
+* 很快就找到空格
+* 👉 **O(1)**
+
+### 最糟情況
+
+* 幾乎沒空位
+* 你一格一格找
+* 👉 **O(n)**
+
+📌 所以寫：
+
+* May require several probes
+
+---
+
+## ➖ Delete（移走車）
+
+### 為什麼寫「Needs careful slot marking」？
+
+這是 open addressing **最容易不懂的地方**，但概念其實很簡單。
+
+### ❌ 不能直接清空格子
+
+如果你直接清空：
+
+```
+[ A ][ B ][ C ][   ][ D ]
+```
+
+你在找 D 的時候：
+
+* 看到空格
+* 以為「後面不可能有」
+* 👉 找不到 D（錯誤）
+
+### ✅ 正確做法：Lazy Delete（做記號）
+
+```
+[ A ][ B ][ C ][ X ][ D ]
+                ↑
+             deleted
+```
+
+* X = 曾經有東西，但被刪了
+* 搜尋時：**要繼續找**
+* 插入時：**可以用**
+
+📌 這就是那句話在講的事。
+
+---
+
+## 為什麼 Worst case 都是 O(n)？
+
+因為：
+
+* open addressing
+* 所有資料都在 array 裡
+* 最慘要走完整排
+
+## 5 句重點
+
+1️⃣ Open addressing = **撞到就找下一格**
+2️⃣ α 要小（≤ 0.7）
+3️⃣ α 小 → 平均都很快
+4️⃣ α 大 → 要走很遠
+5️⃣ 刪除不能直接清空，要做記號
+
+## 一句考試用
+
+* In open addressing, operations are efficient at low load factors, but performance degrades as the table becomes full due to long probe sequences.
+
+---
+
 # p.59 ADT: Dictionary
 
 ## 1️⃣ objects（資料內容）
