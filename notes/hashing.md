@@ -1377,7 +1377,7 @@ Probing = 系統性搜尋 hash table 中的空槽（empty slot），直到找到
 
 ---
 
-# p.42-43 Linear Probing   
+# p.40-41 Linear Probing   
 
 ---
 
@@ -1493,7 +1493,7 @@ slot[5] = 43
 
 ---
 
-# p.44 Primary Clustering   
+# p.42 Primary Clustering   
 
 ---
 
