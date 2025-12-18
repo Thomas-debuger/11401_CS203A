@@ -256,7 +256,7 @@ Search(d, 1002) → NULL
 
 ---
 
-# p.21 Hashing
+# p.20 Hashing
 
 ## 1️⃣ 什麼是 Hashing？
 
@@ -476,7 +476,7 @@ Value
 
 ---
 
-# p.22 Table Size
+# p.21 Table Size
 
 ## 為什麼「prefer prime numbers」？
 
