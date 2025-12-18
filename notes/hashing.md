@@ -1712,7 +1712,7 @@ slot[9] = 43
 
 ---
 
-# p.48-51 Double Hashing   
+# p.46-49 Double Hashing   
 
 ---
 
