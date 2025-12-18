@@ -115,147 +115,6 @@ Dictionary 裡存：
 
 ---
 
-# p.20
-
-## 1️⃣ objects（資料內容）
-
-```
-A collection of n > 0 pairs,
-each pair has a key and an associated item
-```
-
-意思是：
-
-* Dictionary 裡有 **n 個 (key, item) 配對**
-
-例如：
-
-```
-(A, 10), (B, 20), (C, 30)
-```
-
-📌 **key**：用來找資料
-📌 **item**：真正存的資料
-
-## 2️⃣ functions（可以做的操作）
-
-### 🔹 Create
-
-```
-Dictionary Create(max_size)
-::= create an empty dictionary.
-```
-
-👉 建立一個**空的 dictionary**
-
-* `max_size`：最多可以存幾個 pair
-* 一開始是 **沒有任何資料**
-
----
-
-### 🔹 IsEmpty
-
-```
-Boolean IsEmpty(d, n)
-::= if (n > 0) return TRUE
-    else return FALSE
-```
-
-👉 檢查 dictionary 是不是空的
-
-📌 白話意思：
-
-* 如果元素數量 `n > 0` → **不是空的**
-* 如果 `n = 0` → **是空的**
-
-⚠️ 投影片這裡寫法有點怪
-比較合理的語意應該是：
-
-```
-if (n == 0) return TRUE
-else return FALSE
-```
-
-考試時知道它是在「檢查是否為空」就好。
-
----
-
-### 🔹 Search
-
-```
-Element Search(d, k)
-::= return item with key k.
-    return NULL if no such element.
-```
-
-👉 用 **key k** 找對應的 **item**
-
-* 找得到 → 回傳 item
-* 找不到 → 回傳 `NULL`
-
-📌 Dictionary 最重要的功能 ⭐⭐⭐
-
----
-
-### 🔹 Delete
-
-```
-Element Delete(d, k)
-::= delete and return item (if any) with key k.
-```
-
-👉 刪掉 key = k 的那一對資料
-
-* 如果存在 → 刪掉並回傳 item
-* 如果不存在 → 什麼都不刪（可能回 NULL）
-
----
-
-### 🔹 Insert
-
-```
-void Insert(d, item, k)
-::= insert item with key k into d.
-```
-
-👉 插入一筆新資料 `(k, item)`
-
-📌 隱含規則（老師常考）：
-
-* **key 不可重複**
-* 若 key 已存在：
-
-  * 可能覆蓋舊資料
-  * 或拒絕插入（看實作）
-
----
-
-## 3️⃣ 用一個完整例子串起來
-
-```
-d = Create(100)
-IsEmpty(d) → TRUE
-
-Insert(d, "Alice", 1001)
-Insert(d, "Bob",   1002)
-
-Search(d, 1001) → "Alice"
-Delete(d, 1002) → "Bob"
-Search(d, 1002) → NULL
-```
-
-## 4️⃣ 一張考試速記表 ✅
-
-| Operation | 功能             |
-| --------- | -------------- |
-| Create    | 建立空 dictionary |
-| IsEmpty   | 是否沒有資料         |
-| Insert    | 插入 (key, item) |
-| Search    | 用 key 找 item   |
-| Delete    | 刪除指定 key       |
-
----
-
 # p.20 Hashing
 
 ## 1️⃣ 什麼是 Hashing？
@@ -685,203 +544,6 @@ key = hash(value1 + timestamp)
 | **Open Addressing** | 找下一個空 slot          | 不需要指標 | 高負載時很慢   |
 | **Composite Key**   | 用多屬性來增加 key 唯一性     | 減少碰撞  | key 計算較重 |
 | **Hash Refinement** | 改用更好的 hash function | 分布更平均 | 設計要花時間   |
-
----
-
-# p.28 ADT: HashTable with Separate Chaining   
-
----
-
-# ✅ **ADT: HashTable with Separate Chaining（拉鍊法雜湊表）**
-
-### **物件（objects）**
-
-HashTable 內部包含：
-
-* 一組 **key-value pair**（鍵唯一）
-* 一個大小為 **m** 的 bucket 陣列
-  每個 bucket 是 **一條 linked list（chain）**，裡面存多個 `<key, value>`。
-
-### **雜湊方式**
-
-使用雜湊函式：
-
-```
-h(key) → [0, m-1]   // 對 key 做 hash，決定它屬於哪個 bucket
-```
-
----
-
-# 🎯 **參數（parameters）**
-
-| 名稱                | 意義                              |
-| ----------------- | ------------------------------- |
-| `m`               | bucket 數量                       |
-| `h`               | hash function（固定、可重複、分布均勻）      |
-| `λ = n / m`       | load factor（平均每個 bucket 裡有多少元素） |
-| `MAX_LOAD_FACTOR` | 通常設 0.75，超過就擴增                  |
-
----
-
-# 🧱 **方法（operations / functions）**
-
----
-
-## ✔ **Create(m)**
-
-**前置條件（precondition）：**
-
-```
-m > 0
-```
-
-**後置條件（postcondition）：**
-
-```
-建立一個 m 個空 bucket 的 hash table
-所有 bucket 都是空的 chain
-λ = 0
-```
-
----
-
-## ✔ **IsEmpty(h)**
-
-回傳（TRUE / FALSE）：
-
-```
-size(h) == 0
-```
-
----
-
-## ✔ **Insert(h, k, v)**
-
-```
-i = h(k) mod m    // 找 bucket index
-```
-
-1. 若 bucket[i] 裡已存在 key k：
-   → **更新 value 為 v（取代舊值）**
-
-2. 否則：
-   → **把 <k, v> 插入到 bucket[i] 的鏈結串列「開頭」**
-   → size++
-
-3. 若 λ > MAX_LOAD_FACTOR：
-   → 執行 `Resize(h, 2*m)`（重新分配所有 key）
-
----
-
-## ✔ **Retrieve(h, k)**
-
-```
-i = h(k) mod m
-到 bucket[i] 裡找 key k
-```
-
-* 若找到：回傳對應 value
-* 若找不到：丟出 `KeyNotFoundException`
-
----
-
-## ✔ **Delete(h, k)**
-
-```
-i = h(k) mod m
-```
-
-* 若 bucket[i] 裡有 k：
-  → 刪除 `<k, v>`
-  → size--
-  → 回傳 TRUE
-* 若沒有：
-  → 回傳 FALSE
-
----
-
-## ✔ **Search(h, k)**
-
-```
-i = h(k) mod m
-回傳 (bucket[i] 是否含 key k)
-```
-
----
-
-## ✔ **Traverse(h)**
-
-回傳一個 iterator，順序為：
-
-1. bucket[0]
-2. bucket[1]
-3. ...
-4. bucket[m-1]
-
-在每個 bucket 裡，依 **插入順序** 走訪所有 pair。
-
----
-
-# 🎉 **完整 ADT（漂亮格式）**
-
-```
-ADT HashTable is
-objects:
-    A finite set of <key, value> pairs with unique keys.
-    Keys are distributed into m buckets by hash function:
-        h(key) → [0, m-1].
-    Each bucket contains a chain (linked list) of pairs.
-
-parameters:
-    m: number of buckets (m > 0)
-    h: deterministic hash function
-    λ: load factor = n / m
-    MAX_LOAD_FACTOR = 0.75
-
-operations:
-
-HashTable Create(m)
-    pre:  m > 0
-    post: return empty table with m buckets and λ = 0
-
-Boolean IsEmpty(h)
-    return (size(h) == 0)
-
-Insert(h, k, v)
-    i = h(k) mod m
-    if k exists in bucket[i]:
-        replace existing value with v
-    else:
-        insert <k, v> at front of bucket[i]
-        size++
-    if λ > MAX_LOAD_FACTOR:
-        Resize(h, 2*m)
-
-value Retrieve(h, k)
-    i = h(k) mod m
-    search bucket[i] for k
-    if found: return associated value
-    else: throw KeyNotFoundException
-
-Boolean Delete(h, k)
-    i = h(k) mod m
-    if k exists in bucket[i]:
-        remove <k, v>
-        size--
-        return TRUE
-    else:
-        return FALSE
-
-Boolean Search(h, k)
-    i = h(k) mod m
-    return (k exists in bucket[i])
-
-Iterator Traverse(h)
-    return iterator visiting buckets from 0 to m-1,
-    and within each bucket in insertion order
-
-end HashTable
-```
 
 ---
 
@@ -1625,3 +1287,341 @@ h2(43) = 7 – (43 mod 7) = 7 – 1 = 6
 | **Linear Probing**    | index(i) = (h(k) + i) mod m          | 簡單、快                  | 容易形成長長的連續群集          | **Primary Clustering**（嚴重）               |
 | **Quadratic Probing** | index(i) = (h(k) + c₁i + c₂i²) mod m | 減少 primary clustering | 可能無法探訪到所有 slot、需精選 m | **Secondary Clustering**（仍存在）            |
 | **Double Hashing**    | index(i) = (h₁(k) + i·h₂(k)) mod m   | 分布最均勻、探查路徑多樣          | 需要兩個好的 hash 函數       | **最少 Clustering**（無 primary & secondary） |
+
+---
+
+# p.59 ADT: Dictionary
+
+## 1️⃣ objects（資料內容）
+
+```
+A collection of n > 0 pairs,
+each pair has a key and an associated item
+```
+
+意思是：
+
+* Dictionary 裡有 **n 個 (key, item) 配對**
+
+例如：
+
+```
+(A, 10), (B, 20), (C, 30)
+```
+
+📌 **key**：用來找資料
+📌 **item**：真正存的資料
+
+## 2️⃣ functions（可以做的操作）
+
+### 🔹 Create
+
+```
+Dictionary Create(max_size)
+::= create an empty dictionary.
+```
+
+👉 建立一個**空的 dictionary**
+
+* `max_size`：最多可以存幾個 pair
+* 一開始是 **沒有任何資料**
+
+---
+
+### 🔹 IsEmpty
+
+```
+Boolean IsEmpty(d, n)
+::= if (n > 0) return TRUE
+    else return FALSE
+```
+
+👉 檢查 dictionary 是不是空的
+
+📌 白話意思：
+
+* 如果元素數量 `n > 0` → **不是空的**
+* 如果 `n = 0` → **是空的**
+
+⚠️ 投影片這裡寫法有點怪
+比較合理的語意應該是：
+
+```
+if (n == 0) return TRUE
+else return FALSE
+```
+
+考試時知道它是在「檢查是否為空」就好。
+
+---
+
+### 🔹 Search
+
+```
+Element Search(d, k)
+::= return item with key k.
+    return NULL if no such element.
+```
+
+👉 用 **key k** 找對應的 **item**
+
+* 找得到 → 回傳 item
+* 找不到 → 回傳 `NULL`
+
+📌 Dictionary 最重要的功能 ⭐⭐⭐
+
+---
+
+### 🔹 Delete
+
+```
+Element Delete(d, k)
+::= delete and return item (if any) with key k.
+```
+
+👉 刪掉 key = k 的那一對資料
+
+* 如果存在 → 刪掉並回傳 item
+* 如果不存在 → 什麼都不刪（可能回 NULL）
+
+---
+
+### 🔹 Insert
+
+```
+void Insert(d, item, k)
+::= insert item with key k into d.
+```
+
+👉 插入一筆新資料 `(k, item)`
+
+📌 隱含規則（老師常考）：
+
+* **key 不可重複**
+* 若 key 已存在：
+
+  * 可能覆蓋舊資料
+  * 或拒絕插入（看實作）
+
+---
+
+## 3️⃣ 用一個完整例子串起來
+
+```
+d = Create(100)
+IsEmpty(d) → TRUE
+
+Insert(d, "Alice", 1001)
+Insert(d, "Bob",   1002)
+
+Search(d, 1001) → "Alice"
+Delete(d, 1002) → "Bob"
+Search(d, 1002) → NULL
+```
+
+## 4️⃣ 一張考試速記表 ✅
+
+| Operation | 功能             |
+| --------- | -------------- |
+| Create    | 建立空 dictionary |
+| IsEmpty   | 是否沒有資料         |
+| Insert    | 插入 (key, item) |
+| Search    | 用 key 找 item   |
+| Delete    | 刪除指定 key       |
+
+---
+
+# p.60 ADT: HashTable with Separate Chaining   
+
+---
+
+# ✅ **ADT: HashTable with Separate Chaining（拉鍊法雜湊表）**
+
+### **物件（objects）**
+
+HashTable 內部包含：
+
+* 一組 **key-value pair**（鍵唯一）
+* 一個大小為 **m** 的 bucket 陣列
+  每個 bucket 是 **一條 linked list（chain）**，裡面存多個 `<key, value>`。
+
+### **雜湊方式**
+
+使用雜湊函式：
+
+```
+h(key) → [0, m-1]   // 對 key 做 hash，決定它屬於哪個 bucket
+```
+
+---
+
+# 🎯 **參數（parameters）**
+
+| 名稱                | 意義                              |
+| ----------------- | ------------------------------- |
+| `m`               | bucket 數量                       |
+| `h`               | hash function（固定、可重複、分布均勻）      |
+| `λ = n / m`       | load factor（平均每個 bucket 裡有多少元素） |
+| `MAX_LOAD_FACTOR` | 通常設 0.75，超過就擴增                  |
+
+---
+
+# 🧱 **方法（operations / functions）**
+
+---
+
+## ✔ **Create(m)**
+
+**前置條件（precondition）：**
+
+```
+m > 0
+```
+
+**後置條件（postcondition）：**
+
+```
+建立一個 m 個空 bucket 的 hash table
+所有 bucket 都是空的 chain
+λ = 0
+```
+
+---
+
+## ✔ **IsEmpty(h)**
+
+回傳（TRUE / FALSE）：
+
+```
+size(h) == 0
+```
+
+---
+
+## ✔ **Insert(h, k, v)**
+
+```
+i = h(k) mod m    // 找 bucket index
+```
+
+1. 若 bucket[i] 裡已存在 key k：
+   → **更新 value 為 v（取代舊值）**
+
+2. 否則：
+   → **把 <k, v> 插入到 bucket[i] 的鏈結串列「開頭」**
+   → size++
+
+3. 若 λ > MAX_LOAD_FACTOR：
+   → 執行 `Resize(h, 2*m)`（重新分配所有 key）
+
+---
+
+## ✔ **Retrieve(h, k)**
+
+```
+i = h(k) mod m
+到 bucket[i] 裡找 key k
+```
+
+* 若找到：回傳對應 value
+* 若找不到：丟出 `KeyNotFoundException`
+
+---
+
+## ✔ **Delete(h, k)**
+
+```
+i = h(k) mod m
+```
+
+* 若 bucket[i] 裡有 k：
+  → 刪除 `<k, v>`
+  → size--
+  → 回傳 TRUE
+* 若沒有：
+  → 回傳 FALSE
+
+---
+
+## ✔ **Search(h, k)**
+
+```
+i = h(k) mod m
+回傳 (bucket[i] 是否含 key k)
+```
+
+---
+
+## ✔ **Traverse(h)**
+
+回傳一個 iterator，順序為：
+
+1. bucket[0]
+2. bucket[1]
+3. ...
+4. bucket[m-1]
+
+在每個 bucket 裡，依 **插入順序** 走訪所有 pair。
+
+---
+
+# 🎉 **完整 ADT（漂亮格式）**
+
+```
+ADT HashTable is
+objects:
+    A finite set of <key, value> pairs with unique keys.
+    Keys are distributed into m buckets by hash function:
+        h(key) → [0, m-1].
+    Each bucket contains a chain (linked list) of pairs.
+
+parameters:
+    m: number of buckets (m > 0)
+    h: deterministic hash function
+    λ: load factor = n / m
+    MAX_LOAD_FACTOR = 0.75
+
+operations:
+
+HashTable Create(m)
+    pre:  m > 0
+    post: return empty table with m buckets and λ = 0
+
+Boolean IsEmpty(h)
+    return (size(h) == 0)
+
+Insert(h, k, v)
+    i = h(k) mod m
+    if k exists in bucket[i]:
+        replace existing value with v
+    else:
+        insert <k, v> at front of bucket[i]
+        size++
+    if λ > MAX_LOAD_FACTOR:
+        Resize(h, 2*m)
+
+value Retrieve(h, k)
+    i = h(k) mod m
+    search bucket[i] for k
+    if found: return associated value
+    else: throw KeyNotFoundException
+
+Boolean Delete(h, k)
+    i = h(k) mod m
+    if k exists in bucket[i]:
+        remove <k, v>
+        size--
+        return TRUE
+    else:
+        return FALSE
+
+Boolean Search(h, k)
+    i = h(k) mod m
+    return (k exists in bucket[i])
+
+Iterator Traverse(h)
+    return iterator visiting buckets from 0 to m-1,
+    and within each bucket in insertion order
+
+end HashTable
+```
