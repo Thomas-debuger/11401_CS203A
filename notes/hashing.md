@@ -1706,9 +1706,21 @@ slot[9] = 43
 
 ---
 
-# 🔹 **一句話理解**
+# 補充 
 
-> **Secondary Clustering = 不同 keys 初始 hash 相同 → 探測序列相同 → 形成小型群聚。**
+## 你理解的版本（✔ 正確）
+
+* primary clustering 跟 secondary clustering 都是位置被占用，前者是**連續一大塊**，後者是**不連續但探測路徑一樣**。
+
+👉 **這個理解是 100% 正確的。**
+
+## 考試用精修版（建議背這個）
+
+* **Primary clustering**：
+  在 *linear probing* 中，collision 造成**連續的已佔用區段**，新的 key 容易加入這個區段，使群聚不斷擴大。
+
+* **Secondary clustering**：
+  在 *quadratic probing* 中，**具有相同初始 hash 值的 key 會遵循相同的探測序列**，導致它們聚集在同一組（但不連續的）位置。
 
 ---
 
