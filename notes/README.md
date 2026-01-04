@@ -1,6 +1,8 @@
-# 📚 Data Structures & Algorithms Notes
+# 📚 Data Structures 
 
-This repository contains my study notes for **Data Structures & Algorithms**, including:
+---
+
+## 這個資料庫收錄了我對 資料結構 的學習筆記，內容包括：
 
 - Array
 - Linklist
@@ -10,7 +12,7 @@ This repository contains my study notes for **Data Structures & Algorithms**, in
 - Heap
 - Graph
 
-Notes cover definitions, key operations, C examples, comparisons, and memory/performance tips.
+### 筆記涵蓋定義、核心操作、C 語言範例、比較分析，以及記憶體與效能技巧。
 
 ---
 
@@ -23,6 +25,10 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 5. Trees
 6. Heap
 7. Graph
+
+---
+
+## 每個單元的筆記重點
 
 ---
 
