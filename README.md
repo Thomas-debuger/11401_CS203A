@@ -14,6 +14,10 @@
 
 放置本課程所有程式作業的原始碼與相關文件。
 
+* **Assignment II — 2**
+
+* **Assignment III — 3**
+
 * **Assignment IV — Hash Function Implementation**
   本次作業專注於「雜湊函數（Hash Function）」的設計與實作，內容包含：
 
