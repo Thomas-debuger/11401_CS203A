@@ -26,7 +26,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 7. heap(Not yet finished)
 8. graphs
 9. Tips & Notes
-10. 
+
 ---
 
 ### **array.md**
@@ -208,6 +208,8 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
     * Heap 只保證父子順序，不保證兄弟順序
     * 插入與刪除效率取決於樹高（log n）
     * build-heap 利用 bottom-up heapify → O(n)
+---   
+
 ### **`graph.md**
   * 圖的基本概念
     * Graph G = (V, E) → V: 頂點集合、E: 邊集合
