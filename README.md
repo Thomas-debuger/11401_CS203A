@@ -32,8 +32,8 @@
 筆記包括：
 
 * `README.md` — 介紹我的資料結構Github筆記
-* `array.md` — 陣列模型、記憶體配置、複雜度分析
-* `Linklist.md` — 鏈結串列基本操作與常見陷阱
+* `array.md` — 陣列的抽象資料模型（ADT）、索引與維度概念、動態記憶體配置（malloc / realloc / free）、  記憶體位址計算方式、常見排序法（Bubble / Selection / Insertion）、  搜尋方法（Linear / Binary）、時間與空間複雜度分析，並補充 cache locality、static vs dynamic array 與實務記憶體管理陷阱。
+* `Linklist.md` — 鏈結串列的基本結構與節點設計，包含 C 與 C++ 實作方式，節點插入與刪除（頭、中、尾）、走訪（traversal）、類別設計（Node / LinkedList）、建構子與解構子、記憶體釋放與避免 memory leak，並比較鏈結串列與陣列在效能與使用情境上的差異。
 * `stacks_queues.md` — 堆疊與佇列、應用案例與 ADT 設計
 * `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
 * `trees.md` — 不同類型的樹、常用的遍歷方式
