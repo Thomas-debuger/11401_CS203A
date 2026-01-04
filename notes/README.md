@@ -2,14 +2,13 @@
 
 This repository contains my study notes for **Data Structures & Algorithms**, including:
 
-- Linked List
 - Array
+- Linked List
+- Stacks & Queues
 - Hashing
-- Stack & Queue
 - Trees
-- hashing
-- heap
-- graph
+- Heap
+- Graph
 
 Notes cover definitions, key operations, C examples, comparisons, and memory/performance tips.
 
@@ -17,15 +16,13 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ## 📑 Contents
 
-1. Linked List
-2. Array
-3. Hashing
-4. Stack & Queue
-5. Trees(Not yet finished)
-6. hashing(Not yet finished)
-7. heap(Not yet finished)
-8. graphs
-9. Tips & Notes
+1. Array
+2. Linked List
+3. Stacks & Queues
+4. Hashing
+5. Trees
+6. Heap
+7. Graph
 
 ---
 
@@ -219,15 +216,6 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
     * Graph 是關係資料結構，不在乎節點本身資料
     * 選擇鄰接矩陣或鄰接串列依圖稠密度決定
     * BFS 用於最短路徑（unweighted）、DFS 用於拓樸排序 / cycle detection
----
-
-## 📝 Tips & Notes
-
-- **Stack/Queue**: Overflow (full) / Underflow (empty)
-- Linked list uses more memory due to pointers but has no fixed size
-- Circular array helps reuse space in queues
-- Basic operations for all structures: O(1)
-
 ---
 
 **Author:** Yun-Hong Wei <thomaswei988@gmail.com>   
