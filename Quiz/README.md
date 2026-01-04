@@ -1,3 +1,3 @@
 # Announcement   
 
-### I’ve uploaded several data structures quiz here. 
+### I’ve uploaded several data structures quizs here. 
