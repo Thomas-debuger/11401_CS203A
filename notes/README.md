@@ -1,6 +1,6 @@
 # 📚 Data Structures 
 
-### 這個資料庫收錄了我對 資料結構 的學習筆記，內容包括：
+### 這個資料庫(notes)收錄了我對 資料結構 的學習筆記，內容包括：
 
 - Array
 - Linklist
@@ -23,8 +23,6 @@
 5. Trees
 6. Heap
 7. Graph
-
-## 每個單元的筆記重點
 
 ## **Array.md**
   * 抽象資料型態（ADT）
