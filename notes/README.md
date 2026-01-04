@@ -29,7 +29,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **array.md**
+## **Array.md**
 
 * **抽象資料型態（ADT）**
 
@@ -67,7 +67,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **Linklist.md**
+## **Linklist.md**
 
 * **基本結構**
 
@@ -93,7 +93,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **stacks_queues.md**
+## **Stacks_Queues.md**
 
 * **抽象資料型態（ADT）**
 
@@ -125,7 +125,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **hashing.md**
+## **Hashing.md**
 
 * **基本概念**
 
@@ -152,7 +152,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **trees.md**
+## **Trees.md**
   * 樹（Tree）的抽象資料型態（ADT）與基本概念
     * 節點（node）：root / leaf / internal node
     * 節點關係：parent / child / sibling
@@ -185,7 +185,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 
 ---
 
-### **`heap.md**
+## **`Heap.md**
   * 完全二元樹（Complete Binary Tree）與 Heap-order（Max / Min Heap）概念
   * 儲存方式：陣列表示法，parent / left / right index 計算
   * 核心操作（Operations）：
@@ -210,7 +210,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
     * build-heap 利用 bottom-up heapify → O(n)
 ---   
 
-### **`graph.md**
+## **Graph.md**
   * 圖的基本概念
     * Graph G = (V, E) → V: 頂點集合、E: 邊集合
     * 邊可能有方向（Directed）或無方向（Undirected）
