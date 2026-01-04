@@ -14,7 +14,7 @@
 
 放置本課程所有程式作業的原始碼與相關文件。
 
-* **Assignment II — Array Selection Sort**
+* **Assignment II — Array Selection Sort**   
   這份作業主要專注於「選擇排序法（Selection Sort）」的運作原理與實作過程，內容包含：
   * **陣列資料結構的視覺化**：學習如何以圖形化方式呈現陣列（Array），並正確標註索引（Index）與對應的數值 。
   * **資料初始化與標註：** 將給定數值（22, 90, 95, 100, 71, 19, 5, 70）填入陣列，並加上名稱與索引標籤 。
@@ -35,7 +35,7 @@
     * 實作難度：討論鏈結串列在操作時所需的「指標追蹤（Pointer Chasing）」與空指標檢查（Null Checks）等額外開銷 。
   * 整份作業要求**手寫實作**來理解鏈結串列在搜尋最小值時需「逐一走訪」的特性，並探討其在動態資料處理上的優勢 。
 
-* **Assignment IV — Hash Function Implementation**
+* **Assignment IV — Hash Function Implementation**   
   本次作業專注於「雜湊函數（Hash Function）」的設計與實作，內容包含：   
 
   * **分析不同雜湊策略的特性：** 探討雜湊表大小（Table Size）設為質數與非質數對碰撞（Collision）機率的影響。
