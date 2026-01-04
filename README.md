@@ -57,7 +57,13 @@
   * 陣列實作中的固定容量限制與環狀佇列（circular queue）設計
   * 鏈結串列實作中的動態記憶體配置（malloc / free）與指標操作風險
   * 透過多組 C 語言範例與表格，比較 Stack 與 Queue 在不同實作下的效能、記憶體使用與適用情境
-* `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
+* `hashing.md` —
+  * 雜湊（Hashing）與雜湊表（Hash Table）的完整觀念整理 
+  * 從 Key–Value Pair 與 hash function 的角色出發，說明 table size 與 load factor（α）對效能的影響
+  * 系統性比較 collision handling（chaining、open addressing） 
+  * 詳解 linear / quadratic / double hashing 與 primary、secondary clustering 
+  * 比較 static hashing 與 dynamic hashing（bucket split、local rehashing）
+  * 總結各種 hashing 方法的時間複雜度與適用情境
 * `trees.md` — 不同類型的樹、常用的遍歷方式
 * `heap.md` — Heap 結構、操作（insert / extract / heapify / build-heap）與時間複雜度分析
 * `Graph.md` — Graph 基本定義、分類、同構性、BFS 與圖的表示法（Adjacency Matrix / List）
