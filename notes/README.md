@@ -3,7 +3,7 @@
 This repository contains my study notes for **Data Structures & Algorithms**, including:
 
 - Array
-- Linked List
+- Linklist
 - Stacks & Queues
 - Hashing
 - Trees
@@ -17,7 +17,7 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 ## 📑 Contents
 
 1. Array
-2. Linked List
+2. Linklist
 3. Stacks & Queues
 4. Hashing
 5. Trees
