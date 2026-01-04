@@ -65,35 +65,39 @@
   * 比較 static hashing 與 dynamic hashing（bucket split、local rehashing）
   * 總結各種 hashing 方法的時間複雜度與適用情境
 * `trees.md` — 不同類型的樹、常用的遍歷方式
-  * 樹（Tree）的抽象資料型態（ADT）與基本概念
-    * 節點（node）：root / leaf / internal node
+  * 基本概念 / ADT
+    * Tree 抽象資料型態（ADT）
+    * 節點：root / leaf / internal
     * 節點關係：parent / child / sibling
     * 邊（edge）、子樹（subtree）、層級（level）、深度（depth）、高度（height）
-    * 節點度（degree / fan-out）與不同樹型範例：Binary Tree、Trie、B-tree / B+ tree
-  * 樹的特殊形態與性質
-    * Full Binary Tree / Strict Binary Tree：每節點 0 或 2 子節點
-    * Complete Binary Tree：每層填滿，最後一層從左邊開始填
-    * Binary Search Tree（BST）：左 < 根 < 右
-    * Balanced Tree（AVL / Red-Black）：保持高度差在可控範圍以維持 O(log n) 搜尋
-    * General Tree / N-ary Tree：節點子數任意 / ≤ N
+    * 節點度（degree / fan-out）
+  * 樹型分類
+    * Binary Tree：每節點 ≤ 2 子節點
+      * Full / Strict Binary Tree：每節點 0 或 2 子節點
+      * Complete Binary Tree：每層填滿，最後一層從左填
+    * BST（Binary Search Tree）：左 < 根 < 右
+    * Balanced Tree：AVL / Red-Black → 高度差可控，O(log n) 搜尋
+    * General / N-ary Tree：節點子數任意或 ≤ N
   * 專用樹型與應用
-    * Trie（字典樹）：字母分支，快速字串搜尋與 auto-complete
-    * Decision Tree（決策樹）：問題 → 分支 → 結果，用於機器學習分類
-    * Abstract Syntax Tree（AST）：程式語法表示，編譯器與 IDE 使用
-    * Spanning Tree（生成樹 / MST）：圖論概念，最少邊連結所有節點，用於網路路由與演算法
-    * Heap Tree（最大 / 最小堆）：完全二元樹，用於優先佇列與堆排序
+    * Trie（字典樹）：快速字串搜尋、auto-complete
+    * Decision Tree：分類、決策問題
+    * Abstract Syntax Tree（AST）：程式語法表示
+    * Spanning Tree / MST：最少邊連結所有節點
+    * Heap Tree（Max / Min）：完全二元樹 → 優先佇列、堆排序
     * Treap：BST + Heap 特性，維持平衡
-    * B-Tree / B+ Tree：矮胖樹結構，降低磁碟 I/O，用於資料庫索引
-    * Segment Tree（線段樹）：區間查詢（sum / max / min）
-    * Fenwick Tree（樹狀陣列 / BIT）：前綴和查詢與單點更新
-    * Suffix Tree / Suffix Trie：後綴字串搜尋，快速子字串與模式匹配
-    * KD-Tree / Quad Tree / Octree：多維空間資料分割，應用於最近鄰搜尋、GIS、3D 空間索引
-  * 樹操作與效能考量
-    * 遍歷方式（Traversal）：前序 / 中序 / 後序 / 層序
-    * 插入、刪除、旋轉（平衡樹特有）
-    * 節點查找與範圍查詢（BST、Segment Tree、Fenwick Tree、B+ Tree）
-    * 空間複雜度、節點度對效能影響
-    * 樹高度對搜尋效率的重要性（O(log n) vs O(n)）
+    * B-Tree / B+ Tree：矮胖樹 → 降低磁碟 I/O，資料庫索引
+    * Segment Tree：區間查詢 sum / max / min
+    * Fenwick Tree / BIT：前綴和查詢、單點更新
+    * Suffix Tree / Suffix Trie：快速子字串 / 模式匹配
+    * KD-Tree / Quad Tree / Octree：多維空間資料分割 → 最近鄰搜尋、GIS、3D 空間索引
+  * 樹操作 / Traversal
+    * 遍歷方式：前序（Pre-order）、中序（In-order）、後序（Post-order）、層序（Level-order）
+    * 插入 / 刪除 / 旋轉（平衡樹專用）
+    * 節點查找 / 範圍查詢（BST、Segment Tree、Fenwick Tree、B+ Tree）
+  * 效能考量
+    * 空間複雜度與節點度影響效率
+    * 樹高度 → 搜尋效率 O(log n) vs O(n)
+    * 特殊樹型選擇依應用場景（快速搜尋、區間查詢、多維索引等）
 * `heap.md` — 
   * 完全二元樹（Complete Binary Tree）與 Heap-order（Max / Min Heap）
   * 陣列表示法：parent / left / right index 計算
