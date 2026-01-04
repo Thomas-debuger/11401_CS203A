@@ -45,6 +45,7 @@
 
 * **Quiz I — Introduction to C Programming and Data Structures**
   這份考試內容主要是考察 C 語言的記憶體管理基礎以及演算法複雜度的初步概念，內容包含：
+
   * **C 語言動態記憶體操作實作**：練習使用 `malloc` 配置記憶體 、`realloc` 調整陣列大小 以及 `free` 釋放資源 ，並掌握 `sizeof` 的正確用法 。
   * **安全性程式碼審查（Code Review）**：辨識常見的記憶體錯誤，例如未檢查 `malloc` 是否回傳 NULL 、直接對原指標使用 `realloc` 導致失敗時發生記憶體洩漏（Memory Leak）等問題 。
   * **安全開發實踐**：學習使用「暫存指標（Temporary Pointer）」來處理記憶體重新配置 ，並在釋放記憶體後將指標設為 `NULL` 以防止懸空指標（Dangling Pointer）產生的錯誤 。
