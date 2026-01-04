@@ -48,7 +48,12 @@
   * 建構子與解構子
   * 記憶體釋放與避免 memory leak
   * 比較鏈結串列與陣列在效能與使用情境上的差異。
-* `stacks_queues.md` — 堆疊與佇列、應用案例與 ADT 設計
+* `stacks_queues.md` —
+  * 堆疊（Stack）與佇列（Queue）的抽象資料型態（ADT）與基本操作（push / pop / peek、enqueue / dequeue），  
+  * stacks和queues以陣列與鏈結串列兩種方式實作，  
+  * 比較 static array、dynamic array 與 linked list 實作差異，  
+  * 說明 overflow / underflow 問題與時間複雜度分析，  
+  * 介紹實務應用情境（function call stack、expression evaluation、BFS、buffer 與排程模型）。
 * `hashing.md` — 雜湊函數設計、碰撞解決、效能比較
 * `trees.md` — 不同類型的樹、常用的遍歷方式
 * `heap.md` — Heap 結構、操作（insert / extract / heapify / build-heap）與時間複雜度分析
