@@ -30,122 +30,93 @@ Notes cover definitions, key operations, C examples, comparisons, and memory/per
 ---
 
 ## **Array.md**
-
-* **抽象資料型態（ADT）**
-
-  * 固定長度 / 動態長度陣列
-  * 支援 index-based 存取：`A[i]` → O(1)
-* **索引與維度**
-
-  * 一維、二維、多維陣列
-  * 記憶體連續配置
-* **動態記憶體配置**
-
-  * `malloc(size)`, `realloc(ptr, new_size)`, `free(ptr)`
-  * 需注意 memory leak 與 dangling pointer
-* **記憶體位址計算**
-
-  * element_address = base_address + i × element_size
-* **排序方法**
-
-  * Bubble Sort → O(n²)
-  * Selection Sort → O(n²)
-  * Insertion Sort → O(n²)，幾乎排序時 O(n)
-* **搜尋方法**
-
-  * Linear Search → O(n)
-  * Binary Search → O(log n)（須已排序）
-* **時間與空間複雜度分析**
-
-  * 存取 O(1)
-  * 插入 / 刪除 O(n)（非尾端）
-* **補充 / 實務考點**
-
-  * Cache locality → 陣列連續性好，快取效率高
-  * Static vs Dynamic Array → static 固定容量、dynamic 可擴展
-  * 常見陷阱 → realloc 失敗、越界存取
+  * 抽象資料型態（ADT）
+    * 固定長度 / 動態長度陣列
+    * 支援 index-based 存取：`A[i]` → O(1)
+  * 索引與維度
+    * 一維、二維、多維陣列
+    * 記憶體連續配置
+  * 動態記憶體配置
+    * `malloc(size)`, `realloc(ptr, new_size)`, `free(ptr)`
+    * 需注意 memory leak 與 dangling pointer
+  * 記憶體位址計算
+    * element_address = base_address + i × element_size
+  * 排序方法
+    * Bubble Sort → O(n²)
+    * Selection Sort → O(n²)
+    * Insertion Sort → O(n²)，幾乎排序時 O(n)
+  * 搜尋方法
+    * Linear Search → O(n)
+    * Binary Search → O(log n)（須已排序）
+  * 時間與空間複雜度分析
+    * 存取 O(1)
+    * 插入 / 刪除 O(n)（非尾端）
+  * 補充 / 實務考點
+    * Cache locality → 陣列連續性好，快取效率高
+    * Static vs Dynamic Array → static 固定容量、dynamic 可擴展
+    * 常見陷阱 → realloc 失敗、越界存取
 
 ---
 
 ## **Linklist.md**
-
-* **基本結構**
-
-  * Node 結構：`data + next`（單向）、`prev`（雙向）
-  * LinkedList 類別：head / tail 管理節點
-* **節點操作**
-
-  * 插入：頭 / 中 / 尾 → O(1) 或 O(n)
-  * 刪除：頭 / 中 / 尾 → O(1) 或 O(n)
-  * 走訪 traversal → O(n)
-* **記憶體管理**
-
-  * 建構子 / 解構子初始化、釋放節點
-  * 避免 memory leak → 每個 malloc 對應 free
-* **比較陣列**
-
-  * 優勢：插入刪除快、大小可變
-  * 劣勢：存取慢、不連續記憶體
-* **注意事項**
-
-  * 指標操作需小心 Null pointer
-  * 不適合頻繁隨機存取
+  * 基本結構
+    * Node 結構：`data + next`（單向）、`prev`（雙向）
+    * LinkedList 類別：head / tail 管理節點
+  * 節點操作
+    * 插入：頭 / 中 / 尾 → O(1) 或 O(n)
+    * 刪除：頭 / 中 / 尾 → O(1) 或 O(n)
+    * 走訪 traversal → O(n)
+  * 記憶體管理
+    * 建構子 / 解構子初始化、釋放節點
+    * 避免 memory leak → 每個 malloc 對應 free
+  * 比較陣列
+    * 優勢：插入刪除快、大小可變
+    * 劣勢：存取慢、不連續記憶體
+  * 注意事項
+    * 指標操作需小心 Null pointer
+    * 不適合頻繁隨機存取
 
 ---
 
 ## **Stacks_Queues.md**
 
-* **抽象資料型態（ADT）**
-
-  * Stack → LIFO
-
-    * 操作：push / pop / peek
-  * Queue → FIFO
-
-    * 操作：enqueue / dequeue / peek
-* **實作方式**
-
-  * Array-based → top / front / rear 指標管理
-
-    * 限定容量 → Overflow / Underflow
-    * Queue 可用 circular buffer 改善
-  * Linked List-based → malloc / free
-
-    * 無固定容量限制
-    * 指標操作風險高
-* **時間與空間複雜度**
-
-  * Push / Pop / Enqueue / Dequeue → O(1)
-  * 空間 → O(n)
-* **應用與比較**
-
-  * Stack：函式呼叫、Undo、括號匹配
-  * Queue：排程、IO 緩衝、BFS
-  * Array vs Linked List → 性能、記憶體使用、場景依需求選擇
+  * 抽象資料型態（ADT）
+    * Stack → LIFO
+      * 操作：push / pop / peek
+    * Queue → FIFO
+      * 操作：enqueue / dequeue / peek
+  * 實作方式
+    * Array-based → top / front / rear 指標管理
+      * 限定容量 → Overflow / Underflow
+      * Queue 可用 circular buffer 改善
+    * Linked List-based → malloc / free
+      * 無固定容量限制
+      * 指標操作風險高
+  * 時間與空間複雜度
+    * Push / Pop / Enqueue / Dequeue → O(1)
+    * 空間 → O(n)
+  * 應用與比較
+    * Stack：函式呼叫、Undo、括號匹配
+    * Queue：排程、IO 緩衝、BFS
+    * Array vs Linked List → 性能、記憶體使用、場景依需求選擇
 
 ---
 
 ## **Hashing.md**
 
-* **基本概念**
-
+* 基本概念
   * Key–Value Pair → hash function → index
   * Table Size 與 Load Factor α = n / m → 影響衝突率
-* **Collision Handling**
-
+* Collision Handling
   * Chaining → 每格鏈結串列
   * Open Addressing → Linear / Quadratic / Double Hashing
-
     * Primary clustering / Secondary clustering
-* **Static vs Dynamic Hashing**
-
+* Static vs Dynamic Hashing
   * Static → 固定桶數
   * Dynamic → Bucket split / Local rehashing
-* **操作與時間複雜度**
-
+* 操作與時間複雜度
   * Insert / Search / Delete → Average O(1)，Worst O(n)（碰撞嚴重）
-* **實務考點**
-
+* 實務考點
   * 適用於快速查找 / 記錄頻率
   * 空間使用與衝突解法選擇影響效能
   * Hash function 好壞直接決定表現
