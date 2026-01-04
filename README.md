@@ -16,7 +16,7 @@
 
 ---
 
-* **Assignment II — Array Selection Sort**   
+### * **Assignment II — Array Selection Sort**   
   這份作業主要專注於「選擇排序法（Selection Sort）」的運作原理與實作過程，內容包含：
   * **陣列資料結構的視覺化**：學習如何以圖形化方式呈現陣列（Array），並正確標註索引（Index）與對應的數值 。
   * **資料初始化與標註：** 將給定數值（22, 90, 95, 100, 71, 19, 5, 70）填入陣列，並加上名稱與索引標籤 。
@@ -25,9 +25,7 @@
   * **逐步執行與追蹤（Trace）**：針對給定的 8 個整數，手寫記錄演算法前三個步驟的陣列狀態變化、最小值搜尋範圍以及交換紀錄 。
   * 整份作業要求**以手寫方式完成**於專用工作紙上，旨在透過動手實作加強對基礎排序邏輯與記憶體佈局的理解 。
 
----
-
-* **Assignment III — Linked List Selection Sort**   
+### * **Assignment III — Linked List Selection Sort**   
   這份作業重點在於將選擇排序法應用於「**鏈結串列（Linked List）**」並與陣列進行比較，內容包含：
   * **鏈結串列視覺化**：繪製單向鏈結串列的節點結構，包含數值與指向下一個節點的指標（Next Pointer） 。
   * **資料初始化**：將給定的 8 個整數（60, 24, 15, 42, 20, 11, 90, 8）存入串列，並標註 `head` 與 `tail` 。
@@ -39,9 +37,7 @@
     * 實作難度：討論鏈結串列在操作時所需的「指標追蹤（Pointer Chasing）」與空指標檢查（Null Checks）等額外開銷 。
   * 整份作業要求**手寫實作**來理解鏈結串列在搜尋最小值時需「逐一走訪」的特性，並探討其在動態資料處理上的優勢 。
 
----
-
-* **Assignment IV — Hash Function Implementation**   
+### * **Assignment IV — Hash Function Implementation**   
   本次作業專注於「雜湊函數（Hash Function）」的設計與實作，內容包含：   
 
   * **分析不同雜湊策略的特性：** 探討雜湊表大小（Table Size）設為質數與非質數對碰撞（Collision）機率的影響。
