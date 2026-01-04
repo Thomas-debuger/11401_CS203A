@@ -95,7 +95,67 @@
     * 空間複雜度、節點度對效能影響
     * 樹高度對搜尋效率的重要性（O(log n) vs O(n)）
 * `heap.md` — Heap 結構、操作（insert / extract / heapify / build-heap）與時間複雜度分析
-* `Graph.md` — Graph 基本定義、分類、同構性、BFS 與圖的表示法（Adjacency Matrix / List）
+  * 完全二元樹（Complete Binary Tree）與 Heap-order（Max / Min Heap）概念
+  * 儲存方式：陣列表示法，parent / left / right index 計算
+  * 核心操作（Operations）：
+    * insert(x) → 放最後 → sift-up（上浮） → O(log n)
+    * extract_root() → root 移除 → 最後補上 → sift-down（下沉） → O(log n)
+    * peek_root() → 直接讀 root → O(1)
+    * heapify(i) → 修復某節點 → 下沉 → O(log n)
+    * build_heap(array) → bottom-up heapify → O(n)
+    * increase-key / decrease-key → 調整元素優先權 → O(log n)
+    * heapsort → build-heap + n 次 extract → O(n log n)
+  * Heap 的應用
+    * Priority Queue（最大 / 最小優先級處理）
+    * 排程（CPU、印表機、任務）
+    * Heapsort 排序
+  * Index 遷移規則：
+    * parent(i) = (i − 1) / 2
+    * left(i) = 2i + 1
+    * right(i) = 2i + 2
+  * 考點提示
+    * Heap 只保證父子順序，不保證兄弟順序
+    * 插入與刪除效率取決於樹高（log n）
+    * build-heap 利用 bottom-up heapify → O(n)
+* `Graph.md` —
+  * 圖的基本概念
+    * Graph G = (V, E) → V: 頂點集合、E: 邊集合
+    * 邊可能有方向（Directed）或無方向（Undirected）
+    * 邊可能有權重（Weighted）或無權重（Unweighted）
+  * 分類（Classification）
+    * Directed / Undirected
+    * Weighted / Unweighted
+    * Cyclic / Acyclic
+    * Connected / Disconnected
+  * 特殊圖結構
+    * Tree = Connected + Acyclic Graph
+  * 同構性（Isomorphism）
+    * 兩圖同構 → 頂點數相同、邊數相同、連接關係相同
+    * 重點：結構比標籤或繪製方式重要
+  * Graph 的儲存方法
+    * Adjacency Matrix（鄰接矩陣）
+      * 好處：存取 O(1)
+      * 缺點：浪費空間（稀疏圖）
+    * Adjacency List（鄰接串列）
+      * 好處：節省空間（稀疏圖）
+      * 缺點：查找某條邊 O(degree(v))
+  * 基本操作（Operations）
+    * Traversal（走訪）
+      * BFS → Queue → O(V + E)
+      * DFS → Stack / Recursion → O(V + E)
+    * Path / Connectivity / Cycle Detection
+  * Weighted Graph 最短路徑
+    * Dijkstra → 非負權重 → O(V^2) 或 O(E log V)
+    * Bellman-Ford → 可處理負權重 → O(VE)
+    * Floyd-Warshall → All-Pairs → O(V^3)
+  * Minimum Spanning Tree
+    * Kruskal → 邊排序 + union-find → O(E log E)
+    * Prim → Heap + 選邊 → O(E log V)
+  * 考點提示
+    * Graph 是關係資料結構，不在乎節點本身資料
+    * 選擇鄰接矩陣或鄰接串列依圖稠密度決定
+    * BFS 用於最短路徑（unweighted）、DFS 用於拓樸排序 / cycle detection
+
 ---
 
 ## 🛠️ 開發環境與使用方式
