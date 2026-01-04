@@ -10,7 +10,7 @@
 
 ## 📁 專案內容簡介
 
-### `/Assignment`
+### `Assignment`
 
 放置本課程所有程式作業的原始碼與相關文件。
 
@@ -46,7 +46,7 @@
 
 ---
 
-### `/Quiz`
+### `Quiz`
 
 * **Quiz I — Introduction to C Programming and Data Structures**
   這份考試內容主要是考察 C 語言的記憶體管理基礎以及演算法複雜度的初步概念，內容包含：
@@ -62,7 +62,7 @@
   * **學習反饋與討論**：探討學習資料結構時面臨的挑戰與解決方法 。
 
 ---
-### `/notes`
+### `notes`
 
 利用課餘時間閱讀教授課堂簡報後整理出的複習筆記（Markdown），內容清晰、條理化，搭配圖示與小型程式片段，協助快速複習核心概念。
 
@@ -177,7 +177,7 @@
   
 ---
 
-### `/My Programming Practical Works`
+### `My Programming Practical Works`
 
 ---
 
