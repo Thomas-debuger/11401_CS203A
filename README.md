@@ -48,6 +48,38 @@ I’ve uploaded several data structures assignments here, and they are intended 
 
 I’ve uploaded several data structures quizs here. 
 
+* **Quiz I — Introduction to C Programming and Data Structures**
+
+```
+理解 C 語言的動態記憶體管理與基本時間複雜度概念：    
+熟悉 malloc / realloc / free 的正確用法，能辨識常見記憶體錯誤，
+並掌握基礎 Big O 複雜度（如 O(1)、O(n)、O(n^2)）及其效率比較。
+```
+
+* **Quiz II — Array, Linked List, Stack and Queue**
+
+```
+掌握線性資料結構的指標操作與 ADT 行為：    
+透過 MoveTo 函數理解鏈結串列節點的斷開與重接，
+並熟悉 Stack（LIFO）與 Queue（FIFO）的基本操作與應用情境。
+```
+
+* **Quiz III — Hash Table**
+
+```
+理解雜湊碰撞的成因與解決策略：    
+比較開放定址法與鏈結法的差異，
+分析負載因子與群聚效應，並實際計算除法餘數法與折疊法的雜湊結果。
+```
+
+* **Quiz IV — Tree, Heap and Graph**
+
+```
+整合非線性資料結構的走訪與分類概念：    
+理解 BFS 的層序搜尋流程、運算式樹的走訪與計算，
+並區分 BST、Heap、完全二元樹與平衡樹的結構規則與應用。
+```
+
 ---
 
 ### `notes`
