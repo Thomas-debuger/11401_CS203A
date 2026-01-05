@@ -1,9 +1,5 @@
 # Announcement   
 
-### I’ve uploaded several data structures quizs here. 
-
----
-
 ### Quiz I — Introduction to C Programming and Data Structures   
   這份考試內容主要是考察 C 語言的記憶體管理基礎以及演算法複雜度的初步概念，內容包含：
 
