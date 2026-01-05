@@ -14,7 +14,7 @@
 
 I’ve uploaded several data structures assignments here, and they are intended to be completed in Visual Studio Code or hand-writing. 
 
-**Assignment II — Array Selection Sort**
+* **Assignment II — Array Selection Sort**
 
 學會選擇排序在「陣列」上的運作方式：    
 學透過陣列視覺化與手寫追蹤，理解如何在未排序區間中找最小值並交換位置，同時認識時間與空間複雜度。
