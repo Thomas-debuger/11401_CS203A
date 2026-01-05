@@ -1,0 +1,51 @@
+`timescale 1ns/1ps
+module test;
+    reg clk;
+    reg clrn;
+    reg load;
+    reg en;
+    reg [3:0] Da;
+    reg [2:0] Db;
+    wire [3:0] qa;
+    wire [2:0] qb;
+    wire Co;
+
+    Lab6_1131417 DUT (
+        .clk(clk),
+        .clrn(clrn),
+        .load(load),
+        .en(en),
+        .Da(Da),
+        .Db(Db),
+        .qa(qa),
+        .qb(qb),
+        .Co(Co)
+    );
+
+    always #5 clk = ~clk;
+
+    initial begin
+        clk  = 0;
+        clrn = 0;
+        load = 1;
+        en   = 0;
+        Da   = 4'b0111;
+        Db   = 3'b101;
+
+        #5  clrn = 1;
+        #5  clrn = 0;
+
+        #10 en = 1;
+        #10 load = 0;
+
+        repeat (2) begin
+            #10 en = 0;
+            #10 en = 1;
+            #790;
+            clrn = 1;
+            #5  clrn = 0;
+        end
+
+        #100 $stop;
+    end
+endmodule

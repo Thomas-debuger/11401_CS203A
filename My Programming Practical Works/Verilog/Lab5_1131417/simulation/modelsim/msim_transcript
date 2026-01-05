@@ -1,0 +1,94 @@
+# Reading C:/altera/91sp2/modelsim_ase/tcl/vsim/pref.tcl 
+# do Lab5_1131417_run_msim_gate_verilog.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+. {Lab5_1131417.vo}
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module Lab5_1131417
+# 
+# Top level modules:
+# 	Lab5_1131417
+# 
+# vlog -vlog01compat -work work +incdir+C:/Thomas/2_top/CS206B/Lab5_1131417 {C:/Thomas/2_top/CS206B/Lab5_1131417/test.v}
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module test
+# 
+# Top level modules:
+# 	test
+# 
+# vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_ver -L cycloneiii_ver -L gate_work -L work -voptargs="+acc" test
+# vsim +transport_int_delays +transport_path_delays -L altera_ver -L cycloneiii_ver -L gate_work -L work -voptargs=\"+acc\" -t 1ps test 
+# Loading work.test
+# Loading work.Lab5_1131417
+# Loading cycloneiii_ver.cycloneiii_io_obuf
+# Loading cycloneiii_ver.cycloneiii_io_ibuf
+# Loading cycloneiii_ver.cycloneiii_lcell_comb
+# SDF 6.5b Compiler 2009.10 Oct  1 2009
+# 
+# Loading instances from Lab5_1131417_v.sdo
+# Loading timing data from Lab5_1131417_v.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Region: /test  File: C:/Thomas/2_top/CS206B/Lab5_1131417/test.v
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body
+# run 1 ns
+# time(ns)	sel	A	B	aluo
+#                    0	00	0111	1000	xxxxx
+run -all
+#                    7	00	0111	1000	0xxxx
+#                    7	00	0111	1000	01xxx
+#                    8	00	0111	1000	011xx
+#                    8	00	0111	1000	011x1
+#                    8	00	0111	1000	01111
+#                  100	01	1000	1001	01111
+#                  108	01	1000	1001	01110
+#                  109	01	1000	1001	01010
+#                  109	01	1000	1001	01000
+#                  200	10	1001	1010	01000
+#                  207	10	1001	1010	01001
+#                  207	10	1001	1010	01101
+#                  207	10	1001	1010	00101
+#                  207	10	1001	1010	00111
+#                  207	10	1001	1010	10111
+#                  208	10	1001	1010	10110
+#                  208	10	1001	1010	10111
+#                  208	10	1001	1010	10101
+#                  208	10	1001	1010	10001
+#                  208	10	1001	1010	11001
+#                  209	10	1001	1010	11101
+#                  209	10	1001	1010	11001
+#                  209	10	1001	1010	11011
+#                  209	10	1001	1010	11111
+#                  300	11	1010	1011	11111
+#                  308	11	1010	1011	11110
+#                  308	11	1010	1011	10110
+#                  308	11	1010	1011	10100
+#                  309	11	1010	1011	10101
+#                  309	11	1010	1011	10111
+#                  309	11	1010	1011	10101
+#                  400	00	1011	1100	10101
+#                  408	00	1011	1100	10111
+#                  408	00	1011	1100	11111
+#                  408	00	1011	1100	01111
+#                  409	00	1011	1100	01011
+#                  409	00	1011	1100	01010
+#                  409	00	1011	1100	01110
+#                  409	00	1011	1100	01111
+#                  409	00	1011	1100	01101
+#                  409	00	1011	1100	01111
+# ** Note: $finish    : C:/Thomas/2_top/CS206B/Lab5_1131417/test.v(28)
+#    Time: 510 ns  Iteration: 0  Instance: /test
+# 1
+# Break in Module test at C:/Thomas/2_top/CS206B/Lab5_1131417/test.v line 28

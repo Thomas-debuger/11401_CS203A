@@ -1,0 +1,18 @@
+|Lab2_2_1131417
+A => Y~0.IN0
+A => Y~2.IN0
+A => Y~5.IN0
+A => Y~9.IN0
+B => Y~9.IN1
+B => Y~0.IN1
+B => Y~5.IN1
+C => Y~6.IN1
+C => Y~1.IN1
+C => Y~2.IN1
+C => Y~10.IN1
+D => Y~3.IN1
+D => Y~11.IN1
+D => Y~7.IN1
+Y <= Y~12.DB_MAX_OUTPUT_PORT_TYPE
+
+

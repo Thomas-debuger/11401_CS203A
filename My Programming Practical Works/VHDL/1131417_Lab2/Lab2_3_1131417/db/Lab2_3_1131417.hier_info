@@ -1,0 +1,22 @@
+|Lab2_3_1131417
+i0 => ~NO_FANOUT~
+i1 => o0~0.IN0
+i2 => o1~0.IN0
+i3 => o0~0.IN1
+i3 => o1~0.IN1
+i4 => o2~0.IN0
+i5 => o0~1.IN1
+i5 => o2~0.IN1
+i6 => o1~1.IN1
+i6 => o2~1.IN1
+i7 => o0~2.IN1
+i7 => o1~2.IN1
+i7 => o2~2.IN1
+enable => o0~3.IN1
+enable => o1~3.IN1
+enable => o2~3.IN1
+o0 <= o0~3.DB_MAX_OUTPUT_PORT_TYPE
+o1 <= o1~3.DB_MAX_OUTPUT_PORT_TYPE
+o2 <= o2~3.DB_MAX_OUTPUT_PORT_TYPE
+
+

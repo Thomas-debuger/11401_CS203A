@@ -1,0 +1,18 @@
+|Lab_3_2_1131417
+CLK => reg[0].CLK
+CLK => reg[1].CLK
+CLK => reg[2].CLK
+CLK => reg[3].CLK
+Sin => reg[0].DATAIN
+Preset => reg[3]~0.IN0
+Clear => reg[3]~0.IN1
+Clear => reg[0].ACLR
+Clear => reg[1].ACLR
+Clear => reg[2].ACLR
+Clear => reg[3].ACLR
+QA <= reg[3].DB_MAX_OUTPUT_PORT_TYPE
+QB <= reg[2].DB_MAX_OUTPUT_PORT_TYPE
+QC <= reg[1].DB_MAX_OUTPUT_PORT_TYPE
+QD <= reg[0].DB_MAX_OUTPUT_PORT_TYPE
+
+

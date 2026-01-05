@@ -1,0 +1,116 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  cycloneiii
+Quartus root          :  c:/altera/91sp2/quartus/bin/
+Quartus sim root      :  c:/altera/91sp2/quartus/eda/sim_lib
+Simulation Tool       :  modelsim-altera
+Simulation Language   :  verilog
+Simulation Mode       :  GUI
+Sim Output File       :  Lab5_1131417.vo
+Sim SDF file          :  Lab5_1131417__verilog.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim-Altera software
+Sourced NativeLink script c:/altera/91sp2/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File Lab5_1131417_run_msim_gate_verilog.do already exists - backing up current file as Lab5_1131417_run_msim_gate_verilog.do.bak3
+Probing transcript
+ModelSim-Altera Info: # Reading C:/altera/91sp2/modelsim_ase/tcl/vsim/pref.tcl 
+ModelSim-Altera Info: # do Lab5_1131417_run_msim_gate_verilog.do 
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Copying C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Warning: # ** Warning: Copied C:\altera\91sp2\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+ModelSim-Altera Info: #          Updated modelsim.ini.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vlog -vlog01compat -work work +incdir+. {Lab5_1131417.vo}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+ModelSim-Altera Info: # -- Compiling module Lab5_1131417
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Top level modules:
+ModelSim-Altera Info: # 	Lab5_1131417
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vlog -vlog01compat -work work +incdir+C:/Thomas/2_top/CS206B/Lab5_1131417 {C:/Thomas/2_top/CS206B/Lab5_1131417/test.v}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+ModelSim-Altera Info: # -- Compiling module test
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Top level modules:
+ModelSim-Altera Info: # 	test
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_ver -L cycloneiii_ver -L gate_work -L work -voptargs="+acc" test
+ModelSim-Altera Info: # vsim +transport_int_delays +transport_path_delays -L altera_ver -L cycloneiii_ver -L gate_work -L work -voptargs=\"+acc\" -t 1ps test 
+ModelSim-Altera Info: # Loading work.test
+ModelSim-Altera Info: # Loading work.Lab5_1131417
+ModelSim-Altera Info: # Loading cycloneiii_ver.cycloneiii_io_obuf
+ModelSim-Altera Info: # Loading cycloneiii_ver.cycloneiii_io_ibuf
+ModelSim-Altera Info: # Loading cycloneiii_ver.cycloneiii_lcell_comb
+ModelSim-Altera Info: # SDF 6.5b Compiler 2009.10 Oct  1 2009
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Loading instances from Lab5_1131417_v.sdo
+ModelSim-Altera Info: # Loading timing data from Lab5_1131417_v.sdo
+ModelSim-Altera Info: # ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+ModelSim-Altera Info: #    Time: 0 ps  Iteration: 0  Region: /test  File: C:/Thomas/2_top/CS206B/Lab5_1131417/test.v
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave *
+ModelSim-Altera Info: # view structure
+ModelSim-Altera Info: # .main_pane.structure.interior.cs.body.struct
+ModelSim-Altera Info: # view signals
+ModelSim-Altera Info: # .main_pane.objects.interior.cs.body
+ModelSim-Altera Info: # run 1 ns
+ModelSim-Altera Info: # time(ns)	sel	A	B	aluo
+ModelSim-Altera Info: #                    0	00	0111	1000	xxxxx
+ModelSim-Altera Info: run -all
+ModelSim-Altera Info: #                    7	00	0111	1000	0xxxx
+ModelSim-Altera Info: #                    7	00	0111	1000	01xxx
+ModelSim-Altera Info: #                    8	00	0111	1000	011xx
+ModelSim-Altera Info: #                    8	00	0111	1000	011x1
+ModelSim-Altera Info: #                    8	00	0111	1000	01111
+ModelSim-Altera Info: #                  100	01	1000	1001	01111
+ModelSim-Altera Info: #                  108	01	1000	1001	01110
+ModelSim-Altera Info: #                  109	01	1000	1001	01010
+ModelSim-Altera Info: #                  109	01	1000	1001	01000
+ModelSim-Altera Info: #                  200	10	1001	1010	01000
+ModelSim-Altera Info: #                  207	10	1001	1010	01001
+ModelSim-Altera Info: #                  207	10	1001	1010	01101
+ModelSim-Altera Info: #                  207	10	1001	1010	00101
+ModelSim-Altera Info: #                  207	10	1001	1010	00111
+ModelSim-Altera Info: #                  207	10	1001	1010	10111
+ModelSim-Altera Info: #                  208	10	1001	1010	10110
+ModelSim-Altera Info: #                  208	10	1001	1010	10111
+ModelSim-Altera Info: #                  208	10	1001	1010	10101
+ModelSim-Altera Info: #                  208	10	1001	1010	10001
+ModelSim-Altera Info: #                  208	10	1001	1010	11001
+ModelSim-Altera Info: #                  209	10	1001	1010	11101
+ModelSim-Altera Info: #                  209	10	1001	1010	11001
+ModelSim-Altera Info: #                  209	10	1001	1010	11011
+ModelSim-Altera Info: #                  209	10	1001	1010	11111
+ModelSim-Altera Info: #                  300	11	1010	1011	11111
+ModelSim-Altera Info: #                  308	11	1010	1011	11110
+ModelSim-Altera Info: #                  308	11	1010	1011	10110
+ModelSim-Altera Info: #                  308	11	1010	1011	10100
+ModelSim-Altera Info: #                  309	11	1010	1011	10101
+ModelSim-Altera Info: #                  309	11	1010	1011	10111
+ModelSim-Altera Info: #                  309	11	1010	1011	10101
+ModelSim-Altera Info: #                  400	00	1011	1100	10101
+ModelSim-Altera Info: #                  408	00	1011	1100	10111
+ModelSim-Altera Info: #                  408	00	1011	1100	11111
+ModelSim-Altera Info: #                  408	00	1011	1100	01111
+ModelSim-Altera Info: #                  409	00	1011	1100	01011
+ModelSim-Altera Info: #                  409	00	1011	1100	01010
+ModelSim-Altera Info: #                  409	00	1011	1100	01110
+ModelSim-Altera Info: #                  409	00	1011	1100	01111
+ModelSim-Altera Info: #                  409	00	1011	1100	01101
+ModelSim-Altera Info: #                  409	00	1011	1100	01111
+ModelSim-Altera Info: # ** Note: $finish    : C:/Thomas/2_top/CS206B/Lab5_1131417/test.v(28)
+ModelSim-Altera Info: #    Time: 510 ns  Iteration: 0  Instance: /test
+ModelSim-Altera Info: # 1
+ModelSim-Altera Info: # Break in Module test at C:/Thomas/2_top/CS206B/Lab5_1131417/test.v line 28
+Info: NativeLink simulation flow was successful

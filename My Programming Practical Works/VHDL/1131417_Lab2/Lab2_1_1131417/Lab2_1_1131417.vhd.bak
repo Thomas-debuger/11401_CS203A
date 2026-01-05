@@ -1,0 +1,43 @@
+entity Lab2_1_1131417 is
+
+	port
+	(
+		-- Input ports
+		A	: in  BIT;
+		B	: in  BIT;
+		C	: in  BIT;
+		D	: in  BIT;
+
+		-- Output ports
+		Y	: out BIT
+	);
+end Lab2_1_1131417;
+
+-- Library Clause(s) (optional)
+-- Use Clause(s) (optional)
+
+architecture RDL of Lab2_1_1131417 is
+
+	-- Declarations (optional)
+
+begin
+
+	-- Y = A'C' + C'D' + AB'D + A'B'CD + ABC
+	
+	Y <= (not A and not C) or (not C and not D) or (A and not B and D) or (not A and not B and C and D) or (A and B and C);
+	
+	-- Process Statement (optional)
+
+	-- Concurrent Procedure Call (optional)
+
+	-- Concurrent Signal Assignment (optional)
+
+	-- Conditional Signal Assignment (optional)
+
+	-- Selected Signal Assignment (optional)
+
+	-- Component Instantiation Statement (optional)
+
+	-- Generate Statement (optional)
+
+end <arch_name>;

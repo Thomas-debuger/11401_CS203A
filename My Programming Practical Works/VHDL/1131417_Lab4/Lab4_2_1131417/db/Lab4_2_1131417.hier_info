@@ -1,0 +1,22 @@
+|Lab4_2_1131417
+clk => shift_reg[0].CLK
+clk => shift_reg[1].CLK
+clk => shift_reg[2].CLK
+clk => state[0].CLK
+clk => state[1].CLK
+rst => state~0.OUTPUTSELECT
+rst => state~1.OUTPUTSELECT
+rst => shift_reg~0.OUTPUTSELECT
+rst => shift_reg~1.OUTPUTSELECT
+rst => shift_reg~2.OUTPUTSELECT
+str_in => shift_reg~2.DATAA
+str_in => Mux1.IN3
+str_in => Mux2.IN2
+str_in => Mux2.IN3
+str_in => Mux2.IN1
+match <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+str_out[0] <= shift_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+str_out[1] <= shift_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+str_out[2] <= shift_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+
+

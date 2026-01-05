@@ -1,0 +1,1620 @@
+TimeQuest Timing Analyzer report for main
+Fri Dec 05 11:11:09 2025
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Slow 1200mV 85C Model Setup Summary
+  7. Slow 1200mV 85C Model Hold Summary
+  8. Slow 1200mV 85C Model Recovery Summary
+  9. Slow 1200mV 85C Model Removal Summary
+ 10. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 11. Slow 1200mV 85C Model Setup: 'clk50'
+ 12. Slow 1200mV 85C Model Hold: 'clk50'
+ 13. Slow 1200mV 85C Model Minimum Pulse Width: 'clk50'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Slow 1200mV 85C Model Metastability Report
+ 19. Slow 1200mV 0C Model Fmax Summary
+ 20. Slow 1200mV 0C Model Setup Summary
+ 21. Slow 1200mV 0C Model Hold Summary
+ 22. Slow 1200mV 0C Model Recovery Summary
+ 23. Slow 1200mV 0C Model Removal Summary
+ 24. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 25. Slow 1200mV 0C Model Setup: 'clk50'
+ 26. Slow 1200mV 0C Model Hold: 'clk50'
+ 27. Slow 1200mV 0C Model Minimum Pulse Width: 'clk50'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Slow 1200mV 0C Model Metastability Report
+ 33. Fast 1200mV 0C Model Setup Summary
+ 34. Fast 1200mV 0C Model Hold Summary
+ 35. Fast 1200mV 0C Model Recovery Summary
+ 36. Fast 1200mV 0C Model Removal Summary
+ 37. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 38. Fast 1200mV 0C Model Setup: 'clk50'
+ 39. Fast 1200mV 0C Model Hold: 'clk50'
+ 40. Fast 1200mV 0C Model Minimum Pulse Width: 'clk50'
+ 41. Setup Times
+ 42. Hold Times
+ 43. Clock to Output Times
+ 44. Minimum Clock to Output Times
+ 45. Fast 1200mV 0C Model Metastability Report
+ 46. Multicorner Timing Analysis Summary
+ 47. Setup Times
+ 48. Hold Times
+ 49. Clock to Output Times
+ 50. Minimum Clock to Output Times
+ 51. Board Trace Model Assignments
+ 52. Input Transition Times
+ 53. Slow Corner Signal Integrity Metrics
+ 54. Fast Corner Signal Integrity Metrics
+ 55. Setup Transfers
+ 56. Hold Transfers
+ 57. Report TCCS
+ 58. Report RSKM
+ 59. Unconstrained Paths
+ 60. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                   ;
++--------------------+----------------------------------------------------------------+
+; Quartus II Version ; Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition ;
+; Revision Name      ; main                                                           ;
+; Device Family      ; Cyclone III                                                    ;
+; Device Name        ; EP3C16F484C6                                                   ;
+; Timing Models      ; Final                                                          ;
+; Delay Model        ; Combined                                                       ;
+; Rise/Fall Delays   ; Enabled                                                        ;
++--------------------+----------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 16     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; clk50      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+
+
++-------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary              ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 139.8 MHz ; 139.8 MHz       ; clk50      ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk50 ; -6.153 ; -230.126           ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk50 ; 0.339 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk50 ; -3.000 ; -57.000                          ;
++-------+--------+----------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk50'                                                                                                                       ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                            ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; -6.153 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 7.088      ;
+; -6.152 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 7.087      ;
+; -6.151 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 7.086      ;
+; -6.148 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 7.083      ;
+; -6.147 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 7.082      ;
+; -6.134 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.071      ;
+; -6.134 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.071      ;
+; -6.133 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.070      ;
+; -6.132 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.069      ;
+; -6.130 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.067      ;
+; -6.130 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.067      ;
+; -6.129 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 7.066      ;
+; -5.973 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.911      ;
+; -5.972 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.910      ;
+; -5.971 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.909      ;
+; -5.968 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.906      ;
+; -5.967 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.905      ;
+; -5.966 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.900      ;
+; -5.966 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.900      ;
+; -5.960 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.894      ;
+; -5.960 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.894      ;
+; -5.954 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.888      ;
+; -5.954 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.894      ;
+; -5.954 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.894      ;
+; -5.953 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.893      ;
+; -5.952 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.892      ;
+; -5.951 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.885      ;
+; -5.950 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.885      ;
+; -5.950 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.885      ;
+; -5.950 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.890      ;
+; -5.950 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.890      ;
+; -5.949 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.889      ;
+; -5.934 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.871      ;
+; -5.921 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.856      ;
+; -5.812 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.064     ; 6.743      ;
+; -5.789 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.722      ;
+; -5.788 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.721      ;
+; -5.786 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.723      ;
+; -5.786 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.723      ;
+; -5.780 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.717      ;
+; -5.780 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.717      ;
+; -5.774 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.711      ;
+; -5.772 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.708      ;
+; -5.771 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.705      ;
+; -5.771 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.708      ;
+; -5.770 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.708      ;
+; -5.770 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.708      ;
+; -5.755 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.690      ;
+; -5.754 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.694      ;
+; -5.741 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.679      ;
+; -5.690 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.624      ;
+; -5.689 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.623      ;
+; -5.689 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.623      ;
+; -5.688 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.622      ;
+; -5.688 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.622      ;
+; -5.682 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.065     ; 6.612      ;
+; -5.659 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.594      ;
+; -5.656 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.591      ;
+; -5.646 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.581      ;
+; -5.645 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.578      ;
+; -5.644 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.577      ;
+; -5.632 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.566      ;
+; -5.606 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.542      ;
+; -5.605 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.538      ;
+; -5.605 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.539      ;
+; -5.602 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.536      ;
+; -5.575 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.057     ; 6.513      ;
+; -5.567 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.502      ;
+; -5.566 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.501      ;
+; -5.565 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.500      ;
+; -5.562 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.497      ;
+; -5.561 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.060     ; 6.496      ;
+; -5.548 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.485      ;
+; -5.548 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.485      ;
+; -5.547 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.484      ;
+; -5.546 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.483      ;
+; -5.544 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.481      ;
+; -5.544 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.481      ;
+; -5.543 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.058     ; 6.480      ;
+; -5.531 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.465      ;
+; -5.530 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.464      ;
+; -5.529 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.463      ;
+; -5.526 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.460      ;
+; -5.525 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.459      ;
+; -5.524 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.458      ;
+; -5.523 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.457      ;
+; -5.523 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.457      ;
+; -5.522 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.456      ;
+; -5.522 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.456      ;
+; -5.512 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.448      ;
+; -5.512 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.448      ;
+; -5.511 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.447      ;
+; -5.510 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.446      ;
+; -5.508 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.444      ;
+; -5.508 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.444      ;
+; -5.507 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.443      ;
+; -5.502 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.062     ; 6.435      ;
+; -5.501 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.061     ; 6.435      ;
+; -5.494 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.430      ;
+; -5.494 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.059     ; 6.430      ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk50'                                                                                                                      ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.339 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.577      ;
+; 0.548 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.786      ;
+; 0.549 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.787      ;
+; 0.550 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.788      ;
+; 0.550 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.788      ;
+; 0.551 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.789      ;
+; 0.552 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.790      ;
+; 0.553 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.791      ;
+; 0.560 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.798      ;
+; 0.674 ; servo_pwm:servo_inst|period_cnt[19] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.912      ;
+; 0.689 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.927      ;
+; 0.695 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[0]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.933      ;
+; 0.698 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.936      ;
+; 0.700 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.938      ;
+; 0.702 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.940      ;
+; 0.702 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.940      ;
+; 0.703 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.941      ;
+; 0.703 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.941      ;
+; 0.710 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 0.948      ;
+; 0.823 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.061      ;
+; 0.824 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.062      ;
+; 0.826 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.064      ;
+; 0.834 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.072      ;
+; 0.840 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.078      ;
+; 0.844 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.082      ;
+; 0.848 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.086      ;
+; 0.913 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.151      ;
+; 0.931 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.173      ;
+; 0.933 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.171      ;
+; 0.934 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.172      ;
+; 0.934 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.172      ;
+; 0.935 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.173      ;
+; 0.936 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.174      ;
+; 0.937 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.175      ;
+; 0.944 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.182      ;
+; 0.946 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.184      ;
+; 0.948 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.186      ;
+; 0.948 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 0.000        ; 0.059      ; 1.184      ;
+; 0.950 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 0.000        ; 0.059      ; 1.186      ;
+; 0.952 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.190      ;
+; 0.962 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.200      ;
+; 0.964 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.202      ;
+; 0.998 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.229      ;
+; 0.998 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.236      ;
+; 1.000 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.238      ;
+; 1.027 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[31] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.265      ;
+; 1.027 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.265      ;
+; 1.027 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.265      ;
+; 1.037 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 0.000        ; 0.059      ; 1.273      ;
+; 1.041 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.283      ;
+; 1.043 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.285      ;
+; 1.045 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.287      ;
+; 1.046 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.284      ;
+; 1.048 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.286      ;
+; 1.050 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.288      ;
+; 1.052 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 0.000        ; 0.059      ; 1.288      ;
+; 1.056 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.294      ;
+; 1.059 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.064      ; 1.300      ;
+; 1.074 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.312      ;
+; 1.076 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.314      ;
+; 1.110 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.348      ;
+; 1.118 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.356      ;
+; 1.118 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.356      ;
+; 1.133 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.371      ;
+; 1.137 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.375      ;
+; 1.153 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.395      ;
+; 1.155 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.397      ;
+; 1.157 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.399      ;
+; 1.158 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.400      ;
+; 1.168 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.406      ;
+; 1.170 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.408      ;
+; 1.183 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.064      ; 1.424      ;
+; 1.186 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.424      ;
+; 1.201 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.439      ;
+; 1.203 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.441      ;
+; 1.220 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.458      ;
+; 1.222 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.460      ;
+; 1.228 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.466      ;
+; 1.229 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.467      ;
+; 1.230 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.468      ;
+; 1.235 ; servo_pwm:servo_inst|period_cnt[9]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.059      ; 1.471      ;
+; 1.241 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.479      ;
+; 1.246 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.484      ;
+; 1.248 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.482      ;
+; 1.248 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.486      ;
+; 1.250 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.484      ;
+; 1.265 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.507      ;
+; 1.267 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.509      ;
+; 1.268 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.510      ;
+; 1.270 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.512      ;
+; 1.278 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.065      ; 1.520      ;
+; 1.284 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.518      ;
+; 1.296 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[31] ; clk50        ; clk50       ; 0.000        ; 0.058      ; 1.531      ;
+; 1.298 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.536      ;
+; 1.300 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.538      ;
+; 1.313 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.551      ;
+; 1.315 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 0.000        ; 0.058      ; 1.550      ;
+; 1.332 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.570      ;
+; 1.334 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.572      ;
+; 1.334 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.061      ; 1.572      ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk50'                                                                   ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                               ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk50 ; Rise       ; clk50                                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[5]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[7]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[8]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[25] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[26] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[27] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[31] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|servo_out       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|update_tick     ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[5]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[7]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[8]   ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[13] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[21] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[22] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[23] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[24] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[25] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[26] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[27] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[2]  ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[31] ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[3]  ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[9]  ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|servo_out       ;
+; 0.188  ; 0.372        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|update_tick     ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; 0.189  ; 0.373        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++-----------+------------+-------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; 9.868 ; 10.612 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; 9.868 ; 10.612 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; 9.642 ; 10.360 ; Rise       ; clk50           ;
++-----------+------------+-------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; -2.524 ; -2.969 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; -2.524 ; -2.969 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; -3.000 ; -3.524 ; Rise       ; clk50           ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 7.415 ; 7.497 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 7.224 ; 7.301 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 157.73 MHz ; 157.73 MHz      ; clk50      ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk50 ; -5.340 ; -198.989          ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk50 ; 0.292 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk50 ; -3.000 ; -57.000                         ;
++-------+--------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk50'                                                                                                                        ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                            ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; -5.340 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.281      ;
+; -5.340 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.281      ;
+; -5.339 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.280      ;
+; -5.336 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.277      ;
+; -5.335 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.276      ;
+; -5.332 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.274      ;
+; -5.332 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.274      ;
+; -5.331 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.273      ;
+; -5.329 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.271      ;
+; -5.328 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.270      ;
+; -5.327 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.269      ;
+; -5.326 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.268      ;
+; -5.183 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 6.127      ;
+; -5.183 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 6.127      ;
+; -5.180 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.120      ;
+; -5.180 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 6.124      ;
+; -5.180 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 6.124      ;
+; -5.180 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 6.124      ;
+; -5.179 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.119      ;
+; -5.179 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.119      ;
+; -5.178 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.119      ;
+; -5.176 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.117      ;
+; -5.176 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.116      ;
+; -5.169 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.110      ;
+; -5.169 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.110      ;
+; -5.169 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.114      ;
+; -5.167 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.112      ;
+; -5.167 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.112      ;
+; -5.165 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.110      ;
+; -5.165 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.110      ;
+; -5.164 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.109      ;
+; -5.164 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.050     ; 6.109      ;
+; -5.163 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.053     ; 6.105      ;
+; -5.144 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.085      ;
+; -5.126 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.066      ;
+; -5.123 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.063      ;
+; -5.107 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.054     ; 6.048      ;
+; -5.106 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 6.046      ;
+; -5.052 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.052     ; 5.995      ;
+; -5.051 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.052     ; 5.994      ;
+; -5.050 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.994      ;
+; -5.048 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.052     ; 5.991      ;
+; -5.048 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.992      ;
+; -5.048 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.052     ; 5.991      ;
+; -5.041 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.985      ;
+; -5.041 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.985      ;
+; -5.039 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.979      ;
+; -5.038 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.978      ;
+; -5.038 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.978      ;
+; -5.038 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.978      ;
+; -5.037 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.977      ;
+; -5.036 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.057     ; 5.974      ;
+; -5.035 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.050     ; 5.980      ;
+; -5.016 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.960      ;
+; -5.015 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.956      ;
+; -5.007 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.948      ;
+; -5.006 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.947      ;
+; -4.975 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.915      ;
+; -4.970 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.912      ;
+; -4.969 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.910      ;
+; -4.962 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.056     ; 5.901      ;
+; -4.927 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.058     ; 5.864      ;
+; -4.904 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.845      ;
+; -4.902 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.843      ;
+; -4.902 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.843      ;
+; -4.901 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.842      ;
+; -4.901 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.842      ;
+; -4.901 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.842      ;
+; -4.900 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.841      ;
+; -4.899 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.840      ;
+; -4.887 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.051     ; 5.831      ;
+; -4.885 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.826      ;
+; -4.862 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.059     ; 5.798      ;
+; -4.861 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.801      ;
+; -4.841 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.782      ;
+; -4.838 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.779      ;
+; -4.838 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.779      ;
+; -4.838 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.779      ;
+; -4.838 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.779      ;
+; -4.837 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.778      ;
+; -4.836 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.777      ;
+; -4.835 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.776      ;
+; -4.835 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.776      ;
+; -4.835 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.776      ;
+; -4.835 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.776      ;
+; -4.834 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.775      ;
+; -4.833 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.054     ; 5.774      ;
+; -4.832 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.772      ;
+; -4.830 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.772      ;
+; -4.830 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.772      ;
+; -4.829 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.771      ;
+; -4.827 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.769      ;
+; -4.826 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.768      ;
+; -4.825 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.767      ;
+; -4.825 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.765      ;
+; -4.824 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.053     ; 5.766      ;
+; -4.810 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.056     ; 5.749      ;
+; -4.796 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.736      ;
+; -4.791 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.731      ;
+; -4.789 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.055     ; 5.729      ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk50'                                                                                                                       ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.292 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.511      ;
+; 0.490 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.708      ;
+; 0.491 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.709      ;
+; 0.492 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.710      ;
+; 0.493 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.711      ;
+; 0.493 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.711      ;
+; 0.495 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.713      ;
+; 0.495 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.713      ;
+; 0.501 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.719      ;
+; 0.592 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.811      ;
+; 0.598 ; servo_pwm:servo_inst|period_cnt[19] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.816      ;
+; 0.600 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.819      ;
+; 0.602 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.821      ;
+; 0.603 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.822      ;
+; 0.603 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.822      ;
+; 0.604 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.823      ;
+; 0.604 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 0.000        ; 0.055      ; 0.823      ;
+; 0.633 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[0]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.851      ;
+; 0.643 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.861      ;
+; 0.734 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.952      ;
+; 0.738 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.956      ;
+; 0.740 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.958      ;
+; 0.744 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.962      ;
+; 0.746 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.964      ;
+; 0.761 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.979      ;
+; 0.765 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 0.983      ;
+; 0.824 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.042      ;
+; 0.825 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.043      ;
+; 0.827 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.048      ;
+; 0.827 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.045      ;
+; 0.829 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.047      ;
+; 0.832 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.050      ;
+; 0.835 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.053      ;
+; 0.839 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.057      ;
+; 0.840 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.058      ;
+; 0.842 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.060      ;
+; 0.853 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.071      ;
+; 0.854 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 0.000        ; 0.053      ; 1.071      ;
+; 0.854 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.072      ;
+; 0.855 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 0.000        ; 0.053      ; 1.072      ;
+; 0.866 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.084      ;
+; 0.873 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.091      ;
+; 0.892 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.110      ;
+; 0.899 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.117      ;
+; 0.905 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.049      ; 1.118      ;
+; 0.916 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.137      ;
+; 0.923 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.141      ;
+; 0.923 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.144      ;
+; 0.925 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.143      ;
+; 0.925 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.146      ;
+; 0.931 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.149      ;
+; 0.932 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.150      ;
+; 0.935 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[31] ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.153      ;
+; 0.935 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.153      ;
+; 0.935 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.153      ;
+; 0.940 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 0.000        ; 0.053      ; 1.157      ;
+; 0.953 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 0.000        ; 0.053      ; 1.170      ;
+; 0.962 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.180      ;
+; 0.969 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.187      ;
+; 0.974 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.195      ;
+; 0.988 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.206      ;
+; 1.004 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.222      ;
+; 1.004 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.222      ;
+; 1.007 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.225      ;
+; 1.012 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.233      ;
+; 1.014 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.235      ;
+; 1.021 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.242      ;
+; 1.021 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.239      ;
+; 1.025 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.246      ;
+; 1.027 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.245      ;
+; 1.034 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.252      ;
+; 1.058 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.276      ;
+; 1.078 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.296      ;
+; 1.084 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.302      ;
+; 1.085 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.303      ;
+; 1.090 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.308      ;
+; 1.092 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.313      ;
+; 1.095 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.313      ;
+; 1.098 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.316      ;
+; 1.100 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.318      ;
+; 1.107 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.325      ;
+; 1.108 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.329      ;
+; 1.110 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.331      ;
+; 1.113 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.331      ;
+; 1.114 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.335      ;
+; 1.114 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.332      ;
+; 1.119 ; servo_pwm:servo_inst|period_cnt[9]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.052      ; 1.335      ;
+; 1.119 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.051      ; 1.334      ;
+; 1.121 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.342      ;
+; 1.127 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.057      ; 1.348      ;
+; 1.138 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.051      ; 1.353      ;
+; 1.154 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.372      ;
+; 1.161 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.379      ;
+; 1.170 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.050      ; 1.384      ;
+; 1.174 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.392      ;
+; 1.181 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.399      ;
+; 1.186 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.404      ;
+; 1.188 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[31] ; clk50        ; clk50       ; 0.000        ; 0.053      ; 1.405      ;
+; 1.192 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.410      ;
+; 1.194 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.054      ; 1.412      ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk50'                                                                    ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                               ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk50 ; Rise       ; clk50                                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[5]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[7]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[8]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[25] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[26] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[27] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[31] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|servo_out       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|update_tick     ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[21] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[22] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[23] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[24] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[25] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[26] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[27] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; 0.184  ; 0.368        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|servo_out       ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[14] ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[15] ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[16] ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[20] ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[4]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[5]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[6]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[7]  ;
+; 0.185  ; 0.369        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[8]  ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; 0.187  ; 0.371        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; clk50      ; 8.773 ; 9.333 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; 8.773 ; 9.333 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; 8.573 ; 9.094 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; -2.202 ; -2.576 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; -2.202 ; -2.576 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; -2.649 ; -3.048 ; Rise       ; clk50           ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 7.002 ; 6.988 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 6.829 ; 6.813 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk50 ; -3.144 ; -110.306          ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk50 ; 0.168 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk50 ; -3.000 ; -60.005                         ;
++-------+--------+---------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk50'                                                                                                                        ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                            ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.144 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 4.097      ;
+; -3.143 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 4.096      ;
+; -3.141 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 4.094      ;
+; -3.139 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 4.092      ;
+; -3.138 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 4.091      ;
+; -3.134 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.089      ;
+; -3.133 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.088      ;
+; -3.131 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.086      ;
+; -3.130 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.085      ;
+; -3.130 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.085      ;
+; -3.129 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.084      ;
+; -3.129 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 4.084      ;
+; -3.032 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.984      ;
+; -3.031 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.983      ;
+; -3.030 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.982      ;
+; -3.025 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.977      ;
+; -3.023 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.975      ;
+; -3.022 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.974      ;
+; -3.021 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.973      ;
+; -3.021 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.973      ;
+; -3.020 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.975      ;
+; -3.017 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.973      ;
+; -3.016 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.972      ;
+; -3.014 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.970      ;
+; -3.012 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.968      ;
+; -3.011 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.967      ;
+; -3.008 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.961      ;
+; -3.007 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.965      ;
+; -3.006 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.964      ;
+; -3.004 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.962      ;
+; -3.003 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.961      ;
+; -3.003 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.961      ;
+; -3.002 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.960      ;
+; -3.002 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.960      ;
+; -2.920 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.038     ; 3.869      ;
+; -2.915 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.036     ; 3.866      ;
+; -2.912 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.036     ; 3.863      ;
+; -2.905 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[20] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.860      ;
+; -2.904 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.033     ; 3.858      ;
+; -2.904 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[15] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.859      ;
+; -2.903 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[16] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.858      ;
+; -2.898 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.853      ;
+; -2.896 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.851      ;
+; -2.895 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.850      ;
+; -2.894 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.849      ;
+; -2.894 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.849      ;
+; -2.893 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.029     ; 3.851      ;
+; -2.881 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.031     ; 3.837      ;
+; -2.876 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.828      ;
+; -2.872 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.824      ;
+; -2.872 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.824      ;
+; -2.871 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.823      ;
+; -2.870 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.822      ;
+; -2.869 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.821      ;
+; -2.862 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 1.000        ; -0.036     ; 3.813      ;
+; -2.846 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 1.000        ; -0.038     ; 3.795      ;
+; -2.833 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.785      ;
+; -2.830 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.782      ;
+; -2.816 ; servo_pwm:servo_inst|pulse_width[3]  ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.768      ;
+; -2.804 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.757      ;
+; -2.803 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.756      ;
+; -2.801 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.754      ;
+; -2.799 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.752      ;
+; -2.798 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.751      ;
+; -2.794 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.749      ;
+; -2.793 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.748      ;
+; -2.793 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[2]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.745      ;
+; -2.791 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.746      ;
+; -2.790 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.745      ;
+; -2.790 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.745      ;
+; -2.789 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.744      ;
+; -2.789 ; servo_pwm:servo_inst|pulse_width[13] ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.744      ;
+; -2.778 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.730      ;
+; -2.775 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.727      ;
+; -2.767 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.722      ;
+; -2.758 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[10] ; clk50        ; clk50       ; 1.000        ; -0.036     ; 3.709      ;
+; -2.749 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.702      ;
+; -2.749 ; servo_pwm:servo_inst|pulse_width[2]  ; servo_pwm:servo_inst|pulse_width[8]  ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.704      ;
+; -2.748 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.701      ;
+; -2.746 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.699      ;
+; -2.746 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 1.000        ; -0.036     ; 3.697      ;
+; -2.744 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.697      ;
+; -2.743 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.696      ;
+; -2.739 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.694      ;
+; -2.738 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.693      ;
+; -2.736 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.691      ;
+; -2.735 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.690      ;
+; -2.735 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.690      ;
+; -2.735 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[17] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.688      ;
+; -2.735 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[18] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.688      ;
+; -2.734 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.689      ;
+; -2.734 ; servo_pwm:servo_inst|pulse_width[5]  ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 1.000        ; -0.032     ; 3.689      ;
+; -2.734 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[19] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.687      ;
+; -2.733 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 1.000        ; -0.033     ; 3.687      ;
+; -2.733 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[1]  ; clk50        ; clk50       ; 1.000        ; -0.035     ; 3.685      ;
+; -2.733 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[21] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.686      ;
+; -2.732 ; servo_pwm:servo_inst|pulse_width[4]  ; servo_pwm:servo_inst|pulse_width[22] ; clk50        ; clk50       ; 1.000        ; -0.034     ; 3.685      ;
+; -2.731 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 1.000        ; -0.033     ; 3.685      ;
+; -2.730 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 1.000        ; -0.033     ; 3.684      ;
+; -2.730 ; servo_pwm:servo_inst|pulse_width[1]  ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 1.000        ; -0.033     ; 3.684      ;
++--------+--------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk50'                                                                                                                       ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                           ; To Node                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.168 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|dir_up          ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.307      ;
+; 0.284 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.423      ;
+; 0.285 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.424      ;
+; 0.285 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.424      ;
+; 0.286 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.425      ;
+; 0.286 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.425      ;
+; 0.286 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.425      ;
+; 0.287 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.426      ;
+; 0.291 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.430      ;
+; 0.343 ; servo_pwm:servo_inst|period_cnt[19] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.482      ;
+; 0.358 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[0]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.497      ;
+; 0.362 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.501      ;
+; 0.364 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[26] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.503      ;
+; 0.372 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[27] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.511      ;
+; 0.374 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[25] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.513      ;
+; 0.375 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[23] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.514      ;
+; 0.376 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[24] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.515      ;
+; 0.377 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[12] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.516      ;
+; 0.378 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[11] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.517      ;
+; 0.433 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.572      ;
+; 0.435 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.574      ;
+; 0.435 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.574      ;
+; 0.440 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.579      ;
+; 0.440 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.579      ;
+; 0.443 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.582      ;
+; 0.445 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.584      ;
+; 0.470 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.609      ;
+; 0.480 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.619      ;
+; 0.496 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.638      ;
+; 0.497 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.636      ;
+; 0.497 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.636      ;
+; 0.498 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.637      ;
+; 0.498 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.637      ;
+; 0.499 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.638      ;
+; 0.500 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.639      ;
+; 0.503 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[5]  ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.639      ;
+; 0.503 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.642      ;
+; 0.504 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[4]  ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.640      ;
+; 0.505 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[1]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.644      ;
+; 0.506 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.645      ;
+; 0.508 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[2]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.647      ;
+; 0.511 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.650      ;
+; 0.520 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.659      ;
+; 0.523 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.662      ;
+; 0.540 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[31] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.679      ;
+; 0.540 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[13] ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.679      ;
+; 0.540 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[3]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.679      ;
+; 0.543 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.029      ; 0.676      ;
+; 0.546 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.688      ;
+; 0.556 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[14] ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.692      ;
+; 0.559 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.701      ;
+; 0.561 ; servo_pwm:servo_inst|dir_up         ; servo_pwm:servo_inst|pulse_width[6]  ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.697      ;
+; 0.562 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.704      ;
+; 0.563 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.705      ;
+; 0.564 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.703      ;
+; 0.564 ; servo_pwm:servo_inst|period_cnt[11] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.703      ;
+; 0.567 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.706      ;
+; 0.569 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.708      ;
+; 0.571 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.710      ;
+; 0.574 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.713      ;
+; 0.586 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.725      ;
+; 0.588 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.727      ;
+; 0.588 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.727      ;
+; 0.598 ; servo_pwm:servo_inst|period_cnt[18] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.737      ;
+; 0.603 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.742      ;
+; 0.616 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|update_tick     ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.758      ;
+; 0.625 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.767      ;
+; 0.626 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.768      ;
+; 0.628 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[3]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.767      ;
+; 0.629 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.771      ;
+; 0.630 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.772      ;
+; 0.631 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[4]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.770      ;
+; 0.635 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.774      ;
+; 0.637 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.776      ;
+; 0.638 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.777      ;
+; 0.638 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.777      ;
+; 0.651 ; servo_pwm:servo_inst|period_cnt[17] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.790      ;
+; 0.652 ; servo_pwm:servo_inst|period_cnt[10] ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.791      ;
+; 0.653 ; servo_pwm:servo_inst|period_cnt[13] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.792      ;
+; 0.653 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[18]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.792      ;
+; 0.660 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.799      ;
+; 0.662 ; servo_pwm:servo_inst|period_cnt[9]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.798      ;
+; 0.665 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.801      ;
+; 0.666 ; servo_pwm:servo_inst|period_cnt[16] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.805      ;
+; 0.667 ; servo_pwm:servo_inst|period_cnt[12] ; servo_pwm:servo_inst|period_cnt[16]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.806      ;
+; 0.668 ; servo_pwm:servo_inst|period_cnt[6]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.804      ;
+; 0.690 ; servo_pwm:servo_inst|update_tick    ; servo_pwm:servo_inst|pulse_width[9]  ; clk50        ; clk50       ; 0.000        ; 0.032      ; 0.826      ;
+; 0.691 ; servo_pwm:servo_inst|period_cnt[7]  ; servo_pwm:servo_inst|period_cnt[15]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.833      ;
+; 0.692 ; servo_pwm:servo_inst|period_cnt[5]  ; servo_pwm:servo_inst|period_cnt[13]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.834      ;
+; 0.693 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[11]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.835      ;
+; 0.694 ; servo_pwm:servo_inst|period_cnt[2]  ; servo_pwm:servo_inst|period_cnt[5]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.833      ;
+; 0.696 ; servo_pwm:servo_inst|period_cnt[3]  ; servo_pwm:servo_inst|period_cnt[12]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.838      ;
+; 0.701 ; servo_pwm:servo_inst|period_cnt[1]  ; servo_pwm:servo_inst|period_cnt[10]  ; clk50        ; clk50       ; 0.000        ; 0.038      ; 0.843      ;
+; 0.703 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.842      ;
+; 0.704 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[7]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.843      ;
+; 0.706 ; servo_pwm:servo_inst|period_cnt[0]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.845      ;
+; 0.707 ; servo_pwm:servo_inst|period_cnt[4]  ; servo_pwm:servo_inst|period_cnt[8]   ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.846      ;
+; 0.710 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[17]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.849      ;
+; 0.712 ; servo_pwm:servo_inst|pulse_width[7] ; servo_pwm:servo_inst|pulse_width[7]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.851      ;
+; 0.716 ; servo_pwm:servo_inst|period_cnt[15] ; servo_pwm:servo_inst|period_cnt[19]  ; clk50        ; clk50       ; 0.000        ; 0.035      ; 0.855      ;
++-------+-------------------------------------+--------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk50'                                                                    ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                               ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk50 ; Rise       ; clk50                                ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[5]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[7]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[8]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[13] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[14] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[15] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[16] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[20] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[21] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[22] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[23] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[24] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[25] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[26] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[27] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[2]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[31] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[3]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[4]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[5]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[6]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[7]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[8]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[9]  ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|servo_out       ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk50 ; Rise       ; servo_pwm:servo_inst|update_tick     ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[0]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[10]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[11]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[12]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[13]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[14]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[15]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[16]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[17]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[18]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[19]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[1]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[2]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[3]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[4]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[5]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[6]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[7]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[8]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|period_cnt[9]   ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[13] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[14] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[28] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[29] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[2]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[30] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[31] ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[3]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[4]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[5]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[6]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[7]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[8]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[9]  ;
+; -0.056 ; 0.128        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|update_tick     ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|dir_up          ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[10] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[11] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[12] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[15] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[16] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[17] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[18] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[19] ;
+; -0.055 ; 0.129        ; 0.184          ; Low Pulse Width ; clk50 ; Rise       ; servo_pwm:servo_inst|pulse_width[1]  ;
++--------+--------------+----------------+-----------------+-------+------------+--------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; clk50      ; 5.599 ; 6.536 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; 5.599 ; 6.536 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; 5.479 ; 6.388 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; -1.393 ; -2.035 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; -1.393 ; -2.035 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; -1.659 ; -2.337 ; Rise       ; clk50           ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 4.427 ; 4.626 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 4.314 ; 4.505 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -6.153   ; 0.168 ; N/A      ; N/A     ; -3.000              ;
+;  clk50           ; -6.153   ; 0.168 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -230.126 ; 0.0   ; 0.0      ; 0.0     ; -60.005             ;
+;  clk50           ; -230.126 ; 0.000 ; N/A      ; N/A     ; -60.005             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++-----------+------------+-------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; 9.868 ; 10.612 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; 9.868 ; 10.612 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; 9.642 ; 10.360 ; Rise       ; clk50           ;
++-----------+------------+-------+--------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; clk50      ; -1.393 ; -2.035 ; Rise       ; clk50           ;
+;  SW[0]    ; clk50      ; -1.393 ; -2.035 ; Rise       ; clk50           ;
+;  SW[1]    ; clk50      ; -1.659 ; -2.337 ; Rise       ; clk50           ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 7.415 ; 7.497 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; output    ; clk50      ; 4.314 ; 4.505 ; Rise       ; clk50           ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                    ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; Pin           ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+; output        ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ;
++---------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+
+
+
++----------------------------------------------------------------------------+
+; Input Transition Times                                                     ;
++-------------------------+--------------+-----------------+-----------------+
+; Pin                     ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------------------------+--------------+-----------------+-----------------+
+; clk50                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[1]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; SW[0]                   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_ASDO_DATA1~     ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_FLASH_nCE_nCSO~ ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; ~ALTERA_DATA0~          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------------------------+--------------+-----------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; output        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.08e-006 V                  ; 2.36 V              ; -0.0106 V           ; 0.122 V                              ; 0.021 V                              ; 4.5e-010 s                  ; 4.45e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 1.08e-006 V                 ; 2.36 V             ; -0.0106 V          ; 0.122 V                             ; 0.021 V                             ; 4.5e-010 s                 ; 4.45e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 5.68e-007 V                  ; 2.35 V              ; -0.0132 V           ; 0.2 V                                ; 0.027 V                              ; 5.26e-010 s                 ; 4.81e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 5.68e-007 V                 ; 2.35 V             ; -0.0132 V          ; 0.2 V                               ; 0.027 V                             ; 5.26e-010 s                ; 4.81e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 9.36e-007 V                  ; 2.35 V              ; -0.00447 V          ; 0.18 V                               ; 0.019 V                              ; 7.23e-010 s                 ; 9.82e-010 s                 ; Yes                        ; Yes                        ; 2.32 V                      ; 9.36e-007 V                 ; 2.35 V             ; -0.00447 V         ; 0.18 V                              ; 0.019 V                             ; 7.23e-010 s                ; 9.82e-010 s                ; Yes                       ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Corner Signal Integrity Metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin           ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; output        ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.11e-008 V                  ; 2.73 V              ; -0.0569 V           ; 0.191 V                              ; 0.121 V                              ; 2.69e-010 s                 ; 2.76e-010 s                 ; Yes                        ; Yes                        ; 2.62 V                      ; 4.11e-008 V                 ; 2.73 V             ; -0.0569 V          ; 0.191 V                             ; 0.121 V                             ; 2.69e-010 s                ; 2.76e-010 s                ; Yes                       ; Yes                       ;
+; ~ALTERA_DCLK~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 2.19e-008 V                  ; 2.72 V              ; -0.0747 V           ; 0.28 V                               ; 0.169 V                              ; 3.1e-010 s                  ; 3.01e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 2.19e-008 V                 ; 2.72 V             ; -0.0747 V          ; 0.28 V                              ; 0.169 V                             ; 3.1e-010 s                 ; 3.01e-010 s                ; No                        ; Yes                       ;
+; ~ALTERA_nCEO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 3.53e-008 V                  ; 2.7 V               ; -0.0208 V           ; 0.204 V                              ; 0.049 V                              ; 4.85e-010 s                 ; 6.71e-010 s                 ; No                         ; Yes                        ; 2.62 V                      ; 3.53e-008 V                 ; 2.7 V              ; -0.0208 V          ; 0.204 V                             ; 0.049 V                             ; 4.85e-010 s                ; 6.71e-010 s                ; No                        ; Yes                       ;
++---------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk50      ; clk50    ; 29167    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk50      ; clk50    ; 29167    ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 64    ; 64   ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II TimeQuest Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Fri Dec 05 11:11:07 2025
+Info: Command: quartus_sta main -c main
+Info: qsta_default_script.tcl version: #1
+Info: Core supply voltage is 1.2V
+Info: Low junction temperature is 0 degrees C
+Info: High junction temperature is 85 degrees C
+Critical Warning: Synopsys Design Constraints File file not found: 'main.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info: No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info: Deriving Clocks
+    Info: create_clock -period 1.000 -name clk50 clk50
+Info: No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info: Deriving Clock Uncertainty
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -6.153
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -6.153      -230.126 clk50 
+Info: Worst-case hold slack is 0.339
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.339         0.000 clk50 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -3.000
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.000       -57.000 clk50 
+Info: Analyzing Slow 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: Deriving Clock Uncertainty
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -5.340
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -5.340      -198.989 clk50 
+Info: Worst-case hold slack is 0.292
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.292         0.000 clk50 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -3.000
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.000       -57.000 clk50 
+Info: Analyzing Fast 1200mV 0C Model
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Info: Deriving Clock Uncertainty
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -setup 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -rise_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -rise_to [get_clocks {clk50}] -hold 0.020
+    Info: set_clock_uncertainty -fall_from [get_clocks {clk50}] -fall_to [get_clocks {clk50}] -hold 0.020
+Critical Warning: Timing requirements not met
+Info: Worst-case setup slack is -3.144
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.144      -110.306 clk50 
+Info: Worst-case hold slack is 0.168
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:     0.168         0.000 clk50 
+Info: No Recovery paths to report
+Info: No Removal paths to report
+Info: Worst-case minimum pulse width slack is -3.000
+    Info:     Slack End Point TNS Clock 
+    Info: ========= ============= =====================
+    Info:    -3.000       -60.005 clk50 
+Info: Design is not fully constrained for setup requirements
+Info: Design is not fully constrained for hold requirements
+Info: Quartus II TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 264 megabytes
+    Info: Processing ended: Fri Dec 05 11:11:09 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

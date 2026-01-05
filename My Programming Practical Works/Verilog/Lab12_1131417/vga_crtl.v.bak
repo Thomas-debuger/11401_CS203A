@@ -1,0 +1,84 @@
+module vga_ctrl (
+
+  input     wire                  clk,
+  input     wire                  rst_n,
+  
+  output    reg                   vga_hs,
+  output    reg                   vga_vs,
+  output    reg       [7:0]       vga_rgb
+);
+  
+  parameter   HS_A        =       96;
+  parameter   HS_B        =       48;
+  parameter   HS_C        =       640;
+  parameter   HS_D        =       16;
+  parameter   HS_E        =       800;
+  
+  parameter   VS_A        =       2;
+  parameter   VS_B        =       33;
+  parameter   VS_C        =       480;
+  parameter   VS_D        =       10;
+  parameter   VS_E        =       525;
+  
+  reg                 [9:0]       cnt_hs;
+  reg                 [9:0]       cnt_vs;
+  wire                            hs_en;
+  wire                            vs_en;
+  
+  always @ (posedge clk, negedge rst_n) begin
+    if (rst_n == 1'b0)
+      cnt_hs <= 10'd0;
+    else
+      if (cnt_hs < HS_E - 1'b1)
+        cnt_hs <= cnt_hs + 1'b1;
+      else
+        cnt_hs <= 10'd0;
+  end
+  
+  always @ (posedge clk, negedge rst_n) begin
+    if (rst_n == 1'b0)
+      vga_hs <= 1'b1;
+    else
+      if (cnt_hs < HS_A)
+        vga_hs <= 1'b0;
+      else
+        vga_hs <= 1'b1;
+  end
+  
+  always @ (posedge clk, negedge rst_n) begin
+    if (rst_n == 1'b0)
+      cnt_vs <= 10'd0;
+    else
+      if (cnt_hs == HS_E - 1'b1)
+        if (cnt_vs < VS_E - 1'b1)
+          cnt_vs <= cnt_vs + 1'b1;
+        else
+          cnt_vs <= 10'd0;
+      else
+        cnt_vs <= cnt_vs;
+  end
+  
+  always @ (posedge clk, negedge rst_n) begin
+    if (rst_n == 1'b0)
+      vga_vs <= 1'b1;
+    else
+      if (cnt_vs < VS_A)  
+        vga_vs <= 1'b0;
+      else
+        vga_vs <= 1'b1;
+  end
+  
+  assign hs_en = (cnt_hs > HS_A + HS_B - 1'b1) && (cnt_hs < HS_A + HS_B + HS_C);
+  assign vs_en = (cnt_vs > VS_A + VS_B - 1'b1) && (cnt_vs < VS_A + VS_B + VS_C);
+  
+  always @ (posedge clk, negedge rst_n) begin
+    if (rst_n == 1'b0)
+      vga_rgb <= 8'd0;
+    else  
+      if (hs_en == 1'b1 && vs_en == 1'b1)
+        vga_rgb <= 8'b000_111_00;
+      else
+        vga_rgb <= 8'd0;
+  end
+  
+endmodule

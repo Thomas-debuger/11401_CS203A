@@ -1,0 +1,74 @@
+|Lab6_1131417
+load => load.IN2
+Da[0] => Da[0].IN1
+Da[1] => Da[1].IN1
+Da[2] => Da[2].IN1
+Da[3] => Da[3].IN1
+Db[0] => Db[0].IN1
+Db[1] => Db[1].IN1
+Db[2] => Db[2].IN1
+en => en.IN1
+clrn => clrn.IN2
+clk => clk.IN2
+qa[0] <= counter10:u0.Q
+qa[1] <= counter10:u0.Q
+qa[2] <= counter10:u0.Q
+qa[3] <= counter10:u0.Q
+qb[0] <= counter6:u1.Q
+qb[1] <= counter6:u1.Q
+qb[2] <= counter6:u1.Q
+Co <= counter6:u1.Co
+
+
+|Lab6_1131417|counter10:u0
+load => Q.OUTPUTSELECT
+load => Q.OUTPUTSELECT
+load => Q.OUTPUTSELECT
+load => Q.OUTPUTSELECT
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+D[3] => Q.DATAB
+en => Q.OUTPUTSELECT
+en => Q.OUTPUTSELECT
+en => Q.OUTPUTSELECT
+en => Q.OUTPUTSELECT
+en => Co.IN1
+clrn => Q[0]~reg0.ACLR
+clrn => Q[1]~reg0.ACLR
+clrn => Q[2]~reg0.ACLR
+clrn => Q[3]~reg0.ACLR
+clk => Q[0]~reg0.CLK
+clk => Q[1]~reg0.CLK
+clk => Q[2]~reg0.CLK
+clk => Q[3]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= Q[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Lab6_1131417|counter6:u1
+load => Q.OUTPUTSELECT
+load => Q.OUTPUTSELECT
+load => Q.OUTPUTSELECT
+D[0] => Q.DATAB
+D[1] => Q.DATAB
+D[2] => Q.DATAB
+en => Q.OUTPUTSELECT
+en => Q.OUTPUTSELECT
+en => Q.OUTPUTSELECT
+en => Co.IN1
+clrn => Q[0]~reg0.ACLR
+clrn => Q[1]~reg0.ACLR
+clrn => Q[2]~reg0.ACLR
+clk => Q[0]~reg0.CLK
+clk => Q[1]~reg0.CLK
+clk => Q[2]~reg0.CLK
+Q[0] <= Q[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= Q[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= Q[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+Co <= Co.DB_MAX_OUTPUT_PORT_TYPE
+
+

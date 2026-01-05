@@ -1,0 +1,36 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Thomas\2_top\CS206B\Lab6_1131417\simulation\modelsim
+vLab6_1131417
+I]jQoH2Y65U>ZKF;VIdoRM0
+VdS8EaO@_kEgQiOPa9XV6G2
+w1761876984
+8Lab6_1131417.vo
+FLab6_1131417.vo
+L0 31
+Z1 OV;L;6.5b;42
+r1
+31
+Z2 o-vlog01compat -work work -O0
+n@lab6_1131417
+!s100 IMnHcXFQYV02R<zhYe5RI1
+!s85 0
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+. -O0
+vtest
+!s100 mSC22C_MO88i^iOOJoaYF1
+IU18MTgcSdKeO5m216z10a1
+Vk<3<[f=78GX=_HO53D;7>3
+w1761059401
+8C:/Thomas/2_top/CS206B/Lab6_1131417/test.v
+FC:/Thomas/2_top/CS206B/Lab6_1131417/test.v
+L0 2
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+!s92 -vlog01compat -work work +incdir+C:/Thomas/2_top/CS206B/Lab6_1131417 -O0
