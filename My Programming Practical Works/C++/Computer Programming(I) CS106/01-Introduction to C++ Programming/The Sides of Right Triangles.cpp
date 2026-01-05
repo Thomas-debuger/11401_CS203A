@@ -3,18 +3,16 @@ using namespace std;
 
 int main()
 {
-   int number;
-   cin >> number;
-   int arr[5];
-   arr[0] = number/10000;
-   arr[1] = (number%10000)/1000;
-   arr[3] = (number%100)/10;
-   arr[4] = number%10;
-   if(arr[1]==arr[3] && arr[0]==arr[4]){
-   	cout << "palindrome";
+   int side1, side2, side3;
+   cin >> side1 >> side2 >> side3;
+   int a = side1*side1;
+   int b = side2*side2;
+   int c = side3*side3;
+   if(c=a+b){
+   	cout << "These integers form a right triangle";
    }
    else{
-   	cout << "non-palindrome";
+   	cout << "These integers do not form a right triangle";
    }
    cout << '\n';
 }
