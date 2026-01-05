@@ -1,5 +1,35 @@
 # Announcement   
 
+## Assignment I — GitHub Basics & Course Repository Setup   
+
+這份作業主要目標在於**熟悉 GitHub 的基本操作流程**，並建立後續課程中用來記錄學習內容與成果的基礎環境。
+
+### 作業內容包含：
+
+* **課程 Repository 建立**
+
+  * Repository 名稱：`11401_CS203A`
+  * 設定為 **Public**
+  * 建立 `README.md`，內容需包含課程資訊、姓名學號與 Repo 簡介
+  * 至少完成一筆具備實質內容的 Commit
+
+* **個人網頁 Repository（GitHub Pages）**
+
+  * Repository 名稱：`你的帳號名稱.github.io`
+  * 成功啟用 GitHub Pages
+  * 頁面需可透過指定網址正常存取，作為個人課程首頁
+
+* **文件與格式要求**
+
+  * `README.md` 需使用 Markdown 語法（標題、清單、連結等）
+
+* **繳交與規範**
+
+  * 於期限內填寫指定 Microsoft Forms（需使用 YZU 信箱）
+  * 評分期間 Repository 必須維持 Public 狀態
+
+---
+
 ## Assignment II — Array Selection Sort   
   這份作業主要專注於「選擇排序法（Selection Sort）」的運作原理與實作過程，內容包含：
   * **陣列資料結構的視覺化**：學習如何以圖形化方式呈現陣列（Array），並正確標註索引（Index）與對應的數值 。
