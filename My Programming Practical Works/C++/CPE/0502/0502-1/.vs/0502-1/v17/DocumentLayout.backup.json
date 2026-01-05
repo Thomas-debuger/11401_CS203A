@@ -1,0 +1,47 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Thomas\\\u5927\u4E00\u4E0B\\C\u002B\u002B\u5BE6\u7FD2\\0502\\0502-1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9389ACD0-9981-4329-A425-CC38AAD7C7F0}|0502-1\\0502-1.vcxproj|C:\\Thomas\\\u5927\u4E00\u4E0B\\C\u002B\u002B\u5BE6\u7FD2\\0502\\0502-1\\0502-1\\0502-1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9389ACD0-9981-4329-A425-CC38AAD7C7F0}|0502-1\\0502-1.vcxproj|solutionrelative:0502-1\\0502-1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "0502-1.cpp",
+              "DocumentMoniker": "C:\\Thomas\\\u5927\u4E00\u4E0B\\C\u002B\u002B\u5BE6\u7FD2\\0502\\0502-1\\0502-1\\0502-1.cpp",
+              "RelativeDocumentMoniker": "0502-1\\0502-1.cpp",
+              "ToolTip": "C:\\Thomas\\\u5927\u4E00\u4E0B\\C\u002B\u002B\u5BE6\u7FD2\\0502\\0502-1\\0502-1\\0502-1.cpp",
+              "RelativeToolTip": "0502-1\\0502-1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-06-05T14:56:58.233Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
