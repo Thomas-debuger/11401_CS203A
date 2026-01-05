@@ -16,8 +16,8 @@ I’ve uploaded several data structures assignments here, and they are intended 
 
 * **Assignment II — Array Selection Sort**
 
- 學會選擇排序在「陣列」上的運作方式：    
- 學透過陣列視覺化與手寫追蹤，理解如何在未排序區間中找最小值並交換位置，同時認識時間與空間複雜度。
+```
+會選擇排序在「陣列」上的運作方式：    透過陣列視覺化與手寫追蹤，理解如何在未排序區間中找最小值並交換位置，同時認識時間與空間複雜度。
 
 
 * **Assignment III — Linked List Selection Sort**
