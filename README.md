@@ -14,6 +14,13 @@
 
 I’ve uploaded several data structures assignments here, and they are intended to be completed in Visual Studio Code or hand-writing. 
 
+* **Assignment I — GitHub Basics & Repository Setup**
+
+```
+熟悉 GitHub 的基本操作與版本控制流程：    
+建立課程紀錄與個人網頁兩個 Repository，學習使用 README、Commit 與 GitHub Pages，作為後續課程內容與成果的長期記錄空間。
+```
+
 * **Assignment II — Array Selection Sort**
 
 ```
