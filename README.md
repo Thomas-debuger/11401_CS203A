@@ -80,6 +80,14 @@ I’ve uploaded several data structures quizs here.
 並區分 BST、Heap、完全二元樹與平衡樹的結構規則與應用。
 ```
 
+* **Quiz V — Tree / Heap / Graph**
+
+```
+理解樹與圖的核心概念及一般樹轉二元樹的表示方法：    
+掌握 Tree 專用術語（Root / Parent / Child / Siblings / Leaf / Subtree / Degree / Height / Depth / Level）與 Graph 專用術語（Vertex / Edge / Weighted Edge），
+並能將一般樹透過 Left-Child Right-Sibling 方法轉換為二元樹，完整保留階層與兄弟關係以便儲存與運算。
+```
+
 ---
 
 ### `notes`
