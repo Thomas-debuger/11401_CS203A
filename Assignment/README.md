@@ -27,21 +27,31 @@
 
 ### Assignment IV — Hash Function Implementation
 
-This assignment focuses on the **design, implementation, and evaluation of hash functions**, with the goal of understanding how different hashing strategies influence distribution quality and collision behavior. The work is divided into several major components:
+這份作業的重點在於**雜湊函數（Hash Function）的設計、實作與評估**，目的是深入理解不同雜湊策略如何影響資料分布品質與碰撞（collision）行為。整體工作可分為以下幾個主要部分：
 
-* **Comparing different hashing strategies:**
-  One part of the assignment involves analyzing how various design choices affect the performance of a hash function. In particular, we examine whether using a prime or non-prime table size leads to different collision rates, clustering patterns, or periodic behaviors. By experimenting with multiple configurations, we gain insight into why prime-sized tables often produce more uniform hash distributions.
+### 一、比較不同雜湊策略
 
-* **Implementing custom hash functions for integers and strings:**
-  The core coding task requires writing two functions, `myHashInt()` and `myHashString()`. The integer hash function includes a custom transformation based on fractional-part computation to improve uniformity, while the string hash function uses a polynomial-style approach that incorporates ASCII values, character positions, and weighted powers. To make the implementation more robust, we also take steps to control overflow by applying modulo operations at each stage.
+作業的一個重要面向是分析各種設計選擇對雜湊函數效能的影響。特別是比較**雜湊表大小為質數（prime）與非質數（non-prime）**時，在碰撞率、群聚現象（clustering）以及週期性行為上的差異。透過多組實驗配置的比較，可以理解為何使用質數大小的雜湊表，通常能產生較為均勻的雜湊分布。
 
-* **Evaluating distribution under different inputs:**
-  After implementing the hash functions, we test them across a variety of input patterns—including sequential integers, repeated strings, and random data—to observe how the outputs distribute across different table sizes. By comparing the resulting index sequences and identifying collisions or clustering, we can determine which designs are more effective and how the choice of table size influences the final results.
+### 二、實作整數與字串的自訂雜湊函數
 
-* **Writing documentation and preparing example code:**
-  The assignment also requires producing clear documentation that explains the design choices, formulas, and behavior of the hash functions. All files, including sample code and comments, were written in C and C++ and tested within the Visual Studio Code environment to ensure correctness and consistency.
+核心程式設計任務包含撰寫兩個函數：`myHashInt()` 與 `myHashString()`。
 
-Overall, this assignment provides hands-on experience with the mathematical and practical aspects of hashing. It highlights how algorithm design, numerical properties like primality, and careful implementation choices work together to produce efficient and reliable hash functions.
+* **整數雜湊函數**採用結合小數部分（fractional-part）的自訂轉換方式，以提升雜湊結果的均勻性。
+* **字串雜湊函數**則使用類似多項式（polynomial）的設計，結合 ASCII 值、字元位置以及加權次方來計算雜湊值。
+  為了提升實作的穩定性與可靠性，在計算過程中於每個階段皆適當使用模數（modulo）運算，以避免整數溢位（overflow）問題。
+
+### 三、在不同輸入情境下評估分布結果
+
+完成雜湊函數實作後，透過多種輸入模式進行測試，包括連續整數、重複字串以及隨機資料等，觀察雜湊結果在不同雜湊表大小下的分布情形。藉由比較輸出索引序列，並分析碰撞與群聚現象，可以評估不同設計的優劣，以及雜湊表大小對最終結果的影響。
+
+### 四、撰寫說明文件與範例程式
+
+本作業亦要求撰寫完整且清楚的說明文件，詳細解釋雜湊函數的設計理念、數學公式以及實際行為。所有檔案（包含範例程式碼與註解）皆以 **C 與 C++** 撰寫，並在 **Visual Studio Code** 環境中進行測試，以確保程式的正確性與一致性。
+
+### 總結
+
+整體而言，本作業提供了實際操作的機會，讓我們能從數學與實務兩個層面深入理解雜湊技術。透過此過程，可以清楚體會到**演算法設計、數值性質（如質數）以及謹慎的實作細節**，如何共同影響雜湊函數的效率與可靠性。
 
 ---
 
