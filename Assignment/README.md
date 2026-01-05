@@ -1,6 +1,6 @@
 # Announcement   
 
-### Assignment II — Array Selection Sort   
+## Assignment II — Array Selection Sort   
   這份作業主要專注於「選擇排序法（Selection Sort）」的運作原理與實作過程，內容包含：
   * **陣列資料結構的視覺化**：學習如何以圖形化方式呈現陣列（Array），並正確標註索引（Index）與對應的數值 。
   * **資料初始化與標註：** 將給定數值（22, 90, 95, 100, 71, 19, 5, 70）填入陣列，並加上名稱與索引標籤 。
@@ -11,7 +11,7 @@
     
 ---
 
-### Assignment III — Linked List Selection Sort   
+## Assignment III — Linked List Selection Sort   
   這份作業重點在於將選擇排序法應用於「**鏈結串列（Linked List）**」並與陣列進行比較，內容包含：
   * **鏈結串列視覺化**：繪製單向鏈結串列的節點結構，包含數值與指向下一個節點的指標（Next Pointer） 。
   * **資料初始化**：將給定的 8 個整數（60, 24, 15, 42, 20, 11, 90, 8）存入串列，並標註 `head` 與 `tail` 。
@@ -25,7 +25,7 @@
     
 ---
 
-### Assignment IV — Hash Function Implementation
+## Assignment IV — Hash Function Implementation
 
 這份作業的重點在於**雜湊函數（Hash Function）的設計、實作與評估**，目的是深入理解不同雜湊策略如何影響資料分布品質與碰撞（collision）行為。整體工作可分為以下幾個主要部分：
 
@@ -55,7 +55,7 @@
 
 ---
 
-### **Assignment V — Tree**
+## **Assignment V — Tree**
   這份作業主要是探討「**樹狀資料結構（Tree Structures）**」的綜合性報告，重點在於從理論定義、結構轉化到實際的視覺化構建，內容包含：
 
 **1.樹狀結構的深度定義與特性**
