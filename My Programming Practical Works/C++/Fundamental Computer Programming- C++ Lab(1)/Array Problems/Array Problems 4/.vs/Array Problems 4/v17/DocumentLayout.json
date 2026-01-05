@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Thomas\\C\u002B\u002B\u5BE6\u7FD2\\Array Problems\\Array Problems 4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{20560C37-4DB6-46F5-A584-4B08D46E92E6}|Array Problems 4\\Array Problems 4.vcxproj|C:\\Thomas\\C\u002B\u002B\u5BE6\u7FD2\\Array Problems\\Array Problems 4\\Array Problems 4\\Array Problems 4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{20560C37-4DB6-46F5-A584-4B08D46E92E6}|Array Problems 4\\Array Problems 4.vcxproj|solutionrelative:Array Problems 4\\Array Problems 4.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Array Problems 4.cpp",
+              "DocumentMoniker": "C:\\Thomas\\C\u002B\u002B\u5BE6\u7FD2\\Array Problems\\Array Problems 4\\Array Problems 4\\Array Problems 4.cpp",
+              "RelativeDocumentMoniker": "Array Problems 4\\Array Problems 4.cpp",
+              "ToolTip": "C:\\Thomas\\C\u002B\u002B\u5BE6\u7FD2\\Array Problems\\Array Problems 4\\Array Problems 4\\Array Problems 4.cpp",
+              "RelativeToolTip": "Array Problems 4\\Array Problems 4.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-01-01T10:05:51.166Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
