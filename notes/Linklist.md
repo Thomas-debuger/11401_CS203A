@@ -1577,7 +1577,7 @@ struct Node {
 
 ---
 
-## 第 49 頁：Array vs. Linked List（操作效率比較）
+## p.49：Array vs. Linked List（操作效率比較）
 
 這頁用 Big-O 複雜度總整理考點。
 一定要背這張表。
