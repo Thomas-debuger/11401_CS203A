@@ -1,9 +1,9 @@
 
-## p.14 Stack
+# p.14 Stack
 
 Definition of Stack：Stack是一種線性資料結構，遵循後進先出的規則(LIFO)，最後放入的元素會最先被取出。
 
-## p.16 ADT: Stack
+# p.16 ADT: Stack
 
 `Stack Creates(maxStackSize)：創建一個空的stack，最多可以放入maxStackSize個元素。`
 `Boolean isFull(stack,maxStackSize)：如果stack裡的元素數量等於maxStackSize，回傳true，否則回傳false。`
@@ -11,11 +11,11 @@ Definition of Stack：Stack是一種線性資料結構，遵循後進先出的�
 `Stack Push(stack)：如果stack容量已滿，觸發錯誤訊息"stackFull"表示堆疊已滿，否則插入元素至頂端top並回傳更新後的stack。`
 `Stack Pop(Stack)：如果stack是空的，直接return，否則移出並回傳最上層的元素。`
 
-## p.17 Queue
+# p.17 Queue
 
 Definition of Queue：Queue是一種線性資料結構，遵循先進先出的規則(FIFO)，最先放入的元素會最先被取出。
 
-## p.19 ADT: Queue
+# p.19 ADT: Queue
 
 `Queue Creates(maxQueueSize)：創建一個空的queue，最多可以放入maxQueueSize個元素。`
 `Boolean isFull(queue,maxQueueSize)：如果queue裡的元素數量等於maxQueueSize，回傳true，否則回傳false。`
@@ -23,7 +23,7 @@ Definition of Queue：Queue是一種線性資料結構，遵循先進先出的�
 `Queue Add(queue)：如果佇列容量已滿，觸發錯誤訊息"QueueFall"表示容量已滿，否則插入元素至序列最後方。`
 `Queue Delete(queue)：如果佇列是空的，直接return，否則移出並回傳最前面的元素。`
 
-## p.22 Stack (Array-based)
+# p.22 Stack (Array-based)
 
 這段是在講 **用陣列 (Array)** 來實作 **Stack（堆疊）** 的方式。
 
@@ -212,7 +212,7 @@ int main() {
 
 ---
 
-## p.23 Queue (Array-based)
+# p.23 Queue (Array-based)
 
 `front` → index of the first element, `rear` → index of the last element
 
@@ -289,7 +289,7 @@ rear  = -1
 
 ---
 
-## p.25 Stack (Linked List-based)
+# p.25 Stack (Linked List-based)
 
 使用 Linked List 實作 Stack，沒有固定大小限制，top 指向鏈結串列頭部。
 
@@ -306,7 +306,7 @@ Push / Pop 公式同上。
 
 ---
 
-## p.26 Queue (Linked List-based)
+# p.26 Queue (Linked List-based)
 
 使用 Linked List 實作 Queue，無 MAX_SIZE 限制。
 
@@ -324,7 +324,7 @@ Enqueue / Dequeue 公式同上。
 
 ---
 
-## p.27 Comparison of Stacks and Queues (Array vs Linked List)
+# p.27 Comparison of Stacks and Queues (Array vs Linked List)
 
 ### Array Implementation
 
@@ -345,7 +345,7 @@ Enqueue / Dequeue 公式同上。
 
 ---
 
-## p.28 Summary Table (中文版)
+# p.28 Summary Table (中文版)
 
 | 項目                 | 陣列實作 (Array)                        | 鏈結串列實作 (Linked List)          |
 | ------------------ | ----------------------------------- | ----------------------------- |
