@@ -168,9 +168,7 @@ Review notes (in Markdown) compiled from the professor’s lecture slides during
 
 ### `My Programming Practical Works`
 
-```
-紀錄自入學以來完成的所有程式練習與專案，涵蓋多種語言與應用領域。
-```
+This file documents all the exercises and projects I have completed since entering university.
 
 * **C#**
 
