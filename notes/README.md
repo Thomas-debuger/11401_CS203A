@@ -5,7 +5,7 @@
 
 ---
 
-# 📚 Data Structures 
+# Data Structures 
 
 ### 這個資料庫(notes)收錄了我對 資料結構 的學習筆記，內容包括：
 
@@ -21,7 +21,7 @@
 
 ---
 
-## 📑 Contents
+## Contents
 
 1. Array
 2. Linklist
