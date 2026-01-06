@@ -56,7 +56,7 @@ go out    stay home
 
 ---
 
-## 2️Height（高度）
+## Height（高度）
 
 **某個節點到底下最遠葉子有多遠**
 
@@ -84,7 +84,7 @@ go out    stay home
 | C        | 0      |
 | A        | 2      |
 
-✔️ **是「往下數到 leaf」**
+**是「往下數到 leaf」**
 
 ---
 
