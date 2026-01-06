@@ -425,7 +425,7 @@ key = hash(name + studentID)
 
 ---
 
-## **P.26 Key Concept**
+# **P.26 Key Concept**
 
 ### 1. The data or identifier to be stored
 
@@ -452,7 +452,7 @@ key = hash(name + studentID)
 
 ---
 
-## **P.27 Hash Function**
+# **P.27 Hash Function**
 
 ### 1. Division Method
 
@@ -491,7 +491,7 @@ h(s) = ( Σ s[i] * p^i ) mod m
 
 ---
 
-## **P.29 Static vs Dynamic Hashing**
+# **P.29 Static vs Dynamic Hashing**
 
 | 特性                | Static Hashing | Dynamic Hashing   |
 | ----------------- | -------------- | ----------------- |
@@ -525,7 +525,7 @@ h(s) = ( Σ s[i] * p^i ) mod m
 
 ---
 
-## **P.38 Probing（Open Addressing Collision Handling）**
+# **P.38 Probing（Open Addressing Collision Handling）**
 
 * 定義：碰撞時，依規則在 hash table 中找下一個空位
 * Formula:
@@ -567,7 +567,7 @@ Probing = 系統性搜尋 hash table 中的空槽
 
 ---
 
-## **P.42 Primary Clustering**
+# **P.42 Primary Clustering**
 
 * 定義：連續已佔用 slots → 後續新 key 探測序列變長
 * 解決方法：
@@ -578,7 +578,7 @@ Probing = 系統性搜尋 hash table 中的空槽
 
 ---
 
-## **P.43-44 Quadratic Probing Example**
+# **P.43-44 Quadratic Probing Example**
 
 * Table size: m = 10
 * Hash function: `h(k) = k mod 10`
