@@ -168,38 +168,38 @@ Review notes (in Markdown) compiled from the professor’s lecture slides during
 
 ### `My Programming Practical Works`
 
-This file documents all the exercises and projects I have completed since entering university.
+```
+紀錄自入學以來完成的所有程式練習與專案，涵蓋多種語言與應用領域。
+```
 
 * **C#**
 
 ```
-Windows Form   
+Windows Form 應用程式開發，熟悉 GUI 設計與事件處理。
 ```
 
 * **C++**
 
 ```
-CPE
-簡單題目練習
-大型專案
+CPE 練習、簡單題目與大型專案實作，強化演算法與資料結構能力。
 ```
 
 * **VHDL**
 
 ```
-硬體語言實作
+硬體描述語言實作，熟悉數位邏輯設計與 FPGA 模擬。
 ```
 
 * **Verilog**
 
 ```
-硬體語言實作
+硬體描述語言實作，設計與模擬數位電路。
 ```
 
 * **jQuery**
 
 ```
-jQuery + html + python
+結合 jQuery、HTML 與 Python，完成前端互動與網頁專案。
 ```
 
 ---
