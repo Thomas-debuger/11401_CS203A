@@ -425,14 +425,6 @@ key = hash(name + studentID)
 
 ---
 
-好，我幫你把 **P.26 ~ P.44** 的 Hash Table / Hashing 筆記整理成 **純文字、完整、清理版**，去掉多餘廢話，保留公式、定義、重點、例子、表格資訊。
-
----
-
-# Hash Table & Hashing 筆記（P.26 ~ P.44）
-
----
-
 ## **P.26 Key Concept**
 
 ### 1. The data or identifier to be stored
