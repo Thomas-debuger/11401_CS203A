@@ -52,7 +52,7 @@ go out    stay home
 | B, C     | 1     |
 | D        | 2     |
 
-✔️ **是「往上數到 root」**
+**是「往上數到 root」**
 
 ---
 
