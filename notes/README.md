@@ -1,3 +1,10 @@
+# Announcement
+
+* Course Material: Lecture notes on Data Structures.
+* AI Assistance: This content was synthesized, refined, and organized with the assistance of ChatGPT and Gemini AI
+
+---
+
 # 📚 Data Structures 
 
 ### 這個資料庫(notes)收錄了我對 資料結構 的學習筆記，內容包括：
