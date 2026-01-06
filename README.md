@@ -168,6 +168,40 @@ Review notes (in Markdown) compiled from the professor’s lecture slides during
 
 ### `My Programming Practical Works`
 
+This file documents all the exercises and projects I have completed since entering university.
+
+* **C#**
+
+```
+Windows Form   
+```
+
+* **C++**
+
+```
+CPE
+簡單題目練習
+大型專案
+```
+
+* **VHDL**
+
+```
+硬體語言實作
+```
+
+* **Verilog**
+
+```
+硬體語言實作
+```
+
+* **jQuery**
+
+```
+jQuery + html + python
+```
+
 ---
 
 ## 🛠️ 開發環境與使用方式
