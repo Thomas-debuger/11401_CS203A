@@ -2,7 +2,7 @@
 
 * Course Material: Lecture notes on Data Structures.
 * AI Assistance: This content was synthesized, refined, and organized with the assistance of ChatGPT and Gemini AI
-* Implementation: Whenever I review, I read the professor’s slides page by page from start to finish. If I encounter any concepts I don’t understand, I take a screenshot of that page, ask AI for clarification, and after understanding its explanation, I add the organized notes to GitHub to maintain a complete learning record.
+* Implementation: Whenever I review, I read the professor’s slides **page by page from start to finish**. If I encounter any **concepts I don’t understand**, I take a screenshot of that page, ask AI for clarification, and after understanding its explanation, I add the organized notes to GitHub to maintain a complete learning record.
 
 ---
 
