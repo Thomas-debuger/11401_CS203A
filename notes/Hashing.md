@@ -1,6 +1,6 @@
 # P.19 Key-Value Pair
 
-## 1️⃣ 先看這個式子在寫什麼
+## 1. 先看這個式子在寫什麼
 
 ```
 <Value1, Value2>  →  Pair<Key, Value2>
@@ -8,15 +8,15 @@
 
 意思是：
 
-* 原本有一對資料 **(Value1, Value2)** 經過處理後，變成 **(Key, Value2)**
+* 原本有一對資料 (Value1, Value2) 經過處理後，變成 (Key, Value2)
 
-## 2️⃣ Value2 是什麼？
+## 2. Value2 是什麼？
 
 投影片說：
 
-* **Value2 represents the important information**
+* Value2 represents the important information
 
-👉 **Value2 = 我們真正想存、想查的資料**
+Value2 = 我們真正想存、想查的資料
 
 例子：
 
@@ -24,24 +24,22 @@
 * 商品資訊
 * 使用者資料
 
-## 3️⃣ Value1 是什麼？
+## 3. Value1 是什麼？
 
 投影片說：
 
-* **Value1 provides the source to derive or compute the key**
+* Value1 provides the source to derive or compute the key
 
-👉 **Value1 不是直接拿來存**
-👉 它是「用來產生 key 的原料」
-
-也就是：
+Value1 不是直接拿來存
+它是「用來產生 key 的原料」
 
 ```
 Key = f(Value1)
 ```
 
-## 4️⃣ 用超實際的例子來看
+## 4. 用超實際的例子來看
 
-### 🎓 學生資料例子
+### 學生資料例子
 
 原始資料：
 
@@ -64,10 +62,10 @@ Pair<Key, Value2>
 <StudentID, StudentRecord>
 ```
 
-📌 StudentID 本身就是 key
-📌 StudentRecord 才是你要查的資料
+StudentID 本身就是 key
+StudentRecord 才是你要查的資料
 
-### 📧 Email 系統例子
+### Email 系統例子
 
 原始資料：
 
@@ -88,40 +86,40 @@ Dictionary 裡存：
 <hash(EmailAddress), UserProfile>
 ```
 
-👉 Value1（Email）用來算 key
-👉 Value2（UserProfile）是重要資料
+Value1（Email）用來算 key
+Value2（UserProfile）是重要資料
 
-## 5️⃣ 為什麼要這樣分？
+## 5. 為什麼要這樣分？
 
-因為在 **Dictionary / Hash Table** 裡：
+因為在 Dictionary / Hash Table 裡：
 
-* 查找是靠 **key**
-* 資料是存在 **value**
+* 查找是靠 key
+* 資料是存在 value
 
 所以設計時會：
 
 1. 用 Value1 產生 key（方便、快速）
 2. 用 key 找到 Value2（真正的資料）
 
-## 6️⃣ 一句話考試版總結 
+## 6. 一句話考試版總結
 
-* Dictionary 中存的是 **(Key, Value)**
-* **Value2** 是實際要存取的資料
-* **Value1** 用來產生或計算 key
+* Dictionary 中存的是 (Key, Value)
+* Value2 是實際要存取的資料
+* Value1 用來產生或計算 key
 
 或更短一點：
 
-* **Key 來自 Value1，資料存在 Value2**
+* Key 來自 Value1，資料存在 Value2
 
 ---
 
-# p.20 Hashing
+# P.20 Hashing
 
-## 1️⃣ 什麼是 Hashing？
+## 1. 什麼是 Hashing？
 
-* **Hashing 是用一個數學函數，把 key 直接算成陣列位置，讓你不用一個一個找資料。**
+* Hashing 是用一個數學函數，把 key 直接算成陣列位置，讓你不用一個一個找資料。
 
-## 2️⃣ Hash Table 在做什麼？
+## 2. Hash Table 在做什麼？
 
 原本（沒有 hashing）：
 
@@ -135,56 +133,44 @@ Dictionary 裡存：
 key → 算位置 → 直接拿 → 平均 O(1)
 ```
 
-📌 **目標（Goal）**
+目標：
 
 * Quickly find data by a key, without searching through all elements
 
-## 3️⃣ Key–Value Mapping（最重要的一行）
+## 3. Key–Value Mapping
 
 ```
 Key → Hash Function → Index → Value
 ```
 
-### 拆開看：
+拆開看：
 
-1. **Key**
+1. Key：用來找資料的東西（學號、帳號、ID）
+2. Hash Function：一個數學規則，把 key 變成數字
+3. Index：陣列的位置（bucket 編號）
+4. Value：真正存的資料
 
-   * 用來找資料的東西（學號、帳號、ID）
+## 4. Hash Function 是什麼？
 
-2. **Hash Function**
-
-   * 一個數學規則
-   * 把 key 變成數字
-
-3. **Index**
-
-   * 陣列的位置（bucket 編號）
-
-4. **Value**
-
-   * 真正存的資料
-
-## 4️⃣ Hash Function 是什麼？
-
-* **Hash Function = 把 key 轉成陣列 index 的公式**
+* Hash Function = 把 key 轉成陣列 index 的公式
 
 例如：
 
-```text
+```
 h(k) = k mod 10
 ```
 
 key = 37
 → 37 mod 10 = 7
-→ 存在 `table[7]`
+→ 存在 table[7]
 
-📌 好的 hash function：
+好的 hash function：
 
 * 快
 * 分布平均
 * 不容易撞在同一格
 
-## 5️⃣ 為什麼是「average O(1)」？
+## 5. 為什麼是「average O(1)」？
 
 因為：
 
@@ -192,18 +178,18 @@ key = 37
 * 直接算 index
 * 直接存 / 拿
 
-⚠️ 但前提是：
+前提：
 
 * hash function 設計得好
 * collision 不嚴重
 
-所以老師一定會寫：
+老師一定會寫：
 
-* **Average O(1), Worst-case O(n)**
+* Average O(1), Worst-case O(n)
 
-## 6️⃣ 什麼是 Collision（碰撞）？
+## 6. 什麼是 Collision（碰撞）？
 
-👉 **不同 key 算出同一個 index**
+不同 key 算出同一個 index
 
 例子：
 
@@ -212,11 +198,11 @@ h(12) = 2
 h(22) = 2
 ```
 
-兩個 key 都想放 `table[2]` 😱
+兩個 key 都想放 table[2]
 
-## 7️⃣ 解決 Collision 的方法（考試必考）
+## 7. 解決 Collision 的方法
 
-### 🔹 1. Chaining（拉鍊法）
+### 1. Chaining（拉鍊法）
 
 每個 bucket 存一個 linked list：
 
@@ -227,11 +213,9 @@ table[2] → (12,A) → (22,B)
 * 插入：丟進 list
 * 搜尋：在 list 裡找
 
-📌 平均 O(1)，最差 O(n)
+平均 O(1)，最差 O(n)
 
----
-
-### 🔹 2. Open Addressing（開放定址）
+### 2. Open Addressing（開放定址）
 
 撞到就找下一個空位：
 
@@ -247,9 +231,7 @@ table[2] → (12,A) → (22,B)
 4 → 空 → 放這
 ```
 
----
-
-## 8️⃣ 表格總整理（超好背）
+## 8. 表格總整理
 
 | 概念              | 說明                     |
 | --------------- | ---------------------- |
@@ -261,71 +243,61 @@ table[2] → (12,A) → (22,B)
 | Chaining        | 一格放一串                  |
 | Open Addressing | 往別格找                   |
 
-## 9️⃣ 一句話考試萬用答案 ✅
+## 9. 一句話考試萬用答案
 
-* **Hashing uses a hash function to map keys to array indices, enabling fast insertion, deletion, and lookup with average O(1) time.**
+* Hashing uses a hash function to map keys to array indices, enabling fast insertion, deletion, and lookup with average O(1) time.
 
 ---
 
 # 補充
 
-## 1️⃣ 各自在做什麼？（白話版）
+## 1. 各自在做什麼？（白話版）
 
-### 🔹 Hashing（雜湊）
+### Hashing（雜湊）
 
-* **整個快速找資料的概念與流程**
+* 整個快速找資料的概念與流程
+* 用 key → 經過 hash function → 找到位置 → 存 / 取資料
+  Hashing = Strategy（策略）
 
-* 用 key
-* 經過 hash function
-* 找到位置
-* 存 / 取資料
+### Hash Table（雜湊表）
 
-📌 **Hashing = Strategy（策略）**
-
-### 🔹 Hash Table（雜湊表）
-
-* **實際存資料的地方**
-
+* 實際存資料的地方
 * 一個陣列（array of buckets）
 * 每一格可以放一個或多個 key–value
+  Hash Table = Container（容器）
 
-📌 **Hash Table = Container（容器）**
+### Hash Function（雜湊函數）
 
-### 🔹 Hash Function（雜湊函數）
-
-* **把 key 轉成 index 的公式**
-
-例如：
+* 把 key 轉成 index 的公式
+  例如：
 
 ```
 h(k) = k mod 10
 ```
 
-📌 **Hash Function = Tool（工具）**
+Hash Function = Tool（工具）
 
 ---
 
-## 2️⃣ 用流程圖一次看懂
+## 2. 用流程圖一次看懂
 
 ```
 Key
  ↓
-Hash Function   ←（這是公式）
+Hash Function
  ↓
 Index
  ↓
-Hash Table      ←（這是陣列）
+Hash Table
  ↓
 Value
 ```
 
-而 **整個流程合起來** 就叫：
-
-👉 **Hashing**
+整個流程合起來叫 Hashing
 
 ---
 
-## 3️⃣ 表格對照（考試超好用）
+## 3. 表格對照
 
 | 名稱            | 類型      | 在幹嘛         | 一句話記憶  |
 | ------------- | ------- | ----------- | ------ |
@@ -335,15 +307,15 @@ Value
 
 ---
 
-# p.21 Table Size
+# P.21 Table Size
 
-## 為什麼「prefer prime numbers」？
+## 為什麼 prefer prime numbers？
 
-### 🔹 問題：pattern（規律）會造成 collision
+### 問題：pattern（規律）會造成 collision
 
-如果 **m 不是質數**，key 很容易「對齊同樣的餘數」。
+如果 m 不是質數，key 很容易「對齊同樣的餘數」。
 
-#### ❌ m = 1000（不是質數）
+m = 1000（不是質數）：
 
 ```
 h(k) = k mod 1000
@@ -363,11 +335,9 @@ h(k) = k mod 1000
 3000 mod 1000 = 0
 ```
 
-😱 全部撞在同一格
+全部撞在同一格
 
----
-
-### ✅ m = 1009（質數）
+m = 1009（質數）：
 
 ```
 1000 mod 1009 = 1000
@@ -375,2063 +345,261 @@ h(k) = k mod 1000
 3000 mod 1009 = 982
 ```
 
-👉 分布比較平均
-👉 **避免 repeating patterns**
-
-📌 這就是投影片說的：
-
-* **Prefer prime numbers for m to avoid repeating patterns**
+分布比較平均
+避免 repeating patterns
 
 ---
 
-# p.24 Collision Handling     
+# p.24 Collision Handling
 
----
+## 1. Chaining（拉鍊法）
 
-# **1. Chaining（拉鍊法）**
+概念：
+如果兩個 key 的 hash index 一樣，就把它們放在同一個桶子（bucket）裡的 list。
 
-**概念：**
-如果兩個 key 的 hash index 一樣，就把它們**放在同一個桶子（bucket）裡的 list**。
-
-### **示意圖**
+示意圖：
 
 ```
 index 0:  NULL
-index 1:  [ (17) → (29) → (45) ]   ← 都被 hash 到 1
+index 1:  [ (17) → (29) → (45) ]
 index 2:  [ (8) ]
 index 3:  NULL
 ```
 
-### **優點**
+優點：
 
 * 實作簡單
-* 負載過高時，只會讓 list 變長，不會像 open addressing 那樣爆掉
+* 負載過高時，只會讓 list 變長
 
-### **缺點**
+缺點：
 
 * 需要額外 pointer（list 結構）
 
----
+## 2. Open Addressing（開放定址）
 
-# **2. Open Addressing（開放定址）**
+概念：
+碰撞時，不把多餘的資料塞在同一桶子，而是往其他空位找（probe）。
 
-**概念：**
-碰撞時，不把多餘的資料塞在同一桶子，而是**往其他空位找（probe）**。
+三種常見探測方式：
 
-## **三種常見探測方式**
+1. Linear Probing（線性探測）
+   往後一格、一格、一格找
 
-### **(1) Linear Probing（線性探測）**
+2. Quadratic Probing（二次探測）
+   用平方增加距離避免群聚
 
-往後一格、一格、一格找：
+3. Double Hashing（雙雜湊）
+   用第二個 hash function 決定步長
 
-若原本 index = `h(k)`，則探測順序為
+## 3. Composite Key（複合鍵）
 
-```
-h(k), h(k)+1, h(k)+2, ...
-```
+概念：
+不只用單一值做 key，而是把多個屬性組合起來做 hash，以降低碰撞。
 
-（記得對 table 大小取 modulo）
-
-**缺點：會產生 clustering（群聚）=> 一整段連續區域都有key。群聚越長，效能越差**
-
----
-
-### **(2) Quadratic Probing（二次探測）**
-
-用平方增加距離避免群聚：
-
-```
-h(k), h(k)+1², h(k)+2², h(k)+3², ...
-```
-
-降低群聚，但不保證一定找得到空位（較依賴 table 設計）。
-
----
-
-### **(3) Double Hashing（雙雜湊）**
-
-當碰撞發生，用第二個 hash function 決定步長：
-
-```
-h(k), h(k) + h2(k), h(k) + 2*h2(k), h(k) + 3*h2(k), ...
-```
-
-**優點：最佳的 Open Addressing method，不太會群聚。**
-
----
-
-# **3. Composite Key（複合鍵）**
-
-**概念：**
-不只用單一值做 key，而是「把多個屬性組合起來」做 hash，以降低碰撞。
-
-### **例子**
-
-假設你要存學生資料：
-
-如果只用 **name** 當 key，兩個人叫 "Kevin" 就 collision。
-所以你可以改用：
+例子：
 
 ```
 key = hash(name + studentID)
 ```
 
-或
+增加唯一性 → 減少碰撞
 
-```
-key = hash(name, birth_year)
-```
+## 4. Hash Refinement（改善雜湊函式）
 
-或
+概念：
+如果 hash function 太差，容易碰撞
+改良方式：
 
-```
-key = hash(value1 + timestamp)
-```
+1. Mod 大質數
+2. Better bit-mixing（如 MurmurHash、xxHash、FNV-1a）
+3. Reduce patterns（避免規律 key 集中）
 
-增加唯一性 → 減少碰撞。
+表格總結：
 
-### **常見場景**
-
-* Database primary key (複合主鍵)
-* 資料庫 join
-* Map / Dictionary 儲存多屬性物件
-
----
-
-# **4. Hash Refinement（改善雜湊函式）**
-
-**概念：**
-如果 hash function 太差 → 很多資料會集中在某些 index → 容易碰撞。
-所以要改良 hash function 來：
-
-* 分散 key
-* 混合 bit（bit-mixing）
-* 對 **大質數（prime）mod** 取餘數
+| 方法              | 概念                  | 優點    | 缺點       |
+| --------------- | ------------------- | ----- | -------- |
+| Chaining        | 同 index 做 list      | 簡單、穩定 | 需要 list  |
+| Open Addressing | 找下一個空 slot          | 不需要指標 | 高負載時慢    |
+| Composite Key   | 多屬性增加 key 唯一性       | 減少碰撞  | key 計算較重 |
+| Hash Refinement | 改用更好的 hash function | 分布更平均 | 設計要花時間   |
 
 ---
 
-### **常見改善方式**
-
-### **(1) Mod 大質數 (mod a large prime)**
-
-例如 table 大小用：
-
-**101、1009、10007、131071…**
-比 mod 100、mod 1000 分布好太多。
+好，我幫你把 **P.26 ~ P.44** 的 Hash Table / Hashing 筆記整理成 **純文字、完整、清理版**，去掉多餘廢話，保留公式、定義、重點、例子、表格資訊。
 
 ---
 
-### **(2) Better bit-mixing**
-
-像 MurmurHash、xxHash、FNV-1a 都是高品質的 hash function。
-（尤其 C 課程中常用 FNV 或 DJB2）
+# Hash Table & Hashing 筆記（P.26 ~ P.44）
 
 ---
 
-### **(3) Reduce patterns**
+## **P.26 Key Concept**
 
-如果 key 有規律（像 1000、2000、3000），
-差的 hash 會全部落到同 index。
-好一點的 hash 會把它們打散。
+### 1. The data or identifier to be stored
 
----
+* 指要存進 hash table 的資料，或用來識別資料的 key
+* 例子：
 
-# **總結圖（強化理解）**
+  * 學生資料：Key = student ID，Value = student name, GPA
+  * 帳號系統：Key = username，Value = user profile
+  * 字典：Key = "apple"，Value = "蘋果"
 
-| 方法                  | 概念                  | 優點    | 缺點       |
-| ------------------- | ------------------- | ----- | -------- |
-| **Chaining**        | 同 index 做 list      | 簡單、穩定 | 需要 list  |
-| **Open Addressing** | 找下一個空 slot          | 不需要指標 | 高負載時很慢   |
-| **Composite Key**   | 用多屬性來增加 key 唯一性     | 減少碰撞  | key 計算較重 |
-| **Hash Refinement** | 改用更好的 hash function | 分布更平均 | 設計要花時間   |
+**一句話總結**：Key = 用來查找資料的識別值
 
 ---
 
-# p.26 Key Concept
-
-## 一.The data or identifier to be stored 解釋
-
-* **The data or identifier to be stored**
-* **要被存進 hash table 的資料，或用來辨識資料的識別碼**
-
-## 在 Hash Table 裡它實際指的是什麼？
-
-👉 **指的是「Key」**
-
-也就是：
-
-* hash function 的輸入
-* 用來決定 index 的東西
-
----
-
-## 用例子最清楚
-
-### 🎓 學生資料
+### 2. Load Factor
 
 ```
-Key   = student ID   ← identifier
-Value = student name, GPA, ...
+α = n / m
 ```
 
-這裡：
-
-* student ID 是 **identifier**
-* 它本身也是一種 **data**
-
----
-
-### 👤 帳號系統
-
-```
-Key   = username
-Value = user profile
-```
-
-username：
-
-* 是資料
-* 也是用來「識別」使用者的 key
-
----
-
-### 📦 字典（Dictionary）
-
-```
-Key   = "apple"
-Value = "蘋果"
-```
-
-"apple"：
-
-* 是 data
-* 也是 identifier（用來找到翻譯）
-
----
-
-## 考試時你可以這樣理解
-
-* **Key 是用來識別與查找資料的值，會被送進 hash function。**
-* **Key is the identifier used to locate data in the hash table.**
-
-## 一句話總結
-
-* 「The data or identifier to be stored」
-* 就是指 **要存進 hash table、並且用來當作查找依據的 key**。
-
----
-
-## 二. Load Factor 解釋 
-
-```
-Load Factor = 負載率 => α = n / m，表示擁擠程度
-```
-* n = 存了幾筆資料
+* n = 資料筆數
 * m = table size
-
-Q: α增加會怎樣    
-A: 1.collison(衝突)增加    
-   2.cluster(群聚)增加    
-   3.搜尋時間變長    
+* α ↑ → collision ↑、cluster ↑、搜尋時間變長
 
 ---
 
-# p.27 Hash Function    
+## **P.27 Hash Function**
 
----
-
-# ✅ **1. Division Method（除法取餘法）**
-
-## ✔ **公式**
+### 1. Division Method
 
 ```
 h(k) = k mod m
 ```
 
-## ✔ **原理**
+* 優點：簡單、快速
+* 缺點：若 m 選不好（非質數、與 key 規律相關）容易 clustering
 
-用除法把 key 除以 m，取餘數。
-
-## ✔ **例子**
-
-```
-key = 123
-m = 10
-h(123) = 123 mod 10 = 3
-```
-
-## ✔ **優點**
-
-* 最簡單
-* 計算最快
-
-## ✔ **缺點**
-
-* 如果 m 選得不好（例如 m 是 key 的某種模式的倍數）
-  → 很容易造成 clustering
-
-✔ 通常把 **m 選成質數**（prime number）
-效果最好。
-
----
-
-# ✅ **2. Multiplication Method（乘法法）**
-
-## ✔ **公式**
+### 2. Multiplication Method
 
 ```
-h(k) = floor( m * (k*A mod 1) )
+h(k) = floor(m * (k * A mod 1))
+0 < A < 1, 常用 A ≈ 0.618 (黃金比例)
 ```
 
-其中：
+* 利用 k*A 的小數部分，分布均勻
+* 不必太在意 m 是質數
 
-* A 是 0 到 1 之間的實數
-* 典型的選擇：
+### 3. Folding Method
 
-  ```
-  A ≈ 0.6180339887  (黃金比例小數部分)
-  ```
+* 把 key 分段 → 各段相加 → mod m
+* 適用於長數字（ID、電話號碼等）
 
-## ✔ **原理**
-
-利用 “k*A 的小數部分” 來打散 key。
-
-因為浮點乘數一般能讓鍵分布更均勻，所以**不需要太在意 m 是不是質數**。
-
-## ✔ **例（簡化示意）**
-
-假設 A = 0.618   
-k = 123   
-m = 10   
-
-```
-123 * 0.618 = 75.999...
-小數部分約 = 0.999
-m * 0.999 ≈ 9.99
-floor → 9
-```
-
-→ index = **9**
-
----
-
-# ✅ **3. Folding Method（摺疊法）**
-
-## ✔ **想法**
-
-把 key 分段 → 逐段相加 → 加總後再做 mod。
-
-常用於 **非常大的 key**，像：
-
-* 身分證字號
-* 電話號碼
-* 社會安全碼
-* 長整数
-
-## ✔ **例子**
-
-key = 123456
-切成三段：
-
-```
-12   34   56
-```
-
-相加：
-
-```
-12 + 34 + 56 = 102
-```
-
-最後會通常做 mod m（例子沒寫，但實際會用）：
-
-```
-index = 102 mod m
-```
-
----
-
-# ✅ **4. String Hashing（字串雜湊）**
-
-**最重要、最常用**
-字典、Symbol Table、Compiler 解析符號，全都用它。
-
-## ✔ **公式（Polynomial Rolling Hash）**
+### 4. String Hashing（Polynomial Rolling Hash）
 
 ```
 h(s) = ( Σ s[i] * p^i ) mod m
 ```
 
-其中：
-
-* `s[i]` 是字元的 ASCII（或 Unicode）碼
-* `p` 是 base，常用 31、131、257 …
-* `m` 是大質數
-
-## ✔ **例子（示意）**
-
-字串 `"cat"`：
-
-```
-c = 99
-a = 97
-t = 116
-p = 31
-```
-
-```
-h("cat") = 99*31^0 + 97*31^1 + 116*31^2
-```
-
-注意最後仍會 mod m。
-
-## ✔ **特點**
-
-* 分布好
-* 避免 collision
-* 用於：
-
-  * C++ std::string hash
-  * Java String hash
-  * 滾動雜湊（Rabin–Karp 演算法）
+* s[i] = 字元 ASCII/Unicode
+* p = base（常用 31, 131, 257）
+* m = 大質數
+* 用途：字典、Compiler Symbol Table、Rabin-Karp 滾動雜湊
 
 ---
 
-# 🎉 **總表整理**
+## **P.29 Static vs Dynamic Hashing**
 
-| Method                          | Formula / Idea                                               | Example                         |
-| ------------------------------- | ------------------------------------------------------------ | ------------------------------- |
-| **Division Method**             | `h(k) = k mod m`                                             | `key = 123, m = 10 → index = 3` |
-| **Multiplication Method**       | `h(k) = floor(m * (k*A mod 1))`, `0 < A < 1`, 常用 `A ≈ 0.618` | 乘法法示意 → index ≈ 9               |
-| **Folding Method**              | 拆成多段後相加                                                      | `123456 → 12+34+56 = 102`       |
-| **String Hashing (Polynomial)** | `h(s) = ( Σ s[i] * p^i ) mod m`                              | 字串 `"cat"` → 99 + 97*31 + ...   |
+| 特性                | Static Hashing | Dynamic Hashing   |
+| ----------------- | -------------- | ----------------- |
+| Table Size        | Fixed          | Variable          |
+| Hash Function     | Constant       | Adaptive          |
+| Memory Usage      | Predictable    | May expand        |
+| Performance (α ↑) | Degrades       | Remains efficient |
+| Rehashing         | Entire table   | Local splits      |
+| Implementation    | Simple         | Complex           |
+| Best Use Case     | Small, fixed   | Large, growing    |
 
----
+**重點**：
 
-# p.29 Comparison
-
-## 簡介
-
-* **Static hashing** 使用固定大小的 hash table，當資料變多時效能會下降；
-* **Dynamic hashing** 會隨資料量調整結構，使效能在高 load factor 下仍能維持。
-
-## 逐列解釋這張表在教的觀念
-
-### 1️⃣ Table Size
-
-| Static | Dynamic  |
-| ------ | -------- |
-| Fixed  | Variable |
-
-### 在教什麼？
-
-* **Static hashing**
-
-  * 一開始就決定 table size `m`
-  * 之後不能變
-
-* **Dynamic hashing**
-
-  * table 會自動長大或縮小
-  * 不用事先猜資料量
-
-📌 教你：**能不能適應資料成長**
+* Static: 資料量固定 → 滿了要整表 rehash
+* Dynamic: 資料量變動 → 只 split 滿的 bucket
 
 ---
 
-### 2️⃣ Hash Function
+### Dynamic Hashing - Bucket Split
 
-| Static   | Dynamic  |
-| -------- | -------- |
-| Constant | Adaptive |
-
-### 在教什麼？
-
-* Static：
+* 只拆滿的 bucket，不影響其他 bucket
+* 使用多一個 bit 決定 index
+* Example:
 
   ```
-  index = h(key) mod m
+  bucket 5: [k1, k2, k3, k4] → split → bucket 5: [k1, k3], bucket 13: [k2, k4]
   ```
+* **考試句**：
 
-  永遠一樣
+> When a bucket overflows in dynamic hashing, one additional bit of the hash value is used to split the bucket, redistributing its records into two new buckets.
 
-* Dynamic：
-
-  * 會依目前 table 狀態
-  * 使用更多 bits / 不同層級
-
-📌 教你：**hash function 是否會跟著結構變**
-
----
-
-### 3️⃣ Memory Usage
-
-| Static      | Dynamic    |
-| ----------- | ---------- |
-| Predictable | May expand |
-
-### 在教什麼？
-
-* Static：
-
-  * 記憶體用量固定
-  * 好預估
-
-* Dynamic：
-
-  * 會 allocate 新 bucket
-  * 用量彈性但不可預期
-
-📌 教你：**記憶體管理的取捨**
-
----
-
-### 4️⃣ Performance（α ↑）
-
-| Static   | Dynamic           |
-| -------- | ----------------- |
-| Degrades | Remains efficient |
-
-### 在教什麼？
-
-* Static：
-
-  * α = n / m
-  * n ↑ → α ↑ → collision ↑
-
-* Dynamic：
-
-  * 當 α 太高
-  * 自動 split bucket
-  * 讓 α 維持在合理範圍
-
-📌 **這一列是核心重點**
-
----
-
-### 5️⃣ Rehashing
-
-| Static       | Dynamic      |
-| ------------ | ------------ |
-| Entire table | Local splits |
-
-### 在教什麼？
-
-* Static：
-
-  * table 滿了
-  * **全部資料重算 hash**
-  * 成本很高
-
-* Dynamic：
-
-  * 只拆某一個 bucket
-  * 影響範圍小
-
-📌 教你：**擴充時的代價**
-
----
-
-### 6️⃣ Implementation
-
-| Static | Dynamic |
-| ------ | ------- |
-| Simple | Complex |
-
-### 在教什麼？
-
-* Static：
-
-  * array + hash function
-  * 容易實作、容易教
-
-* Dynamic：
-
-  * directory
-  * pointers
-  * local depth / global depth
-
-📌 教你：**實作難度**
-
----
-
-### 7️⃣ Best Use Case
-
-| Static       | Dynamic        |
-| ------------ | -------------- |
-| Small, fixed | Large, growing |
-
-### 在教什麼？
-
-* Static：
-
-  * 資料量事先知道
-  * 不太會變
-
-* Dynamic：
-
-  * 資料一直加
-  * 資料庫、檔案系統
-
-📌 教你：**實務選擇依據**
-
----
-
-## 真正重點
-
-* ❓「資料會不會成長？」
-
-* **不會 → Static Hashing**
-* **會 → Dynamic Hashing**
-
-## 考試一行答案
-
-* Static hashing uses a fixed-size table and degrades as the load factor increases, while dynamic hashing adapts its structure by splitting buckets to maintain performance as data grows.
-
-## 快速記憶口訣
-
-* Static：**先定死、滿了重來**
-* Dynamic：**邊用邊長、局部調整**
-
----
-
-# 補充：問題1️⃣ 什麼叫「自動 split bucket」？
-
-## 先用一句話講清楚
-
-* **自動 split bucket** = 當某一個 bucket 裡的資料太多時，**只把這個 bucket 拆成兩個**，而不是整張 hash table 重建。
-
-## 先回顧：bucket 是什麼？
-
-在 hashing 裡：
-
-* **bucket** = 一個 index 對應的儲存單位
-* 可能是：
-
-  * 一個 page
-  * 一個 linked list
-  * 一個小陣列
-
-```
-index 5  → bucket 5 → [k1, k2, k3, k4]
-```
-
-## Static Hashing 發生什麼事？
-
-bucket 滿了：
-
-* collision ↑
-* clustering ↑
-* 查找慢
-
-解法只有一個：
-👉 **整張表 rehash（重來）**
-
----
-
-## Dynamic Hashing 在做什麼？
-
-### 情境
-
-假設：
-
-* 每個 bucket 最多放 **3 筆**
-* bucket 5 已經滿了：
-
-```
-bucket 5: [k1, k2, k3]  ← 滿
-```
-
-### 🔹 自動 split bucket（重點）
-
-Dynamic hashing 會：
-
-1️⃣ **新增一個 bucket**
-2️⃣ 把原本 bucket 5 的資料
-3️⃣ 用「多一個 bit」重新分配
-
-結果變成：
-
-```
-bucket 5:  [k1, k3]
-bucket 13: [k2]
-```
-
-📌 **只有這個 bucket 被影響**
-
-👉 這就叫 **bucket split**
-
-## 為什麼叫「自動」？
-
-因為：
-
-* 程式會監控：
-
-  * bucket overflow
-  * load factor
-* 一超過門檻
-* **系統自己做 split**
-
-你不用手動 resize。
-
----
-
-# 問題 2️⃣：Rehashing 那邊為什麼看不懂？
-
-這一列在對比的是：
-
-* **「擴充時，資料要重新算 hash 的範圍」**
-
-## Static Hashing 的 Rehashing
-
-### 情況
-
-```
-table size = 10
-n = 9   → α = 0.9（很滿）
-```
-
-要 resize → `m = 20`
-
-### 發生什麼事？
-
-❌ **全部資料都要重算**
-
-```
-for every key in table:
-    new_index = hash(key) mod 20
-    move key
-```
-
-👉 **整張表搬家**
-
-📌 成本：
-
-* O(n)
-* 非常慢
-
-## Dynamic Hashing 的 Rehashing（重點）
-
-### 關鍵觀念
-
-* Dynamic hashing **幾乎不做「整張表 rehash」**
-
-它只做：
-
-* **local rehash（局部重算）**
-
-### 發生什麼事？
-
-* 只有：
-
-  * 被 split 的那個 bucket
-* 裡面的 keys
-* **重新分配**
-
-其他 buckets：
-
-* 完全不動
-
-### 對照
-
-| 類型              | 哪些資料要重算 hash           |
-| --------------- | ---------------------- |
-| Static Hashing  | **全部**                 |
-| Dynamic Hashing | **只有被 split 的 bucket** |
-
-## 用一句超白話的比喻 🌱
-
-### Static Hashing
-
-* 房間滿了 → **整棟大樓拆掉重蓋**
-
-### Dynamic Hashing
-
-* 某一間房太擠 → **只把這間隔成兩間**
-
-## 為什麼這能維持效能？
-
-因為：
-
-* collision 不會全表擴散
-* load factor 被「局部修正」
-* 查找時間接近 O(1)
-
-## 愛考怎麼寫（範本）
-
-* In dynamic hashing, when a bucket overflows, only that bucket is split and its contents are rehashed locally, avoiding the expensive rehashing of the entire table required in static hashing.
-
----
-
-# 補充3：用「多一個 bit」重新分配 是甚麼
-
-## 概念
-
-* **多一個 bit** 的意思是：原本只看 hash 值的前 *k* 個 bits 來決定 bucket，bucket 滿了以後，**改成看前 *k+1* 個 bits**，於是資料自然被分成兩群。
-
-## 先建立共同背景
-
-### hash function 的輸出是什麼？
-
-不是 index，而是一串 **binary bits**：
-
-```
-hash(key) = 010110101011...
-```
-
-Dynamic hashing 不會一開始就用完全部 bits。
-
-## 原本怎麼放資料？（還沒 split）
-
-假設：
-
-* 目前只用 **前 2 個 bits**
-* bucket 用這 2 bits 決定
-
-```
-00 → bucket A
-01 → bucket B
-10 → bucket C
-11 → bucket D
-```
-
-某一個 bucket（例如 `01`）塞滿了。
-
-## 發生 split 時：多看 1 個 bit
-
-### 原本只看 2 bits：
-
-```
-01
-```
-
-### 現在改成看 3 bits：
-
-```
-010 → 新 bucket 1
-011 → 新 bucket 2
-```
-
-👉 **原本屬於 `01` 的資料，會被自動分成兩類**
-
-## 用實際 key 跑一次（很重要）
-
-假設這些 key 的 hash 結果是：
-
-| Key | hash(key) |
-| --- | --------- |
-| k1  | 010011... |
-| k2  | 011101... |
-| k3  | 010110... |
-| k4  | 011000... |
-
-### split 前（看前 2 bits）
-
-```
-01 → [k1, k2, k3, k4]  ← 爆了
-```
-
-### split 後（看前 3 bits）
-
-```
-010 → [k1, k3]
-011 → [k2, k4]
-```
-
-📌 **沒有人工分類，是 bit 自己決定的**
-
-## 為什麼這樣就能平均？
-
-因為：
-
-* 好的 hash function
-* bits 是亂的、均勻的
-
-👉 多看一個 bit ≈ **再丟一次公平的硬幣**
-
-## 為什麼不是全部 bucket 都多一個 bit？
-
-因為：
-
-* 只有這個 bucket 滿
-* 其他 bucket 還好
-
-👉 所以是 **local depth +1**
-
-## 跟 Static Hashing 的差別（關鍵）
-
-| Static Hashing       | Dynamic Hashing  |
-| -------------------- | ---------------- |
-| index = h(key) mod m | index = 前 k bits |
-| m 變 → 全表重算           | k 只對該 bucket 增加  |
-| 重來一次                 | 局部調整             |
-
-## 老師要你記住的考試句
-
-* When a bucket overflows in dynamic hashing, one additional bit of the hash value is used to split the bucket, redistributing its records into two new buckets.
-
----
-
-# p.38 What is Probing?    
-
----
-
-# ✅ **Probing（探測法）**
-
-**定義：**
-
-> Probing 是 **解決碰撞（collision）** 的方法，用於 **Open Addressing（開放定址）Hash Table**。
-> 當多個 key 被 hash 到相同 index 時，proving 決定 **如何尋找下一個可用位置**。
-
----
-
-# 🧩 **公式化說法**
-
-```
-Probing = 系統性搜尋 hash table 中的空槽（empty slot），直到找到可以放置的 index
-```
-
-* hash index = h(key)
-* 如果該位置已被佔用 → 用 probing 找下一個空位
-
----
-
-# 🔹 **常見 Probing 方法**
-
-1. **Linear Probing（線性探測）**
-
-   ```
-   h(k), h(k)+1, h(k)+2, ...
-   ```
-
-   優點：簡單
-   缺點：容易群聚（clustering）
-
-2. **Quadratic Probing（二次探測）**
-
-   ```
-   h(k), h(k)+1², h(k)+2², h(k)+3², ...
-   ```
-
-   優點：減少群聚
-   缺點：不保證一定找到空位
-
-3. **Double Hashing（雙雜湊）**
-
-   ```
-   h(k), h(k) + h2(k), h(k) + 2*h2(k), ...
-   ```
-
-   優點：群聚最少
-   缺點：需設計第二個 hash function
-
----
-
-# 🧠 **補充理解**
-
-* **目的**：避免在 open addressing 中因碰撞而無法插入資料
-* **特點**：所有資料仍存於單一 table，沒有鏈結串列
-* **效率**：取決於 **load factor λ**，λ 越大，proving 次數越多
-
----
-
-# 🔹 **一句話總結**
-
-> **Probing = 碰撞後，依規則在 hash table 中找下一個空位的系統性搜尋方法。**
-
----
-
-# p.39 Typing of Probing   
-
----
-
-# ✅ **Typing of Probing（探測法類型）**
-
-| **Method**            | **Formula**                   | **Behavior（行為）**          | **Pros / Cons（優缺點）**                                         |
-| --------------------- | ----------------------------- | ------------------------- | ------------------------------------------------------------ |
-| **Linear Probing**    | `(h(k) + i) mod m`            | 每次檢查下一個 slot（依序檢查）        | **Pros:** 簡單實作<br>**Cons:** 容易產生 **Primary Clustering**（群聚）  |
-| **Quadratic Probing** | `(h(k) + c₁·i + c₂·i²) mod m` | 每次探測間距呈二次增加               | **Pros:** 減少群聚<br>**Cons:** 可能跳過一些 slot，表容量必須精心選擇            |
-| **Double Hashing**    | `(h1(k) + i·h2(k)) mod m`     | 用第二個 hash function 決定探測步長 | **Pros:** 分布均勻，群聚最少<br>**Cons:** 計算量較大，需要設計第二個 hash function |
-
----
-
-# 🔹 **補充說明**
-
-* `i` = 探測序列索引 (0,1,2,…)
-* `h(k), h1(k), h2(k)` = hash function(s)
-* `m` = hash table 大小
-
-## ✔ **理解關鍵**
-
-1. Linear → 簡單但群聚
-2. Quadratic → 減少群聚，但可能找不到空位（需 λ < 0.5）
-3. Double Hashing → 最佳 open addressing 方法，但需要額外計算
-
----
-
-# 🔹 **一句話記憶技巧**
-
-> Linear → 直走
-> Quadratic → 跳得越來越遠
-> Double → 用另一把尺量步長
-
----
-
-# p.40-41 Linear Probing   
-
----
-
-# **前提**
-
-* Hash function：`h(k) = k mod m`
-* Table size：`m = 10` → slots 0~9
-* Collision 處理方法：**Linear Probing**
-
-  ```
-  index(i) = (h(k) + i) mod m
-  i = 0,1,2,...
-  ```
-* 要插入的 key：23, 33, 43
-
----
-
-# **Step 1: 插入 23**
-
-1. 計算 hash index：
-
-   ```
-   h(23) = 23 mod 10 = 3
-   ```
-2. 檢查 slot[3] 是否空的：
-
-   * slot[3] 空 → 直接放入 23
-     ✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-```
-
----
-
-# **Step 2: 插入 33**
-
-1. 計算 hash index：
-
-   ```
-   h(33) = 33 mod 10 = 3
-   ```
-2. slot[3] 已經被 23 佔用 → **發生 collision**
-3. Linear Probing 開始探測：
-
-   ```
-   i = 1 → (3 + 1) mod 10 = 4
-   ```
-4. 檢查 slot[4]：
-
-   * slot[4] 空 → 插入 33
-     ✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-slot[4] = 33
-```
-
----
-
-# **Step 3: 插入 43**
-
-1. 計算 hash index：
-
-   ```
-   h(43) = 43 mod 10 = 3
-   ```
-2. slot[3] 已被佔用 → collision
-3. Linear Probing 開始探測：
-
-   ```
-   i = 1 → (3 + 1) mod 10 = 4
-   ```
-
-   * slot[4] 已被 33 佔用 → collision
-
-   ```
-   i = 2 → (3 + 2) mod 10 = 5
-   ```
-
-   * slot[5] 空 → 插入 43
-     ✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-slot[4] = 33
-slot[5] = 43
-```
-
----
-
-# **觀察（Observation）**
-
-1. Linear Probing 依序檢查下一個 slot → **很直覺、簡單**
-2. 缺點：**Primary Clustering**
-
-   * 連續的 collision 會讓這段區域的 slots 越來越擁擠
-   * 未來插入的 key 可能要跳過好幾個 slot 才能找到空位
-   * 搜尋 / 插入效率下降
-
----
-
-# **一句話理解**
-
-> Linear Probing 做的事情就是：**碰到 collision → 往下一格格檢查 → 直到找到空位為止**。
-> 插入的順序會形成「一條連續的 filled slots」區塊，就是 primary clustering 的來源。
-
----
-
-# p.42 Primary Clustering   
-
----
-
-# ✅ **Primary Clustering（主群聚）**
-
-**定義：**
-
-> 在 **Open Addressing Hash Table**（尤其是 **Linear Probing**）中，**連續的已佔用槽（slots）形成群聚**，
-> 導致後續插入的新 key 需要檢查更長的探測序列，讓群聚變得更大。
-
----
-
-# 🔹 **特徵**
-
-1. 一旦出現一段連續的已佔用 slots → 它容易 **吸引更多碰撞**
-2. 新插入的 key 往往要 **沿著這個 cluster 一格一格找空位**
-3. Cluster 越大 → 平均插入 / 搜尋時間越長
-
----
-
-# 🔹 **示意例子**
-
-假設 hash table m = 10，Linear Probing：
-
-| slot | 0 | 1 | 2 | 3  | 4  | 5  | 6 | 7 | 8 | 9 |
-| ---- | - | - | - | -- | -- | -- | - | - | - | - |
-| key  |   |   |   | 23 | 33 | 43 |   |   |   |   |
-
-* slots 3~5 形成 **cluster**
-* 後續要插入 key → hash index = 3（碰撞）
-
-  * 需要檢查 slot 3 → 4 → 5 → 6 才找到空位
-* Cluster 越來越大 → 搜尋成本上升
-
----
-
-# 🔹 **一句話理解**
-
-> **Primary Clustering = 連續填滿的槽形成“擁擠區”，越大越容易讓新 key 碰撞 → 平均探測長度增加。**
-
----
-
-# 🔹 **解決方式**
-
-1. **Quadratic Probing** → gaps grow quadratically → 減少群聚
-2. **Double Hashing** → 用第二個 hash function → 分布更均勻
-3. **Chaining** → 用鏈結串列 → 沒有 cluster 問題
-
----
-
-# p.43-44 Quadratic Probing   
-
----
-
-# **前提**
-
-* Table size：`m = 10`（slots 0~9）
-* Hash function：`h(k) = k mod 10`
-* Collision 解決：**Quadratic Probing**
-
-  ```
-  index(i) = (h(k) + c1*i + c2*i^2) mod m
-  ```
-* 這裡假設：`c1 = 1, c2 = 1`
-* 要插入的 keys：23, 33, 43
-
----
-
-# **Step 1: 插入 23**
-
-1. 計算初始 index：
-
-   ```
-   h(23) = 23 mod 10 = 3
-   i = 0 → index = (3 + 0 + 0) mod 10 = 3
-   ```
-2. slot[3] 空 → 插入 23
-   ✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-```
-
----
-
-# **Step 2: 插入 33**
-
-1. 計算初始 index：
-
-   ```
-   h(33) = 33 mod 10 = 3
-   i = 0 → index = 3 (slot[3] 已被 23 佔用)
-   ```
-2. Collision → 開始 Quadratic Probing：
-
-| i | Computed Index           | 說明                |
-| - | ------------------------ | ----------------- |
-| 1 | (3 + 1 + 1^2) mod 10 = 5 | slot[5] 空 → 插入 33 |
-
-✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-slot[5] = 33
-```
-
----
-
-# **Step 3: 插入 43**
-
-1. 計算初始 index：
-
-   ```
-   h(43) = 43 mod 10 = 3
-   i = 0 → index = 3 (slot[3] 被 23 占用)
-   ```
-2. Collision → Quadratic Probing：
-
-| i | Computed Index           | 說明                          |
-| - | ------------------------ | --------------------------- |
-| 1 | (3 + 1 + 1^2) mod 10 = 5 | slot[5] 被 33 占用 → collision |
-| 2 | (3 + 2 + 2^2) mod 10 = 9 | slot[9] 空 → 插入 43           |
-
-✅ 插入成功
-
-**Table 狀態：**
-
-```
-slot[3] = 23
-slot[5] = 33
-slot[9] = 43
-```
-
----
-
-# **Observation（觀察）**
-
-1. **Quadratic Probing 的 gap**
-
-   * 探測間距隨 i 的平方增長 → `0, 2, 6, 12…` mod m
-   * 不像 Linear Probing 那樣連續 → **減少 Primary Clustering**
-
-2. **可能問題**
-
-   * 會跳過一些 slots（不保證每個 slot 都會被檢查到）
-   * 如果 table size 或 c1/c2 選得不合適，可能找不到空位 → 必須小心設計
-
----
-
-# **一句話理解**
-
-> Quadratic Probing = 每次碰撞跳到距離 **i² + i** 的 slot → 減少連續群聚，但可能跳過一些槽，需要設計合適的 table size。
-
----
-
-# p.45 Secondary Clustering   
-
----
-
-# ✅ **Secondary Clustering（二次群聚）**
-
-**定義：**
-
-> 在 **Open Addressing Hash Table** 中，不同的 keys 如果 **hash 到相同的初始 index（h(k))**，
-> 即使使用 Quadratic Probing 或其他探測方法，它們會 **沿著相同的探測序列**，
-> 形成一種群聚，稱為 **Secondary Clustering**。
-
----
-
-# 🔹 **公式示意**
-
-* Hash function：`h(k) = k mod 10`
-* Quadratic Probing：`index(i) = (h(k) + c1*i + c2*i^2) mod 10`
-* c1, c2 常設為 1
-
----
-
-# 🔹 **差別於 Primary Clustering**
-
-| 特性   | Primary Clustering              | Secondary Clustering                           |
-| ---- | ------------------------------- | ---------------------------------------------- |
-| 發生原因 | 連續填滿槽形成 cluster（Linear Probing） | 不同 key hash 到同一初始 index → probe sequence 相同    |
-| 範圍   | 整個 cluster                      | 只針對同一個初始 index 的 keys                          |
-| 避免方法 | Quadratic / Double Hashing      | **Double Hashing**（不同 key 會有不同 probe sequence） |
-
----
-
-# 🔹 **示意例子**
-
-假設：
-
-* Table size m = 10
-* Quadratic Probing：`index(i) = (h(k) + i + i^2) mod 10`
-* 插入 keys = 23, 33, 43
-
-1. **23 → h(23)=3 → slot[3] 空 → 放入**
-2. **33 → h(33)=3 → collision → Quadratic Probing → slot[5]**
-3. **43 → h(43)=3 → collision → Quadratic Probing → slot[9]**
-
-* 注意：所有 key 的初始 index 都是 3 → probe sequence 一樣 → **secondary clustering 發生**
-
-如果你用 **Double Hashing**：
-
-* probe sequence = `(h1(k) + i*h2(k)) mod m`
-* 不同 key 的 h2(k) 不同 → probe sequence 不同 → 避免 secondary clustering
-
----
-
-# 補充 
-
-## 你理解的版本（✔ 正確）
-
-* primary clustering 跟 secondary clustering 都是位置被占用，前者是**連續一大塊**，後者是**不連續但探測路徑一樣**。
-
-👉 **這個理解是 100% 正確的。**
-
-## 考試用精修版（建議背這個）
-
-* **Primary clustering**：
-  在 *linear probing* 中，collision 造成**連續的已佔用區段**，新的 key 容易加入這個區段，使群聚不斷擴大。
-
-* **Secondary clustering**：
-  在 *quadratic probing* 中，**具有相同初始 hash 值的 key 會遵循相同的探測序列**，導致它們聚集在同一組（但不連續的）位置。
-
----
-
-# p.46-49 Double Hashing   
-
----
-
-# ✅ **Double Hashing（雙雜湊）復習**
-
-Double Hashing 使用兩個 hash function：
-
-```
-h1(k) = k mod 10
-h2(k) = 7 − (k mod 7)
-index(i) = (h1(k) + i × h2(k)) mod 10
-```
-
-* `h1(k)` 決定初始位置
-* `h2(k)` 決定探測（跳位）距離（step size）
-* i = 0,1,2,…
-
-特點：
-
-* **不同 key → 通常有不同的 h2(k)**
-* 探測路徑（probe sequence）也不同
-* 能避免 primary clustering & secondary clustering
-* 探測分布「最均勻」的 open addressing 方法
-
----
-
-# 🚀 **開始插入：23、33、43**
-
-Table 大小 = 10（slot 0~9）
-
----
-
-# ⭐ Step 1：插入 23
-
-### 計算 h1, h2
-
-```
-h1(23) = 23 mod 10 = 3
-h2(23) = 7 – (23 mod 7) = 7 – 2 = 5
-```
-
-### 探測序列
-
-`index(i) = (3 + i × 5) mod 10`
-
-| i | index(i)           | Result           |
-| - | ------------------ | ---------------- |
-| 0 | (3 + 0) mod 10 = 3 | slot[3] 空 → 插入成功 |
-
-📌 **結果：slot[3] = 23**
-
----
-
-# ⭐ Step 2：插入 33
-
-### 計算 h1, h2
-
-```
-h1(33) = 3
-h2(33) = 7 – (33 mod 7) = 7 – 5 = 2
-```
-
-### 探測序列
-
-`index(i) = (3 + i × 2) mod 10`
-
-| i | index(i)           | Result                     |
-| - | ------------------ | -------------------------- |
-| 0 | (3 + 0) mod 10 = 3 | slot[3] 被 23 占用（collision） |
-| 1 | (3 + 2) mod 10 = 5 | slot[5] 空 → 插入成功           |
-
-📌 **結果：slot[5] = 33**
-
----
-
-# ⭐ Step 3：插入 43
-
-### 計算 h1, h2
-
-```
-h1(43) = 3
-h2(43) = 7 – (43 mod 7) = 7 – 1 = 6
-```
-
-### 探測序列
-
-`index(i) = (3 + i × 6) mod 10`
-
-| i | index(i)           | Result           |
-| - | ------------------ | ---------------- |
-| 0 | (3 + 0) mod 10 = 3 | slot[3] 被 23 占用  |
-| 1 | (3 + 6) mod 10 = 9 | slot[9] 空 → 插入成功 |
-
-📌 **結果：slot[9] = 43**
-
----
-
-# 🧊 最後的 Hash Table
-
-| Slot | Value |
-| ---- | ----- |
-| 3    | 23    |
-| 5    | 33    |
-| 9    | 43    |
-
----
-
-# 🎯 Observation（你原本講義最後那句）
-
-### **Double Hashing 的特性：**
-
-* 探測跳距（step size）來自第二個 hash function → **分布很好、跳得遠**
-* 不會形成 primary clustering（像 Linear Probing 那樣）
-* 不會形成 secondary clustering（像 Quadratic Probing 那樣）
-* 插入、搜尋效率在 load factor 高時仍然很好
-
-👉 **所有 open addressing 裡，double hashing 效能最好，也最接近 uniform random probing。**
-
----
-
-# 比較   
-
-| 方法                    | Probe 公式                             | 優點                    | 缺點                   | 會產生的 Clustering                          |
-| --------------------- | ------------------------------------ | --------------------- | -------------------- | ---------------------------------------- |
-| **Linear Probing**    | index(i) = (h(k) + i) mod m          | 簡單、快                  | 容易形成長長的連續群集          | **Primary Clustering**（嚴重）               |
-| **Quadratic Probing** | index(i) = (h(k) + c₁i + c₂i²) mod m | 減少 primary clustering | 可能無法探訪到所有 slot、需精選 m | **Secondary Clustering**（仍存在）            |
-| **Double Hashing**    | index(i) = (h₁(k) + i·h₂(k)) mod m   | 分布最均勻、探查路徑多樣          | 需要兩個好的 hash 函數       | **最少 Clustering**（無 primary & secondary） |
-
----
-
-# p.57 Time Complexity
-
-## 3 大重點
-
-### ① Hash table 是「很多盒子」
-
-想像一排盒子：
-
-```
-[ ] [ ] [ ] [ ] [ ]
-```
-
-每個盒子 = 一個 index
-
-### ② Separate Chaining = 每個盒子裡可以放「一串東西」
-
-如果collison，就放在同一盒子裡排隊：
-
-```
-盒子 2 : ● → ● → ●
-```
-
-### ③ α（load factor）= 平均每個盒子有幾個東西
-
-```
-α = 總東西數 / 盒子數
-```
-
-* α = 1 → 平均每盒 1 個
-* α = 2 → 平均每盒 2 個
-
-## 時間複雜度
-
-### 🔍 Search（找資料）
-
-你做兩件事：
-
-1️⃣ 算盒子位置（超快）
-2️⃣ 在那個盒子裡找
-
-### 在盒子裡要找多久？
-
-* 如果平均 **1 個人** → 找很快
-* 如果平均 **5 個人** → 要看 5 個
-
-👉 **找的時間 ≈ α**
-
-## 所以為什麼寫：
-
-```
-Average Search Time ≈ O(1 + α)
-```
-
-白話翻譯就是：
-
-* 算盒子很快（1）
-* 在盒子裡找要看 α 個
-* 所以加起來是 1 + α
-
-## 那為什麼老師說「平均是 O(1)」？
-
-因為：
-
-👉 **只要 α 不大（例如 ≤ 1）**
-
-```
-1 + α ≈ 常數
-```
-
-所以就寫成：
-
-```
-O(1)
-```
-
----
-
-## Insert / Delete 為什麼也快？
-
-### ➕ Insert
-
-* 直接丟進盒子前面
-* 不用排隊找
-* 👉 幾乎都是 **1 步**
-
-### ➖ Delete
-
-* 先找到（跟 search 一樣）
-* 再拿掉（很快）
-
----
-
-## Worst case 為什麼是 O(n)？
-
-因為最倒楣時：
-
-```
-全部東西都在同一個盒子
-```
-
-那就變成：
-
-```
-一條超長的鏈結串列
-```
-
-👉 要從頭看到尾
-
----
-
-## 超濃縮版本
-
-* Separate chaining = 盒子 + 排隊
-* α = 平均排隊人數
-* 平均時間 ≈ 看幾個人 = α
-* α 小 → Hash table 快
-
-## 考試用一句話
-
-* In separate chaining, the average time depends on the load factor α, and operations are fast as long as α is small.
-
----
-
-# p.58 Time Complexity
-
-## 先把名詞換成白話
-
-### Open Addressing 是什麼？
-
-👉 **只有一排停車格**
-👉 車子（資料）一定要停在格子裡
-👉 撞到就「往別的格子找」
-
-這個「找」就叫 **probing**
-（linear / quadratic / double hashing）
-
-## 為什麼 α ≤ 0.7 這麼重要？
-
-α = **停車格有多滿**
-
-* α = 0.3 → 很空
-* α = 0.7 → 還 OK
-* α → 1 → 爆炸
-
-👉 **open addressing 不能滿**
-
-## 看每個操作在講什麼
-
-## 🔍 Search（找車）
-
-### 平均情況（α ≤ 0.7）
-
-* 停車格還算空
-* 找一點點就找到了
-* 👉 **很快（O(1)）**
-
-### 最糟情況
-
-* 幾乎每格都停車
-* 你一路走完整排
-* 👉 **O(n)**
-
-📌 表格那句話的意思是：
-
-* **車位越滿，你要走的路就越長**
-
----
-
-## ➕ Insert（停車）
-
-### 平均情況
-
-* 很快就找到空格
-* 👉 **O(1)**
-
-### 最糟情況
-
-* 幾乎沒空位
-* 你一格一格找
-* 👉 **O(n)**
-
-📌 所以寫：
-
-* May require several probes
-
----
-
-## ➖ Delete（移走車）
-
-### 為什麼寫「Needs careful slot marking」？
-
-這是 open addressing **最容易不懂的地方**，但概念其實很簡單。
-
-### ❌ 不能直接清空格子
-
-如果你直接清空：
-
-```
-[ A ][ B ][ C ][   ][ D ]
-```
-
-你在找 D 的時候：
-
-* 看到空格
-* 以為「後面不可能有」
-* 👉 找不到 D（錯誤）
-
-### ✅ 正確做法：Lazy Delete（做記號）
-
-```
-[ A ][ B ][ C ][ X ][ D ]
-                ↑
-             deleted
-```
-
-* X = 曾經有東西，但被刪了
-* 搜尋時：**要繼續找**
-* 插入時：**可以用**
-
-📌 這就是那句話在講的事。
-
----
-
-## 為什麼 Worst case 都是 O(n)？
-
-因為：
-
-* open addressing
-* 所有資料都在 array 裡
-* 最慘要走完整排
-
-## 5 句重點
-
-1️⃣ Open addressing = **撞到就找下一格**
-2️⃣ α 要小（≤ 0.7）
-3️⃣ α 小 → 平均都很快
-4️⃣ α 大 → 要走很遠
-5️⃣ 刪除不能直接清空，要做記號
-
-## 一句考試用
-
-* In open addressing, operations are efficient at low load factors, but performance degrades as the table becomes full due to long probe sequences.
-
----
-
-# p.59 ADT: Dictionary
-
-## 1️⃣ objects（資料內容）
-
-```
-A collection of n > 0 pairs,
-each pair has a key and an associated item
-```
-
-意思是：
-
-* Dictionary 裡有 **n 個 (key, item) 配對**
-
-例如：
-
-```
-(A, 10), (B, 20), (C, 30)
-```
-
-📌 **key**：用來找資料
-📌 **item**：真正存的資料
-
-## 2️⃣ functions（可以做的操作）
-
-### 🔹 Create
-
-```
-Dictionary Create(max_size)
-::= create an empty dictionary.
-```
-
-👉 建立一個**空的 dictionary**
-
-* `max_size`：最多可以存幾個 pair
-* 一開始是 **沒有任何資料**
-
----
-
-### 🔹 IsEmpty
-
-```
-Boolean IsEmpty(d, n)
-::= if (n > 0) return TRUE
-    else return FALSE
-```
-
-👉 檢查 dictionary 是不是空的
-
-📌 白話意思：
-
-* 如果元素數量 `n > 0` → **不是空的**
-* 如果 `n = 0` → **是空的**
-
-⚠️ 投影片這裡寫法有點怪
-比較合理的語意應該是：
-
-```
-if (n == 0) return TRUE
-else return FALSE
-```
-
-考試時知道它是在「檢查是否為空」就好。
-
----
-
-### 🔹 Search
-
-```
-Element Search(d, k)
-::= return item with key k.
-    return NULL if no such element.
-```
-
-👉 用 **key k** 找對應的 **item**
-
-* 找得到 → 回傳 item
-* 找不到 → 回傳 `NULL`
-
-📌 Dictionary 最重要的功能 ⭐⭐⭐
-
----
-
-### 🔹 Delete
-
-```
-Element Delete(d, k)
-::= delete and return item (if any) with key k.
-```
-
-👉 刪掉 key = k 的那一對資料
-
-* 如果存在 → 刪掉並回傳 item
-* 如果不存在 → 什麼都不刪（可能回 NULL）
-
----
-
-### 🔹 Insert
-
-```
-void Insert(d, item, k)
-::= insert item with key k into d.
-```
-
-👉 插入一筆新資料 `(k, item)`
-
-📌 隱含規則（老師常考）：
-
-* **key 不可重複**
-* 若 key 已存在：
-
-  * 可能覆蓋舊資料
-  * 或拒絕插入（看實作）
-
----
-
-## 3️⃣ 用一個完整例子串起來
-
-```
-d = Create(100)
-IsEmpty(d) → TRUE
-
-Insert(d, "Alice", 1001)
-Insert(d, "Bob",   1002)
-
-Search(d, 1001) → "Alice"
-Delete(d, 1002) → "Bob"
-Search(d, 1002) → NULL
-```
-
-## 4️⃣ 一張考試速記表 ✅
-
-| Operation | 功能             |
-| --------- | -------------- |
-| Create    | 建立空 dictionary |
-| IsEmpty   | 是否沒有資料         |
-| Insert    | 插入 (key, item) |
-| Search    | 用 key 找 item   |
-| Delete    | 刪除指定 key       |
-
----
-
-# p.60 ADT: HashTable with Separate Chaining   
-
----
-
-# ✅ **ADT: HashTable with Separate Chaining（拉鍊法雜湊表）**
-
-### **物件（objects）**
-
-HashTable 內部包含：
-
-* 一組 **key-value pair**（鍵唯一）
-* 一個大小為 **m** 的 bucket 陣列
-  每個 bucket 是 **一條 linked list（chain）**，裡面存多個 `<key, value>`。
-
-### **雜湊方式**
-
-使用雜湊函式：
-
-```
-h(key) → [0, m-1]   // 對 key 做 hash，決定它屬於哪個 bucket
-```
-
----
-
-# 🎯 **參數（parameters）**
-
-| 名稱                | 意義                              |
-| ----------------- | ------------------------------- |
-| `m`               | bucket 數量                       |
-| `h`               | hash function（固定、可重複、分布均勻）      |
-| `λ = n / m`       | load factor（平均每個 bucket 裡有多少元素） |
-| `MAX_LOAD_FACTOR` | 通常設 0.75，超過就擴增                  |
-
----
-
-# 🧱 **方法（operations / functions）**
-
----
-
-## ✔ **Create(m)**
-
-**前置條件（precondition）：**
-
-```
-m > 0
-```
-
-**後置條件（postcondition）：**
-
-```
-建立一個 m 個空 bucket 的 hash table
-所有 bucket 都是空的 chain
-λ = 0
-```
-
 ---
-
-## ✔ **IsEmpty(h)**
-
-回傳（TRUE / FALSE）：
-
-```
-size(h) == 0
-```
 
----
+## **P.38 Probing（Open Addressing Collision Handling）**
 
-## ✔ **Insert(h, k, v)**
+* 定義：碰撞時，依規則在 hash table 中找下一個空位
+* Formula:
 
 ```
-i = h(k) mod m    // 找 bucket index
+Probing = 系統性搜尋 hash table 中的空槽
 ```
-
-1. 若 bucket[i] 裡已存在 key k：
-   → **更新 value 為 v（取代舊值）**
 
-2. 否則：
-   → **把 <k, v> 插入到 bucket[i] 的鏈結串列「開頭」**
-   → size++
+### 常見方法：
 
-3. 若 λ > MAX_LOAD_FACTOR：
-   → 執行 `Resize(h, 2*m)`（重新分配所有 key）
+1. Linear Probing: `(h(k) + i) mod m`
 
----
-
-## ✔ **Retrieve(h, k)**
+   * 優點：簡單
+   * 缺點：Primary Clustering
+2. Quadratic Probing: `(h(k) + c1*i + c2*i^2) mod m`
 
-```
-i = h(k) mod m
-到 bucket[i] 裡找 key k
-```
+   * 優點：減少群聚
+   * 缺點：可能跳過 slot，需 λ < 0.5
+3. Double Hashing: `(h1(k) + i*h2(k)) mod m`
 
-* 若找到：回傳對應 value
-* 若找不到：丟出 `KeyNotFoundException`
+   * 優點：分布均勻、群聚最少
+   * 缺點：需設計第二個 hash function
 
 ---
 
-## ✔ **Delete(h, k)**
+## **P.40-41 Linear Probing Example**
 
-```
-i = h(k) mod m
-```
-
-* 若 bucket[i] 裡有 k：
-  → 刪除 `<k, v>`
-  → size--
-  → 回傳 TRUE
-* 若沒有：
-  → 回傳 FALSE
-
----
+* Hash function: `h(k) = k mod m`
+* Table size: m = 10
+* Insert keys: 23, 33, 43
 
-## ✔ **Search(h, k)**
+| Key | Index | Collision Handling                             |
+| --- | ----- | ---------------------------------------------- |
+| 23  | 3     | slot[3] 空 → 放入                                 |
+| 33  | 3     | collision → slot[4] 空 → 放入                     |
+| 43  | 3     | collision → slot[4] collision → slot[5] 空 → 放入 |
 
-```
-i = h(k) mod m
-回傳 (bucket[i] 是否含 key k)
-```
+**Observation**: 形成連續 cluster → Primary Clustering
 
 ---
-
-## ✔ **Traverse(h)**
 
-回傳一個 iterator，順序為：
+## **P.42 Primary Clustering**
 
-1. bucket[0]
-2. bucket[1]
-3. ...
-4. bucket[m-1]
+* 定義：連續已佔用 slots → 後續新 key 探測序列變長
+* 解決方法：
 
-在每個 bucket 裡，依 **插入順序** 走訪所有 pair。
+  * Quadratic Probing → gaps grow quadratically
+  * Double Hashing → 用第二 hash function
+  * Chaining → 用鏈結串列
 
 ---
 
-# 🎉 **完整 ADT（漂亮格式）**
+## **P.43-44 Quadratic Probing Example**
 
-```
-ADT HashTable is
-objects:
-    A finite set of <key, value> pairs with unique keys.
-    Keys are distributed into m buckets by hash function:
-        h(key) → [0, m-1].
-    Each bucket contains a chain (linked list) of pairs.
-
-parameters:
-    m: number of buckets (m > 0)
-    h: deterministic hash function
-    λ: load factor = n / m
-    MAX_LOAD_FACTOR = 0.75
-
-operations:
-
-HashTable Create(m)
-    pre:  m > 0
-    post: return empty table with m buckets and λ = 0
+* Table size: m = 10
+* Hash function: `h(k) = k mod 10`
+* c1 = 1, c2 = 1
+* Insert keys: 23, 33, 43
 
-Boolean IsEmpty(h)
-    return (size(h) == 0)
+| Key | i=0 | i=1         | i=2      |
+| --- | --- | ----------- | -------- |
+| 23  | 3   | -           | -        |
+| 33  | 3   | 5 空 → 放入    | -        |
+| 43  | 3   | 5 collision | 9 空 → 放入 |
 
-Insert(h, k, v)
-    i = h(k) mod m
-    if k exists in bucket[i]:
-        replace existing value with v
-    else:
-        insert <k, v> at front of bucket[i]
-        size++
-    if λ > MAX_LOAD_FACTOR:
-        Resize(h, 2*m)
+**Observation**:
 
-value Retrieve(h, k)
-    i = h(k) mod m
-    search bucket[i] for k
-    if found: return associated value
-    else: throw KeyNotFoundException
-
-Boolean Delete(h, k)
-    i = h(k) mod m
-    if k exists in bucket[i]:
-        remove <k, v>
-        size--
-        return TRUE
-    else:
-        return FALSE
-
-Boolean Search(h, k)
-    i = h(k) mod m
-    return (k exists in bucket[i])
-
-Iterator Traverse(h)
-    return iterator visiting buckets from 0 to m-1,
-    and within each bucket in insertion order
-
-end HashTable
-```
+* 探測間距平方增長 → 減少 Primary Clustering
+* 可能跳過某些 slot → table size 或 c1/c2 選得要合適
