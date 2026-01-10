@@ -1,6 +1,6 @@
 # p.4
 
-## 🗺️ 圖（Graph）的基本介紹
+## 圖（Graph）的基本介紹
 
 圖是一種用來表示物件之間關係的資料結構。你可以將它想像成一個地圖，上面有城市和連接城市的道路。
 
@@ -34,7 +34,7 @@
 
 ---
 
-## 💡 總結與應用
+## 總結與應用
 
 簡而言之：
 
@@ -49,7 +49,7 @@
 
 ## 補充
 
-### 💡 額外知識點： 真子集 (Proper Subset)
+### 額外知識點： 真子集 (Proper Subset)
 
 * **符號：** $\subset$ 或 $\subsetneq$
 * **意義：** $A \subset B$ 表示 $A$ 是 $B$ 的子集，**並且** $A$ 不等於 $B$（即 $B$ 中至少有一個元素不在 $A$ 中）。
@@ -61,7 +61,7 @@
 
 # p.14 Isomorphism / Isomorphic
 
-## 🔄 同構性 (Isomorphism) 的核心概念
+## 同構性 (Isomorphism) 的核心概念
 
 ### 1\. 什麼是圖的同構？
 
@@ -81,14 +81,14 @@
 
 -----
 
-## 🖼️ 簡報圖片的說明 (同構體解釋)
+## 簡報圖片的說明 (同構體解釋)
 
 | 圖形 | 描述 | 同構性解釋 |
 | :---: | :--- | :--- |
 | **Original** | 一個有五個頂點的圖形，包含一個孤立的頂點。 | 作為基準圖。 |
 | **五個變體** | 每個變體雖然看起來位置和角度不同，但它們都：<br>1. 總共有 **5 個** 頂點。<br>2. 有 **4 條** 邊。 | 由於它們的 **頂點數**、**邊數** 和 **頂點之間的連接關係** 完全相同，只是頂點的繪製位置變了，所以它們彼此之間都是**同構的**。 |
 
-### 💡 總結投影片想表達的：
+### 總結投影片想表達的：
 
 圖的同構性告訴我們：在資料結構中，**一個圖的結構和關係**比它的**外觀畫法**或**頂點的標籤**更重要。如果兩個圖的結構關係一樣，它們在圖論和電腦科學的演算法中會被視為是等價的。
 
@@ -103,13 +103,13 @@
 * **Node (Vertex)**：點 → 人、城市、地點
 * **Edge**：線 → 關係、道路、連結
 
-📌 重點：
+重點：
 
 * Graph 不在存資料本身，而是在存「誰跟誰有關係」
 
 ## 二、這一頁在教的「8 種 Graph 分類」
 
-### 1️⃣ Undirected Graph（無向圖）
+### Undirected Graph（無向圖）
 
 **Edges 沒有方向**
 
@@ -122,12 +122,12 @@
 A —— B
 ```
 
-📌 特徵
+特徵
 
 * 邊是雙向的
 * 常用在「對等關係」
 
-### 2️⃣ Directed Graph（有向圖 / Digraph）
+### Directed Graph（有向圖 / Digraph）
 
 **Edges 有方向**
 
@@ -140,16 +140,16 @@ A —— B
 A → B
 ```
 
-📌 特徵
+特徵
 
 * 邊有箭頭
 * 常用在「非對等關係」
 
-### 3️⃣ Weighted Graph（加權圖）
+### Weighted Graph（加權圖）
 
 **每條邊都有「成本 / 權重」**
 
-🗺️ 例子：Google Maps
+例子：Google Maps
 
 * 城市 A → 城市 B
 * 距離 5 公里 / 10 分鐘
@@ -158,73 +158,73 @@ A → B
 A --(5km)--> B
 ```
 
-📌 用途
+用途
 
 * 找最短路徑（之後會學 Dijkstra）
 
-### 4️⃣ Unweighted Graph（無權重圖）
+### Unweighted Graph（無權重圖）
 
 **所有邊都一樣重要**
 
-🎲 例子：桌遊地圖
+例子：桌遊地圖
 
 * 走一步 = 一次移動
 * 不管遠近，都是「1 步」
 
-📌 用途
+用途
 
 * BFS（最少步數問題）
 
-### 5️⃣ Cyclic Graph（有環圖）
+### Cyclic Graph（有環圖）
 
 **圖中存在「繞一圈回到原點」的路**
 
-🏙️ 例子：城市環狀道路
+例子：城市環狀道路
 
 ```
 A → B → C → A
 ```
 
-📌 重點
+重點
 
 * 可以「走一圈回來」
 * 容易產生「無限循環」
 
-### 6️⃣ Acyclic Graph（無環圖）
+### Acyclic Graph（無環圖）
 
 **沒有任何環**
 
-👨‍👩‍👧 例子：家族樹
+例子：家族樹
 
 * 父母 → 子女
 * 不可能繞回祖先
 
-📌 特殊類型
+特殊類型
 
 * **Tree = 一種 Acyclic Graph**
 
-### 7️⃣ Connected Graph（連通圖）
+### Connected Graph（連通圖）
 
 **任兩個節點之間都有路可以走**
 
-🛣️ 例子：有橋的道路網
+例子：有橋的道路網
 
-📌 重點
+重點
 
 * 從任何地方都走得到其他地方
 * 常出現在「是否能全部走訪」問題
 
-### 8️⃣ Disconnected Graph（非連通圖）
+### Disconnected Graph（非連通圖）
 
 **有些節點彼此完全到不了**
 
-🏝️ 例子：沒有橋的島嶼
+例子：沒有橋的島嶼
 
 ```
 A —— B      C —— D
 ```
 
-📌 重點
+重點
 
 * 圖被分成好幾塊
 * BFS / DFS 可能一次只能走一部分
@@ -235,13 +235,13 @@ A —— B      C —— D
 
 老師其實是在教你三件事：
 
-### ✅ 1. 「我要用哪一種 Graph 來建模？」
+### 1. 「我要用哪一種 Graph 來建模？」
 
 * 社群 → Directed / Undirected
 * 地圖 → Weighted
 * 家族 → Acyclic
 
-### ✅ 2. 「我該用哪個演算法？」
+### 2. 「我該用哪個演算法？」
 
 | 圖的性質 | 常用演算法    |
 | ---- | -------- |
@@ -250,7 +250,7 @@ A —— B      C —— D
 | 有環   | 要注意無限循環  |
 | 無環   | 拓撲排序     |
 
-### ✅ 3. 考試最愛問的觀念題
+### 3. 考試最愛問的觀念題
 
 * Tree 一定是 acyclic 嗎？✅
 * Directed graph 一定有 cycle 嗎？❌
@@ -276,7 +276,7 @@ A —— B      C —— D
 
 **每條邊都一樣重要（沒有距離、時間、費用差別）**
 
-📌 換句話說：
+換句話說：
 
 * 走一條邊 = 花費 1 單位
 * 不管邊長怎樣，都算 **1 步**
@@ -287,20 +287,20 @@ A —— B      C —— D
 
 **BFS（Breadth-First Search）= 一層一層往外擴**
 
-想像你丟石頭進水裡 🌊：
+想像你丟石頭進水裡：
 
 * 第 0 層：起點
 * 第 1 層：走 1 條邊能到的點
 * 第 2 層：走 2 條邊能到的點
 * 第 3 層：走 3 條邊能到的點
 
-📌 BFS 是用 **Queue（佇列）**，保證「先到的層先處理」。
+BFS 是用 **Queue（佇列）**，保證「先到的層先處理」。
 
 ---
 
 ## 三、為什麼 BFS 在無權重圖一定是最短路？
 
-### 🎯 關鍵原因：
+### 關鍵原因：
 
 * **BFS 第一次走到某個節點時，用的邊數一定最少**
 
@@ -314,7 +314,7 @@ A —— B      C —— D
 
 ## 四、用超直覺例子說明
 
-### 📍 地圖（無權重）
+### 地圖（無權重）
 
 ```
 A -- B -- D
@@ -333,7 +333,7 @@ A -- B -- D
 * 第 1 層：B, C
 * 第 2 層：D
 
-👉 **第一次到 D = 2 步（最少）**
+**第一次到 D = 2 步（最少）**
 
 ---
 
@@ -373,7 +373,7 @@ BFS 只看「邊數」：
 
 * A → C → B（總成本 2）
 
-👉 所以 **有權重 → 要用 Dijkstra**
+所以 **有權重 → 要用 Dijkstra**
 
 ---
 
@@ -387,7 +387,7 @@ BFS 只看「邊數」：
 
 | 圖類型    | 找最短路用        |
 | ------ | ------------ |
-| 無權重圖   | ✅ BFS        |
+| 無權重圖   | BFS        |
 | 有權重（正） | Dijkstra     |
 | 有負權重   | Bellman-Ford |
 
@@ -397,11 +397,11 @@ BFS 只看「邊數」：
 
 ## 一、但 Adjacency Matrix / List 存的是「直接邊」
 
-### 👉 Adjacency Matrix / List 只記：
+### Adjacency Matrix / List 只記：
 
 * **「有沒有『一條邊』直接相連」**
 
-❌ 不記：
+不記：
 
 * 走不走得到
 * 中間經過誰
@@ -438,7 +438,7 @@ BFS 只看「邊數」：
 
 那就不是 Adjacency Matrix 了，而是：
 
-### ✅ Reachability(可達性) / Transitive Closure
+### Reachability(可達性) / Transitive Closure
 
 例如用：
 
@@ -467,128 +467,128 @@ BFS 只看「邊數」：
 ## 一、先用一句話抓重點 
 
 > **Adjacency Matrix = 用空間換速度**
-> 👉 查邊超快，但很吃記憶體
+> 查邊超快，但很吃記憶體
 
 ## 二、Pros（優點）
 
-### ✅ 1. **O(1) edge lookup**
+### 1. **O(1) edge lookup**
 
 * `matrix[u][v]` 立刻知道有沒有邊
 
-🔹 意思是什麼？
+意思是什麼？
 
 * 不管圖有多大
 * 只要看一格矩陣
 * **永遠是常數時間**
 
-📌 例子：
+例子：
 
 ```cpp
 if (matrix[0][3] == 1) { ... }
 ```
 
-📝 考試常問：
+考試常問：
 
 * 「哪一種表示法能最快判斷兩點是否相連？」
-* ✔️ **Adjacency Matrix**
+* **Adjacency Matrix**
 
-### ✅ 2. **Simple implementation**
+### 2. **Simple implementation**
 
 * 好寫(二維矩陣)、好懂、好畫
 
-🔹 為什麼簡單？
+為什麼簡單？
 
 * 就是 2D array
 * 沒有 pointer、linked list
 * 新手最容易上手
 
-### ✅ 3. **Works well for dense graphs**
+### 3. **Works well for dense graphs**
 
 * 適合「邊很多」的圖
 
-🔹 Dense graph 是什麼？
+Dense graph 是什麼？
 
 * 幾乎每個點都跟很多點相連
 * 邊數 E ≈ V²
 
-📌 這時候：
+這時候：
 
 * Matrix 本來就要 V² 空間
 * **不浪費**
 
-### ✅ 4. **Good for Floyd–Warshall**
+### 4. **Good for Floyd–Warshall**
 
 * 適合需要「快速查任意兩點關係」的演算法
 
-🔹 為什麼？
+為什麼？
 
 * Floyd–Warshall 是三層 for 迴圈
 * 一直在用 `dist[i][j]`
 
-📌 用 Matrix：
+用 Matrix：
 
 ```text
 dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
 ```
 
-👉 非常自然、非常快
+非常自然、非常快
 
 **參考網站:https://ithelp.ithome.com.tw/m/articles/10209186**
 
-### ✅ 5. **Natural fit for weighted graphs**
+### 5. **Natural fit for weighted graphs**
 
 * 很適合「加權圖」
 
-🔹 不是存 0 / 1，而是：
+不是存 0 / 1，而是：
 
 ```
 matrix[u][v] = weight
 ```
 
-📌 沒邊可以設：
+沒邊可以設：
 
 * ∞
 * -1
 * 0（視題目）
 
-👉 **Dijkstra / Floyd 都很愛**
+**Dijkstra / Floyd 都很愛**
 
 ## 三、Cons（缺點）
 
-### ❌ 1. **O(V²) space**
+### 1. **O(V²) space**
 
 * 不管有沒有邊，都要存 V × V
 
-📌 極端例子：
+極端例子：
 
 * 10000 個點
 * 只有 10 條邊
 * 還是要存 100M 格
 
-👉 **非常浪費**
+**非常浪費**
 
-### ❌ 2. **Wasteful for sparse graphs**
+### 2. **Wasteful for sparse graphs**
 
 > 現實世界多半是 sparse graph (點多邊少)
 
-🔹 現實例子：
+現實例子：
 
 * 社群網路
 * 道路圖
 * 電腦網路
 
-👉 點很多，但每個點只連幾個
+點很多，但每個點只連幾個
 
-📌 Matrix 結果：
+Matrix 結果：
 
 * 幾乎都是 0
 * 空間白白浪費
 
-### ❌ 3. **Getting neighbors is O(V)**
+### 3. **Getting neighbors is O(V)**
 
 * 找某點的鄰居要掃整排
 
-📌 問題：
+問題：
 
 ```text
 0 的鄰居是誰？
@@ -600,33 +600,33 @@ matrix[u][v] = weight
 matrix[0][0..V-1] 全掃
 ```
 
-👉 **O(V)**
+**O(V)**
 
-⚠️ 這對 BFS / DFS 很傷
+這對 BFS / DFS 很傷
 
-### ❌ 4. **Harder to insert/remove vertices**
+### 4. **Harder to insert/remove vertices**
 
 * 動態改圖很麻煩
 
-🔹 為什麼？
+為什麼？
 
 * 新增一個點 → 矩陣要變大
 * 要重建整個 V×V
 
-📌 Adjacency List：
+Adjacency List：
 
 * 只要加一個 list
 * 容易很多
 
 ## 四、Best for（什麼時候該用）
 
-### ✅ 適合用 Adjacency Matrix 的情況
+### 適合用 Adjacency Matrix 的情況
 
-✔️ **Dense graph**    
-✔️ **常常要查「u 到 v 有沒有邊」**    
-✔️ **Weighted graph**    
-✔️ **Floyd–Warshall / 全對全距離**    
-✔️ **教學、考試、概念展示**    
+**Dense graph**    
+**常常要查「u 到 v 有沒有邊」**    
+**Weighted graph**    
+**Floyd–Warshall / 全對全距離**    
+**教學、考試、概念展示**    
 
 ## 五、考試速記表
 
@@ -654,53 +654,53 @@ matrix[0][0..V-1] 全掃
 
 ## 二、Pros（優點）
 
-### ✅ 1. **O(V + E) space**
+### 1. **O(V + E) space**
 
 * 只存「真的存在的邊」
 
-🔹 為什麼是 O(V + E)？
+為什麼是 O(V + E)？
 
 * V 個頂點（每個一個 list）
 * E 條邊（每條邊只存一次／兩次）
 
-📌 對 sparse graph：
+對 sparse graph：
 
 * E ≪ V²
 * **非常省記憶體**
 
-👉 考試關鍵字：
+考試關鍵字：
 
 * *Excellent for sparse graphs*
 
-### ✅ 2. **Fast traversal：O(deg(v))**
+### 2. **Fast traversal：O(deg(v))**
 
 * 找某節點的鄰居不用掃整排
 
-🔹 Matrix：
+Matrix：
 
 * 掃 0～V-1 → O(V)
 
-🔹 List：
+List：
 
 * 只看 `adj[v]` 裡的節點 → O(deg(v))
    * deg(v) 代表v節點連的邊數量
 
-📌 對 BFS / DFS 是關鍵加速點
+對 BFS / DFS 是關鍵加速點
 
-### ✅ 3. **BFS / DFS = O(V + E)**
+### 3. **BFS / DFS = O(V + E)**
 
 * 幾乎是「最佳」複雜度
 
-🔹 為什麼？
+為什麼？
 
 * 每個點訪問一次 → O(V)
 * 每條邊最多看一次 → O(E)
 
-### ✅ 4. **Easy to scale to large graphs**
+### 4. **Easy to scale to large graphs**
 
 * 適合百萬節點等級
 
-📌 現實世界：
+現實世界：
 
 * 社群網路
 * 地圖
@@ -715,70 +715,70 @@ List：
 
 * 只存實際邊 ✔️
 
-### ✅ 5. **Insert / delete edges is O(1)**
+### 5. **Insert / delete edges is O(1)**
 
 * 動態改圖很方便
 
-🔹 為什麼？
+為什麼？
 
 * 只要在某個 list 加或刪一個元素
 * 不用動整個結構
 
-📌 對「動態圖」超重要
+對「動態圖」超重要
 
 ## 三、Cons（缺點）逐條解釋
 
-### ❌ 1. **Edge lookup = O(deg(u))**
+### 1. **Edge lookup = O(deg(u))**
 
 * 查 `(u, v)` 有沒有邊比較慢
 
-🔹 做法：
+做法：
 
 ```text
 for each x in adj[u]:
     if x == v → found
 ```
 
-📌 對比：
+對比：
 
 * Matrix：O(1)
 * List：O(deg(u))
 
-👉 若常常查「有沒有邊」，List 不適合
+若常常查「有沒有邊」，List 不適合
 
-### ❌ 2. **Implementation 稍微複雜**
+### 2. **Implementation 稍微複雜**
 
 * 要用 linked list / vector
 
-🔹 相比 Matrix：
+相比 Matrix：
 
 * 多了指標
 * 結構比較複雜
 
-📌 但在實務上這不是大問題
+但在實務上這不是大問題
 
-### ❌ 3. **Memory overhead**
+### 3. **Memory overhead**
 
 * 很多小節點有額外成本
 
-🔹 每個 list node：
+每個 list node：
 
 * 存 vertex
 * 存 pointer(s)
 
-📌 在極端情況下：
+在極端情況下：
 
 * overhead 可能比資料本身大
 
 ## 四、Best for（什麼時候用 Adjacency List）
 
-### ✅ 適合用 List 的情況
+### 適合用 List 的情況
 
-✔️ **Sparse graphs（最重要）**   
-✔️ **BFS / DFS**   
-✔️ **Dijkstra / Prim / Kruskal**   
-✔️ **大型圖（百萬節點）**   
-✔️ **需要常常加刪邊**   
+**Sparse graphs（最重要）**   
+**BFS / DFS**   
+**Dijkstra / Prim / Kruskal**   
+**大型圖（百萬節點）**   
+**需要常常加刪邊**   
 
 ## 五、跟 Adjacency Matrix 的對照表
 
@@ -798,7 +798,7 @@ for each x in adj[u]:
 
 *  **鄰接表僅儲存已存在的邊，需要 O(V + E) 的空間，並允許在 O(deg(v)) 的時間內高效遍歷鄰居。因此，廣度優先搜尋 (BFS) 和深度優先搜尋 (DFS) 的時間複雜度均為 O(V + E)，這使得鄰接表成為稀疏圖和大型圖的理想選擇。**
 
-## 七、一句話終極記憶 🔥
+## 七、一句話終極記憶 
 
 * **List 省空間、走鄰居
 * Matrix 查邊快、吃空間* 
@@ -842,9 +842,9 @@ for i = 0 to V-1:
 * 每個點：**O(V)**
 * BFS / DFS 會對每個點做一次
 
-👉 **總時間 = O(V²)**
+**總時間 = O(V²)**
 
-⚠️ 就算這個點只有 1 個鄰居，也要掃整排
+就算這個點只有 1 個鄰居，也要掃整排
 
 ## 四、用 Adjacency List 找鄰居（快）
 
@@ -860,9 +860,9 @@ for each u in adjList[v]:
 * 每個點：**O(deg(v))**
 * 全部加起來：所有邊只被看一次
 
-👉 **總時間 = O(V + E)**
+**總時間 = O(V + E)**
 
-✔️ 只看「真的存在的邊」
+只看「真的存在的邊」
 
 ## 五、直接比較（考試最愛）
 
@@ -870,7 +870,7 @@ for each u in adjList[v]:
 | ------------- | ------ | ------------ |
 | 找 v 的鄰居       | O(V)   | O(deg(v))    |
 | BFS / DFS 總時間 | O(V²)  | **O(V + E)** |
-| Sparse graph  | ❌ 很慢   | ✅ 很快         |
+| Sparse graph  | 很慢   | 很快         |
 
 ## 六、為什麼這在「稀疏圖」特別重要？
 
@@ -879,7 +879,7 @@ for each u in adjList[v]:
 * V 很大
 * E 很小
 
-📌 例子：
+例子：
 
 * 1 萬個人
 * 每人平均 5 個朋友
@@ -892,9 +892,9 @@ for each u in adjList[v]:
 
 * BFS ≈ 5 萬條邊
 
-👉 差距巨大
+差距巨大
 
-## 七、一句話必背（考前）🔥
+## 七、一句話必背（考前）
 
 * **BFS / DFS = 走邊
 * List = 只走真的邊
@@ -904,46 +904,46 @@ for each u in adjList[v]:
 
 ## 一、解釋
 
-### 🔹 1. Edge lookup（查是否有邊）
+### 1. Edge lookup（查是否有邊）
 
 | Matrix   | List          |
 | -------- | ------------- |
 | **O(1)** | **O(deg(v))** |
 
-📌 為什麼？
+為什麼？
 
 * Matrix：直接看 `matrix[u][v]`
 * List：要掃 `u` 的鄰居清單
 
-📝 考試用語：
+考試用語：
 
 * Adjacency matrix supports constant-time(恆定時間) edge lookup.
 
-### 🔹 2. Space（空間）
+### 2. Space（空間）
 
 | Matrix    | List         |
 | --------- | ------------ |
 | **O(V²)** | **O(V + E)** |
 
-📌 關鍵：
+關鍵：
 
 * Matrix：不管有沒有邊，都要存
 * List：只存存在的邊
 
-👉 Sparse graph → List 完勝
+Sparse graph → List 完勝
 
-### 🔹 3. Traversal BFS / DFS（重點）
+### 3. Traversal BFS / DFS（重點）
 
 | Matrix    | List         |
 | --------- | ------------ |
 | **O(V²)** | **O(V + E)** |
 
-📌 原因（一定要會講）：
+原因（一定要會講）：
 
 * Matrix：每個點都要掃整排找鄰居
 * List：只走實際存在的邊
 
-👉 因此 **List 適合 BFS/DFS**
+因此 **List 適合 BFS/DFS**
 
 ### 🔹 4. Best for（適合什麼圖）
 
@@ -951,45 +951,45 @@ for each u in adjList[v]:
 | ------------ | ------------- |
 | Dense graphs | Sparse graphs |
 
-📌 Dense：
+Dense：
 
 * E 接近 V²
 * Matrix 不浪費
 
-📌 Sparse：
+Sparse：
 
 * E ≪ V²
 * List 省空間
 
-### 🔹 5. Neighbor iteration（找鄰居）
+### 5. Neighbor iteration（找鄰居）
 
 | Matrix   | List          |
 | -------- | ------------- |
 | **O(V)** | **O(deg(v))** |
 
-📌 白話：
+白話：
 
 * Matrix：不管幾個鄰居，都要掃 V 個
 * List：有幾個鄰居，就跑幾次
 
-### 🔹 6. Implementation（實作難度）
+### 6. Implementation（實作難度）
 
 | Matrix | List     |
 | ------ | -------- |
 | Simple | Moderate |
 
-📌 原因：
+原因：
 
 * Matrix：2D array
 * List：vector / linked list + pointer
 
-### 🔹 7. Dynamic graph?（動態圖）
+### 7. Dynamic graph?（動態圖）
 
 | Matrix | List |
 | ------ | ---- |
 | Hard   | Easy |
 
-📌 為什麼？
+為什麼？
 
 * Matrix：加點 → 重建整個矩陣
 * List：加一個 list 就好
@@ -1029,7 +1029,7 @@ objects:
 a nonempty set of vertices and a set of undirected edges
 ```
 
-白話翻譯 👇
+白話翻譯
 
 **一個圖包含：**
 
@@ -1037,7 +1037,7 @@ a nonempty set of vertices and a set of undirected edges
 * 一組「無向邊（edges）」
 * 每條邊是「兩個頂點的配對」
 
-📌 重點：
+重點：
 
 * 這裡講的是 **Undirected Graph**
 * 還沒提「怎麼存」
@@ -1052,7 +1052,7 @@ a nonempty set of vertices and a set of undirected edges
 
 ---
 
-### 1️⃣ `Graph Create()`
+### `Graph Create()`
 
 ```text
 return an empty graph
@@ -1063,7 +1063,7 @@ return an empty graph
 * 建立一張空圖
 * 裡面沒有 vertex，也沒有 edge
 
-📌 類似：
+類似：
 
 ```cpp
 Graph g;
@@ -1071,7 +1071,7 @@ Graph g;
 
 ---
 
-### 2️⃣ `InsertVertex(graph, v)`
+### `InsertVertex(graph, v)`
 
 ```text
 return a graph with v inserted
@@ -1083,13 +1083,13 @@ v has no incident edge
 * 把一個新頂點 `v` 加進圖
 * 一開始沒有任何邊
 
-📌 白話：
+白話：
 
 * 先有人，但還沒交朋友
 
 ---
 
-### 3️⃣ `InsertEdge(graph, v1, v2)`
+### `InsertEdge(graph, v1, v2)`
 
 ```text
 return a graph with new edge between v1 and v2
@@ -1100,26 +1100,26 @@ return a graph with new edge between v1 and v2
 * 在 `v1` 和 `v2` 之間加一條邊
 * 因為是 **undirected**，兩邊都算鄰居
 
-📌 注意：
+注意：
 
 * 這裡假設 v1、v2 已存在
 
 ---
 
-### 4️⃣ `DeleteVertex(graph, v)`
+### `DeleteVertex(graph, v)`
 
 ```text
 v and all edges incident to it are removed
 ```
 
-這句很重要 ⚠️
+這句很重要 
 
 意思：
 
 * 刪掉頂點 v
 * **跟 v 有關的所有邊也要一起刪**
 
-📌 不能留下「斷掉的邊」
+不能留下「斷掉的邊」
 
 ### 常見題型 
 
@@ -1130,7 +1130,7 @@ v and all edges incident to it are removed
 
 ---
 
-### 5️⃣ `DeleteEdge(graph, v1, v2)`
+### `DeleteEdge(graph, v1, v2)`
 
 ```text
 remove the edge (v1, v2)
@@ -1143,7 +1143,7 @@ remove the edge (v1, v2)
 
 ---
 
-### 6️⃣ `IsEmpty(graph)`
+### `IsEmpty(graph)`
 
 ```text
 if graph == empty graph
@@ -1156,19 +1156,19 @@ if graph == empty graph
 
 ---
 
-### 7️⃣ `Adjacent(graph, v)`
+### `Adjacent(graph, v)`
 
 ```text
 return a list of all vertices adjacent to v
 ```
 
-這一個是 **BFS / DFS 的核心操作** 🔥
+這一個是 **BFS / DFS 的核心操作** 
 
 意思：
 
 * 回傳所有跟 v 有邊直接相連的點
 
-📌 用 Matrix 或 List 實作都可以：
+用 Matrix 或 List 實作都可以：
 
 * Matrix：掃 row
 * List：回傳 list
@@ -1202,7 +1202,7 @@ return a list of all vertices adjacent to v
 
   * Level-order
 
-👉 因為樹：
+因為樹：
 
 * 沒有 cycle
 * 每個節點只有一條路可到
@@ -1211,26 +1211,26 @@ return a list of all vertices adjacent to v
 
 ## 三、Graph vs Tree
 
-### 🔹 Graph
+### Graph
 
 * 結構很自由
 * **可以有 cycle**
 * 形狀不固定
 * 一個點可能有很多條路回來
 
-### 🔹 Tree
+### Tree
 
 * **Connected + Acyclic(無環)**
 * 只有一條唯一路徑
 * 是 Graph 的特例
 
-👉 **所有 Tree 都是 Graph，但不是所有 Graph 都是 Tree**
+**所有 Tree 都是 Graph，但不是所有 Graph 都是 Tree**
 
 ## 四、Graph Traversal 為什麼比較難？
 
-因為 **cycle（環）** ⚠️
+因為 **cycle（環）** 
 
-📌 例子：
+例子：
 
 ```
 0 → 1 → 2
@@ -1245,9 +1245,9 @@ return a list of all vertices adjacent to v
 
 ## 五、Graph Traversal 跟 Tree Traversal 哪裡一樣？
 
-簡報的 **Similar** 就是在講這個 👇
+簡報的 **Similar** 就是在講這個 
 
-### ✅ 1. Visited strategy（一定要）
+### 1. Visited strategy（一定要）
 
 > 每個節點只走一次
 
@@ -1257,7 +1257,7 @@ visited[v] = true
 
 ---
 
-### ✅ 2. Recursive DFS
+### 2. Recursive DFS
 
 樹的 DFS：
 
@@ -1277,11 +1277,11 @@ dfs(v):
             dfs(u)
 ```
 
-👉 幾乎一模一樣，只多了 `visited`
+幾乎一模一樣，只多了 `visited`
 
 ---
 
-### ✅ 3. Queue-based BFS
+### 3. Queue-based BFS
 
 樹的 BFS（level-order）：
 
@@ -1296,11 +1296,11 @@ queue.push(start)
 visited[start] = true
 ```
 
-👉 一樣用 queue，只是要防止重複
+一樣用 queue，只是要防止重複
 
 ---
 
-### ✅ 4. Systematic exploration
+### 4. Systematic exploration
 
 意思是：
 
@@ -1317,18 +1317,18 @@ visited[start] = true
 | Preorder       | DFS             |
 | Level-order    | BFS             |
 
-📌 重點：
+重點：
 
 * Tree 的 traversal 是 Graph traversal 的特例
 * 只是樹不用擔心 cycle
 
-## 七、考試常考觀念 ⚠️
+## 七、考試常考觀念 
 
-### ❌ 錯誤觀念
+### 錯誤觀念
 
 * Graph traversal 跟 tree traversal 完全不同
 
-### ✅ 正確觀念
+### 正確觀念
 
 * Graph traversal 是 tree traversal + visited 機制
 
@@ -1353,7 +1353,7 @@ visited[start] = true
 
 ## 一、超白話版本（先不要管程式）
 
-### 1️⃣ Recursive DFS 在幹嘛？
+### Recursive DFS 在幹嘛？
 
 * **DFS 就是：一條路一直走到底，再回頭**
 
@@ -1363,11 +1363,11 @@ visited[start] = true
 * 走到死路 → 回頭
 * 換另一條路
 
-👉 這個「回頭」就是 **recursive（遞迴）**
+這個「回頭」就是 **recursive（遞迴）**
 
 ---
 
-### 2️⃣ Queue-based BFS 在幹嘛？
+### Queue-based BFS 在幹嘛？
 
 * **BFS 就是：離起點近的先看**
 
@@ -1377,7 +1377,7 @@ visited[start] = true
 * 第二圈
 * 第三圈
 
-👉 用「排隊（queue）」來保證順序
+用「排隊（queue）」來保證順序
 
 ---
 
@@ -1421,7 +1421,7 @@ DFS(0)
 0 → 1 → 3 → 2 → 4
 ```
 
-📌 關鍵感覺：
+關鍵感覺：
 
 * **一直往下鑽**
 * 走不下去才回來
@@ -1488,7 +1488,7 @@ Queue: [3, 4]
 0 → 1 → 2 → 3 → 4
 ```
 
-📌 關鍵感覺：
+關鍵感覺：
 
 * **先看近的**
 * 一層一層往外
@@ -1535,9 +1535,9 @@ while queue not empty:
 
 ## 七、要記住的只有三件事 
 
-1️⃣ DFS：一直走到底 → 回頭（遞迴）
-2️⃣ BFS：近的先看 → 用 queue
-3️⃣ Graph 一定要 visited（防 cycle）
+DFS：一直走到底 → 回頭（遞迴）   
+BFS：近的先看 → 用 queue      
+Graph 一定要 visited（防 cycle）    
 
 ---
 
@@ -1571,7 +1571,7 @@ Graph 版 DFS 規則（Preorder）：
 
 ---
 
-### 🔹 起點 B
+### 起點 B
 
 DFS 過程（Preorder，visited 防重複）：
 
@@ -1582,7 +1582,7 @@ DFS 過程（Preorder，visited 防重複）：
 5. B 鄰居：D（未訪問） → 進 D → 訪問 → **visited = {B,A,C,D}**
 6. B 鄰居：E（未訪問） → 進 E → 訪問 → **visited = {B,A,C,D,E}**
 
-✅ DFS Preorder 結果：
+DFS Preorder 結果：
 
 ```
 B A C D E
@@ -1590,7 +1590,7 @@ B A C D E
 
 ---
 
-### 🔹 起點 C
+### 起點 C
 
 1. C → 訪問 → **visited = {C}**
 2. 鄰居：A → 訪問 → **visited = {C,A}**
@@ -1598,7 +1598,7 @@ B A C D E
 4. B 鄰居：D → 訪問 → **visited = {C,A,B,D}**
 5. B 鄰居：E → 訪問 → **visited = {C,A,B,D,E}**
 
-✅ DFS Preorder 結果：
+DFS Preorder 結果：
 
 ```
 C A B D E
@@ -1606,7 +1606,7 @@ C A B D E
 
 ---
 
-### 🔹 起點 D
+### 起點 D
 
 1. D → 訪問 → **visited = {D}**
 2. 鄰居：B → 訪問 → **visited = {D,B}**
@@ -1614,7 +1614,7 @@ C A B D E
 4. A 鄰居：C → 訪問 → **visited = {D,B,A,C}**
 5. B 鄰居：E → 訪問 → **visited = {D,B,A,C,E}**
 
-✅ DFS Preorder 結果：
+DFS Preorder 結果：
 
 ```
 D B A C E
@@ -1622,7 +1622,7 @@ D B A C E
 
 ---
 
-### 🔹 起點 E
+### 起點 E
 
 1. E → 訪問 → **visited = {E}**
 2. 鄰居：B → 訪問 → **visited = {E,B}**
@@ -1630,7 +1630,7 @@ D B A C E
 4. A 鄰居：C → 訪問 → **visited = {E,B,A,C}**
 5. B 鄰居：D → 訪問 → **visited = {E,B,A,C,D}**
 
-✅ DFS Preorder 結果：
+DFS Preorder 結果：
 
 ```
 E B A C D
@@ -1640,7 +1640,7 @@ E B A C D
 
 # p.37
 
-### 1️⃣ BFS 是什麼？
+### BFS 是什麼？
 
 BFS 就是 **廣度優先搜尋**，意思是：
 
@@ -1650,9 +1650,9 @@ BFS 就是 **廣度優先搜尋**，意思是：
 
 可以把它想成 **層層擴散**，像水波一圈一圈擴開。
 
-* ⚡ 在樹中，這就叫做 **Level-order traversal**。
+* 在樹中，這就叫做 **Level-order traversal**。
 
-### 2️⃣ BFS 的基本步驟
+### BFS 的基本步驟
 
 假設你有一個圖 `G`，起點是 `start`：
 
@@ -1670,7 +1670,7 @@ BFS 就是 **廣度優先搜尋**，意思是：
     把所有 v 的鄰居中還沒被訪問過的節點加入隊列
 ```
 
-### 3️⃣ 為什麼樹不用 visited，但圖需要？
+### 為什麼樹不用 visited，但圖需要？
 
 * **樹**：沒有循環（cycle），每個節點只有一個父節點 → 往下走不會走回頭路 → 不會重複。
 * **圖**：可能有循環（cycle），像 A → B → C → A，如果不檢查 visited，就會無限循環。
@@ -1688,7 +1688,7 @@ D - C
 * 如果沒 `visited`，隊列會不停地把 A → B → C → D → A → B → … 重複加入。
 * 加了 `visited`，每個節點只走一次。
 
-### 4️⃣ BFS 的小範例
+### BFS 的小範例
 
 假設圖如下：
 
@@ -1717,7 +1717,7 @@ BFS 從 A 開始：
 
 ---
 
-✅ 小結：
+小結：
 
 * BFS 就是 **用隊列一層一層走**
 * 樹不用 visited，圖必須加 visited 避免無限循環
